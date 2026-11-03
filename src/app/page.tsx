@@ -487,7 +487,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Reprodutor Flutuante da Harpa Cristã Instrumental em Looping */}
+      {/* Reprodutor de Áudio de Fundo em Looping (Play, Pause, Parar) */}
       <BackgroundMusicPlayer />
 
       {/* Menu de Navegação Inferior (5 Abas Modernas) */}

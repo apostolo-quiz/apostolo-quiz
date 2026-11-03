@@ -1,10 +1,12 @@
-export interface HarpaTrack {
+export interface AudioTrack {
   id: string;
   title: string;
   src: string;
 }
 
-export const HARPA_TRACKS: HarpaTrack[] = [
+export type HarpaTrack = AudioTrack;
+
+export const AUDIO_TRACKS: AudioTrack[] = [
   {
     id: 'caminhar-em-luz',
     title: 'Caminhar em Luz',
@@ -26,8 +28,8 @@ export const HARPA_TRACKS: HarpaTrack[] = [
     src: '/harpa/graca-abundante.mp3'
   },
   {
-    id: 'harpa-da-graca',
-    title: 'Harpa da Graça',
+    id: 'melodia-da-graca',
+    title: 'Melodia da Graça',
     src: '/harpa/harpa-da-graca.mp3'
   },
   {
@@ -56,3 +58,5 @@ export const HARPA_TRACKS: HarpaTrack[] = [
     src: '/harpa/refugio-celestial.mp3'
   }
 ];
+
+export const HARPA_TRACKS = AUDIO_TRACKS;
