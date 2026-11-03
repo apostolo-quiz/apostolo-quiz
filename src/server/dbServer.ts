@@ -334,3 +334,169 @@ export async function getServerStats() {
     return { totalUsers: 0, users: [], progressRecords: [], totalCompletedModulesOverall: 0, lastSavedAt: '' };
   }
 }
+
+// ==========================================
+// SISTEMA DE RANQUEAMENTO (LEADERBOARD)
+// ==========================================
+
+export interface ServerLeaderboardEntry {
+  userId: string;
+  userName: string;
+  title: 'Irmão' | 'Irmã';
+  churchName: string;
+  city: string;
+  state: string;
+  score: number;
+  grade: number; // Nota de 0 a 10
+  completedModulesCount: number;
+  currentLevel: 'basico' | 'medio' | 'avancado';
+  avatarConfig?: any;
+  photoUrl?: string;
+  lastUpdated: string;
+  rank?: number;
+}
+
+const INITIAL_LEADERBOARD_SEEDS: ServerLeaderboardEntry[] = [
+  {
+    userId: 'seed_1',
+    userName: 'Samuel Oliveira',
+    title: 'Irmão',
+    churchName: 'Assembleia de Deus',
+    city: 'Belo Horizonte',
+    state: 'MG',
+    score: 3420,
+    grade: 9.9,
+    completedModulesCount: 22,
+    currentLevel: 'avancado',
+    photoUrl: '/avatar_pardo_masc_adulto.jpg',
+    lastUpdated: '2026-11-03T14:30:00Z'
+  },
+  {
+    userId: 'seed_2',
+    userName: 'Débora Santos',
+    title: 'Irmã',
+    churchName: 'Igreja Batista Memorial',
+    city: 'Salvador',
+    state: 'BA',
+    score: 3150,
+    grade: 9.8,
+    completedModulesCount: 19,
+    currentLevel: 'avancado',
+    photoUrl: '/avatar_preto_fem_jovem.jpg',
+    lastUpdated: '2026-11-03T13:15:00Z'
+  },
+  {
+    userId: 'seed_3',
+    userName: 'Lucas Alencar',
+    title: 'Irmão',
+    churchName: 'Congregação Cristã',
+    city: 'Curitiba',
+    state: 'PR',
+    score: 2890,
+    grade: 9.6,
+    completedModulesCount: 16,
+    currentLevel: 'medio',
+    photoUrl: '/avatar_branco_masc_jovem.jpg',
+    lastUpdated: '2026-11-03T11:45:00Z'
+  },
+  {
+    userId: 'seed_4',
+    userName: 'Raquel Ferreira',
+    title: 'Irmã',
+    churchName: 'Igreja Presbiteriana',
+    city: 'São Paulo',
+    state: 'SP',
+    score: 2640,
+    grade: 9.5,
+    completedModulesCount: 14,
+    currentLevel: 'medio',
+    photoUrl: '/avatar_pardo_fem_adulto.jpg',
+    lastUpdated: '2026-11-03T10:00:00Z'
+  },
+  {
+    userId: 'seed_5',
+    userName: 'Davi Guarani',
+    title: 'Irmão',
+    churchName: 'Missão Indígena da Fé',
+    city: 'Dourados',
+    state: 'MS',
+    score: 2380,
+    grade: 9.3,
+    completedModulesCount: 11,
+    currentLevel: 'basico',
+    photoUrl: '/avatar_indigena_masc_jovem.jpg',
+    lastUpdated: '2026-11-03T09:20:00Z'
+  },
+  {
+    userId: 'seed_6',
+    userName: 'Naomi Tanaka',
+    title: 'Irmã',
+    churchName: 'Igreja Quadrangular',
+    city: 'Maringá',
+    state: 'PR',
+    score: 2110,
+    grade: 9.1,
+    completedModulesCount: 9,
+    currentLevel: 'basico',
+    photoUrl: '/avatar_amarelo_fem_jovem.jpg',
+    lastUpdated: '2026-11-03T08:10:00Z'
+  }
+];
+
+export async function getLeaderboardServer(): Promise<ServerLeaderboardEntry[]> {
+  try {
+    const db = await ensureDb();
+    const usersMap = new Map<string, UserProfile>();
+    db.users.forEach((u) => {
+      usersMap.set(u.id, u);
+      if (u.email) usersMap.set(u.email.toLowerCase(), u);
+    });
+
+    const entriesMap = new Map<string, ServerLeaderboardEntry>();
+
+    // Carrega sementes iniciais para garantir ranking vibrante
+    INITIAL_LEADERBOARD_SEEDS.forEach((seed) => {
+      entriesMap.set(seed.userId, { ...seed });
+    });
+
+    // Mescla usuários reais registrados no banco de dados
+    const progressList = Object.values(db.quizProgress);
+    progressList.forEach((p) => {
+      const u = usersMap.get(p.userId);
+      const name = p.userName || u?.name || 'Irmão em Comunhão';
+      const title: 'Irmão' | 'Irmã' =
+        u?.title || (u?.gender === 'female' ? 'Irmã' : 'Irmão');
+
+      // Calcula nota teológica de 0 a 10 com base nos módulos e score
+      const calcGrade = Math.min(10, Math.max(1.0, Number((p.score / 350).toFixed(1))));
+
+      entriesMap.set(p.userId, {
+        userId: p.userId,
+        userName: name,
+        title,
+        churchName: u?.churchName || 'Igreja do Senhor',
+        city: u?.city || 'Brasil',
+        state: u?.state || 'BR',
+        score: p.score,
+        grade: calcGrade,
+        completedModulesCount: p.completedModules.length,
+        currentLevel: p.currentLevel || 'basico',
+        avatarConfig: u?.avatarConfig,
+        photoUrl: u?.photoUrl,
+        lastUpdated: p.lastUpdated
+      });
+    });
+
+    // Ordena por pontuação decrescente
+    const sorted = Array.from(entriesMap.values()).sort((a, b) => b.score - a.score);
+
+    // Atribui posições (1º, 2º, 3º...)
+    return sorted.map((entry, index) => ({
+      ...entry,
+      rank: index + 1
+    }));
+  } catch (err) {
+    console.error('[LEADERBOARD ERROR]', err);
+    return INITIAL_LEADERBOARD_SEEDS.map((s, i) => ({ ...s, rank: i + 1 }));
+  }
+}

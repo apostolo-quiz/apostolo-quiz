@@ -9,6 +9,7 @@ import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
 import BrazilDonationBanner from '@/components/BrazilDonationBanner';
+import LeaderboardView from '@/components/LeaderboardView';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
@@ -30,7 +31,7 @@ const APOSTLES_LIST = [
 ];
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'quiz' | 'avatar' | 'modules' | 'apostles' | 'churches'>('quiz');
+  const [activeTab, setActiveTab] = useState<'quiz' | 'ranking' | 'avatar' | 'modules' | 'apostles' | 'churches'>('quiz');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
   const [completedModules, setCompletedModules] = useState<number[]>([1]);
@@ -356,9 +357,14 @@ export default function HomePage() {
               <BookOpen className="w-3.5 h-3.5 text-amber-400" />
               <span>{completedModules.length}/27 Módulos</span>
             </button>
-            <div className="flex items-center gap-1.5 text-amber-400 font-extrabold shrink-0">
-              <Trophy className="w-4 h-4 text-amber-400" /> {score} XP
-            </div>
+            <button
+              onClick={() => setActiveTab('ranking')}
+              className="flex items-center gap-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 px-2.5 py-1 rounded-full text-amber-300 font-extrabold shrink-0 transition cursor-pointer"
+              title="Abrir Ranking Oficial dos Irmãos"
+            >
+              <Trophy className="w-3.5 h-3.5 text-amber-400" />
+              <span>{score} XP</span>
+            </button>
           </div>
         </div>
       </header>
@@ -367,6 +373,15 @@ export default function HomePage() {
       <section className="flex-1 max-w-3xl w-full mx-auto px-4 py-4 overflow-y-auto">
         {/* Ícone Pequeno de Doação Escrito - Visível em Todos os Painéis */}
         <BrazilDonationBanner className="mb-2" />
+
+        {activeTab === 'ranking' && (
+          <LeaderboardView
+            userProfile={userProfile}
+            currentScore={score}
+            completedModulesCount={completedModules.length}
+            onGoToQuiz={() => setActiveTab('quiz')}
+          />
+        )}
 
         {activeTab === 'quiz' && (
           <QuizArena
@@ -378,6 +393,7 @@ export default function HomePage() {
             avatar={avatar}
             onOpenAvatarCreator={() => setActiveTab('avatar')}
             onOpenRegistration={() => setShowRegistrationModal(true)}
+            onOpenLeaderboard={() => setActiveTab('ranking')}
           />
         )}
 
@@ -490,12 +506,12 @@ export default function HomePage() {
       {/* Reprodutor de Áudio de Fundo em Looping (Play, Pause, Parar) */}
       <BackgroundMusicPlayer />
 
-      {/* Menu de Navegação Inferior (5 Abas Modernas) */}
+      {/* Menu de Navegação Inferior (6 Abas Modernas com Ranking) */}
       <nav className="sticky bottom-0 bg-zinc-950/95 backdrop-blur-md border-t border-amber-500/30 px-2 py-2.5 z-40">
-        <div className="max-w-lg mx-auto grid grid-cols-5 gap-1">
+        <div className="max-w-xl mx-auto grid grid-cols-6 gap-1">
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
               activeTab === 'quiz' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
@@ -504,8 +520,18 @@ export default function HomePage() {
           </button>
 
           <button
+            onClick={() => setActiveTab('ranking')}
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+              activeTab === 'ranking' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            }`}
+          >
+            <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>Ranking</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('avatar')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
               activeTab === 'avatar' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
@@ -515,7 +541,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab('churches')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
               activeTab === 'churches' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
@@ -525,7 +551,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab('modules')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
               activeTab === 'modules' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
@@ -535,7 +561,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab('apostles')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
+            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
               activeTab === 'apostles' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >

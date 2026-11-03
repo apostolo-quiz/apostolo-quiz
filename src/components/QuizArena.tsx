@@ -23,13 +23,32 @@ import {
   DollarSign,
   PieChart,
   EyeOff,
-  Eye
+  Eye,
+  Clock,
+  Timer,
+  Zap,
+  Flame
 } from 'lucide-react';
 
 import PaymentGateway from './PaymentGateway';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
 import { AvatarState } from '@/data/avatarConfig';
 import { UserProfile, syncQuizProgressServer } from '@/data/db';
+
+// Função de cálculo de bônus do Temporizador Progressivo solicitado
+export function calculateTimeBonus(secondsElapsed: number): number {
+  if (secondsElapsed <= 10) return 0.50;
+  if (secondsElapsed <= 20) return 0.45;
+  if (secondsElapsed <= 30) return 0.40;
+  if (secondsElapsed <= 40) return 0.35;
+  if (secondsElapsed <= 50) return 0.30;
+  if (secondsElapsed <= 60) return 0.25; // 1m
+  if (secondsElapsed <= 70) return 0.20; // 1m10s
+  if (secondsElapsed <= 80) return 0.15; // 1m20s
+  if (secondsElapsed <= 90) return 0.10; // 1m30s
+  if (secondsElapsed <= 100) return 0.05; // 1m40s
+  return 0.00; // após esse tempo, não terá pontuação por tempo
+}
 
 interface Props {
   score: number;
@@ -40,6 +59,7 @@ interface Props {
   onOpenRegistration?: () => void;
   avatar?: AvatarState;
   onOpenAvatarCreator?: () => void;
+  onOpenLeaderboard?: () => void;
 }
 
 // Função de embaralhamento dinâmico (Fisher-Yates) para questões e alternativas
@@ -78,6 +98,7 @@ export default function QuizArena({
   onOpenRegistration,
   avatar,
   onOpenAvatarCreator,
+  onOpenLeaderboard,
 }: Props) {
   const [selectedModuleId, setSelectedModuleId] = useState<number>(1);
   const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
@@ -87,6 +108,22 @@ export default function QuizArena({
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
   const [kidsQuestionCount, setKidsQuestionCount] = useState<number>(100);
+
+  // Temporizador Progressivo e Sistema de Pontuação de 0 a 10
+  const [secondsElapsed, setSecondsElapsed] = useState(0);
+  const [lastQuestionTimeBonus, setLastQuestionTimeBonus] = useState<number | null>(null);
+  const [lastQuestionEarnedPoints, setLastQuestionEarnedPoints] = useState<number | null>(null);
+  const [roundEarnedPoints, setRoundEarnedPoints] = useState<number>(0);
+  const [totalTimeSpentRound, setTotalTimeSpentRound] = useState<number>(0);
+
+  // Temporizador que corre enquanto a questão estiver sendo respondida
+  useEffect(() => {
+    if (isFinished || selectedOption !== null) return;
+    const interval = setInterval(() => {
+      setSecondsElapsed((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [isFinished, selectedOption, currentIndex]);
 
   // Sistema de Desbloqueio Pago do Nível Avançado (R$ 10,00 por usuário registrado)
   const [isAdvancedUnlocked, setIsAdvancedUnlocked] = useState(false);
@@ -174,9 +211,23 @@ export default function QuizArena({
   const handleSelectOption = (idx: number) => {
     if (selectedOption !== null) return;
     setSelectedOption(idx);
+    const timeSpent = secondsElapsed;
+    setTotalTimeSpentRound((prev) => prev + timeSpent);
+
     if (idx === currentQ.correctIndex) {
-      setScore((prev) => prev + currentQ.xp);
+      const bonus = calculateTimeBonus(timeSpent);
+      const points = 1.0 + bonus;
+      setLastQuestionTimeBonus(bonus);
+      setLastQuestionEarnedPoints(points);
+      setRoundEarnedPoints((prev) => prev + points);
+
+      // Converte pontos com bônus para a gamificação de XP
+      const gainedXP = Math.round(currentQ.xp * (1 + bonus));
+      setScore((prev) => prev + gainedXP);
       setCorrectAnswersCount((prev) => prev + 1);
+    } else {
+      setLastQuestionTimeBonus(0);
+      setLastQuestionEarnedPoints(0);
     }
   };
 
@@ -184,6 +235,9 @@ export default function QuizArena({
     if (currentIndex + 1 < questionList.length) {
       setCurrentIndex((prev) => prev + 1);
       setSelectedOption(null);
+      setSecondsElapsed(0);
+      setLastQuestionTimeBonus(null);
+      setLastQuestionEarnedPoints(null);
     } else {
       setIsFinished(true);
       // Salva o módulo como concluído para o certificado
@@ -224,6 +278,11 @@ export default function QuizArena({
     setSelectedOption(null);
     setIsFinished(false);
     setCorrectAnswersCount(0);
+    setSecondsElapsed(0);
+    setRoundEarnedPoints(0);
+    setTotalTimeSpentRound(0);
+    setLastQuestionTimeBonus(null);
+    setLastQuestionEarnedPoints(null);
   };
 
   const handleUnlockAdvanced = () => {
@@ -479,7 +538,30 @@ export default function QuizArena({
               Acertos: <strong className="text-emerald-400 text-base">{correctAnswersCount}</strong> de {questionList.length} questões (
               {Math.round((correctAnswersCount / (questionList.length || 1)) * 100)}%)
             </div>
-            <div className="text-2xl font-black text-amber-400">
+            {/* Sistema de Nota Teológica de 0 a 10 e Bônus de Tempo */}
+            {(() => {
+              const maxPoints = (questionList.length || 1) * 1.5;
+              const finalGrade = Math.min(10, Math.max(0, Number(((roundEarnedPoints / maxPoints) * 10).toFixed(1))));
+              const avgSeconds = questionList.length > 0 ? (totalTimeSpentRound / questionList.length).toFixed(1) : '0';
+
+              return (
+                <div className="pt-2 border-t border-zinc-800 space-y-1 text-left">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-zinc-400 font-bold uppercase">Sua Nota (0 a 10):</span>
+                    <span className="text-lg font-black text-emerald-400">{finalGrade.toFixed(1)} / 10</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-zinc-300">
+                    <span>Pontos de Tempo Acumulados:</span>
+                    <strong className="text-amber-300">+{roundEarnedPoints.toFixed(2)} pts</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-zinc-300">
+                    <span>Tempo Médio por Questão:</span>
+                    <strong className="text-sky-300">{avgSeconds}s</strong>
+                  </div>
+                </div>
+              );
+            })()}
+            <div className="text-2xl font-black text-amber-400 pt-2">
               Sua Pontuação Total: {score} XP
             </div>
             {level === 'avancado' && (
@@ -490,6 +572,14 @@ export default function QuizArena({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            {onOpenLeaderboard && (
+              <button
+                onClick={onOpenLeaderboard}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 font-black uppercase text-xs inline-flex items-center justify-center gap-2 shadow-lg hover:scale-105 transition cursor-pointer"
+              >
+                <Trophy className="w-4 h-4 text-zinc-950" /> Ver Ranking dos Irmãos
+              </button>
+            )}
             <button
               onClick={handleRestart}
               className="px-6 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-zinc-200 font-bold uppercase text-xs inline-flex items-center justify-center gap-2 shadow-lg hover:bg-zinc-700 transition cursor-pointer"
@@ -531,12 +621,50 @@ export default function QuizArena({
             </div>
           </div>
 
-          {/* Barra de Progresso das 12 Questões */}
-          <div className="w-full bg-zinc-950 rounded-full h-1.5 mb-3 border border-zinc-800">
+          {/* Barra de Progresso das Questões */}
+          <div className="w-full bg-zinc-950 rounded-full h-1.5 mb-2.5 border border-zinc-800">
             <div
               className="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full transition-all duration-300"
               style={{ width: `${((currentIndex + 1) / questionList.length) * 100}%` }}
             />
+          </div>
+
+          {/* Temporizador Progressivo com Bônus Decrescente a Cada 10 Segundos */}
+          <div className="flex items-center justify-between bg-zinc-950/90 border border-amber-500/30 rounded-xl px-3 py-1.5 mb-2.5 text-xs shadow-inner">
+            <div className="flex items-center gap-2">
+              <Clock
+                className={`w-4 h-4 ${
+                  secondsElapsed <= 10
+                    ? 'text-emerald-400 animate-pulse'
+                    : secondsElapsed <= 50
+                    ? 'text-yellow-400'
+                    : 'text-amber-500'
+                }`}
+              />
+              <span className="font-mono font-bold text-zinc-200">
+                ⏱️ {Math.floor(secondsElapsed / 60)}m {String(secondsElapsed % 60).padStart(2, '0')}s
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] text-zinc-400 uppercase font-bold hidden sm:inline">
+                Bônus de Tempo:
+              </span>
+              <span
+                className={`px-2.5 py-0.5 rounded-full font-black text-xs border transition-all ${
+                  secondsElapsed <= 10
+                    ? 'bg-emerald-500/25 text-emerald-300 border-emerald-400 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+                    : secondsElapsed <= 50
+                    ? 'bg-amber-500/25 text-amber-300 border-amber-400'
+                    : secondsElapsed <= 100
+                    ? 'bg-sky-500/20 text-sky-300 border-sky-400'
+                    : 'bg-zinc-800 text-zinc-500 border-zinc-700'
+                }`}
+                title="Bônus adicionado se responder agora com acerto"
+              >
+                +{calculateTimeBonus(secondsElapsed).toFixed(2)} pts
+              </span>
+            </div>
           </div>
 
           {/* Enunciado */}
@@ -587,6 +715,29 @@ export default function QuizArena({
           {/* Justificativa e Próxima Questão */}
           {selectedOption !== null && (
             <div className="mt-4 pt-3 border-t border-zinc-800 space-y-3">
+              {/* Feedback de Pontos e Bônus de Tempo */}
+              {selectedOption === currentQ.correctIndex ? (
+                <div className="bg-emerald-950/80 border-2 border-emerald-500/60 rounded-xl p-2.5 text-center shadow-lg animate-in zoom-in-95">
+                  <div className="text-emerald-300 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>Resposta Correta! +{lastQuestionEarnedPoints?.toFixed(2)} Pontos</span>
+                  </div>
+                  <p className="text-[11px] text-emerald-200/90 mt-0.5">
+                    1.0 ponto base + {lastQuestionTimeBonus?.toFixed(2)} bônus de velocidade ({secondsElapsed}s)
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-red-950/80 border-2 border-red-500/60 rounded-xl p-2.5 text-center shadow-lg animate-in zoom-in-95">
+                  <div className="text-red-300 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                    <XCircle className="w-4 h-4 text-red-400" />
+                    <span>Resposta Incorreta (0 pontos)</span>
+                  </div>
+                  <p className="text-[11px] text-red-200/90 mt-0.5">
+                    Tempo: {secondsElapsed}s. A alternativa bíblica correta está destacada em verde acima.
+                  </p>
+                </div>
+              )}
+
               <div className="bg-amber-950/40 border border-amber-500/30 rounded-xl p-3 text-xs space-y-1">
                 <div className="font-bold text-amber-300 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />

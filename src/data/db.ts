@@ -852,3 +852,38 @@ export async function searchLiveOsmChurches(
 ): Promise<ChurchRecord[]> {
   return searchAllNearbyEvangelicalChurches(city, state, userLat, userLng, query);
 }
+
+// ==========================================
+// CLIENT-SIDE LEADERBOARD (RANQUEAMENTO)
+// ==========================================
+
+export interface LeaderboardEntry {
+  userId: string;
+  userName: string;
+  title: 'Irmão' | 'Irmã';
+  churchName: string;
+  city: string;
+  state: string;
+  score: number;
+  grade: number; // Nota de 0 a 10
+  completedModulesCount: number;
+  currentLevel: 'basico' | 'medio' | 'avancado';
+  avatarConfig?: any;
+  photoUrl?: string;
+  lastUpdated: string;
+  rank?: number;
+  isCurrentUser?: boolean;
+}
+
+export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
+  if (typeof window === 'undefined') return [];
+  try {
+    const res = await fetch(getServerApiUrl('/api/leaderboard'));
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.success ? data.leaderboard : [];
+  } catch (err) {
+    return [];
+  }
+}
+
