@@ -12,24 +12,31 @@ interface Props {
 }
 
 /**
- * Resolução dinâmica do Modelo 3D Oficial por Roupa e Gênero:
- * - Casual
- * - A Rigor
- * - Medieval
+ * Resolução dinâmica do Modelo 3D Oficial por Etnia, Gênero e Faixa Etária:
+ * - 5 Etnias: Pardos, Brancos, Pretos, Indígenas, Amarelos
+ * - 2 Gêneros: Masculino (camisa polo, calça jeans, tênis, cabelo curto)
+ *              Feminino (vestido, sandálias, cabelo longo)
+ * - 4 Faixas Etárias: Criança, Jovem, Adulto, Idoso
  */
 export function resolvePixarImage(avatar: AvatarState): string {
   const isFemale = avatar.gender === 'female';
-  const outfit = (avatar.outfit || 'casual') as OutfitType;
+  const ethnicity = avatar.ethnicity || 'pardo';
+  const age = avatar.ageStage || 'adulto';
+  const outfit = avatar.outfit || 'casual';
 
-  if (isFemale) {
-    if (outfit === 'rigor') return '/avatar_irma_arigor.jpg';
-    if (outfit === 'medieval') return '/avatar_irma_medieval.jpg';
-    return '/avatar_irma_casual.jpg';
-  } else {
-    if (outfit === 'rigor') return '/avatar_irmao_arigor.jpg';
-    if (outfit === 'medieval') return '/avatar_irmao_medieval.jpg';
-    return '/avatar_irmao_casual.jpg';
+  // Trajes especiais opcionais
+  if (outfit === 'rigor') {
+    return isFemale ? '/avatar_irma_arigor.jpg' : '/avatar_irmao_arigor.jpg';
   }
+  if (outfit === 'medieval') {
+    return isFemale ? '/avatar_irma_medieval.jpg' : '/avatar_irmao_medieval.jpg';
+  }
+
+  // Roupas casuais de igreja padrão
+  const ethKey = ethnicity === 'negro' ? 'preto' : ethnicity === 'asiatico' ? 'amarelo' : ethnicity;
+  const genderKey = isFemale ? 'fem' : 'masc';
+
+  return `/avatar_${ethKey}_${genderKey}_${age}.jpg`;
 }
 
 export default function DynamicCharacterAvatar({
@@ -82,7 +89,7 @@ export default function DynamicCharacterAvatar({
         <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/90 border border-amber-400/80 rounded-full px-3 py-0.5 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
           <span className="w-2 h-2 rounded-full inline-block shrink-0 bg-amber-400 animate-pulse" />
           <span className="text-[10px] sm:text-xs font-black uppercase text-amber-300 tracking-wider">
-            {isFemale ? 'Irmã' : 'Irmão'} • {outfitData.label}
+            {isFemale ? 'Irmã' : 'Irmão'} • {avatar.ageStage ? avatar.ageStage.toUpperCase() : outfitData.label}
           </span>
         </div>
       )}

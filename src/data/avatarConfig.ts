@@ -1,5 +1,6 @@
 export type GenderType = 'male' | 'female';
 export type EthnicityType = 'branco' | 'negro' | 'pardo' | 'indigena' | 'asiatico';
+export type AgeStageType = 'crianca' | 'jovem' | 'adulto' | 'idoso';
 export type OutfitType = 'rigor' | 'casual' | 'medieval' | 'vestido' | 'saia' | 'moletom';
 export type HeadSizeType = 'grande' | 'media' | 'pequena';
 export type HairStyleType = 'calvo' | 'curto' | 'longo' | 'coque';
@@ -12,6 +13,7 @@ export type BodyType = 'magro' | 'atletico' | 'forte' | 'gordo';
 export interface AvatarState {
   gender: GenderType;
   ethnicity: EthnicityType;
+  ageStage?: AgeStageType;
   outfit: OutfitType;
   headSize: HeadSizeType;
   hairStyle: HairStyleType;
@@ -61,42 +63,56 @@ export function getAgeGroupFromAge(age: number): string {
 }
 
 /**
- * Paleta e Imagens Oficiais das 5 Etnias (Masculino e Feminino)
- * Miniaturas 3D Cartoon Estilo Mini-Pixar Colecionáveis
+ * 4 Faixas Etárias Oficiais
+ */
+export const AGE_STAGES = [
+  { id: 'crianca' as AgeStageType, label: 'Criança', sublabel: 'Infantil (~8 a 10 anos)', icon: '🧒' },
+  { id: 'jovem' as AgeStageType, label: 'Jovem', sublabel: 'Mocidade (~18 a 22 anos)', icon: '🧑' },
+  { id: 'adulto' as AgeStageType, label: 'Adulto', sublabel: 'Maturidade (~35 a 45 anos)', icon: '👨' },
+  { id: 'idoso' as AgeStageType, label: 'Idoso', sublabel: 'Melhor Idade (~65+ anos)', icon: '👴' }
+];
+
+/**
+ * 5 Etnias Brasileiras (IBGE): Pardos, Brancos, Pretos, Indígenas e Amarelos
  */
 export const ETHNICITY_PALETTE: Record<
   EthnicityType,
-  { label: string; color: string; maleImg: string; femaleImg: string }
+  { label: string; color: string; desc: string; maleImg: string; femaleImg: string }
 > = {
+  pardo: {
+    label: 'Pardos',
+    color: '#B48259',
+    desc: 'Miscigenação brasileira viva e acolhedora',
+    maleImg: '/avatar_pardo_masc_adulto.jpg',
+    femaleImg: '/avatar_pardo_fem_adulto.jpg'
+  },
   branco: {
-    label: 'Branco(a)',
+    label: 'Brancos',
     color: '#F8D5C2',
-    maleImg: '/avatar_pixar_anciao.jpg',
-    femaleImg: '/avatar_pixar_mocidade.jpg'
+    desc: 'Descendência euro-brasileira',
+    maleImg: '/avatar_branco_masc_adulto.jpg',
+    femaleImg: '/avatar_branco_fem_adulto.jpg'
   },
   negro: {
-    label: 'Negro(a)',
+    label: 'Pretos',
     color: '#3D2314',
-    maleImg: '/avatar_pixar_levita.jpg',
-    femaleImg: '/avatar_pixar_negra_female.jpg'
-  },
-  pardo: {
-    label: 'Pardo(a)',
-    color: '#B48259',
-    maleImg: '/avatar_pixar_lider.jpg',
-    femaleImg: '/avatar_pixar_adoradora.jpg'
+    desc: 'Afro-brasileiro com presença nobre e vibrante',
+    maleImg: '/avatar_preto_masc_adulto.jpg',
+    femaleImg: '/avatar_preto_fem_adulto.jpg'
   },
   indigena: {
-    label: 'Indígena',
+    label: 'Indígenas',
     color: '#C27343',
-    maleImg: '/avatar_pixar_indigena.jpg',
-    femaleImg: '/avatar_pixar_indigena_female.jpg'
+    desc: 'Povos originários do Brasil',
+    maleImg: '/avatar_indigena_masc_adulto.jpg',
+    femaleImg: '/avatar_indigena_fem_adulto.jpg'
   },
   asiatico: {
-    label: 'Asiático(a)',
+    label: 'Amarelos',
     color: '#F2D0A4',
-    maleImg: '/avatar_pixar_asiatico.jpg',
-    femaleImg: '/avatar_pixar_asiatica_female.jpg'
+    desc: 'Asiático-brasileiro',
+    maleImg: '/avatar_amarelo_masc_adulto.jpg',
+    femaleImg: '/avatar_amarelo_fem_adulto.jpg'
   }
 };
 
@@ -311,17 +327,18 @@ export const AVATAR_OPTIONS = {
 export const DEFAULT_AVATAR_STATE: AvatarState = {
   gender: 'male',
   ethnicity: 'pardo',
+  ageStage: 'adulto',
   outfit: 'casual',
   headSize: 'media',
   hairStyle: 'curto',
   hairColor: 'preto',
   eyeColor: 'castanho',
-  beardStyle: 'curta',
+  beardStyle: 'sem_barba',
   beardColor: 'preto',
   bodyType: 'atletico',
   birthDate: '1983-05-14',
   calculatedAge: 40,
-  imageUrl: '/avatar_irmao_casual.jpg',
+  imageUrl: '/avatar_pardo_masc_adulto.jpg',
   skinTone: 'pardo_light',
   facialHair: 'stubble',
   outfitMode: 'biblical',
