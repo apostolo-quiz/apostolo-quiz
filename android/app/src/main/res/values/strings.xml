@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Apóstolos - Quiz Bíblico</string>
+    <string name="title_activity_main">Apóstolos - Quiz Bíblico</string>
+    <string name="package_name">com.apostolos.quizbiblico</string>
+    <string name="custom_url_scheme">com.apostolos.quizbiblico</string>
+</resources>
