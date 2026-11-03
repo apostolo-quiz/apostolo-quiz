@@ -8,8 +8,6 @@ import RegistrationModal from '@/components/RegistrationModal';
 import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
-import BrazilDonationBanner from '@/components/BrazilDonationBanner';
-import DonationModal from '@/components/DonationModal';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
@@ -39,7 +37,6 @@ export default function HomePage() {
   // Perfil do Irmão / Irmã
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
-  const [showDonationModal, setShowDonationModal] = useState(false);
   const [serverSyncStatus, setServerSyncStatus] = useState<'synced' | 'syncing' | 'offline'>('syncing');
 
   useEffect(() => {
@@ -251,12 +248,6 @@ export default function HomePage() {
         />
       )}
 
-      {/* Modal Oficial de Doação do Brasil - Fortaleça Nosso Projeto */}
-      <DonationModal
-        isOpen={showDonationModal}
-        onClose={() => setShowDonationModal(false)}
-      />
-
       {/* Cabeçalho com o LOGO OFICIAL Retangular */}
       <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3">
         {/* Banner do Logo: 100% no smartphone e 50% centralizado com 25% de margem lateral em computadores */}
@@ -368,15 +359,6 @@ export default function HomePage() {
               <Trophy className="w-4 h-4 text-amber-400" /> {score} XP
             </div>
           </div>
-        </div>
-
-        {/* Botão de Doação da Bandeira do Brasil - Fixo em Todos os Painéis */}
-        <div className="max-w-3xl mx-auto mt-2.5 px-4">
-          <BrazilDonationBanner
-            variant="pill"
-            onOpenDonation={() => setShowDonationModal(true)}
-            className="w-full justify-between"
-          />
         </div>
       </header>
 
