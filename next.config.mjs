@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  ...(process.env.BUILD_TARGET === 'android' ? { output: 'export' } : {}),
   images: {
     unoptimized: true,
   },

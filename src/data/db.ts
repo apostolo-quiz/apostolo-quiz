@@ -386,14 +386,14 @@ export function saveUserProfile(profile: UserProfile): void {
 
 export function getServerApiUrl(endpoint: string): string {
   if (typeof window === 'undefined') {
-    return `http://localhost:3001${endpoint}`;
+    return endpoint;
   }
   const customUrl = localStorage.getItem('apostolos_server_api_url') || process.env.NEXT_PUBLIC_SERVER_API_URL;
   if (customUrl) {
     return `${customUrl.replace(/\/$/, '')}${endpoint}`;
   }
-  const hostname = window.location.hostname || 'localhost';
-  return `http://${hostname}:3001${endpoint}`;
+  // Em produção (Vercel/Web), usa as rotas de API nativas do Next.js
+  return endpoint;
 }
 
 export async function syncUserProfileServer(profile: UserProfile): Promise<boolean> {
