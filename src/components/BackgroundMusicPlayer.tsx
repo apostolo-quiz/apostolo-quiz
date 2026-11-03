@@ -20,14 +20,14 @@ export default function BackgroundMusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.35); // Volume ambiente suave padrão (35%)
+  const [volume, setVolume] = useState(0.20); // Volume padrão suave abaixo de 30% (20%)
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentTrack: HarpaTrack = HARPA_TRACKS[currentTrackIndex] || HARPA_TRACKS[0];
 
-  // Carrega preferências salvas no navegador
+  // Carrega preferências salvas no navegador (garantindo que fique abaixo de 30% por padrão)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
@@ -36,7 +36,13 @@ export default function BackgroundMusicPlayer() {
         const savedIndex = localStorage.getItem('apostolos_harpa_index');
 
         if (savedMuted === 'true') setIsMuted(true);
-        if (savedVolume) setVolume(Math.max(0.05, Math.min(1, parseFloat(savedVolume))));
+        if (savedVolume) {
+          const parsed = parseFloat(savedVolume);
+          // Garante que o volume inicial respeite o teto abaixo de 30%
+          setVolume(Math.max(0.05, Math.min(0.25, parsed)));
+        } else {
+          setVolume(0.20);
+        }
         if (savedIndex) {
           const idx = parseInt(savedIndex, 10);
           if (idx >= 0 && idx < HARPA_TRACKS.length) {
@@ -52,6 +58,7 @@ export default function BackgroundMusicPlayer() {
     const handleFirstInteraction = () => {
       setHasUserInteracted(true);
       if (audioRef.current && !isPlaying) {
+        audioRef.current.volume = isMuted ? 0 : volume;
         audioRef.current
           .play()
           .then(() => {
@@ -154,6 +161,11 @@ export default function BackgroundMusicPlayer() {
         ref={audioRef}
         src={currentTrack.src}
         onEnded={handleTrackEnded}
+        onPlay={() => {
+          if (audioRef.current) {
+            audioRef.current.volume = isMuted ? 0 : volume;
+          }
+        }}
         preload="auto"
       />
 
