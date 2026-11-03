@@ -434,7 +434,7 @@ export default function HomePage() {
                 Conteúdo doutrinário completo. Cada módulo inclui os níveis{' '}
                 <strong className="text-emerald-300">Básico (Livre)</strong>,{' '}
                 <strong className="text-sky-300">Médio (Livre)</strong> e{' '}
-                <strong className="text-amber-400">Avançado (Pago / R$ 10,00)</strong>.
+                <strong className="text-amber-400">Avançado (Adulto - 100% Livre)</strong>.
               </p>
             </div>
 

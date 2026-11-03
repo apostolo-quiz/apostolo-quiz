@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { ALL_27_MODULES, QuizModule, QuizQuestion } from '@/data/modulesQuizData';
 import { BASIC_KIDS_100_QUESTIONS } from '@/data/basicKidsQuestions';
+import { MEDIUM_YOUTH_100_QUESTIONS } from '@/data/mediumYouthQuestions';
+import { ADVANCED_ADULT_100_QUESTIONS } from '@/data/advancedAdultQuestions';
 import {
   BookOpen,
   Award,
@@ -10,27 +12,17 @@ import {
   XCircle,
   ArrowRight,
   RotateCcw,
-  Lock,
-  Unlock,
   Sparkles,
   ShieldCheck,
   ChevronDown,
-  QrCode,
-  Copy,
-  Check,
   Compass,
   Trophy,
-  DollarSign,
-  PieChart,
-  EyeOff,
-  Eye,
   Clock,
   Timer,
   Zap,
   Flame
 } from 'lucide-react';
 
-import PaymentGateway from './PaymentGateway';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
 import { AvatarState } from '@/data/avatarConfig';
 import { UserProfile, syncQuizProgressServer } from '@/data/db';
@@ -107,7 +99,7 @@ export default function QuizArena({
   const [isFinished, setIsFinished] = useState(false);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
-  const [kidsQuestionCount, setKidsQuestionCount] = useState<number>(100);
+  const [questionCount, setQuestionCount] = useState<number>(100);
 
   // Temporizador Progressivo e Sistema de Pontuação de 0 a 10
   const [secondsElapsed, setSecondsElapsed] = useState(0);
@@ -125,86 +117,38 @@ export default function QuizArena({
     return () => clearInterval(interval);
   }, [isFinished, selectedOption, currentIndex]);
 
-  // Sistema de Desbloqueio Pago do Nível Avançado (R$ 10,00 por usuário registrado)
-  const [isAdvancedUnlocked, setIsAdvancedUnlocked] = useState(false);
-  const [studentName, setStudentName] = useState('');
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [pixCopied, setPixCopied] = useState(false);
-
-  // Gestão Interna de Premiações (30% da receita do nível avançado separada)
-  const [registeredStudentsCount, setRegisteredStudentsCount] = useState(1);
-  const [showAdminFund, setShowAdminFund] = useState(false);
-
-  // Identifica se está rodando em localhost / ambiente de teste (inicia como false para hidratação SSR consistente)
-  const [isDevOrLocalhost, setIsDevOrLocalhost] = useState(false);
-
-  // Carrega status de desbloqueio salvo no dispositivo (ou libera automaticamente em localhost)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const isLocal =
-        window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1' ||
-        window.location.hostname.includes('192.168.') ||
-        window.location.hostname === '';
-      setIsDevOrLocalhost(isLocal);
-
-      const unlocked = localStorage.getItem('apostolos_advanced_unlocked');
-      const savedName = localStorage.getItem('apostolos_student_name');
-      const savedCount = localStorage.getItem('apostolos_students_count');
-
-      // Em localhost ou se já desbloqueado ou VIP, libera o nível avançado imediatamente
-      if (isLocal || unlocked === 'true' || userProfile?.isVip) {
-        setIsAdvancedUnlocked(true);
-        localStorage.setItem('apostolos_advanced_unlocked', 'true');
-      }
-      if (savedName) {
-        setStudentName(savedName);
-      }
-      if (savedCount) {
-        setRegisteredStudentsCount(Number(savedCount));
-      }
-    }
-  }, [userProfile]);
-
   const currentModule: QuizModule =
     ALL_27_MODULES.find((m) => m.id === selectedModuleId) || ALL_27_MODULES[0];
 
-  // Inicializa e re-embaralha as questões sempre que o módulo, nível ou quantidade mudar
+  // Obter o pool de 100 questões puro de Gênesis a Apocalipse de acordo com o nível bíblico
+  const getBaseQuestionsForLevel = (lvl: 'basico' | 'medio' | 'avancado'): QuizQuestion[] => {
+    if (lvl === 'basico') return BASIC_KIDS_100_QUESTIONS;
+    if (lvl === 'medio') return MEDIUM_YOUTH_100_QUESTIONS;
+    return ADVANCED_ADULT_100_QUESTIONS;
+  };
+
+  // Inicializa e re-embaralha as questões sempre que o nível ou quantidade mudar
   useEffect(() => {
-    let rawList: QuizQuestion[];
-    if (level === 'basico') {
-      const shuffledAll = getShuffledQuiz(BASIC_KIDS_100_QUESTIONS);
-      rawList = kidsQuestionCount >= 100 ? shuffledAll : shuffledAll.slice(0, kidsQuestionCount);
-    } else {
-      rawList = getShuffledQuiz(currentModule.levels[level] || currentModule.levels.basico);
-    }
+    const fullPool = getBaseQuestionsForLevel(level);
+    const shuffledAll = getShuffledQuiz(fullPool);
+    const rawList = questionCount >= 100 ? shuffledAll : shuffledAll.slice(0, questionCount);
     setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
     setIsFinished(false);
     setCorrectAnswersCount(0);
-  }, [selectedModuleId, level, kidsQuestionCount]);
+    setSecondsElapsed(0);
+    setRoundEarnedPoints(0);
+    setTotalTimeSpentRound(0);
+    setLastQuestionTimeBonus(null);
+    setLastQuestionEarnedPoints(null);
+  }, [selectedModuleId, level, questionCount]);
 
   const questionList: QuizQuestion[] =
-    activeQuestions.length > 0
-      ? activeQuestions
-      : level === 'basico'
-      ? BASIC_KIDS_100_QUESTIONS
-      : currentModule.levels[level] || currentModule.levels.basico;
+    activeQuestions.length > 0 ? activeQuestions : getBaseQuestionsForLevel(level);
   const currentQ: QuizQuestion = questionList[currentIndex] || questionList[0];
 
   const handleSelectLevel = (newLevel: 'basico' | 'medio' | 'avancado') => {
-    const isLocal =
-      typeof window !== 'undefined' &&
-      (window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1' ||
-        window.location.hostname.includes('192.168.') ||
-        window.location.hostname === '');
-
-    if (newLevel === 'avancado' && !isAdvancedUnlocked && !isLocal && !userProfile?.isVip) {
-      setShowPaymentModal(true);
-      return;
-    }
     setLevel(newLevel);
   };
 
@@ -258,7 +202,7 @@ export default function QuizArena({
             score: score,
             currentLevel: level,
             selectedModuleId,
-            userName: userProfile?.name || studentName
+            userName: userProfile?.name || 'Irmão(ã)'
           });
         } catch (e) {}
       }
@@ -266,13 +210,9 @@ export default function QuizArena({
   };
 
   const handleRestart = () => {
-    let rawList: QuizQuestion[];
-    if (level === 'basico') {
-      const shuffledAll = getShuffledQuiz(BASIC_KIDS_100_QUESTIONS);
-      rawList = kidsQuestionCount >= 100 ? shuffledAll : shuffledAll.slice(0, kidsQuestionCount);
-    } else {
-      rawList = getShuffledQuiz(currentModule.levels[level] || currentModule.levels.basico);
-    }
+    const fullPool = getBaseQuestionsForLevel(level);
+    const shuffledAll = getShuffledQuiz(fullPool);
+    const rawList = questionCount >= 100 ? shuffledAll : shuffledAll.slice(0, questionCount);
     setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
@@ -285,41 +225,11 @@ export default function QuizArena({
     setLastQuestionEarnedPoints(null);
   };
 
-  const handleUnlockAdvanced = () => {
-    if (!studentName.trim()) {
-      alert('Por favor, informe o seu Nome Completo para registrar a inscrição.');
-      return;
-    }
-    setIsAdvancedUnlocked(true);
-    const newCount = registeredStudentsCount + 1;
-    setRegisteredStudentsCount(newCount);
-
-    localStorage.setItem('apostolos_advanced_unlocked', 'true');
-    localStorage.setItem('apostolos_student_name', studentName.trim());
-    localStorage.setItem('apostolos_students_count', String(newCount));
-
-    setShowPaymentModal(false);
-    setLevel('avancado');
-  };
-
-  const copyPixCode = () => {
-    const pixPayload =
-      '00020126580014br.gov.bcb.pix0136pix-apostolos-quiz@teologia.com.br520400005303986540510.005802BR5925APOSTOLOS QUIZ BIBLICO6009SAO PAULO62070503***6304ABCD';
-    navigator.clipboard.writeText(pixPayload);
-    setPixCopied(true);
-    setTimeout(() => setPixCopied(false), 2500);
-  };
-
-  // Letras das opções: 4 para Básico, 6 para Médio, 8 para Avançado
-  const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+  // Letras das opções: 4 alternativas bíblicas (A-D)
+  const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
   // Cenário de fundo dinâmico de acordo com o módulo
   const bgImage = selectedModuleId % 2 === 0 ? '/bg_galileia.jpg' : '/bg_biblico.jpg';
-
-  // Cálculos do Fundo de Premiações (30% reservado confidencialmente)
-  const totalRevenue = registeredStudentsCount * 10;
-  const prizePool30 = totalRevenue * 0.3;
-  const operationalFund70 = totalRevenue * 0.7;
 
   return (
     <div className="space-y-5 pb-16">
@@ -368,8 +278,6 @@ export default function QuizArena({
                 <span>
                   {userProfile
                     ? `${userProfile.title}: ${userProfile.name}`
-                    : studentName
-                    ? `Irmão(ã): ${studentName}`
                     : 'Irmão(ã) Visitante'}
                 </span>
                 <span className="text-[10px] text-zinc-400">(Perfil)</span>
@@ -389,127 +297,89 @@ export default function QuizArena({
             </div>
           </div>
 
-          {/* Dropdown com os 27 Módulos Teológicos */}
-          <div className="relative">
-            <label className="block text-[11px] uppercase tracking-wider font-bold text-amber-400 mb-1">
-              Escolha o Módulo Teológico (27 Livros Disponíveis):
-            </label>
-            <div className="relative">
-              <select
-                value={selectedModuleId}
-                onChange={(e) => {
-                  setSelectedModuleId(Number(e.target.value));
-                  setCurrentIndex(0);
-                  setSelectedOption(null);
-                  setIsFinished(false);
-                  setCorrectAnswersCount(0);
-                }}
-                className="w-full bg-zinc-900/95 border-2 border-amber-500/50 rounded-xl px-4 py-3 text-sm font-bold text-amber-200 appearance-none focus:outline-hidden focus:border-amber-400 pr-10 shadow-lg cursor-pointer"
-              >
-                {ALL_27_MODULES.map((mod) => (
-                  <option key={mod.id} value={mod.id} className="bg-zinc-950 text-zinc-100 py-1">
-                    {mod.title} — {mod.subtitle}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="w-5 h-5 text-amber-400 absolute right-3 top-3.5 pointer-events-none" />
-            </div>
-          </div>
-
-          {/* Seleção de Nível: Básico (4 opções), Médio (6 opções) e Avançado (8 opções + Premiação) */}
+          {/* Seleção de Nível Bíblico (100% Puro e Gratuito de Gênesis a Apocalipse) */}
           <div className="pt-2">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[11px] uppercase tracking-wider font-bold text-zinc-400">
-                {level === 'basico' ? 'Nível 1 Infantil (100 Histórias Bíblicas):' : 'Escolha o Nível do Módulo:'}
+              <span className="text-[11px] uppercase tracking-wider font-bold text-amber-300">
+                Escolha o Nível Bíblico (Gênesis a Apocalipse):
               </span>
-              <span className="text-[10px] text-amber-400/90 font-mono">
-                {level === 'basico' ? `${questionList.length} Q • 4 Opções (A-D)` : level === 'medio' ? '6 Opções (A-F)' : '8 Opções (A-H)'}
+              <span className="text-[10px] text-zinc-400 font-mono">
+                {questionList.length} Questões • 4 Alternativas (A-D)
               </span>
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <button
                 onClick={() => handleSelectLevel('basico')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer ${
+                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'basico'
-                    ? 'bg-emerald-600/30 border-emerald-400 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
+                    ? 'bg-emerald-600/30 border-emerald-400 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.3)]'
                     : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
                 }`}
               >
-                👶 1. Básico (100 Infantis)
+                👶 1. Iniciante (Infantil)
               </button>
 
               <button
                 onClick={() => handleSelectLevel('medio')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer ${
+                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'medio'
-                    ? 'bg-sky-600/30 border-sky-400 text-sky-200 shadow-[0_0_15px_rgba(14,165,233,0.2)]'
+                    ? 'bg-sky-600/30 border-sky-400 text-sky-200 shadow-[0_0_15px_rgba(14,165,233,0.3)]'
                     : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
                 }`}
               >
-                2. Médio (Livre)
+                📖 2. Médio (Infanto-Juvenil)
               </button>
 
               <button
                 onClick={() => handleSelectLevel('avancado')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 flex items-center justify-center gap-1.5 transition cursor-pointer ${
+                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'avancado'
-                    ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_20px_rgba(234,179,8,0.4)]'
-                    : isAdvancedUnlocked || isDevOrLocalhost
-                    ? 'bg-zinc-900 border-amber-500/50 text-amber-300 hover:border-amber-400'
-                    : 'bg-zinc-950 border-amber-500/40 text-amber-400/90'
+                    ? 'bg-amber-600/30 border-amber-400 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
+                    : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
                 }`}
               >
-                {isAdvancedUnlocked || isDevOrLocalhost ? (
-                  <Unlock className="w-3.5 h-3.5 text-emerald-400" />
-                ) : (
-                  <Lock className="w-3.5 h-3.5 text-amber-400" />
-                )}
-                <span>
-                  3. Avançado{' '}
-                  {isAdvancedUnlocked || isDevOrLocalhost ? '(Liberado)' : '(R$ 10)'}
-                </span>
+                👑 3. Avançado (Adulto)
               </button>
             </div>
 
-            {level === 'basico' && (
-              <div className="mt-2.5 p-2 bg-emerald-950/40 border border-emerald-500/30 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
-                <div className="flex items-center gap-1.5 text-emerald-300 font-bold">
-                  <span>📖 Modo Histórias:</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => setKidsQuestionCount(10)}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                      kidsQuestionCount === 10
-                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-sm'
-                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
-                    }`}
-                  >
-                    10 Rápidas
-                  </button>
-                  <button
-                    onClick={() => setKidsQuestionCount(25)}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                      kidsQuestionCount === 25
-                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-sm'
-                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
-                    }`}
-                  >
-                    25 Jornada
-                  </button>
-                  <button
-                    onClick={() => setKidsQuestionCount(100)}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                      kidsQuestionCount === 100
-                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-[0_0_12px_rgba(16,185,129,0.4)]'
-                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
-                    }`}
-                  >
-                    ★ 100 Completo (Maratona)
-                  </button>
-                </div>
+            {/* Seletor de Quantidade de Questões (10, 25 ou 100 Completo) */}
+            <div className="mt-2.5 p-2 bg-zinc-900/90 border border-amber-500/30 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div className="flex items-center gap-1.5 text-amber-300 font-bold">
+                <span>📜 Extensão da Rodada:</span>
               </div>
-            )}
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => setQuestionCount(10)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                    questionCount === 10
+                      ? 'bg-amber-500 text-zinc-950 font-black shadow-sm'
+                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                  }`}
+                >
+                  10 Rápidas
+                </button>
+                <button
+                  onClick={() => setQuestionCount(25)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                    questionCount === 25
+                      ? 'bg-amber-500 text-zinc-950 font-black shadow-sm'
+                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                  }`}
+                >
+                  25 Jornada
+                </button>
+                <button
+                  onClick={() => setQuestionCount(100)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                    questionCount === 100
+                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 font-black shadow-[0_0_12px_rgba(245,158,11,0.4)]'
+                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                  }`}
+                >
+                  ★ 100 Completo (Maratona)
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -524,13 +394,10 @@ export default function QuizArena({
             Nível Concluído com Sucesso!
           </h2>
           <p className="text-zinc-300 text-xs md:text-sm max-w-md mx-auto">
-            {level === 'basico' ? (
-              <>Você respondeu todas as <strong className="text-emerald-400">{questionList.length} histórias bíblicas infantis</strong> com grande sabedoria e amor!</>
-            ) : (
-              <>Você respondeu todas as {questionList.length} questões do módulo{' '}
-              <strong className="text-amber-400">{currentModule.title}</strong> (Nível{' '}
-              <span className="capitalize text-amber-300">{level}</span>).</>
-            )}
+            Você respondeu com êxito todas as <strong className="text-amber-400">{questionList.length} questões bíblicas</strong> do nível{' '}
+            <strong className="text-amber-300">
+              {level === 'basico' ? '1. Iniciante (Básico Infantil)' : level === 'medio' ? '2. Médio (Infanto-Juvenil)' : '3. Avançado (Adulto)'}
+            </strong> de Gênesis a Apocalipse, crescendo na sabedoria e no conhecimento da Palavra de Deus!
           </p>
 
           <div className="bg-zinc-950/80 border border-amber-500/30 rounded-xl p-4 max-w-sm mx-auto space-y-1">
@@ -588,19 +455,13 @@ export default function QuizArena({
             </button>
             <button
               onClick={() => {
-                if (selectedModuleId < 27) {
-                  setSelectedModuleId((prev) => prev + 1);
-                } else {
-                  setSelectedModuleId(1);
-                }
-                setCurrentIndex(0);
-                setSelectedOption(null);
-                setIsFinished(false);
-                setCorrectAnswersCount(0);
+                if (level === 'basico') setLevel('medio');
+                else if (level === 'medio') setLevel('avancado');
+                else setLevel('basico');
               }}
               className="px-6 py-3 rounded-xl bg-zinc-800 border border-amber-500/40 text-amber-300 font-bold uppercase text-xs inline-flex items-center justify-center gap-2 hover:bg-zinc-700 transition cursor-pointer"
             >
-              Próximo Módulo <ArrowRight className="w-4 h-4" />
+              {level === 'basico' ? 'Avançar para Nível Médio' : level === 'medio' ? 'Avançar para Nível Adulto' : 'Voltar ao Nível Básico'} <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -609,7 +470,12 @@ export default function QuizArena({
           {/* Cabeçalho da Questão */}
           <div className="flex justify-between items-center text-xs text-amber-400 font-bold uppercase tracking-wider mb-2">
             <span className="flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none">
-              <BookOpen className="w-4 h-4 shrink-0" /> {level === 'basico' ? 'Histórias Bíblicas Infantis' : currentModule.title}
+              <BookOpen className="w-4 h-4 shrink-0" />
+              {level === 'basico'
+                ? 'Nível Iniciante • Infantil (Gênesis a Apocalipse)'
+                : level === 'medio'
+                ? 'Nível Médio • Infanto-Juvenil (Gênesis a Apocalipse)'
+                : 'Nível Avançado • Adulto (Gênesis a Apocalipse)'}
             </span>
             <div className="flex items-center gap-2">
               <span className="hidden sm:inline-flex bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full items-center gap-1 font-mono">
@@ -762,61 +628,10 @@ export default function QuizArena({
         </div>
       )}
 
-      {/* Gateway de Pagamento Seguro do Nível Avançado (R$ 10,00) */}
-      {showPaymentModal && (
-        <PaymentGateway
-          profile={userProfile || null}
-          onSuccess={() => {
-            setIsAdvancedUnlocked(true);
-            setShowPaymentModal(false);
-            setLevel('avancado');
-            setCurrentIndex(0);
-            setSelectedOption(null);
-            setIsFinished(false);
-            setCorrectAnswersCount(0);
-          }}
-          onClose={() => setShowPaymentModal(false)}
-        />
-      )}
-
-      {/* Painel Administrativo Discreto do Fundo de Premiações (30%) */}
-      <div className="pt-4 border-t border-zinc-800/80">
-        <div className="flex items-center justify-between text-[11px] text-zinc-500">
-          <button
-            onClick={() => setShowAdminFund(!showAdminFund)}
-            className="flex items-center gap-1.5 hover:text-amber-400 transition cursor-pointer"
-          >
-            {showAdminFund ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-            <span>Controle Administrativo Interno</span>
-          </button>
-          <span>Apóstolos Quiz v1.0</span>
-        </div>
-
-        {showAdminFund && (
-          <div className="mt-3 bg-zinc-950 border border-zinc-800 rounded-xl p-4 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-400">
-              <PieChart className="w-4 h-4" /> Gestão Interna de Receitas & Fundo de Premiações (30%)
-            </div>
-            <p className="text-[11px] text-zinc-400">
-              Conforme as diretrizes internas, 30% da receita arrecadada no nível avançado (R$ 10,00 por participante) é retida confidencialmente para o pagamento das premiações de mérito aos irmãos e irmãs de maior pontuação.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              <div className="bg-zinc-900 p-2.5 rounded-lg border border-zinc-800">
-                <span className="text-[10px] uppercase text-zinc-500 font-bold block">Inscrições Registradas</span>
-                <span className="text-sm font-black text-zinc-200">{registeredStudentsCount} Participante(s)</span>
-              </div>
-              <div className="bg-zinc-900 p-2.5 rounded-lg border border-amber-500/30">
-                <span className="text-[10px] uppercase text-amber-400 font-bold block">Fundo Premiação (30%)</span>
-                <span className="text-sm font-black text-amber-300">R$ {prizePool30.toFixed(2)}</span>
-              </div>
-              <div className="bg-zinc-900 p-2.5 rounded-lg border border-zinc-800">
-                <span className="text-[10px] uppercase text-zinc-500 font-bold block">Fundo Operacional (70%)</span>
-                <span className="text-sm font-black text-zinc-300">R$ {operationalFund70.toFixed(2)}</span>
-              </div>
-            </div>
-          </div>
-        )}
+      {/* Rodapé Puro e Cristão */}
+      <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-1 text-[11px] text-zinc-500 text-center sm:text-left">
+        <span>Apóstolos Quiz • Bíblia Sagrada (Gênesis a Apocalipse)</span>
+        <span className="text-amber-500/80">300 Questões Bíblicas • 100% Livre e Gratuito</span>
       </div>
     </div>
   );
