@@ -28,6 +28,8 @@ import {
 
 import PaymentGateway from './PaymentGateway';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
+import BrazilDonationBanner from './BrazilDonationBanner';
+import DonationModal from './DonationModal';
 import { AvatarState } from '@/data/avatarConfig';
 import { UserProfile, syncQuizProgressServer } from '@/data/db';
 
@@ -92,6 +94,7 @@ export default function QuizArena({
   const [isAdvancedUnlocked, setIsAdvancedUnlocked] = useState(false);
   const [studentName, setStudentName] = useState('');
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showDonationModal, setShowDonationModal] = useState(false);
   const [pixCopied, setPixCopied] = useState(false);
 
   // Gestão Interna de Premiações (30% da receita do nível avançado separada)
@@ -264,6 +267,18 @@ export default function QuizArena({
 
   return (
     <div className="space-y-5 pb-16">
+      {/* Banner Fixo no Quiz com as Cores da Bandeira do Brasil - Faça uma Doação / Fortaleça Nosso Projeto */}
+      <BrazilDonationBanner
+        variant="banner"
+        onOpenDonation={() => setShowDonationModal(true)}
+      />
+
+      {/* Modal Oficial de Doação Voluntária */}
+      <DonationModal
+        isOpen={showDonationModal}
+        onClose={() => setShowDonationModal(false)}
+      />
+
       {/* Seletor de Módulo e Cenário Bíblico */}
       <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 p-5 shadow-2xl bg-zinc-950">
         {/* Imagem de Fundo Bíblica com Overlay */}
