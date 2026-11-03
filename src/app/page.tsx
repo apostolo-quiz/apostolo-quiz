@@ -507,65 +507,65 @@ export default function HomePage() {
       <BackgroundMusicPlayer />
 
       {/* Menu de Navegação Inferior (6 Abas Modernas com Ranking) */}
-      <nav className="sticky bottom-0 bg-zinc-950/95 backdrop-blur-md border-t border-amber-500/30 px-2 py-2.5 z-40">
+      <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-2 py-2.5 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)]">
         <div className="max-w-xl mx-auto grid grid-cols-6 gap-1">
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'quiz' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'quiz' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Scroll className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Scroll className="w-5 h-5" />
             <span>Quiz</span>
           </button>
 
           <button
             onClick={() => setActiveTab('ranking')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'ranking' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'ranking' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Trophy className="w-5 h-5" />
             <span>Ranking</span>
           </button>
 
           <button
             onClick={() => setActiveTab('avatar')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'avatar' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'avatar' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <User className="w-4 h-4 sm:w-5 sm:h-5" />
+            <User className="w-5 h-5" />
             <span>Meu 3D</span>
           </button>
 
           <button
             onClick={() => setActiveTab('churches')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'churches' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'churches' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Church className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Church className="w-5 h-5" />
             <span>Igrejas</span>
           </button>
 
           <button
             onClick={() => setActiveTab('modules')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'modules' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'modules' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+            <BookOpen className="w-5 h-5" />
             <span>27 Livros</span>
           </button>
 
           <button
             onClick={() => setActiveTab('apostles')}
-            className={`flex flex-col items-center gap-1 text-[8px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'apostles' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
+            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+              activeTab === 'apostles' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Users className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Users className="w-5 h-5" />
             <span>Apóstolos</span>
           </button>
         </div>

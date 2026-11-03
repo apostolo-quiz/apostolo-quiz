@@ -299,21 +299,21 @@ export default function QuizArena({
 
           {/* Seleção de Nível Bíblico (100% Puro e Gratuito de Gênesis a Apocalipse) */}
           <div className="pt-2">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[11px] uppercase tracking-wider font-bold text-amber-300">
-                Escolha o Nível Bíblico (Gênesis a Apocalipse):
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <span className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-amber-300">
+                Nível Bíblico (Gênesis a Apocalipse):
               </span>
-              <span className="text-[10px] text-zinc-400 font-mono">
+              <span className="text-xs text-zinc-300 font-mono font-bold">
                 {questionList.length} Questões • 4 Alternativas (A-D)
               </span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               <button
                 onClick={() => handleSelectLevel('basico')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
+                className={`py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'basico'
-                    ? 'bg-emerald-600/30 border-emerald-400 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.3)]'
-                    : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
+                    ? 'bg-emerald-600/40 border-emerald-400 text-emerald-100 shadow-[0_0_20px_rgba(16,185,129,0.35)] ring-1 ring-emerald-400'
+                    : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-white'
                 }`}
               >
                 👶 1. Iniciante (Infantil)
@@ -321,10 +321,10 @@ export default function QuizArena({
 
               <button
                 onClick={() => handleSelectLevel('medio')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
+                className={`py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'medio'
-                    ? 'bg-sky-600/30 border-sky-400 text-sky-200 shadow-[0_0_15px_rgba(14,165,233,0.3)]'
-                    : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
+                    ? 'bg-sky-600/40 border-sky-400 text-sky-100 shadow-[0_0_20px_rgba(14,165,233,0.35)] ring-1 ring-sky-400'
+                    : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-white'
                 }`}
               >
                 📖 2. Médio (Infanto-Juvenil)
@@ -332,10 +332,10 @@ export default function QuizArena({
 
               <button
                 onClick={() => handleSelectLevel('avancado')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
+                className={`py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider border-2 transition cursor-pointer text-center ${
                   level === 'avancado'
-                    ? 'bg-amber-600/30 border-amber-400 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
-                    : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
+                    ? 'bg-amber-600/40 border-amber-400 text-amber-100 shadow-[0_0_20px_rgba(245,158,11,0.35)] ring-1 ring-amber-400'
+                    : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-white'
                 }`}
               >
                 👑 3. Avançado (Adulto)
@@ -343,37 +343,37 @@ export default function QuizArena({
             </div>
 
             {/* Seletor de Quantidade de Questões (10, 25 ou 100 Completo) */}
-            <div className="mt-2.5 p-2 bg-zinc-900/90 border border-amber-500/30 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
-              <div className="flex items-center gap-1.5 text-amber-300 font-bold">
+            <div className="mt-3 p-2.5 sm:p-3 bg-zinc-950 border-2 border-amber-500/40 rounded-2xl flex flex-wrap items-center justify-between gap-2.5 text-xs sm:text-sm">
+              <div className="flex items-center gap-2 text-amber-300 font-extrabold">
                 <span>📜 Extensão da Rodada:</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <button
                   onClick={() => setQuestionCount(10)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                  className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-black transition cursor-pointer ${
                     questionCount === 10
-                      ? 'bg-amber-500 text-zinc-950 font-black shadow-sm'
-                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                      ? 'bg-amber-500 text-zinc-950 font-black shadow-md'
+                      : 'bg-zinc-900 border border-amber-500/40 text-amber-300 hover:bg-zinc-800'
                   }`}
                 >
                   10 Rápidas
                 </button>
                 <button
                   onClick={() => setQuestionCount(25)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                  className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-black transition cursor-pointer ${
                     questionCount === 25
-                      ? 'bg-amber-500 text-zinc-950 font-black shadow-sm'
-                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                      ? 'bg-amber-500 text-zinc-950 font-black shadow-md'
+                      : 'bg-zinc-900 border border-amber-500/40 text-amber-300 hover:bg-zinc-800'
                   }`}
                 >
                   25 Jornada
                 </button>
                 <button
                   onClick={() => setQuestionCount(100)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-black transition cursor-pointer ${
                     questionCount === 100
-                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 font-black shadow-[0_0_12px_rgba(245,158,11,0.4)]'
-                      : 'bg-zinc-900 border border-amber-500/30 text-amber-300 hover:bg-zinc-800'
+                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 font-black shadow-[0_0_15px_rgba(245,158,11,0.5)]'
+                      : 'bg-zinc-900 border border-amber-500/40 text-amber-300 hover:bg-zinc-800'
                   }`}
                 >
                   ★ 100 Completo (Maratona)
@@ -466,40 +466,40 @@ export default function QuizArena({
           </div>
         </div>
       ) : (
-        <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-amber-500/40 rounded-2xl p-5 shadow-2xl relative">
+        <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-amber-500/50 rounded-3xl p-4 sm:p-6 shadow-2xl relative">
           {/* Cabeçalho da Questão */}
-          <div className="flex justify-between items-center text-xs text-amber-400 font-bold uppercase tracking-wider mb-2">
-            <span className="flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none">
-              <BookOpen className="w-4 h-4 shrink-0" />
+          <div className="flex justify-between items-center text-xs sm:text-sm text-amber-400 font-extrabold uppercase tracking-wider mb-2.5">
+            <span className="flex items-center gap-1.5 truncate max-w-[220px] sm:max-w-none">
+              <BookOpen className="w-5 h-5 shrink-0 text-amber-300" />
               {level === 'basico'
-                ? 'Nível Iniciante • Infantil (Gênesis a Apocalipse)'
+                ? 'Nível 1 • Infantil (Gênesis a Apocalipse)'
                 : level === 'medio'
-                ? 'Nível Médio • Infanto-Juvenil (Gênesis a Apocalipse)'
-                : 'Nível Avançado • Adulto (Gênesis a Apocalipse)'}
+                ? 'Nível 2 • Infanto-Juvenil (Gênesis a Apocalipse)'
+                : 'Nível 3 • Adulto (Gênesis a Apocalipse)'}
             </span>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full items-center gap-1 font-mono">
-                🔀 Modo Aleatório
+              <span className="hidden sm:inline-flex bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs px-2.5 py-0.5 rounded-full items-center gap-1 font-mono font-bold">
+                🔀 Aleatório
               </span>
-              <span className="bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full text-[11px] border border-amber-500/30 shrink-0">
+              <span className="bg-amber-500/25 text-amber-300 px-3 py-1 rounded-full text-xs sm:text-sm font-black border border-amber-500/40 shrink-0">
                 Questão {currentIndex + 1} de {questionList.length}
               </span>
             </div>
           </div>
 
           {/* Barra de Progresso das Questões */}
-          <div className="w-full bg-zinc-950 rounded-full h-1.5 mb-2.5 border border-zinc-800">
+          <div className="w-full bg-zinc-950 rounded-full h-2 sm:h-2.5 mb-3 border border-zinc-800">
             <div
-              className="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-400 h-2 sm:h-2.5 rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(245,158,11,0.5)]"
               style={{ width: `${((currentIndex + 1) / questionList.length) * 100}%` }}
             />
           </div>
 
           {/* Temporizador Progressivo com Bônus Decrescente a Cada 10 Segundos */}
-          <div className="flex items-center justify-between bg-zinc-950/90 border border-amber-500/30 rounded-xl px-3 py-1.5 mb-2.5 text-xs shadow-inner">
+          <div className="flex items-center justify-between bg-zinc-950 border-2 border-amber-500/40 rounded-2xl px-3.5 sm:px-4 py-2.5 mb-3 text-xs sm:text-sm shadow-inner">
             <div className="flex items-center gap-2">
               <Clock
-                className={`w-4 h-4 ${
+                className={`w-5 h-5 ${
                   secondsElapsed <= 10
                     ? 'text-emerald-400 animate-pulse'
                     : secondsElapsed <= 50
@@ -507,24 +507,24 @@ export default function QuizArena({
                     : 'text-amber-500'
                 }`}
               />
-              <span className="font-mono font-bold text-zinc-200">
+              <span className="font-mono font-extrabold text-white text-xs sm:text-sm">
                 ⏱️ {Math.floor(secondsElapsed / 60)}m {String(secondsElapsed % 60).padStart(2, '0')}s
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] text-zinc-400 uppercase font-bold hidden sm:inline">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-zinc-300 uppercase font-extrabold hidden sm:inline">
                 Bônus de Tempo:
               </span>
               <span
-                className={`px-2.5 py-0.5 rounded-full font-black text-xs border transition-all ${
+                className={`px-3 py-1 rounded-full font-black text-xs sm:text-sm border transition-all ${
                   secondsElapsed <= 10
-                    ? 'bg-emerald-500/25 text-emerald-300 border-emerald-400 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.3)]'
+                    ? 'bg-emerald-500/30 text-emerald-200 border-emerald-400 animate-pulse shadow-[0_0_12px_rgba(16,185,129,0.4)]'
                     : secondsElapsed <= 50
-                    ? 'bg-amber-500/25 text-amber-300 border-amber-400'
+                    ? 'bg-amber-500/30 text-amber-200 border-amber-400'
                     : secondsElapsed <= 100
-                    ? 'bg-sky-500/20 text-sky-300 border-sky-400'
-                    : 'bg-zinc-800 text-zinc-500 border-zinc-700'
+                    ? 'bg-sky-500/25 text-sky-200 border-sky-400'
+                    : 'bg-zinc-800 text-zinc-400 border-zinc-700'
                 }`}
                 title="Bônus adicionado se responder agora com acerto"
               >
@@ -533,28 +533,28 @@ export default function QuizArena({
             </div>
           </div>
 
-          {/* Enunciado */}
-          <div className="bg-black/60 border border-amber-500/30 rounded-xl p-4 my-3">
-            <p className="text-sm md:text-base font-bold text-amber-100 text-center leading-snug">
+          {/* Enunciado de Alto Contraste e Letras Grandes para Todas as Idades */}
+          <div className="bg-zinc-950 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-6 my-3.5 shadow-xl">
+            <p className="text-base sm:text-lg md:text-xl font-extrabold text-amber-100 text-center leading-relaxed tracking-wide drop-shadow-sm">
               {currentQ.question}
             </p>
           </div>
 
-          {/* Grid de Opções: 4 no Básico, 6 no Médio e 8 no Avançado */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3">
+          {/* Grid de Opções: 4 Alternativas com Alto Contraste e Letras Grandes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
             {currentQ.options.map((option, idx) => {
               const letter = OPTION_LETTERS[idx] || `${idx + 1}`;
               let btnStyle =
-                'bg-zinc-900/90 border-zinc-700 text-zinc-100 hover:border-amber-400 hover:bg-zinc-800/80';
+                'bg-zinc-900/95 border-zinc-700 text-white hover:border-amber-400 hover:bg-zinc-800 shadow-md';
 
               if (selectedOption !== null) {
                 if (idx === currentQ.correctIndex) {
                   btnStyle =
-                    'bg-emerald-950/90 border-emerald-400 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.3)]';
+                    'bg-emerald-950 border-emerald-400 text-emerald-100 shadow-[0_0_20px_rgba(16,185,129,0.4)] ring-2 ring-emerald-400';
                 } else if (idx === selectedOption) {
-                  btnStyle = 'bg-red-950/90 border-red-400 text-red-100';
+                  btnStyle = 'bg-red-950 border-red-400 text-red-100 ring-2 ring-red-400';
                 } else {
-                  btnStyle = 'bg-zinc-950/60 border-zinc-800 text-zinc-500 opacity-50';
+                  btnStyle = 'bg-zinc-950/80 border-zinc-800 text-zinc-500 opacity-40';
                 }
               }
 
@@ -562,16 +562,19 @@ export default function QuizArena({
                 <button
                   key={idx}
                   onClick={() => handleSelectOption(idx)}
-                  className={`p-3 rounded-xl border-2 text-left font-semibold text-xs flex items-center justify-between transition cursor-pointer ${btnStyle}`}
+                  className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left font-bold text-sm sm:text-base flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${btnStyle}`}
                 >
-                  <span className="leading-snug">
-                    <strong className="text-amber-400 mr-2 text-sm">{letter}:</strong> {option}
+                  <span className="leading-relaxed flex items-start gap-2.5">
+                    <span className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/20 border border-amber-400/60 text-amber-300 font-black text-sm sm:text-base flex items-center justify-center shadow-inner">
+                      {letter}
+                    </span>
+                    <span className="pt-0.5">{option}</span>
                   </span>
                   {selectedOption !== null && idx === currentQ.correctIndex && (
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 ml-2" />
+                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 shrink-0 ml-2 animate-bounce" />
                   )}
                   {selectedOption === idx && idx !== currentQ.correctIndex && (
-                    <XCircle className="w-4 h-4 text-red-400 shrink-0 ml-2" />
+                    <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 shrink-0 ml-2" />
                   )}
                 </button>
               );
@@ -580,47 +583,49 @@ export default function QuizArena({
 
           {/* Justificativa e Próxima Questão */}
           {selectedOption !== null && (
-            <div className="mt-4 pt-3 border-t border-zinc-800 space-y-3">
+            <div className="mt-4 pt-3.5 border-t border-zinc-800 space-y-3.5">
               {/* Feedback de Pontos e Bônus de Tempo */}
               {selectedOption === currentQ.correctIndex ? (
-                <div className="bg-emerald-950/80 border-2 border-emerald-500/60 rounded-xl p-2.5 text-center shadow-lg animate-in zoom-in-95">
-                  <div className="text-emerald-300 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <div className="bg-emerald-950 border-2 border-emerald-400 rounded-2xl p-3 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
+                  <div className="text-emerald-300 font-black text-sm sm:text-base flex items-center justify-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                     <span>Resposta Correta! +{lastQuestionEarnedPoints?.toFixed(2)} Pontos</span>
                   </div>
-                  <p className="text-[11px] text-emerald-200/90 mt-0.5">
-                    1.0 ponto base + {lastQuestionTimeBonus?.toFixed(2)} bônus de velocidade ({secondsElapsed}s)
+                  <p className="text-xs sm:text-sm text-emerald-200 font-semibold mt-1">
+                    1.0 ponto base + {lastQuestionTimeBonus?.toFixed(2)} bônus de tempo ({secondsElapsed}s)
                   </p>
                 </div>
               ) : (
-                <div className="bg-red-950/80 border-2 border-red-500/60 rounded-xl p-2.5 text-center shadow-lg animate-in zoom-in-95">
-                  <div className="text-red-300 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5">
-                    <XCircle className="w-4 h-4 text-red-400" />
+                <div className="bg-red-950 border-2 border-red-400 rounded-2xl p-3 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
+                  <div className="text-red-300 font-black text-sm sm:text-base flex items-center justify-center gap-2">
+                    <XCircle className="w-5 h-5 text-red-400" />
                     <span>Resposta Incorreta (0 pontos)</span>
                   </div>
-                  <p className="text-[11px] text-red-200/90 mt-0.5">
+                  <p className="text-xs sm:text-sm text-red-200 font-semibold mt-1">
                     Tempo: {secondsElapsed}s. A alternativa bíblica correta está destacada em verde acima.
                   </p>
                 </div>
               )}
 
-              <div className="bg-amber-950/40 border border-amber-500/30 rounded-xl p-3 text-xs space-y-1">
-                <div className="font-bold text-amber-300 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  {currentQ.reference} (+{currentQ.xp} XP)
+              {/* Caixa Doutrinária com Letras Maiores e Confortáveis */}
+              <div className="bg-zinc-950 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-5 space-y-2 shadow-lg">
+                <div className="font-black text-amber-300 text-sm sm:text-base flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <span>{currentQ.reference}</span>
+                  <span className="text-xs text-amber-400/80 font-mono">(+{currentQ.xp} XP)</span>
                 </div>
-                <p className="text-zinc-300 leading-relaxed text-[11px]">
+                <p className="text-zinc-100 leading-relaxed text-sm sm:text-base font-medium">
                   {currentQ.explanation}
                 </p>
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end pt-1">
                 <button
                   onClick={handleNext}
-                  className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 hover:brightness-110 transition cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-zinc-950 font-black text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-amber-500/30 hover:brightness-110 active:scale-98 transition cursor-pointer"
                 >
-                  {currentIndex + 1 < questionList.length ? 'Próxima Questão' : 'Finalizar Nível'}
-                  <ArrowRight className="w-4 h-4" />
+                  <span>{currentIndex + 1 < questionList.length ? 'Próxima Questão' : 'Finalizar Nível'}</span>
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </div>

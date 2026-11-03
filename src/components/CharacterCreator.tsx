@@ -102,77 +102,113 @@ export default function CharacterCreator({
     triggerToast(updated);
   };
 
-  const ethnicityList: { id: EthnicityType; label: string; desc: string; color: string }[] = [
-    { id: 'pardo', label: '🤎 Pardos', desc: 'Miscigenação brasileira', color: '#B48259' },
-    { id: 'branco', label: '🤍 Brancos', desc: 'Euro-brasileiro', color: '#F8D5C2' },
-    { id: 'negro', label: '🖤 Pretos', desc: 'Afro-brasileiro', color: '#3D2314' },
-    { id: 'indigena', label: '🧡 Indígenas', desc: 'Povos originários', color: '#C27343' },
-    { id: 'asiatico', label: '💛 Amarelos', desc: 'Asiático-brasileiro', color: '#F2D0A4' }
+  const ethnicityList: {
+    id: EthnicityType;
+    label: string;
+    clothing: string;
+    color: string;
+    themeColor: string;
+  }[] = [
+    {
+      id: 'pardo',
+      label: '🤎 Pardos',
+      clothing: isMale ? 'Polo Azul Marinho' : 'Vestido Verde Esmeralda',
+      color: '#B48259',
+      themeColor: '#059669'
+    },
+    {
+      id: 'branco',
+      label: '🤍 Brancos',
+      clothing: isMale ? 'Polo Vinho Bordô' : 'Vestido Azul Royal',
+      color: '#F8D5C2',
+      themeColor: '#2563EB'
+    },
+    {
+      id: 'negro',
+      label: '🖤 Pretos',
+      clothing: isMale ? 'Polo Mostarda Ouro' : 'Vestido Terracota Dourado',
+      color: '#3D2314',
+      themeColor: '#D97706'
+    },
+    {
+      id: 'indigena',
+      label: '🧡 Indígenas',
+      clothing: isMale ? 'Polo Verde Oliva' : 'Vestido Coral Terra',
+      color: '#C27343',
+      themeColor: '#EA580C'
+    },
+    {
+      id: 'asiatico',
+      label: '💛 Amarelos',
+      clothing: isMale ? 'Polo Azul Aço' : 'Vestido Lilás Suave',
+      color: '#F2D0A4',
+      themeColor: '#9333EA'
+    }
   ];
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4 sm:space-y-6 pb-24 select-none px-3 sm:px-4">
       {/* Toast Flutuante em Tempo Real */}
       {showSavedToast && (
-        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-emerald-600 text-white text-xs font-black uppercase tracking-wider px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 border border-emerald-300 animate-bounce">
-          <CheckCircle2 className="w-4 h-4 text-emerald-200" />
+        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-emerald-600 text-white text-xs sm:text-sm font-black uppercase tracking-wider px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 border-2 border-emerald-300 animate-bounce">
+          <CheckCircle2 className="w-5 h-5 text-emerald-100" />
           Avatar Atualizado com Sucesso!
         </div>
       )}
 
       {/* 1. SELETOR DE GÊNERO DO PERSONAGEM (IRMÃO OU IRMÃ) */}
-      <div className="bg-zinc-900/95 border border-amber-500/40 rounded-2xl p-3 sm:p-4 text-center shadow-lg">
-        <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-amber-400 block mb-2">
+      <div className="bg-zinc-950 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-5 text-center shadow-xl">
+        <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-300 block mb-2.5">
           1. Gênero do Personagem
         </span>
         <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
           <button
             type="button"
             onClick={() => handleGenderToggle('male')}
-            className={`py-3 px-4 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider border transition flex items-center justify-center gap-2 cursor-pointer ${
+            className={`py-3.5 px-4 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
               isMale
-                ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_18px_rgba(234,179,8,0.5)] scale-102'
-                : 'bg-zinc-950 border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:border-zinc-500'
+                ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_20px_rgba(234,179,8,0.5)] scale-102 ring-1 ring-amber-300'
+                : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500'
             }`}
           >
             <span>👨 Irmão</span>
-            {isMale && <Check className="w-4 h-4 text-zinc-950" />}
+            {isMale && <Check className="w-5 h-5 text-zinc-950" />}
           </button>
 
           <button
             type="button"
             onClick={() => handleGenderToggle('female')}
-            className={`py-3 px-4 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider border transition flex items-center justify-center gap-2 cursor-pointer ${
+            className={`py-3.5 px-4 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
               !isMale
-                ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_18px_rgba(234,179,8,0.5)] scale-102'
-                : 'bg-zinc-950 border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:border-zinc-500'
+                ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_20px_rgba(234,179,8,0.5)] scale-102 ring-1 ring-amber-300'
+                : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500'
             }`}
           >
             <span>👩 Irmã</span>
-            {!isMale && <Check className="w-4 h-4 text-zinc-950" />}
+            {!isMale && <Check className="w-5 h-5 text-zinc-950" />}
           </button>
         </div>
       </div>
 
       {/* 2. ESTÚDIO CENTRAL COM O AVATAR EM DESTAQUE */}
-      <div className="relative overflow-hidden rounded-3xl border-2 border-amber-500/50 bg-gradient-to-b from-amber-950/70 via-zinc-950 to-zinc-950 p-5 sm:p-7 shadow-2xl flex flex-col items-center">
+      <div className="relative overflow-hidden rounded-3xl border-2 border-amber-500/60 bg-gradient-to-b from-amber-950/80 via-zinc-950 to-zinc-950 p-5 sm:p-7 shadow-2xl flex flex-col items-center">
         {/* Halo Suave de Fundo */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.18),transparent_70%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.2),transparent_70%)] pointer-events-none"></div>
 
         {/* Título de Apresentação */}
         <div className="text-center mb-3 z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] sm:text-xs font-bold border border-amber-500/40 mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Miniatura 3D Mini-Pixar Colecionável
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500/25 text-amber-200 text-xs font-extrabold border border-amber-500/40 mb-1.5 shadow-sm">
+            <Sparkles className="w-4 h-4 text-amber-300" /> Miniatura 3D Mini-Pixar Colecionável
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-amber-200">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-amber-100">
             {isMale ? 'Irmão: Discípulo do Reino' : 'Irmã: Serva Adoradora'}
           </h2>
-          <div className="text-xs text-zinc-300 mt-1 max-w-md mx-auto bg-black/60 border border-amber-500/30 rounded-xl px-3 py-1.5 flex items-center justify-center gap-2">
-            <Info className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>
+          <div className="text-xs sm:text-sm text-zinc-100 mt-2 max-w-lg mx-auto bg-black/85 border-2 border-amber-500/50 rounded-2xl p-3 flex items-center justify-center gap-2.5 shadow-lg">
+            <Info className="w-5 h-5 text-amber-400 shrink-0" />
+            <span className="font-bold leading-snug">
               {isMale
-                ? 'Camisa polo casual, calça jeans, tênis e cabelo curto.'
-                : 'Vestido casual de igreja, sandálias e cabelos longos.'}
+                ? 'Homens e meninos: Calça jeans, camisa polo e tênis.'
+                : 'Mulheres e meninas: Vestido modesto, sandálias e cabelos longos.'}
             </span>
           </div>
         </div>
@@ -191,17 +227,17 @@ export default function CharacterCreator({
       </div>
 
       {/* 3. SELETOR DE ETNIAS BRASILEIRAS (IBGE) */}
-      <div className="bg-zinc-900/95 border border-amber-500/40 rounded-2xl p-4 sm:p-5 shadow-2xl">
-        <h3 className="text-xs sm:text-sm font-black text-amber-300 uppercase tracking-wider mb-3 flex items-center justify-between">
-          <span className="flex items-center gap-1.5">
-            <Users className="w-4 h-4 text-amber-400" /> 2. Etnias Brasileiras (IBGE)
+      <div className="bg-zinc-950 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-5 shadow-2xl">
+        <h3 className="text-sm sm:text-base font-black text-amber-300 uppercase tracking-wider mb-3 flex items-center justify-between">
+          <span className="flex items-center gap-2">
+            <Users className="w-5 h-5 text-amber-400" /> 2. Etnias Brasileiras (IBGE)
           </span>
-          <span className="text-[10px] text-zinc-400 font-normal">
-            Representatividade da Igreja Brasileira
+          <span className="text-xs text-zinc-400 font-medium">
+            Representatividade Cristã
           </span>
         </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
           {ethnicityList.map((eth) => {
             const isSelected = currentEthnicity === eth.id;
 
@@ -210,25 +246,25 @@ export default function CharacterCreator({
                 key={eth.id}
                 type="button"
                 onClick={() => handleEthnicityChange(eth.id)}
-                className={`p-3 rounded-xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
+                className={`p-3 sm:p-3.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
                   isSelected
-                    ? 'border-amber-400 bg-amber-950/60 shadow-[0_0_15px_rgba(234,179,8,0.4)] scale-102 ring-1 ring-amber-400'
-                    : 'border-zinc-800 bg-zinc-950/90 hover:border-amber-500/50 hover:bg-zinc-900'
+                    ? 'border-amber-400 bg-amber-950/70 shadow-[0_0_20px_rgba(234,179,8,0.45)] scale-102 ring-2 ring-amber-400'
+                    : 'border-zinc-800 bg-zinc-900/90 hover:border-amber-500/50 hover:bg-zinc-850'
                 }`}
               >
                 <div
-                  className="w-4 h-4 rounded-full mb-1.5 border border-white/20"
+                  className="w-5 h-5 rounded-full mb-1.5 border border-white/30 shadow-sm"
                   style={{ backgroundColor: eth.color }}
                 />
-                <span className="font-black text-xs text-amber-200 leading-tight">
+                <span className="font-black text-xs sm:text-sm text-amber-100 leading-tight">
                   {eth.label}
                 </span>
-                <span className="text-[9px] text-zinc-400 mt-0.5 line-clamp-1">
-                  {eth.desc}
+                <span className="text-[10px] text-zinc-300 font-semibold mt-1 line-clamp-2 leading-tight">
+                  {eth.clothing}
                 </span>
                 {isSelected && (
-                  <span className="mt-1.5 text-[8px] bg-emerald-500 text-zinc-950 font-black uppercase px-2 py-0.2 rounded-full flex items-center gap-0.5">
-                    <Check className="w-2.5 h-2.5" /> Ativo
+                  <span className="mt-2 text-[9px] bg-emerald-500 text-zinc-950 font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                    <Check className="w-3 h-3" /> Ativo
                   </span>
                 )}
               </button>
@@ -238,17 +274,17 @@ export default function CharacterCreator({
       </div>
 
       {/* 4. SELETOR DE FAIXA ETÁRIA (CRIANÇAS, JOVENS, ADULTOS, IDOSOS) */}
-      <div className="bg-zinc-900/95 border border-amber-500/40 rounded-2xl p-4 sm:p-5 shadow-2xl">
-        <h3 className="text-xs sm:text-sm font-black text-amber-300 uppercase tracking-wider mb-3 flex items-center justify-between">
-          <span className="flex items-center gap-1.5">
-            <Calendar className="w-4 h-4 text-amber-400" /> 3. Faixa Etária
+      <div className="bg-zinc-950 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-5 shadow-2xl">
+        <h3 className="text-sm sm:text-base font-black text-amber-300 uppercase tracking-wider mb-3 flex items-center justify-between">
+          <span className="flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-amber-400" /> 3. Faixa Etária
           </span>
-          <span className="text-[10px] text-zinc-400 font-normal">
+          <span className="text-xs text-zinc-400 font-medium">
             De Crianças a Idosos
           </span>
         </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
           {AGE_STAGES.map((stg) => {
             const isSelected = currentAgeStage === stg.id;
 
@@ -257,22 +293,22 @@ export default function CharacterCreator({
                 key={stg.id}
                 type="button"
                 onClick={() => handleAgeStageChange(stg.id)}
-                className={`p-3 rounded-xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
+                className={`p-3.5 sm:p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
                   isSelected
-                    ? 'border-amber-400 bg-amber-950/60 shadow-[0_0_15px_rgba(234,179,8,0.4)] scale-102 ring-1 ring-amber-400'
-                    : 'border-zinc-800 bg-zinc-950/90 hover:border-amber-500/50 hover:bg-zinc-900'
+                    ? 'border-amber-400 bg-amber-950/70 shadow-[0_0_20px_rgba(234,179,8,0.45)] scale-102 ring-2 ring-amber-400'
+                    : 'border-zinc-800 bg-zinc-900/90 hover:border-amber-500/50 hover:bg-zinc-850'
                 }`}
               >
-                <span className="text-2xl mb-1">{stg.icon}</span>
-                <span className="font-black text-xs text-amber-200">
+                <span className="text-3xl mb-1.5">{stg.icon}</span>
+                <span className="font-black text-sm text-amber-100">
                   {stg.label}
                 </span>
-                <span className="text-[9px] text-zinc-400 mt-0.5">
+                <span className="text-[11px] text-zinc-300 font-medium mt-1">
                   {stg.sublabel}
                 </span>
                 {isSelected && (
-                  <span className="mt-1.5 text-[8px] bg-emerald-500 text-zinc-950 font-black uppercase px-2 py-0.2 rounded-full flex items-center gap-0.5">
-                    <Check className="w-2.5 h-2.5" /> Escolhido
+                  <span className="mt-2 text-[10px] bg-emerald-500 text-zinc-950 font-black uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                    <Check className="w-3 h-3" /> Escolhido
                   </span>
                 )}
               </button>
@@ -288,9 +324,9 @@ export default function CharacterCreator({
           if (onSaveNotification) onSaveNotification();
           onFinish();
         }}
-        className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-zinc-950 font-black uppercase tracking-wider shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2 hover:brightness-110 active:scale-98 transition cursor-pointer text-xs sm:text-sm"
+        className="w-full py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-zinc-950 font-black uppercase tracking-wider shadow-xl shadow-amber-500/30 flex items-center justify-center gap-2.5 hover:brightness-110 active:scale-98 transition cursor-pointer text-sm sm:text-base"
       >
-        <UserCheck className="w-5 h-5" /> Salvar Personagem e Continuar no Quiz
+        <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" /> Salvar Personagem e Continuar no Quiz
       </button>
     </div>
   );

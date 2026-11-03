@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AvatarState, OutfitType, OUTFIT_MAP } from '@/data/avatarConfig';
+import { AvatarState, OutfitType, OUTFIT_MAP, ETHNICITY_PALETTE, EthnicityType } from '@/data/avatarConfig';
 
 interface Props {
   avatar: AvatarState;
@@ -48,10 +48,14 @@ export default function DynamicCharacterAvatar({
 }: Props) {
   const outfitKey = (avatar.outfit || 'casual') as OutfitType;
   const isFemale = avatar.gender === 'female';
+  const ethKey = (avatar.ethnicity || 'pardo') as EthnicityType;
+  const ethData = ETHNICITY_PALETTE[ethKey] || ETHNICITY_PALETTE.pardo;
 
   // Resolução da imagem 3D de acordo com o gênero e a roupa
   const baseImg = resolvePixarImage(avatar);
   const outfitData = OUTFIT_MAP[outfitKey] || OUTFIT_MAP.casual;
+  const activeBorder = ethData.borderColor || outfitData.border;
+  const activeGlow = ethData.themeColor || outfitData.glow;
 
   const sizeClasses = {
     sm: 'w-10 h-10 sm:w-11 sm:h-11',
@@ -66,8 +70,8 @@ export default function DynamicCharacterAvatar({
     <div
       onClick={onClick}
       style={{
-        borderColor: outfitData.border,
-        boxShadow: `0 0 30px ${outfitData.glow}`
+        borderColor: activeBorder,
+        boxShadow: `0 0 25px ${activeGlow}`
       }}
       className={`relative select-none overflow-hidden rounded-full border-4 sm:border-5 bg-gradient-to-b from-amber-950/70 via-black to-zinc-950 flex items-center justify-center shrink-0 ${sizeClasses} ${className} ${
         onClick ? 'cursor-pointer hover:scale-105 transition-transform' : ''
@@ -76,7 +80,7 @@ export default function DynamicCharacterAvatar({
       <img
         key={`${baseImg}_${outfitKey}`}
         src={baseImg}
-        alt={`${isFemale ? 'Irmã' : 'Irmão'} - Roupa ${outfitData.label}`}
+        alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
         className="w-full h-full object-cover transition-transform duration-300 ease-out select-none"
         loading="eager"
       />
@@ -86,10 +90,10 @@ export default function DynamicCharacterAvatar({
 
       {/* Selo do Personagem no rodapé do avatar */}
       {size !== 'sm' && size !== 'md' && (
-        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/90 border border-amber-400/80 rounded-full px-3 py-0.5 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
+        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/95 border border-amber-400/90 rounded-full px-3 py-1 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
           <span className="w-2 h-2 rounded-full inline-block shrink-0 bg-amber-400 animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-black uppercase text-amber-300 tracking-wider">
-            {isFemale ? 'Irmã' : 'Irmão'} • {avatar.ageStage ? avatar.ageStage.toUpperCase() : outfitData.label}
+          <span className="text-[10px] sm:text-xs font-black uppercase text-amber-200 tracking-wider">
+            {isFemale ? 'Irmã' : 'Irmão'} • {avatar.ageStage ? avatar.ageStage.toUpperCase() : 'MEMBRO'}
           </span>
         </div>
       )}

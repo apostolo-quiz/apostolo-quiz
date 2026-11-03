@@ -74,45 +74,79 @@ export const AGE_STAGES = [
 
 /**
  * 5 Etnias Brasileiras (IBGE): Pardos, Brancos, Pretos, Indígenas e Amarelos
+ * Padrão Coeso Solicitado:
+ * - Todos os homens e meninos: Calça Jeans, Camisa Polo e Tênis
+ * - Todas as mulheres e meninas: Vestido, Sandálias e Cabelos Longos
+ * - Cores das roupas exclusivas e harmônicas por etnia
  */
 export const ETHNICITY_PALETTE: Record<
   EthnicityType,
-  { label: string; color: string; desc: string; maleImg: string; femaleImg: string }
+  {
+    label: string;
+    color: string;
+    desc: string;
+    maleImg: string;
+    femaleImg: string;
+    maleClothing: string;
+    femaleClothing: string;
+    themeColor: string;
+    borderColor: string;
+  }
 > = {
   pardo: {
     label: 'Pardos',
     color: '#B48259',
     desc: 'Miscigenação brasileira viva e acolhedora',
     maleImg: '/avatar_pardo_masc_adulto.jpg',
-    femaleImg: '/avatar_pardo_fem_adulto.jpg'
+    femaleImg: '/avatar_pardo_fem_adulto.jpg',
+    maleClothing: 'Polo Azul Marinho, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Verde Esmeralda, Sandálias e Cabelos Longos',
+    themeColor: '#059669',
+    borderColor: '#34D399'
   },
   branco: {
     label: 'Brancos',
     color: '#F8D5C2',
     desc: 'Descendência euro-brasileira',
     maleImg: '/avatar_branco_masc_adulto.jpg',
-    femaleImg: '/avatar_branco_fem_adulto.jpg'
+    femaleImg: '/avatar_branco_fem_adulto.jpg',
+    maleClothing: 'Polo Vinho Bordô, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Azul Royal, Sandálias e Cabelos Longos',
+    themeColor: '#2563EB',
+    borderColor: '#60A5FA'
   },
   negro: {
     label: 'Pretos',
     color: '#3D2314',
     desc: 'Afro-brasileiro com presença nobre e vibrante',
     maleImg: '/avatar_preto_masc_adulto.jpg',
-    femaleImg: '/avatar_preto_fem_adulto.jpg'
+    femaleImg: '/avatar_preto_fem_adulto.jpg',
+    maleClothing: 'Polo Amarela Mostarda, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Terracota Dourado, Sandálias e Cabelos Longos',
+    themeColor: '#D97706',
+    borderColor: '#FBBF24'
   },
   indigena: {
     label: 'Indígenas',
     color: '#C27343',
     desc: 'Povos originários do Brasil',
     maleImg: '/avatar_indigena_masc_adulto.jpg',
-    femaleImg: '/avatar_indigena_fem_adulto.jpg'
+    femaleImg: '/avatar_indigena_fem_adulto.jpg',
+    maleClothing: 'Polo Verde Oliva, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Coral Terra, Sandálias e Cabelos Longos',
+    themeColor: '#EA580C',
+    borderColor: '#FB923C'
   },
   asiatico: {
     label: 'Amarelos',
     color: '#F2D0A4',
     desc: 'Asiático-brasileiro',
     maleImg: '/avatar_amarelo_masc_adulto.jpg',
-    femaleImg: '/avatar_amarelo_fem_adulto.jpg'
+    femaleImg: '/avatar_amarelo_fem_adulto.jpg',
+    maleClothing: 'Polo Azul Aço Grafite, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Lilás Suave, Sandálias e Cabelos Longos',
+    themeColor: '#9333EA',
+    borderColor: '#C084FC'
   }
 };
 
