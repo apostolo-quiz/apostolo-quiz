@@ -42,6 +42,7 @@ android/local.properties
 android/captures/
 .idea/
 *.iml
+*.apk
 
 # Server local database
 server-data/
