@@ -3,8 +3,10 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.apostolos.quizbiblico',
   appName: 'Apóstolos - Quiz Bíblico',
-  webDir: 'out',
+  webDir: 'public',
   server: {
+    url: 'https://apostolo-quiz.vercel.app',
+    cleartext: true,
     androidScheme: 'https'
   },
   android: {
