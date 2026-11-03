@@ -10,6 +10,7 @@ import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
+import { getSupabase } from '@/lib/supabase';
 import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles } from 'lucide-react';
 
 const APOSTLES_LIST = [
@@ -114,6 +115,91 @@ export default function HomePage() {
         .catch(() => {
           setServerSyncStatus('offline');
         });
+
+      // Escuta autenticação do Google via Supabase
+      const sb = getSupabase();
+      let authSub: any = null;
+      if (sb) {
+        sb.auth.getSession().then(({ data: { session } }) => {
+          if (session?.user && !savedProfile) {
+            const u = session.user;
+            const meta = u.user_metadata || {};
+            const googleEmail = u.email || '';
+            const googleName = meta.full_name || meta.name || googleEmail.split('@')[0] || '';
+            const googleAvatar = meta.avatar_url || meta.picture || '';
+
+            const tempProfile: UserProfile = {
+              id: u.id,
+              name: googleName,
+              gender: 'male',
+              title: 'Irmão',
+              email: googleEmail,
+              photoUrl: googleAvatar || '/avatar_irmao_casual.jpg',
+              birthDate: '1990-01-01',
+              age: 34,
+              cep: '',
+              street: '',
+              neighborhood: '',
+              city: 'São Paulo',
+              state: 'SP',
+              churchName: '',
+              ministry: 'Membro em Comunhão',
+              isVip: false,
+              registeredAt: new Date().toISOString()
+            };
+            setUserProfile(tempProfile);
+            saveUserProfile(tempProfile);
+            fullServerSync(tempProfile).catch(() => {});
+            setShowRegistrationModal(false);
+          }
+        });
+
+        const {
+          data: { subscription }
+        } = sb.auth.onAuthStateChange((_event, session) => {
+          if (session?.user) {
+            const u = session.user;
+            const meta = u.user_metadata || {};
+            const googleEmail = u.email || '';
+            const googleName = meta.full_name || meta.name || googleEmail.split('@')[0] || '';
+            const googleAvatar = meta.avatar_url || meta.picture || '';
+
+            setUserProfile((prev) => {
+              if (!prev) {
+                const tempProfile: UserProfile = {
+                  id: u.id,
+                  name: googleName,
+                  gender: 'male',
+                  title: 'Irmão',
+                  email: googleEmail,
+                  photoUrl: googleAvatar || '/avatar_irmao_casual.jpg',
+                  birthDate: '1990-01-01',
+                  age: 34,
+                  cep: '',
+                  street: '',
+                  neighborhood: '',
+                  city: 'São Paulo',
+                  state: 'SP',
+                  churchName: '',
+                  ministry: 'Membro em Comunhão',
+                  isVip: false,
+                  registeredAt: new Date().toISOString()
+                };
+                saveUserProfile(tempProfile);
+                fullServerSync(tempProfile).catch(() => {});
+                return tempProfile;
+              }
+              return prev;
+            });
+            setShowRegistrationModal(false);
+          }
+        });
+        authSub = subscription;
+      }
+
+      return () => {
+        authSub?.unsubscribe();
+      };
     }
   }, []);
 

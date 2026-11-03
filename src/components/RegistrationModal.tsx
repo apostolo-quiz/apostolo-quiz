@@ -38,6 +38,7 @@ import {
 
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
 import { AvatarState } from '@/data/avatarConfig';
+import { getSupabase } from '@/lib/supabase';
 
 interface Props {
   onRegistered: (profile: UserProfile) => void;
@@ -256,13 +257,74 @@ export default function RegistrationModal({
     }
   };
 
-  // Autenticação com o Google
-  const handleGoogleAuth = () => {
-    const googleNames = gender === 'male' ? 'Pr. Davi de Oliveira' : 'Missionária Débora Souza';
-    const googleEmail = gender === 'male' ? 'davi.oliveira@gmail.com' : 'debora.souza@gmail.com';
-    setName(googleNames);
-    setEmail(googleEmail);
-    alert('Autenticado com Sucesso via Google! Seus dados foram sincronizados.');
+  const [isLoggingInGoogle, setIsLoggingInGoogle] = useState(false);
+
+  // Escuta retorno ou sessão ativa do Google Auth (Supabase)
+  useEffect(() => {
+    const sb = getSupabase();
+    if (!sb) return;
+
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        const user = session.user;
+        const meta = user.user_metadata || {};
+        const googleName = meta.full_name || meta.name || user.email?.split('@')[0] || '';
+        const googleEmail = user.email || '';
+        const googleAvatar = meta.avatar_url || meta.picture || '';
+
+        if (googleName) setName((prev) => prev || googleName);
+        if (googleEmail) setEmail((prev) => prev || googleEmail);
+        if (googleAvatar) setPhotoUrl((prev) => (prev.startsWith('/avatar') ? googleAvatar : prev));
+      }
+    });
+
+    const {
+      data: { subscription }
+    } = sb.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        const user = session.user;
+        const meta = user.user_metadata || {};
+        const googleName = meta.full_name || meta.name || user.email?.split('@')[0] || '';
+        const googleEmail = user.email || '';
+        const googleAvatar = meta.avatar_url || meta.picture || '';
+
+        if (googleName) setName((prev) => prev || googleName);
+        if (googleEmail) setEmail((prev) => prev || googleEmail);
+        if (googleAvatar) setPhotoUrl((prev) => (prev.startsWith('/avatar') ? googleAvatar : prev));
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  // Autenticação Real com o Google via Supabase OAuth
+  const handleGoogleAuth = async () => {
+    const sb = getSupabase();
+    if (!sb) {
+      alert('Configuração do Supabase pendente. Adicione as chaves NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY no painel.');
+      return;
+    }
+
+    try {
+      setIsLoggingInGoogle(true);
+      const redirectOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+      const { error } = await sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: redirectOrigin ? `${redirectOrigin}/` : undefined
+        }
+      });
+
+      if (error) {
+        alert(`Erro na autenticação com o Google: ${error.message}`);
+      }
+    } catch (err: any) {
+      alert(`Falha ao conectar com o Google: ${err?.message || String(err)}`);
+    } finally {
+      setIsLoggingInGoogle(false);
+    }
   };
 
   // Upload de Foto
@@ -473,7 +535,8 @@ export default function RegistrationModal({
           <button
             type="button"
             onClick={handleGoogleAuth}
-            className="w-full py-3 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-3 shadow-md transition cursor-pointer"
+            disabled={isLoggingInGoogle}
+            className="w-full py-3 rounded-xl bg-white hover:bg-zinc-100 disabled:opacity-70 text-zinc-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-3 shadow-md transition cursor-pointer"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path
@@ -493,7 +556,7 @@ export default function RegistrationModal({
                 d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
               />
             </svg>
-            Entrar com o Google
+            {isLoggingInGoogle ? 'Conectando com o Google...' : 'Entrar com o Google'}
           </button>
           <div className="flex items-center my-3 text-zinc-600 text-[10px] uppercase font-bold tracking-wider">
             <span className="flex-1 h-px bg-zinc-800"></span>
