@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ALL_27_MODULES, QuizModule, QuizQuestion } from '@/data/modulesQuizData';
+import { BASIC_KIDS_100_QUESTIONS } from '@/data/basicKidsQuestions';
 import {
   BookOpen,
   Award,
@@ -85,6 +86,7 @@ export default function QuizArena({
   const [isFinished, setIsFinished] = useState(false);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
+  const [kidsQuestionCount, setKidsQuestionCount] = useState<number>(100);
 
   // Sistema de Desbloqueio Pago do Nível Avançado (R$ 10,00 por usuário registrado)
   const [isAdvancedUnlocked, setIsAdvancedUnlocked] = useState(false);
@@ -130,19 +132,27 @@ export default function QuizArena({
   const currentModule: QuizModule =
     ALL_27_MODULES.find((m) => m.id === selectedModuleId) || ALL_27_MODULES[0];
 
-  // Inicializa e re-embaralha as questões sempre que o módulo ou o nível mudar
+  // Inicializa e re-embaralha as questões sempre que o módulo, nível ou quantidade mudar
   useEffect(() => {
-    const rawList = currentModule.levels[level] || currentModule.levels.basico;
-    setActiveQuestions(getShuffledQuiz(rawList));
+    let rawList: QuizQuestion[];
+    if (level === 'basico') {
+      const shuffledAll = getShuffledQuiz(BASIC_KIDS_100_QUESTIONS);
+      rawList = kidsQuestionCount >= 100 ? shuffledAll : shuffledAll.slice(0, kidsQuestionCount);
+    } else {
+      rawList = getShuffledQuiz(currentModule.levels[level] || currentModule.levels.basico);
+    }
+    setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
     setIsFinished(false);
     setCorrectAnswersCount(0);
-  }, [selectedModuleId, level]);
+  }, [selectedModuleId, level, kidsQuestionCount]);
 
   const questionList: QuizQuestion[] =
     activeQuestions.length > 0
       ? activeQuestions
+      : level === 'basico'
+      ? BASIC_KIDS_100_QUESTIONS
       : currentModule.levels[level] || currentModule.levels.basico;
   const currentQ: QuizQuestion = questionList[currentIndex] || questionList[0];
 
@@ -202,8 +212,14 @@ export default function QuizArena({
   };
 
   const handleRestart = () => {
-    const rawList = currentModule.levels[level] || currentModule.levels.basico;
-    setActiveQuestions(getShuffledQuiz(rawList));
+    let rawList: QuizQuestion[];
+    if (level === 'basico') {
+      const shuffledAll = getShuffledQuiz(BASIC_KIDS_100_QUESTIONS);
+      rawList = kidsQuestionCount >= 100 ? shuffledAll : shuffledAll.slice(0, kidsQuestionCount);
+    } else {
+      rawList = getShuffledQuiz(currentModule.levels[level] || currentModule.levels.basico);
+    }
+    setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
     setIsFinished(false);
@@ -345,27 +361,27 @@ export default function QuizArena({
           <div className="pt-2">
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[11px] uppercase tracking-wider font-bold text-zinc-400">
-                Escolha o Nível (12 Questões por Nível):
+                {level === 'basico' ? 'Nível 1 Infantil (100 Histórias Bíblicas):' : 'Escolha o Nível do Módulo:'}
               </span>
               <span className="text-[10px] text-amber-400/90 font-mono">
-                {level === 'basico' ? '4 Opções (A-D)' : level === 'medio' ? '6 Opções (A-F)' : '8 Opções (A-H)'}
+                {level === 'basico' ? `${questionList.length} Q • 4 Opções (A-D)` : level === 'medio' ? '6 Opções (A-F)' : '8 Opções (A-H)'}
               </span>
             </div>
             <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => handleSelectLevel('basico')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition ${
+                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer ${
                   level === 'basico'
                     ? 'bg-emerald-600/30 border-emerald-400 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
                     : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
                 }`}
               >
-                1. Básico (Livre)
+                👶 1. Básico (100 Infantis)
               </button>
 
               <button
                 onClick={() => handleSelectLevel('medio')}
-                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition ${
+                className={`py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider border-2 transition cursor-pointer ${
                   level === 'medio'
                     ? 'bg-sky-600/30 border-sky-400 text-sky-200 shadow-[0_0_15px_rgba(14,165,233,0.2)]'
                     : 'bg-zinc-900/80 border-zinc-700 text-zinc-400 hover:border-zinc-500'
@@ -395,6 +411,46 @@ export default function QuizArena({
                 </span>
               </button>
             </div>
+
+            {level === 'basico' && (
+              <div className="mt-2.5 p-2 bg-emerald-950/40 border border-emerald-500/30 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-emerald-300 font-bold">
+                  <span>📖 Modo Histórias:</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => setKidsQuestionCount(10)}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                      kidsQuestionCount === 10
+                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-sm'
+                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
+                    }`}
+                  >
+                    10 Rápidas
+                  </button>
+                  <button
+                    onClick={() => setKidsQuestionCount(25)}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                      kidsQuestionCount === 25
+                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-sm'
+                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
+                    }`}
+                  >
+                    25 Jornada
+                  </button>
+                  <button
+                    onClick={() => setKidsQuestionCount(100)}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                      kidsQuestionCount === 100
+                        ? 'bg-emerald-500 text-zinc-950 font-black shadow-[0_0_12px_rgba(16,185,129,0.4)]'
+                        : 'bg-zinc-900 border border-emerald-500/30 text-emerald-300 hover:bg-zinc-800'
+                    }`}
+                  >
+                    ★ 100 Completo (Maratona)
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -409,15 +465,19 @@ export default function QuizArena({
             Nível Concluído com Sucesso!
           </h2>
           <p className="text-zinc-300 text-xs md:text-sm max-w-md mx-auto">
-            Você respondeu todas as 12 questões do módulo{' '}
-            <strong className="text-amber-400">{currentModule.title}</strong> (Nível{' '}
-            <span className="capitalize text-amber-300">{level}</span>).
+            {level === 'basico' ? (
+              <>Você respondeu todas as <strong className="text-emerald-400">{questionList.length} histórias bíblicas infantis</strong> com grande sabedoria e amor!</>
+            ) : (
+              <>Você respondeu todas as {questionList.length} questões do módulo{' '}
+              <strong className="text-amber-400">{currentModule.title}</strong> (Nível{' '}
+              <span className="capitalize text-amber-300">{level}</span>).</>
+            )}
           </p>
 
           <div className="bg-zinc-950/80 border border-amber-500/30 rounded-xl p-4 max-w-sm mx-auto space-y-1">
             <div className="text-sm text-zinc-300">
-              Acertos: <strong className="text-emerald-400 text-base">{correctAnswersCount}</strong> de 12 questões (
-              {Math.round((correctAnswersCount / 12) * 100)}%)
+              Acertos: <strong className="text-emerald-400 text-base">{correctAnswersCount}</strong> de {questionList.length} questões (
+              {Math.round((correctAnswersCount / (questionList.length || 1)) * 100)}%)
             </div>
             <div className="text-2xl font-black text-amber-400">
               Sua Pontuação Total: {score} XP
@@ -459,7 +519,7 @@ export default function QuizArena({
           {/* Cabeçalho da Questão */}
           <div className="flex justify-between items-center text-xs text-amber-400 font-bold uppercase tracking-wider mb-2">
             <span className="flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none">
-              <BookOpen className="w-4 h-4 shrink-0" /> {currentModule.title}
+              <BookOpen className="w-4 h-4 shrink-0" /> {level === 'basico' ? 'Histórias Bíblicas Infantis' : currentModule.title}
             </span>
             <div className="flex items-center gap-2">
               <span className="hidden sm:inline-flex bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full items-center gap-1 font-mono">

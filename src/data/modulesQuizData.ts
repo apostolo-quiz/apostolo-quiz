@@ -48,174 +48,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 1101,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "01. Bibliologia - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1001,
+                "question": "Quem criou os céus, a terra, o sol e todos os animais?",
+                "options": [
+                        "Noé",
+                        "Moisés",
+                        "Abraão",
+                        "Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 1:1",
+                "explanation": "No princípio, Deus criou os céus e a terra e tudo o que neles existe com Seu grande poder e amor.",
+                "xp": 100
         },
         {
-          "id": 1102,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "01. Bibliologia - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1002,
+                "question": "Quem foram o primeiro homem e a primeira mulher criados por Deus no Jardim do Éden?",
+                "options": [
+                        "Abraão e Sara",
+                        "Sansão e Dalila",
+                        "Davi e Golias",
+                        "Adão e Eva"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 2:7, 22",
+                "explanation": "Deus criou Adão do pó da terra e Eva como sua companheira no lindo Jardim do Éden.",
+                "xp": 100
         },
         {
-          "id": 1103,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "01. Bibliologia - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1003,
+                "question": "Qual animal falou com Eva no Jardim do Éden?",
+                "options": [
+                        "O cordeiro",
+                        "A pomba",
+                        "A serpente",
+                        "O leão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 3:1",
+                "explanation": "A serpente enganou Eva para desobedecer a Deus e comer do fruto proibido.",
+                "xp": 100
         },
         {
-          "id": 1104,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "01. Bibliologia - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1004,
+                "question": "Quem construiu uma grande arca de madeira para salvar sua família e os animais do dilúvio?",
+                "options": [
+                        "Pedro",
+                        "Jonas",
+                        "Noé",
+                        "Paulo"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 6:14",
+                "explanation": "Noé foi um homem fiel e obediente a Deus que construiu a grande arca para salvar os animais e sua família.",
+                "xp": 100
         },
         {
-          "id": 1105,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "01. Bibliologia - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1005,
+                "question": "Que sinal colorido Deus colocou no céu como promessa de que nunca mais haveria outro dilúvio?",
+                "options": [
+                        "Um cometa",
+                        "O arco-íris",
+                        "Uma nuvem escura",
+                        "Uma estrela cadente"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 9:13",
+                "explanation": "O arco-íris é o sinal da aliança e promessa de Deus para com toda a terra.",
+                "xp": 100
         },
         {
-          "id": 1106,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "01. Bibliologia - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1006,
+                "question": "Que pássaro Noé soltou da arca que voltou trazendo uma folhinha de oliveira no bico?",
+                "options": [
+                        "Uma pomba",
+                        "Uma andorinha",
+                        "Um corvo",
+                        "Um gavião"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 8:11",
+                "explanation": "A pombinha voltou à arca trazendo uma folha verde de oliveira, mostrando que a terra estava secando.",
+                "xp": 100
         },
         {
-          "id": 1107,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "01. Bibliologia - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1007,
+                "question": "Como se chamava a torre muito alta que os homens tentaram construir até o céu para ficarem famosos?",
+                "options": [
+                        "Torre de Babel",
+                        "Torre de Davi",
+                        "Torre de Jericó",
+                        "Torre de Belém"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 11:4-9",
+                "explanation": "Na Torre de Babel, Deus confundiu as línguas porque os homens se tornaram orgulhosos.",
+                "xp": 100
         },
         {
-          "id": 1108,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "01. Bibliologia - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1008,
+                "question": "Qual foi o filho que nasceu para Abraão e Sara quando eles já eram bem idosos, conforme a promessa de Deus?",
+                "options": [
+                        "Moisés",
+                        "Davi",
+                        "Isaque",
+                        "Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 21:2-3",
+                "explanation": "Isaque significa riso de alegria, o filho prometido por Deus ao fiel Abraão e Sara.",
+                "xp": 100
         },
         {
-          "id": 1109,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "01. Bibliologia - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1009,
+                "question": "Quantos filhos homens Jacó teve, que deram origem às 12 tribos de Israel?",
+                "options": [
+                        "3 filhos",
+                        "10 filhos",
+                        "7 filhos",
+                        "12 filhos"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 35:22",
+                "explanation": "Jacó teve 12 filhos, entre eles José, Judá, Benjamim e Levi.",
+                "xp": 100
         },
         {
-          "id": 1110,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "01. Bibliologia - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1010,
+                "question": "Quem ganhou do seu pai Jacó uma linda túnica de muitas cores?",
+                "options": [
+                        "Sansão",
+                        "Gideão",
+                        "José",
+                        "Moisés"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 37:3",
+                "explanation": "José era muito amado por seu pai Jacó, que lhe deu uma túnica especial de muitas cores.",
+                "xp": 100
         },
         {
-          "id": 1111,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "01. Bibliologia - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1011,
+                "question": "O que aconteceu com José quando seus irmãos ficaram com ciúmes dele?",
+                "options": [
+                        "Fizeram uma festa",
+                        "Venderam-no para o Egito",
+                        "Esconderam-no numa tenda",
+                        "Deram-lhe uma coroa"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 37:28",
+                "explanation": "José foi vendido para o Egito, mas Deus esteve com ele em todo o tempo e o abençoou.",
+                "xp": 100
         },
         {
-          "id": 1112,
-          "question": "Em 01. Bibliologia, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "01. Bibliologia - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 1012,
+                "question": "Depois de muitos anos e com a ajuda de Deus, José se tornou o quê no Egito?",
+                "options": [
+                        "Marinheiro",
+                        "Guerreiro",
+                        "Pescador",
+                        "Governador de todo o Egito"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 41:41",
+                "explanation": "Faraó colocou José como governador do Egito, e ele salvou milhares de pessoas da fome.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 1201,
@@ -643,174 +643,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 2101,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "02. Epístolas Paulinas II - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2001,
+                "question": "Que sinal colorido Deus colocou no céu como promessa de que nunca mais haveria outro dilúvio?",
+                "options": [
+                        "Um cometa",
+                        "O arco-íris",
+                        "Uma nuvem escura",
+                        "Uma estrela cadente"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 9:13",
+                "explanation": "O arco-íris é o sinal da aliança e promessa de Deus para com toda a terra.",
+                "xp": 100
         },
         {
-          "id": 2102,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "02. Epístolas Paulinas II - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2002,
+                "question": "Que pássaro Noé soltou da arca que voltou trazendo uma folhinha de oliveira no bico?",
+                "options": [
+                        "Uma pomba",
+                        "Uma andorinha",
+                        "Um corvo",
+                        "Um gavião"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 8:11",
+                "explanation": "A pombinha voltou à arca trazendo uma folha verde de oliveira, mostrando que a terra estava secando.",
+                "xp": 100
         },
         {
-          "id": 2103,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "02. Epístolas Paulinas II - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2003,
+                "question": "Como se chamava a torre muito alta que os homens tentaram construir até o céu para ficarem famosos?",
+                "options": [
+                        "Torre de Babel",
+                        "Torre de Davi",
+                        "Torre de Jericó",
+                        "Torre de Belém"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 11:4-9",
+                "explanation": "Na Torre de Babel, Deus confundiu as línguas porque os homens se tornaram orgulhosos.",
+                "xp": 100
         },
         {
-          "id": 2104,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "02. Epístolas Paulinas II - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2004,
+                "question": "Qual foi o filho que nasceu para Abraão e Sara quando eles já eram bem idosos, conforme a promessa de Deus?",
+                "options": [
+                        "Moisés",
+                        "Davi",
+                        "Isaque",
+                        "Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 21:2-3",
+                "explanation": "Isaque significa riso de alegria, o filho prometido por Deus ao fiel Abraão e Sara.",
+                "xp": 100
         },
         {
-          "id": 2105,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "02. Epístolas Paulinas II - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2005,
+                "question": "Quantos filhos homens Jacó teve, que deram origem às 12 tribos de Israel?",
+                "options": [
+                        "3 filhos",
+                        "10 filhos",
+                        "7 filhos",
+                        "12 filhos"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 35:22",
+                "explanation": "Jacó teve 12 filhos, entre eles José, Judá, Benjamim e Levi.",
+                "xp": 100
         },
         {
-          "id": 2106,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "02. Epístolas Paulinas II - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2006,
+                "question": "Quem ganhou do seu pai Jacó uma linda túnica de muitas cores?",
+                "options": [
+                        "Sansão",
+                        "Gideão",
+                        "José",
+                        "Moisés"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 37:3",
+                "explanation": "José era muito amado por seu pai Jacó, que lhe deu uma túnica especial de muitas cores.",
+                "xp": 100
         },
         {
-          "id": 2107,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "02. Epístolas Paulinas II - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2007,
+                "question": "O que aconteceu com José quando seus irmãos ficaram com ciúmes dele?",
+                "options": [
+                        "Fizeram uma festa",
+                        "Venderam-no para o Egito",
+                        "Esconderam-no numa tenda",
+                        "Deram-lhe uma coroa"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 37:28",
+                "explanation": "José foi vendido para o Egito, mas Deus esteve com ele em todo o tempo e o abençoou.",
+                "xp": 100
         },
         {
-          "id": 2108,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "02. Epístolas Paulinas II - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2008,
+                "question": "Depois de muitos anos e com a ajuda de Deus, José se tornou o quê no Egito?",
+                "options": [
+                        "Marinheiro",
+                        "Guerreiro",
+                        "Pescador",
+                        "Governador de todo o Egito"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 41:41",
+                "explanation": "Faraó colocou José como governador do Egito, e ele salvou milhares de pessoas da fome.",
+                "xp": 100
         },
         {
-          "id": 2109,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "02. Epístolas Paulinas II - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2009,
+                "question": "O que a mãe de Moisés fez para salvá-lo quando ele era apenas um bebezinho?",
+                "options": [
+                        "Entregou-o aos soldados",
+                        "Escondeu-o numa caverna",
+                        "Colocou-o num cestinho de junco no rio Nilo",
+                        "Fugiu para o deserto"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 2:3",
+                "explanation": "A mãe de Moisés colocou o bebezinho num cesto de junco à beira do rio, e a filha do Faraó o encontrou e cuidou dele.",
+                "xp": 100
         },
         {
-          "id": 2110,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "02. Epístolas Paulinas II - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2010,
+                "question": "Onde Deus falou com Moisés através de um arbusto que queimava em chamas mas não se consumia?",
+                "options": [
+                        "Num barco",
+                        "No fundo do poço",
+                        "No Templo",
+                        "Na Sarça Ardente"
+                ],
+                "correctIndex": 3,
+                "reference": "Êxodo 3:2",
+                "explanation": "Deus chamou Moisés na sarça ardente no Monte Horebe e lhe deu a missão de libertar o Seu povo.",
+                "xp": 100
         },
         {
-          "id": 2111,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "02. Epístolas Paulinas II - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2011,
+                "question": "O que Deus usou nas mãos de Moisés para realizar milagres diante de Faraó?",
+                "options": [
+                        "Uma espada de ouro",
+                        "Um cajado de madeira",
+                        "Uma corda de prata",
+                        "Um escudo de ferro"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 4:17",
+                "explanation": "Moisés estendia seu cajado conforme a ordem de Deus e grandes maravilhas aconteciam.",
+                "xp": 100
         },
         {
-          "id": 2112,
-          "question": "Em 02. Epístolas Paulinas II, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "02. Epístolas Paulinas II - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 2012,
+                "question": "Qual mar se abriu ao meio para que o povo de Israel passasse a pé seco fugindo do exército de Faraó?",
+                "options": [
+                        "Mar Mediterrâneo",
+                        "Mar Morto",
+                        "Mar Vermelho",
+                        "Mar da Galileia"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 14:21-22",
+                "explanation": "Deus abriu o Mar Vermelho com um sopro de vento, e o povo atravessou em segurança em terra seca.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 2201,
@@ -1238,174 +1238,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 3101,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "03. Epístolas Paulinas III - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3001,
+                "question": "Quantos filhos homens Jacó teve, que deram origem às 12 tribos de Israel?",
+                "options": [
+                        "3 filhos",
+                        "10 filhos",
+                        "7 filhos",
+                        "12 filhos"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 35:22",
+                "explanation": "Jacó teve 12 filhos, entre eles José, Judá, Benjamim e Levi.",
+                "xp": 100
         },
         {
-          "id": 3102,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "03. Epístolas Paulinas III - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3002,
+                "question": "Quem ganhou do seu pai Jacó uma linda túnica de muitas cores?",
+                "options": [
+                        "Sansão",
+                        "Gideão",
+                        "José",
+                        "Moisés"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 37:3",
+                "explanation": "José era muito amado por seu pai Jacó, que lhe deu uma túnica especial de muitas cores.",
+                "xp": 100
         },
         {
-          "id": 3103,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "03. Epístolas Paulinas III - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3003,
+                "question": "O que aconteceu com José quando seus irmãos ficaram com ciúmes dele?",
+                "options": [
+                        "Fizeram uma festa",
+                        "Venderam-no para o Egito",
+                        "Esconderam-no numa tenda",
+                        "Deram-lhe uma coroa"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 37:28",
+                "explanation": "José foi vendido para o Egito, mas Deus esteve com ele em todo o tempo e o abençoou.",
+                "xp": 100
         },
         {
-          "id": 3104,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "03. Epístolas Paulinas III - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3004,
+                "question": "Depois de muitos anos e com a ajuda de Deus, José se tornou o quê no Egito?",
+                "options": [
+                        "Marinheiro",
+                        "Guerreiro",
+                        "Pescador",
+                        "Governador de todo o Egito"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 41:41",
+                "explanation": "Faraó colocou José como governador do Egito, e ele salvou milhares de pessoas da fome.",
+                "xp": 100
         },
         {
-          "id": 3105,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "03. Epístolas Paulinas III - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3005,
+                "question": "O que a mãe de Moisés fez para salvá-lo quando ele era apenas um bebezinho?",
+                "options": [
+                        "Entregou-o aos soldados",
+                        "Escondeu-o numa caverna",
+                        "Colocou-o num cestinho de junco no rio Nilo",
+                        "Fugiu para o deserto"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 2:3",
+                "explanation": "A mãe de Moisés colocou o bebezinho num cesto de junco à beira do rio, e a filha do Faraó o encontrou e cuidou dele.",
+                "xp": 100
         },
         {
-          "id": 3106,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "03. Epístolas Paulinas III - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3006,
+                "question": "Onde Deus falou com Moisés através de um arbusto que queimava em chamas mas não se consumia?",
+                "options": [
+                        "Num barco",
+                        "No fundo do poço",
+                        "No Templo",
+                        "Na Sarça Ardente"
+                ],
+                "correctIndex": 3,
+                "reference": "Êxodo 3:2",
+                "explanation": "Deus chamou Moisés na sarça ardente no Monte Horebe e lhe deu a missão de libertar o Seu povo.",
+                "xp": 100
         },
         {
-          "id": 3107,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "03. Epístolas Paulinas III - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3007,
+                "question": "O que Deus usou nas mãos de Moisés para realizar milagres diante de Faraó?",
+                "options": [
+                        "Uma espada de ouro",
+                        "Um cajado de madeira",
+                        "Uma corda de prata",
+                        "Um escudo de ferro"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 4:17",
+                "explanation": "Moisés estendia seu cajado conforme a ordem de Deus e grandes maravilhas aconteciam.",
+                "xp": 100
         },
         {
-          "id": 3108,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "03. Epístolas Paulinas III - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3008,
+                "question": "Qual mar se abriu ao meio para que o povo de Israel passasse a pé seco fugindo do exército de Faraó?",
+                "options": [
+                        "Mar Mediterrâneo",
+                        "Mar Morto",
+                        "Mar Vermelho",
+                        "Mar da Galileia"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 14:21-22",
+                "explanation": "Deus abriu o Mar Vermelho com um sopro de vento, e o povo atravessou em segurança em terra seca.",
+                "xp": 100
         },
         {
-          "id": 3109,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "03. Epístolas Paulinas III - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3009,
+                "question": "Qual alimento doce caía do céu todas as manhãs para alimentar o povo no deserto?",
+                "options": [
+                        "Maná",
+                        "Uvas",
+                        "Pão de mel",
+                        "Trigo"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 16:14-15",
+                "explanation": "O maná parecia sementinhas brancas com sabor de bolo de mel, enviado por Deus diariamente.",
+                "xp": 100
         },
         {
-          "id": 3110,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "03. Epístolas Paulinas III - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3010,
+                "question": "Onde Moisés subiu para receber as tábuas dos Dez Mandamentos escritas pelo dedo de Deus?",
+                "options": [
+                        "No Monte das Oliveiras",
+                        "Na colina de Belém",
+                        "No Monte Sinai",
+                        "No Monte Carmelo"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 19:20",
+                "explanation": "Moisés subiu ao topo do Monte Sinai e lá Deus lhe entregou as leis dos Dez Mandamentos.",
+                "xp": 100
         },
         {
-          "id": 3111,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "03. Epístolas Paulinas III - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3011,
+                "question": "Qual é o mandamento que promete vida longa para quem obedecer e honrar os pais?",
+                "options": [
+                        "Guarda o sábado",
+                        "Não matarás",
+                        "Honra teu pai e tua mãe",
+                        "Não cobiçarás"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 20:12",
+                "explanation": "Honrar pai e mãe é o primeiro mandamento com promessa de Deus para sermos abençoados.",
+                "xp": 100
         },
         {
-          "id": 3112,
-          "question": "Em 03. Epístolas Paulinas III, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "03. Epístolas Paulinas III - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 3012,
+                "question": "Como se chamava a caixa de madeira coberta de ouro onde ficavam guardadas as tábuas dos mandamentos?",
+                "options": [
+                        "Arca da Aliança",
+                        "Arca de Noé",
+                        "Tenda Real",
+                        "Baú dos Tesouros"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 25:10-22",
+                "explanation": "A Arca da Aliança era sagrada e representava a santa presença de Deus no meio do povo.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 3201,
@@ -1833,174 +1833,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 4101,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "04. Heresiologia - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4001,
+                "question": "O que a mãe de Moisés fez para salvá-lo quando ele era apenas um bebezinho?",
+                "options": [
+                        "Entregou-o aos soldados",
+                        "Escondeu-o numa caverna",
+                        "Colocou-o num cestinho de junco no rio Nilo",
+                        "Fugiu para o deserto"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 2:3",
+                "explanation": "A mãe de Moisés colocou o bebezinho num cesto de junco à beira do rio, e a filha do Faraó o encontrou e cuidou dele.",
+                "xp": 100
         },
         {
-          "id": 4102,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "04. Heresiologia - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4002,
+                "question": "Onde Deus falou com Moisés através de um arbusto que queimava em chamas mas não se consumia?",
+                "options": [
+                        "Num barco",
+                        "No fundo do poço",
+                        "No Templo",
+                        "Na Sarça Ardente"
+                ],
+                "correctIndex": 3,
+                "reference": "Êxodo 3:2",
+                "explanation": "Deus chamou Moisés na sarça ardente no Monte Horebe e lhe deu a missão de libertar o Seu povo.",
+                "xp": 100
         },
         {
-          "id": 4103,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "04. Heresiologia - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4003,
+                "question": "O que Deus usou nas mãos de Moisés para realizar milagres diante de Faraó?",
+                "options": [
+                        "Uma espada de ouro",
+                        "Um cajado de madeira",
+                        "Uma corda de prata",
+                        "Um escudo de ferro"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 4:17",
+                "explanation": "Moisés estendia seu cajado conforme a ordem de Deus e grandes maravilhas aconteciam.",
+                "xp": 100
         },
         {
-          "id": 4104,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "04. Heresiologia - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4004,
+                "question": "Qual mar se abriu ao meio para que o povo de Israel passasse a pé seco fugindo do exército de Faraó?",
+                "options": [
+                        "Mar Mediterrâneo",
+                        "Mar Morto",
+                        "Mar Vermelho",
+                        "Mar da Galileia"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 14:21-22",
+                "explanation": "Deus abriu o Mar Vermelho com um sopro de vento, e o povo atravessou em segurança em terra seca.",
+                "xp": 100
         },
         {
-          "id": 4105,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "04. Heresiologia - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4005,
+                "question": "Qual alimento doce caía do céu todas as manhãs para alimentar o povo no deserto?",
+                "options": [
+                        "Maná",
+                        "Uvas",
+                        "Pão de mel",
+                        "Trigo"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 16:14-15",
+                "explanation": "O maná parecia sementinhas brancas com sabor de bolo de mel, enviado por Deus diariamente.",
+                "xp": 100
         },
         {
-          "id": 4106,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "04. Heresiologia - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4006,
+                "question": "Onde Moisés subiu para receber as tábuas dos Dez Mandamentos escritas pelo dedo de Deus?",
+                "options": [
+                        "No Monte das Oliveiras",
+                        "Na colina de Belém",
+                        "No Monte Sinai",
+                        "No Monte Carmelo"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 19:20",
+                "explanation": "Moisés subiu ao topo do Monte Sinai e lá Deus lhe entregou as leis dos Dez Mandamentos.",
+                "xp": 100
         },
         {
-          "id": 4107,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "04. Heresiologia - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4007,
+                "question": "Qual é o mandamento que promete vida longa para quem obedecer e honrar os pais?",
+                "options": [
+                        "Guarda o sábado",
+                        "Não matarás",
+                        "Honra teu pai e tua mãe",
+                        "Não cobiçarás"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 20:12",
+                "explanation": "Honrar pai e mãe é o primeiro mandamento com promessa de Deus para sermos abençoados.",
+                "xp": 100
         },
         {
-          "id": 4108,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "04. Heresiologia - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4008,
+                "question": "Como se chamava a caixa de madeira coberta de ouro onde ficavam guardadas as tábuas dos mandamentos?",
+                "options": [
+                        "Arca da Aliança",
+                        "Arca de Noé",
+                        "Tenda Real",
+                        "Baú dos Tesouros"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 25:10-22",
+                "explanation": "A Arca da Aliança era sagrada e representava a santa presença de Deus no meio do povo.",
+                "xp": 100
         },
         {
-          "id": 4109,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "04. Heresiologia - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4009,
+                "question": "O que o povo de Israel fez para que as muralhas da cidade de Jericó viessem ao chão?",
+                "options": [
+                        "Usaram canhões",
+                        "Cavaram buracos",
+                        "Empurraram com as mãos",
+                        "Deram voltas na cidade, tocaram trombetas e gritaram"
+                ],
+                "correctIndex": 3,
+                "reference": "Josué 6:20",
+                "explanation": "O povo marchou em volta da cidade por 7 dias; quando tocaram as trombetas e deram um grande grito, as muralhas caíram!",
+                "xp": 100
         },
         {
-          "id": 4110,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "04. Heresiologia - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4010,
+                "question": "Quem orou a Deus e o sol parou no céu para ajudar o povo de Israel na batalha?",
+                "options": [
+                        "Josué",
+                        "Davi",
+                        "Gideão",
+                        "Sansão"
+                ],
+                "correctIndex": 0,
+                "reference": "Josué 10:12-13",
+                "explanation": "Josué orou com fé e o sol se deteve no meio do céu por quase um dia inteiro.",
+                "xp": 100
         },
         {
-          "id": 4111,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "04. Heresiologia - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4011,
+                "question": "Com quantos homens corajosos Deus deu a vitória a Gideão contra um exército gigante?",
+                "options": [
+                        "1.000 homens",
+                        "50 homens",
+                        "300 homens",
+                        "10.000 homens"
+                ],
+                "correctIndex": 2,
+                "reference": "Juízes 7:7",
+                "explanation": "Deus escolheu apenas 300 soldados que lamberam água com a mão para mostrar que a vitória vinha d'Ele.",
+                "xp": 100
         },
         {
-          "id": 4112,
-          "question": "Em 04. Heresiologia, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "04. Heresiologia - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 4012,
+                "question": "Quem era o homem mais forte da Bíblia que perdeu a força quando cortaram seu cabelo?",
+                "options": [
+                        "Saul",
+                        "Salomão",
+                        "Golias",
+                        "Sansão"
+                ],
+                "correctIndex": 3,
+                "reference": "Juízes 16:17",
+                "explanation": "Sansão fez um voto de nazireu a Deus; seu cabelo longo era o sinal da sua consagração e grande força.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 4201,
@@ -2428,174 +2428,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 5101,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "05. Teologia do Obreiro - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5001,
+                "question": "Qual alimento doce caía do céu todas as manhãs para alimentar o povo no deserto?",
+                "options": [
+                        "Maná",
+                        "Uvas",
+                        "Pão de mel",
+                        "Trigo"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 16:14-15",
+                "explanation": "O maná parecia sementinhas brancas com sabor de bolo de mel, enviado por Deus diariamente.",
+                "xp": 100
         },
         {
-          "id": 5102,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "05. Teologia do Obreiro - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5002,
+                "question": "Onde Moisés subiu para receber as tábuas dos Dez Mandamentos escritas pelo dedo de Deus?",
+                "options": [
+                        "No Monte das Oliveiras",
+                        "Na colina de Belém",
+                        "No Monte Sinai",
+                        "No Monte Carmelo"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 19:20",
+                "explanation": "Moisés subiu ao topo do Monte Sinai e lá Deus lhe entregou as leis dos Dez Mandamentos.",
+                "xp": 100
         },
         {
-          "id": 5103,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "05. Teologia do Obreiro - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5003,
+                "question": "Qual é o mandamento que promete vida longa para quem obedecer e honrar os pais?",
+                "options": [
+                        "Guarda o sábado",
+                        "Não matarás",
+                        "Honra teu pai e tua mãe",
+                        "Não cobiçarás"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 20:12",
+                "explanation": "Honrar pai e mãe é o primeiro mandamento com promessa de Deus para sermos abençoados.",
+                "xp": 100
         },
         {
-          "id": 5104,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "05. Teologia do Obreiro - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5004,
+                "question": "Como se chamava a caixa de madeira coberta de ouro onde ficavam guardadas as tábuas dos mandamentos?",
+                "options": [
+                        "Arca da Aliança",
+                        "Arca de Noé",
+                        "Tenda Real",
+                        "Baú dos Tesouros"
+                ],
+                "correctIndex": 0,
+                "reference": "Êxodo 25:10-22",
+                "explanation": "A Arca da Aliança era sagrada e representava a santa presença de Deus no meio do povo.",
+                "xp": 100
         },
         {
-          "id": 5105,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "05. Teologia do Obreiro - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5005,
+                "question": "O que o povo de Israel fez para que as muralhas da cidade de Jericó viessem ao chão?",
+                "options": [
+                        "Usaram canhões",
+                        "Cavaram buracos",
+                        "Empurraram com as mãos",
+                        "Deram voltas na cidade, tocaram trombetas e gritaram"
+                ],
+                "correctIndex": 3,
+                "reference": "Josué 6:20",
+                "explanation": "O povo marchou em volta da cidade por 7 dias; quando tocaram as trombetas e deram um grande grito, as muralhas caíram!",
+                "xp": 100
         },
         {
-          "id": 5106,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "05. Teologia do Obreiro - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5006,
+                "question": "Quem orou a Deus e o sol parou no céu para ajudar o povo de Israel na batalha?",
+                "options": [
+                        "Josué",
+                        "Davi",
+                        "Gideão",
+                        "Sansão"
+                ],
+                "correctIndex": 0,
+                "reference": "Josué 10:12-13",
+                "explanation": "Josué orou com fé e o sol se deteve no meio do céu por quase um dia inteiro.",
+                "xp": 100
         },
         {
-          "id": 5107,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "05. Teologia do Obreiro - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5007,
+                "question": "Com quantos homens corajosos Deus deu a vitória a Gideão contra um exército gigante?",
+                "options": [
+                        "1.000 homens",
+                        "50 homens",
+                        "300 homens",
+                        "10.000 homens"
+                ],
+                "correctIndex": 2,
+                "reference": "Juízes 7:7",
+                "explanation": "Deus escolheu apenas 300 soldados que lamberam água com a mão para mostrar que a vitória vinha d'Ele.",
+                "xp": 100
         },
         {
-          "id": 5108,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "05. Teologia do Obreiro - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5008,
+                "question": "Quem era o homem mais forte da Bíblia que perdeu a força quando cortaram seu cabelo?",
+                "options": [
+                        "Saul",
+                        "Salomão",
+                        "Golias",
+                        "Sansão"
+                ],
+                "correctIndex": 3,
+                "reference": "Juízes 16:17",
+                "explanation": "Sansão fez um voto de nazireu a Deus; seu cabelo longo era o sinal da sua consagração e grande força.",
+                "xp": 100
         },
         {
-          "id": 5109,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "05. Teologia do Obreiro - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5009,
+                "question": "Qual jovem moça estrangeira foi muito fiel à sua sogra Noemi e disse: 'O teu povo é o meu povo, e o teu Deus é o meu Deus'?",
+                "options": [
+                        "Dalila",
+                        "Rute",
+                        "Ester",
+                        "Marta"
+                ],
+                "correctIndex": 1,
+                "reference": "Rute 1:16",
+                "explanation": "Rute demonstrou grande amor e fidelidade à Noemi e tornou-se parte da linhagem de Jesus.",
+                "xp": 100
         },
         {
-          "id": 5110,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "05. Teologia do Obreiro - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5010,
+                "question": "Quem era o menino que ajudava o sacerdote Eli no templo e ouviu Deus chamar seu nome três vezes à noite?",
+                "options": [
+                        "Davi",
+                        "Daniel",
+                        "Samuel",
+                        "Timóteo"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 3:10",
+                "explanation": "O menino Samuel respondeu com humildade: 'Fala, Senhor, porque o teu servo ouve!'",
+                "xp": 100
         },
         {
-          "id": 5111,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "05. Teologia do Obreiro - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5011,
+                "question": "Qual era o trabalho do menino Davi antes de se tornar rei de Israel?",
+                "options": [
+                        "Ferreiro",
+                        "Pescador",
+                        "Pastor de ovelhas",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:11",
+                "explanation": "Davi cuidava com carinho das ovelhinhas de seu pai Jessé e as protegia contra leões e ursos.",
+                "xp": 100
         },
         {
-          "id": 5112,
-          "question": "Em 05. Teologia do Obreiro, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "05. Teologia do Obreiro - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 5012,
+                "question": "O que Davi tocava com carinho para acalmar o coração do rei Saul?",
+                "options": [
+                        "Flauta",
+                        "Tambor",
+                        "Harpa",
+                        "Trombeta"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:23",
+                "explanation": "Davi tocava harpa com tanta unção e beleza que a tristeza e a inquietação do rei Saul iam embora.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 5201,
@@ -3023,174 +3023,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 6101,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "06. Profetas Maiores - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6001,
+                "question": "O que o povo de Israel fez para que as muralhas da cidade de Jericó viessem ao chão?",
+                "options": [
+                        "Usaram canhões",
+                        "Cavaram buracos",
+                        "Empurraram com as mãos",
+                        "Deram voltas na cidade, tocaram trombetas e gritaram"
+                ],
+                "correctIndex": 3,
+                "reference": "Josué 6:20",
+                "explanation": "O povo marchou em volta da cidade por 7 dias; quando tocaram as trombetas e deram um grande grito, as muralhas caíram!",
+                "xp": 100
         },
         {
-          "id": 6102,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "06. Profetas Maiores - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6002,
+                "question": "Quem orou a Deus e o sol parou no céu para ajudar o povo de Israel na batalha?",
+                "options": [
+                        "Josué",
+                        "Davi",
+                        "Gideão",
+                        "Sansão"
+                ],
+                "correctIndex": 0,
+                "reference": "Josué 10:12-13",
+                "explanation": "Josué orou com fé e o sol se deteve no meio do céu por quase um dia inteiro.",
+                "xp": 100
         },
         {
-          "id": 6103,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "06. Profetas Maiores - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6003,
+                "question": "Com quantos homens corajosos Deus deu a vitória a Gideão contra um exército gigante?",
+                "options": [
+                        "1.000 homens",
+                        "50 homens",
+                        "300 homens",
+                        "10.000 homens"
+                ],
+                "correctIndex": 2,
+                "reference": "Juízes 7:7",
+                "explanation": "Deus escolheu apenas 300 soldados que lamberam água com a mão para mostrar que a vitória vinha d'Ele.",
+                "xp": 100
         },
         {
-          "id": 6104,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "06. Profetas Maiores - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6004,
+                "question": "Quem era o homem mais forte da Bíblia que perdeu a força quando cortaram seu cabelo?",
+                "options": [
+                        "Saul",
+                        "Salomão",
+                        "Golias",
+                        "Sansão"
+                ],
+                "correctIndex": 3,
+                "reference": "Juízes 16:17",
+                "explanation": "Sansão fez um voto de nazireu a Deus; seu cabelo longo era o sinal da sua consagração e grande força.",
+                "xp": 100
         },
         {
-          "id": 6105,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "06. Profetas Maiores - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6005,
+                "question": "Qual jovem moça estrangeira foi muito fiel à sua sogra Noemi e disse: 'O teu povo é o meu povo, e o teu Deus é o meu Deus'?",
+                "options": [
+                        "Dalila",
+                        "Rute",
+                        "Ester",
+                        "Marta"
+                ],
+                "correctIndex": 1,
+                "reference": "Rute 1:16",
+                "explanation": "Rute demonstrou grande amor e fidelidade à Noemi e tornou-se parte da linhagem de Jesus.",
+                "xp": 100
         },
         {
-          "id": 6106,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "06. Profetas Maiores - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6006,
+                "question": "Quem era o menino que ajudava o sacerdote Eli no templo e ouviu Deus chamar seu nome três vezes à noite?",
+                "options": [
+                        "Davi",
+                        "Daniel",
+                        "Samuel",
+                        "Timóteo"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 3:10",
+                "explanation": "O menino Samuel respondeu com humildade: 'Fala, Senhor, porque o teu servo ouve!'",
+                "xp": 100
         },
         {
-          "id": 6107,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "06. Profetas Maiores - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6007,
+                "question": "Qual era o trabalho do menino Davi antes de se tornar rei de Israel?",
+                "options": [
+                        "Ferreiro",
+                        "Pescador",
+                        "Pastor de ovelhas",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:11",
+                "explanation": "Davi cuidava com carinho das ovelhinhas de seu pai Jessé e as protegia contra leões e ursos.",
+                "xp": 100
         },
         {
-          "id": 6108,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "06. Profetas Maiores - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6008,
+                "question": "O que Davi tocava com carinho para acalmar o coração do rei Saul?",
+                "options": [
+                        "Flauta",
+                        "Tambor",
+                        "Harpa",
+                        "Trombeta"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:23",
+                "explanation": "Davi tocava harpa com tanta unção e beleza que a tristeza e a inquietação do rei Saul iam embora.",
+                "xp": 100
         },
         {
-          "id": 6109,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "06. Profetas Maiores - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6009,
+                "question": "O que Davi usou para derrotar o gigante Golias que zombava do exército de Deus?",
+                "options": [
+                        "Um arco e flecha",
+                        "Uma funda e uma pedrinha lisa",
+                        "Uma espada pesada",
+                        "Uma lança de fogo"
+                ],
+                "correctIndex": 1,
+                "reference": "1 Samuel 17:49-50",
+                "explanation": "Davi foi em nome do Senhor dos Exércitos com apenas uma funda e acertou uma pedrinha na testa do gigante.",
+                "xp": 100
         },
         {
-          "id": 6110,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "06. Profetas Maiores - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6010,
+                "question": "Quem era o melhor e mais fiel amigo de Davi, filho do rei Saul?",
+                "options": [
+                        "Jônatas",
+                        "Abner",
+                        "Absalão",
+                        "Salomão"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Samuel 18:1",
+                "explanation": "A amizade entre Davi e Jônatas era linda, cheia de lealdade, proteção mútua e temor a Deus.",
+                "xp": 100
         },
         {
-          "id": 6111,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "06. Profetas Maiores - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6011,
+                "question": "Quando Deus apareceu num sonho e perguntou a Salomão o que ele queria ganhar, o que o jovem rei pediu?",
+                "options": [
+                        "Sabedoria para governar o povo",
+                        "Riquezas e ouro",
+                        "Vida longa",
+                        "Vitória sobre inimigos"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 3:9",
+                "explanation": "Salomão pediu sabedoria e um coração entendido para cuidar bem do povo de Deus, e Deus se alegrou muito.",
+                "xp": 100
         },
         {
-          "id": 6112,
-          "question": "Em 06. Profetas Maiores, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "06. Profetas Maiores - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 6012,
+                "question": "Quem construiu o primeiro e magnífico Templo de pedra e ouro para Deus em Jerusalém?",
+                "options": [
+                        "Rei Salomão",
+                        "Moisés",
+                        "Rei Saul",
+                        "Rei Davi"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 6:1",
+                "explanation": "O rei Salomão edificou o templo mais lindo da história para que o nome de Deus fosse louvado.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 6201,
@@ -3618,174 +3618,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 7101,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "07. Profetas Menores - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7001,
+                "question": "Qual jovem moça estrangeira foi muito fiel à sua sogra Noemi e disse: 'O teu povo é o meu povo, e o teu Deus é o meu Deus'?",
+                "options": [
+                        "Dalila",
+                        "Rute",
+                        "Ester",
+                        "Marta"
+                ],
+                "correctIndex": 1,
+                "reference": "Rute 1:16",
+                "explanation": "Rute demonstrou grande amor e fidelidade à Noemi e tornou-se parte da linhagem de Jesus.",
+                "xp": 100
         },
         {
-          "id": 7102,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "07. Profetas Menores - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7002,
+                "question": "Quem era o menino que ajudava o sacerdote Eli no templo e ouviu Deus chamar seu nome três vezes à noite?",
+                "options": [
+                        "Davi",
+                        "Daniel",
+                        "Samuel",
+                        "Timóteo"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 3:10",
+                "explanation": "O menino Samuel respondeu com humildade: 'Fala, Senhor, porque o teu servo ouve!'",
+                "xp": 100
         },
         {
-          "id": 7103,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "07. Profetas Menores - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7003,
+                "question": "Qual era o trabalho do menino Davi antes de se tornar rei de Israel?",
+                "options": [
+                        "Ferreiro",
+                        "Pescador",
+                        "Pastor de ovelhas",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:11",
+                "explanation": "Davi cuidava com carinho das ovelhinhas de seu pai Jessé e as protegia contra leões e ursos.",
+                "xp": 100
         },
         {
-          "id": 7104,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "07. Profetas Menores - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7004,
+                "question": "O que Davi tocava com carinho para acalmar o coração do rei Saul?",
+                "options": [
+                        "Flauta",
+                        "Tambor",
+                        "Harpa",
+                        "Trombeta"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Samuel 16:23",
+                "explanation": "Davi tocava harpa com tanta unção e beleza que a tristeza e a inquietação do rei Saul iam embora.",
+                "xp": 100
         },
         {
-          "id": 7105,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "07. Profetas Menores - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7005,
+                "question": "O que Davi usou para derrotar o gigante Golias que zombava do exército de Deus?",
+                "options": [
+                        "Um arco e flecha",
+                        "Uma funda e uma pedrinha lisa",
+                        "Uma espada pesada",
+                        "Uma lança de fogo"
+                ],
+                "correctIndex": 1,
+                "reference": "1 Samuel 17:49-50",
+                "explanation": "Davi foi em nome do Senhor dos Exércitos com apenas uma funda e acertou uma pedrinha na testa do gigante.",
+                "xp": 100
         },
         {
-          "id": 7106,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "07. Profetas Menores - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7006,
+                "question": "Quem era o melhor e mais fiel amigo de Davi, filho do rei Saul?",
+                "options": [
+                        "Jônatas",
+                        "Abner",
+                        "Absalão",
+                        "Salomão"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Samuel 18:1",
+                "explanation": "A amizade entre Davi e Jônatas era linda, cheia de lealdade, proteção mútua e temor a Deus.",
+                "xp": 100
         },
         {
-          "id": 7107,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "07. Profetas Menores - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7007,
+                "question": "Quando Deus apareceu num sonho e perguntou a Salomão o que ele queria ganhar, o que o jovem rei pediu?",
+                "options": [
+                        "Sabedoria para governar o povo",
+                        "Riquezas e ouro",
+                        "Vida longa",
+                        "Vitória sobre inimigos"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 3:9",
+                "explanation": "Salomão pediu sabedoria e um coração entendido para cuidar bem do povo de Deus, e Deus se alegrou muito.",
+                "xp": 100
         },
         {
-          "id": 7108,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "07. Profetas Menores - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7008,
+                "question": "Quem construiu o primeiro e magnífico Templo de pedra e ouro para Deus em Jerusalém?",
+                "options": [
+                        "Rei Salomão",
+                        "Moisés",
+                        "Rei Saul",
+                        "Rei Davi"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 6:1",
+                "explanation": "O rei Salomão edificou o templo mais lindo da história para que o nome de Deus fosse louvado.",
+                "xp": 100
         },
         {
-          "id": 7109,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "07. Profetas Menores - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7009,
+                "question": "Que pássaros Deus enviou para levar pão e carne para o profeta Elias junto ao ribeiro de Querite?",
+                "options": [
+                        "Águias",
+                        "Pombas",
+                        "Corvos",
+                        "Andorinhas"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Reis 17:6",
+                "explanation": "Pela manhã e à tarde, os corvos traziam pão e carne fresquinha para alimentar o profeta Elias.",
+                "xp": 100
         },
         {
-          "id": 7110,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "07. Profetas Menores - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7010,
+                "question": "Como o profeta Elias foi levado para o céu sem ver a morte?",
+                "options": [
+                        "Num grande barco",
+                        "Dormindo num monte",
+                        "Numa carruagem de fogo com cavalos de fogo num redemoinho",
+                        "Voando com asas"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 2:11",
+                "explanation": "Elias subiu ao céu num redemoinho acompanhado por carruagens e cavalos de fogo.",
+                "xp": 100
         },
         {
-          "id": 7111,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "07. Profetas Menores - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7011,
+                "question": "O que o profeta Eliseu multiplicou para ajudar uma mãe viúva pobre a pagar suas dívidas?",
+                "options": [
+                        "Moedas de prata",
+                        "Peixes assados",
+                        "Azeite nas vasilhas",
+                        "Pães de cevada"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 4:1-7",
+                "explanation": "O azeite jorrou sem parar em todas as vasilhas que a viúva reuniu, até que não sobrou mais nenhum pote vazio.",
+                "xp": 100
         },
         {
-          "id": 7112,
-          "question": "Em 07. Profetas Menores, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "07. Profetas Menores - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 7012,
+                "question": "Quantas vezes o capitão Naamã teve que mergulhar no Rio Jordão para ser curado da lepra?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "12 vezes",
+                        "3 vezes"
+                ],
+                "correctIndex": 0,
+                "reference": "2 Reis 5:14",
+                "explanation": "Naamã mergulhou 7 vezes no Jordão e sua pele ficou limpa e macia como a pele de uma criancinha.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 7201,
@@ -4213,174 +4213,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 8101,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "08. Eclesiologia - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8001,
+                "question": "O que Davi usou para derrotar o gigante Golias que zombava do exército de Deus?",
+                "options": [
+                        "Um arco e flecha",
+                        "Uma funda e uma pedrinha lisa",
+                        "Uma espada pesada",
+                        "Uma lança de fogo"
+                ],
+                "correctIndex": 1,
+                "reference": "1 Samuel 17:49-50",
+                "explanation": "Davi foi em nome do Senhor dos Exércitos com apenas uma funda e acertou uma pedrinha na testa do gigante.",
+                "xp": 100
         },
         {
-          "id": 8102,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "08. Eclesiologia - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8002,
+                "question": "Quem era o melhor e mais fiel amigo de Davi, filho do rei Saul?",
+                "options": [
+                        "Jônatas",
+                        "Abner",
+                        "Absalão",
+                        "Salomão"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Samuel 18:1",
+                "explanation": "A amizade entre Davi e Jônatas era linda, cheia de lealdade, proteção mútua e temor a Deus.",
+                "xp": 100
         },
         {
-          "id": 8103,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "08. Eclesiologia - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8003,
+                "question": "Quando Deus apareceu num sonho e perguntou a Salomão o que ele queria ganhar, o que o jovem rei pediu?",
+                "options": [
+                        "Sabedoria para governar o povo",
+                        "Riquezas e ouro",
+                        "Vida longa",
+                        "Vitória sobre inimigos"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 3:9",
+                "explanation": "Salomão pediu sabedoria e um coração entendido para cuidar bem do povo de Deus, e Deus se alegrou muito.",
+                "xp": 100
         },
         {
-          "id": 8104,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "08. Eclesiologia - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8004,
+                "question": "Quem construiu o primeiro e magnífico Templo de pedra e ouro para Deus em Jerusalém?",
+                "options": [
+                        "Rei Salomão",
+                        "Moisés",
+                        "Rei Saul",
+                        "Rei Davi"
+                ],
+                "correctIndex": 0,
+                "reference": "1 Reis 6:1",
+                "explanation": "O rei Salomão edificou o templo mais lindo da história para que o nome de Deus fosse louvado.",
+                "xp": 100
         },
         {
-          "id": 8105,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "08. Eclesiologia - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8005,
+                "question": "Que pássaros Deus enviou para levar pão e carne para o profeta Elias junto ao ribeiro de Querite?",
+                "options": [
+                        "Águias",
+                        "Pombas",
+                        "Corvos",
+                        "Andorinhas"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Reis 17:6",
+                "explanation": "Pela manhã e à tarde, os corvos traziam pão e carne fresquinha para alimentar o profeta Elias.",
+                "xp": 100
         },
         {
-          "id": 8106,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "08. Eclesiologia - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8006,
+                "question": "Como o profeta Elias foi levado para o céu sem ver a morte?",
+                "options": [
+                        "Num grande barco",
+                        "Dormindo num monte",
+                        "Numa carruagem de fogo com cavalos de fogo num redemoinho",
+                        "Voando com asas"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 2:11",
+                "explanation": "Elias subiu ao céu num redemoinho acompanhado por carruagens e cavalos de fogo.",
+                "xp": 100
         },
         {
-          "id": 8107,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "08. Eclesiologia - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8007,
+                "question": "O que o profeta Eliseu multiplicou para ajudar uma mãe viúva pobre a pagar suas dívidas?",
+                "options": [
+                        "Moedas de prata",
+                        "Peixes assados",
+                        "Azeite nas vasilhas",
+                        "Pães de cevada"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 4:1-7",
+                "explanation": "O azeite jorrou sem parar em todas as vasilhas que a viúva reuniu, até que não sobrou mais nenhum pote vazio.",
+                "xp": 100
         },
         {
-          "id": 8108,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "08. Eclesiologia - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8008,
+                "question": "Quantas vezes o capitão Naamã teve que mergulhar no Rio Jordão para ser curado da lepra?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "12 vezes",
+                        "3 vezes"
+                ],
+                "correctIndex": 0,
+                "reference": "2 Reis 5:14",
+                "explanation": "Naamã mergulhou 7 vezes no Jordão e sua pele ficou limpa e macia como a pele de uma criancinha.",
+                "xp": 100
         },
         {
-          "id": 8109,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "08. Eclesiologia - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8009,
+                "question": "Qual jovem judia se tornou rainha da Pérsia e arriscou a própria vida para salvar seu povo?",
+                "options": [
+                        "Rainha de Sabá",
+                        "Rainha Ester",
+                        "Maria",
+                        "Débora"
+                ],
+                "correctIndex": 1,
+                "reference": "Ester 4:16; 7:3",
+                "explanation": "A corajosa rainha Ester jejuou, orou a Deus e intercedeu diante do rei, salvando todo o povo judeu.",
+                "xp": 100
         },
         {
-          "id": 8110,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "08. Eclesiologia - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8010,
+                "question": "O que o profeta Daniel e seus três amigos escolheram comer na Babilônia para não se contaminarem com a comida do rei?",
+                "options": [
+                        "Legumes e água",
+                        "Doces e bolos",
+                        "Carnes e vinhos",
+                        "Frutas raras"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 1:12",
+                "explanation": "Eles comeram legumes simples e beberam água pura, e Deus os deixou mais fortes, sábios e saudáveis que todos.",
+                "xp": 100
         },
         {
-          "id": 8111,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "08. Eclesiologia - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8011,
+                "question": "Quem andava junto com Sadraque, Mesaque e Abede-Nego dentro da fornalha de fogo ardente sem que eles queimassem?",
+                "options": [
+                        "Um quarto homem semelhante ao Filho de Deus (anjo do Senhor)",
+                        "O rei Nabucodonosor",
+                        "Ninguém",
+                        "O profeta Daniel"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 3:25",
+                "explanation": "Jesus/o anjo do Senhor andava no meio do fogo com eles, e nem mesmo cheiro de fumaça ficou nas suas roupas!",
+                "xp": 100
         },
         {
-          "id": 8112,
-          "question": "Em 08. Eclesiologia, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "08. Eclesiologia - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 8012,
+                "question": "Por que Daniel foi jogado na cova dos leões famintos?",
+                "options": [
+                        "Porque brigou com o rei",
+                        "Porque continuou orando três vezes ao dia a Deus na janela",
+                        "Porque fugiu da cidade",
+                        "Porque roubou pão"
+                ],
+                "correctIndex": 1,
+                "reference": "Daniel 6:10, 16",
+                "explanation": "Daniel amava a Deus e não parou de orar; Deus enviou Seu anjo que fechou a boca dos leões a noite inteira!",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 8201,
@@ -4808,174 +4808,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 9101,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "09. Doutrina da Salvação - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9001,
+                "question": "Que pássaros Deus enviou para levar pão e carne para o profeta Elias junto ao ribeiro de Querite?",
+                "options": [
+                        "Águias",
+                        "Pombas",
+                        "Corvos",
+                        "Andorinhas"
+                ],
+                "correctIndex": 2,
+                "reference": "1 Reis 17:6",
+                "explanation": "Pela manhã e à tarde, os corvos traziam pão e carne fresquinha para alimentar o profeta Elias.",
+                "xp": 100
         },
         {
-          "id": 9102,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "09. Doutrina da Salvação - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9002,
+                "question": "Como o profeta Elias foi levado para o céu sem ver a morte?",
+                "options": [
+                        "Num grande barco",
+                        "Dormindo num monte",
+                        "Numa carruagem de fogo com cavalos de fogo num redemoinho",
+                        "Voando com asas"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 2:11",
+                "explanation": "Elias subiu ao céu num redemoinho acompanhado por carruagens e cavalos de fogo.",
+                "xp": 100
         },
         {
-          "id": 9103,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "09. Doutrina da Salvação - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9003,
+                "question": "O que o profeta Eliseu multiplicou para ajudar uma mãe viúva pobre a pagar suas dívidas?",
+                "options": [
+                        "Moedas de prata",
+                        "Peixes assados",
+                        "Azeite nas vasilhas",
+                        "Pães de cevada"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Reis 4:1-7",
+                "explanation": "O azeite jorrou sem parar em todas as vasilhas que a viúva reuniu, até que não sobrou mais nenhum pote vazio.",
+                "xp": 100
         },
         {
-          "id": 9104,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "09. Doutrina da Salvação - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9004,
+                "question": "Quantas vezes o capitão Naamã teve que mergulhar no Rio Jordão para ser curado da lepra?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "12 vezes",
+                        "3 vezes"
+                ],
+                "correctIndex": 0,
+                "reference": "2 Reis 5:14",
+                "explanation": "Naamã mergulhou 7 vezes no Jordão e sua pele ficou limpa e macia como a pele de uma criancinha.",
+                "xp": 100
         },
         {
-          "id": 9105,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "09. Doutrina da Salvação - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9005,
+                "question": "Qual jovem judia se tornou rainha da Pérsia e arriscou a própria vida para salvar seu povo?",
+                "options": [
+                        "Rainha de Sabá",
+                        "Rainha Ester",
+                        "Maria",
+                        "Débora"
+                ],
+                "correctIndex": 1,
+                "reference": "Ester 4:16; 7:3",
+                "explanation": "A corajosa rainha Ester jejuou, orou a Deus e intercedeu diante do rei, salvando todo o povo judeu.",
+                "xp": 100
         },
         {
-          "id": 9106,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "09. Doutrina da Salvação - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9006,
+                "question": "O que o profeta Daniel e seus três amigos escolheram comer na Babilônia para não se contaminarem com a comida do rei?",
+                "options": [
+                        "Legumes e água",
+                        "Doces e bolos",
+                        "Carnes e vinhos",
+                        "Frutas raras"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 1:12",
+                "explanation": "Eles comeram legumes simples e beberam água pura, e Deus os deixou mais fortes, sábios e saudáveis que todos.",
+                "xp": 100
         },
         {
-          "id": 9107,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "09. Doutrina da Salvação - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9007,
+                "question": "Quem andava junto com Sadraque, Mesaque e Abede-Nego dentro da fornalha de fogo ardente sem que eles queimassem?",
+                "options": [
+                        "Um quarto homem semelhante ao Filho de Deus (anjo do Senhor)",
+                        "O rei Nabucodonosor",
+                        "Ninguém",
+                        "O profeta Daniel"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 3:25",
+                "explanation": "Jesus/o anjo do Senhor andava no meio do fogo com eles, e nem mesmo cheiro de fumaça ficou nas suas roupas!",
+                "xp": 100
         },
         {
-          "id": 9108,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "09. Doutrina da Salvação - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9008,
+                "question": "Por que Daniel foi jogado na cova dos leões famintos?",
+                "options": [
+                        "Porque brigou com o rei",
+                        "Porque continuou orando três vezes ao dia a Deus na janela",
+                        "Porque fugiu da cidade",
+                        "Porque roubou pão"
+                ],
+                "correctIndex": 1,
+                "reference": "Daniel 6:10, 16",
+                "explanation": "Daniel amava a Deus e não parou de orar; Deus enviou Seu anjo que fechou a boca dos leões a noite inteira!",
+                "xp": 100
         },
         {
-          "id": 9109,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "09. Doutrina da Salvação - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9009,
+                "question": "Quem tentou fugir de navio para longe de Deus e acabou sendo engolido por um grande peixe?",
+                "options": [
+                        "João",
+                        "Paulo",
+                        "Jonas",
+                        "Pedro"
+                ],
+                "correctIndex": 2,
+                "reference": "Jonas 1:17",
+                "explanation": "Jonas ficou três dias e três noites na barriga do grande peixe, orou arrependido e o peixe o cuspiu em terra seca.",
+                "xp": 100
         },
         {
-          "id": 9110,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "09. Doutrina da Salvação - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9010,
+                "question": "Qual anjo foi enviado por Deus para anunciar a Maria que ela seria a mãe do Salvador Jesus?",
+                "options": [
+                        "Anjo Rafael",
+                        "Anjo Miguel",
+                        "Anjo Gabriel",
+                        "Anjo Querubim"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 1:26-31",
+                "explanation": "O anjo Gabriel trouxe a linda notícia de que o Espírito Santo geraria Jesus, o Filho do Altíssimo.",
+                "xp": 100
         },
         {
-          "id": 9111,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "09. Doutrina da Salvação - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9011,
+                "question": "Em qual cidade pequena nasceu o menino Jesus, conforme os profetas haviam anunciado?",
+                "options": [
+                        "Roma",
+                        "Jerusalém",
+                        "Nazaré",
+                        "Belém"
+                ],
+                "correctIndex": 3,
+                "reference": "Miquéias 5:2; Lucas 2:4",
+                "explanation": "Jesus nasceu em Belém de Judá, a cidade do rei Davi, cumprindo as profecias das Escrituras.",
+                "xp": 100
         },
         {
-          "id": 9112,
-          "question": "Em 09. Doutrina da Salvação, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "09. Doutrina da Salvação - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 9012,
+                "question": "Onde a mãe de Jesus, Maria, colocou o bebê recém-nascido para dormir porque não havia lugar na hospedaria?",
+                "options": [
+                        "Num trono de ouro",
+                        "Numa carruagem",
+                        "Numa cama de veludo",
+                        "Numa manjedoura (cocho de animais)"
+                ],
+                "correctIndex": 3,
+                "reference": "Lucas 2:7",
+                "explanation": "Jesus, o Rei dos reis, nasceu com muita humildade e foi deitado carinhosamente numa manjedoura.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 9201,
@@ -5403,174 +5403,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 10101,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "10. Apocalipse - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10001,
+                "question": "Qual jovem judia se tornou rainha da Pérsia e arriscou a própria vida para salvar seu povo?",
+                "options": [
+                        "Rainha de Sabá",
+                        "Rainha Ester",
+                        "Maria",
+                        "Débora"
+                ],
+                "correctIndex": 1,
+                "reference": "Ester 4:16; 7:3",
+                "explanation": "A corajosa rainha Ester jejuou, orou a Deus e intercedeu diante do rei, salvando todo o povo judeu.",
+                "xp": 100
         },
         {
-          "id": 10102,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "10. Apocalipse - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10002,
+                "question": "O que o profeta Daniel e seus três amigos escolheram comer na Babilônia para não se contaminarem com a comida do rei?",
+                "options": [
+                        "Legumes e água",
+                        "Doces e bolos",
+                        "Carnes e vinhos",
+                        "Frutas raras"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 1:12",
+                "explanation": "Eles comeram legumes simples e beberam água pura, e Deus os deixou mais fortes, sábios e saudáveis que todos.",
+                "xp": 100
         },
         {
-          "id": 10103,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "10. Apocalipse - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10003,
+                "question": "Quem andava junto com Sadraque, Mesaque e Abede-Nego dentro da fornalha de fogo ardente sem que eles queimassem?",
+                "options": [
+                        "Um quarto homem semelhante ao Filho de Deus (anjo do Senhor)",
+                        "O rei Nabucodonosor",
+                        "Ninguém",
+                        "O profeta Daniel"
+                ],
+                "correctIndex": 0,
+                "reference": "Daniel 3:25",
+                "explanation": "Jesus/o anjo do Senhor andava no meio do fogo com eles, e nem mesmo cheiro de fumaça ficou nas suas roupas!",
+                "xp": 100
         },
         {
-          "id": 10104,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "10. Apocalipse - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10004,
+                "question": "Por que Daniel foi jogado na cova dos leões famintos?",
+                "options": [
+                        "Porque brigou com o rei",
+                        "Porque continuou orando três vezes ao dia a Deus na janela",
+                        "Porque fugiu da cidade",
+                        "Porque roubou pão"
+                ],
+                "correctIndex": 1,
+                "reference": "Daniel 6:10, 16",
+                "explanation": "Daniel amava a Deus e não parou de orar; Deus enviou Seu anjo que fechou a boca dos leões a noite inteira!",
+                "xp": 100
         },
         {
-          "id": 10105,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "10. Apocalipse - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10005,
+                "question": "Quem tentou fugir de navio para longe de Deus e acabou sendo engolido por um grande peixe?",
+                "options": [
+                        "João",
+                        "Paulo",
+                        "Jonas",
+                        "Pedro"
+                ],
+                "correctIndex": 2,
+                "reference": "Jonas 1:17",
+                "explanation": "Jonas ficou três dias e três noites na barriga do grande peixe, orou arrependido e o peixe o cuspiu em terra seca.",
+                "xp": 100
         },
         {
-          "id": 10106,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "10. Apocalipse - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10006,
+                "question": "Qual anjo foi enviado por Deus para anunciar a Maria que ela seria a mãe do Salvador Jesus?",
+                "options": [
+                        "Anjo Rafael",
+                        "Anjo Miguel",
+                        "Anjo Gabriel",
+                        "Anjo Querubim"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 1:26-31",
+                "explanation": "O anjo Gabriel trouxe a linda notícia de que o Espírito Santo geraria Jesus, o Filho do Altíssimo.",
+                "xp": 100
         },
         {
-          "id": 10107,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "10. Apocalipse - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10007,
+                "question": "Em qual cidade pequena nasceu o menino Jesus, conforme os profetas haviam anunciado?",
+                "options": [
+                        "Roma",
+                        "Jerusalém",
+                        "Nazaré",
+                        "Belém"
+                ],
+                "correctIndex": 3,
+                "reference": "Miquéias 5:2; Lucas 2:4",
+                "explanation": "Jesus nasceu em Belém de Judá, a cidade do rei Davi, cumprindo as profecias das Escrituras.",
+                "xp": 100
         },
         {
-          "id": 10108,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "10. Apocalipse - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10008,
+                "question": "Onde a mãe de Jesus, Maria, colocou o bebê recém-nascido para dormir porque não havia lugar na hospedaria?",
+                "options": [
+                        "Num trono de ouro",
+                        "Numa carruagem",
+                        "Numa cama de veludo",
+                        "Numa manjedoura (cocho de animais)"
+                ],
+                "correctIndex": 3,
+                "reference": "Lucas 2:7",
+                "explanation": "Jesus, o Rei dos reis, nasceu com muita humildade e foi deitado carinhosamente numa manjedoura.",
+                "xp": 100
         },
         {
-          "id": 10109,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "10. Apocalipse - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10009,
+                "question": "Quem foram as primeiras pessoas a serem avisadas pelos anjos cantando sobre o nascimento de Jesus?",
+                "options": [
+                        "Os pastores no campo cuidando das ovelhas",
+                        "Os reis no palácio",
+                        "Os comerciantes do mercado",
+                        "Os soldados de Roma"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 2:8-14",
+                "explanation": "Os anjos apareceram no céu iluminado aos pastores simples dizendo: 'Glória a Deus nas maiores alturas e paz na terra!'",
+                "xp": 100
         },
         {
-          "id": 10110,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "10. Apocalipse - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10010,
+                "question": "O que guiou os três sábios magos do Oriente até a casa onde estava o menino Jesus?",
+                "options": [
+                        "Um mensageiro a cavalo",
+                        "Um mapa de papel",
+                        "Uma pomba branca",
+                        "Uma estrela brilhante no céu"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:2, 9",
+                "explanation": "Uma linda estrela resplandecente no céu caminhou adiante dos magos até parar sobre o lugar onde estava o Menino.",
+                "xp": 100
         },
         {
-          "id": 10111,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "10. Apocalipse - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10011,
+                "question": "Quais foram os três presentes especiais que os magos ofertaram ao menino Jesus?",
+                "options": [
+                        "Roupas, sapatos e coroas",
+                        "Prata, trigo e vinho",
+                        "Pão, leite e mel",
+                        "Ouro, incenso e mirra"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:11",
+                "explanation": "Eles abriram seus tesouros e deram ouro (para o Rei), incenso (para Deus) e mirra (para o Salvador).",
+                "xp": 100
         },
         {
-          "id": 10112,
-          "question": "Em 10. Apocalipse, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "10. Apocalipse - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 10012,
+                "question": "Qual era a profissão de José, o pai terreno que cuidou de Jesus com muito carinho?",
+                "options": [
+                        "Pescador",
+                        "Pastor de camelos",
+                        "Carpinteiro (trabalhava com madeira)",
+                        "Soldado"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 13:55",
+                "explanation": "José era um justo e dedicado carpinteiro que ensinou a Jesus o ofício de trabalhar com madeira.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 10201,
@@ -5998,174 +5998,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 11101,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "11. O Pentateuco - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11001,
+                "question": "Quem tentou fugir de navio para longe de Deus e acabou sendo engolido por um grande peixe?",
+                "options": [
+                        "João",
+                        "Paulo",
+                        "Jonas",
+                        "Pedro"
+                ],
+                "correctIndex": 2,
+                "reference": "Jonas 1:17",
+                "explanation": "Jonas ficou três dias e três noites na barriga do grande peixe, orou arrependido e o peixe o cuspiu em terra seca.",
+                "xp": 100
         },
         {
-          "id": 11102,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "11. O Pentateuco - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11002,
+                "question": "Qual anjo foi enviado por Deus para anunciar a Maria que ela seria a mãe do Salvador Jesus?",
+                "options": [
+                        "Anjo Rafael",
+                        "Anjo Miguel",
+                        "Anjo Gabriel",
+                        "Anjo Querubim"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 1:26-31",
+                "explanation": "O anjo Gabriel trouxe a linda notícia de que o Espírito Santo geraria Jesus, o Filho do Altíssimo.",
+                "xp": 100
         },
         {
-          "id": 11103,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "11. O Pentateuco - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11003,
+                "question": "Em qual cidade pequena nasceu o menino Jesus, conforme os profetas haviam anunciado?",
+                "options": [
+                        "Roma",
+                        "Jerusalém",
+                        "Nazaré",
+                        "Belém"
+                ],
+                "correctIndex": 3,
+                "reference": "Miquéias 5:2; Lucas 2:4",
+                "explanation": "Jesus nasceu em Belém de Judá, a cidade do rei Davi, cumprindo as profecias das Escrituras.",
+                "xp": 100
         },
         {
-          "id": 11104,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "11. O Pentateuco - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11004,
+                "question": "Onde a mãe de Jesus, Maria, colocou o bebê recém-nascido para dormir porque não havia lugar na hospedaria?",
+                "options": [
+                        "Num trono de ouro",
+                        "Numa carruagem",
+                        "Numa cama de veludo",
+                        "Numa manjedoura (cocho de animais)"
+                ],
+                "correctIndex": 3,
+                "reference": "Lucas 2:7",
+                "explanation": "Jesus, o Rei dos reis, nasceu com muita humildade e foi deitado carinhosamente numa manjedoura.",
+                "xp": 100
         },
         {
-          "id": 11105,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "11. O Pentateuco - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11005,
+                "question": "Quem foram as primeiras pessoas a serem avisadas pelos anjos cantando sobre o nascimento de Jesus?",
+                "options": [
+                        "Os pastores no campo cuidando das ovelhas",
+                        "Os reis no palácio",
+                        "Os comerciantes do mercado",
+                        "Os soldados de Roma"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 2:8-14",
+                "explanation": "Os anjos apareceram no céu iluminado aos pastores simples dizendo: 'Glória a Deus nas maiores alturas e paz na terra!'",
+                "xp": 100
         },
         {
-          "id": 11106,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "11. O Pentateuco - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11006,
+                "question": "O que guiou os três sábios magos do Oriente até a casa onde estava o menino Jesus?",
+                "options": [
+                        "Um mensageiro a cavalo",
+                        "Um mapa de papel",
+                        "Uma pomba branca",
+                        "Uma estrela brilhante no céu"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:2, 9",
+                "explanation": "Uma linda estrela resplandecente no céu caminhou adiante dos magos até parar sobre o lugar onde estava o Menino.",
+                "xp": 100
         },
         {
-          "id": 11107,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "11. O Pentateuco - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11007,
+                "question": "Quais foram os três presentes especiais que os magos ofertaram ao menino Jesus?",
+                "options": [
+                        "Roupas, sapatos e coroas",
+                        "Prata, trigo e vinho",
+                        "Pão, leite e mel",
+                        "Ouro, incenso e mirra"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:11",
+                "explanation": "Eles abriram seus tesouros e deram ouro (para o Rei), incenso (para Deus) e mirra (para o Salvador).",
+                "xp": 100
         },
         {
-          "id": 11108,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "11. O Pentateuco - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11008,
+                "question": "Qual era a profissão de José, o pai terreno que cuidou de Jesus com muito carinho?",
+                "options": [
+                        "Pescador",
+                        "Pastor de camelos",
+                        "Carpinteiro (trabalhava com madeira)",
+                        "Soldado"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 13:55",
+                "explanation": "José era um justo e dedicado carpinteiro que ensinou a Jesus o ofício de trabalhar com madeira.",
+                "xp": 100
         },
         {
-          "id": 11109,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "11. O Pentateuco - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11009,
+                "question": "Onde os pais encontraram o menino Jesus aos 12 anos, ouvindo e conversando com os doutores e mestres?",
+                "options": [
+                        "No mercado de Nazaré",
+                        "No Templo em Jerusalém",
+                        "Brincando na praça",
+                        "No barco no rio"
+                ],
+                "correctIndex": 1,
+                "reference": "Lucas 2:46",
+                "explanation": "Jesus estava no Templo e todos ficavam maravilhados com a sabedoria e as respostas d'Ele.",
+                "xp": 100
         },
         {
-          "id": 11110,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "11. O Pentateuco - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11010,
+                "question": "Quem era o profeta que pregava no deserto, vestia pele de camelo e batizou Jesus no Rio Jordão?",
+                "options": [
+                        "Apóstolo Pedro",
+                        "Profeta Isaías",
+                        "Rei Herodes",
+                        "João Batista"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:1-13",
+                "explanation": "João Batista preparou o caminho para Jesus e O batizou nas águas do Rio Jordão.",
+                "xp": 100
         },
         {
-          "id": 11111,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "11. O Pentateuco - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11011,
+                "question": "Quando Jesus foi batizado, o que desceu do céu sobre Ele em forma de uma pomba?",
+                "options": [
+                        "Uma nuvem dourada",
+                        "Uma folha de louro",
+                        "Uma chuva de prata",
+                        "O Espírito Santo de Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:16",
+                "explanation": "O Espírito Santo desceu suavemente como pomba sobre Jesus e uma voz do céu disse: 'Este é o meu Filho amado!'",
+                "xp": 100
         },
         {
-          "id": 11112,
-          "question": "Em 11. O Pentateuco, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "11. O Pentateuco - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 11012,
+                "question": "Quantos discípulos mais achegados Jesus escolheu para serem Seus 12 Apóstolos?",
+                "options": [
+                        "10 discípulos",
+                        "20 discípulos",
+                        "12 discípulos",
+                        "7 discípulos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 6:13",
+                "explanation": "Jesus escolheu 12 homens fiéis para serem Seus apóstolos e ensinar a mensagem do Evangelho pelo mundo.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 11201,
@@ -6593,174 +6593,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 12101,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "12. Os Evangelhos - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12001,
+                "question": "Quem foram as primeiras pessoas a serem avisadas pelos anjos cantando sobre o nascimento de Jesus?",
+                "options": [
+                        "Os pastores no campo cuidando das ovelhas",
+                        "Os reis no palácio",
+                        "Os comerciantes do mercado",
+                        "Os soldados de Roma"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 2:8-14",
+                "explanation": "Os anjos apareceram no céu iluminado aos pastores simples dizendo: 'Glória a Deus nas maiores alturas e paz na terra!'",
+                "xp": 100
         },
         {
-          "id": 12102,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "12. Os Evangelhos - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12002,
+                "question": "O que guiou os três sábios magos do Oriente até a casa onde estava o menino Jesus?",
+                "options": [
+                        "Um mensageiro a cavalo",
+                        "Um mapa de papel",
+                        "Uma pomba branca",
+                        "Uma estrela brilhante no céu"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:2, 9",
+                "explanation": "Uma linda estrela resplandecente no céu caminhou adiante dos magos até parar sobre o lugar onde estava o Menino.",
+                "xp": 100
         },
         {
-          "id": 12103,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "12. Os Evangelhos - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12003,
+                "question": "Quais foram os três presentes especiais que os magos ofertaram ao menino Jesus?",
+                "options": [
+                        "Roupas, sapatos e coroas",
+                        "Prata, trigo e vinho",
+                        "Pão, leite e mel",
+                        "Ouro, incenso e mirra"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 2:11",
+                "explanation": "Eles abriram seus tesouros e deram ouro (para o Rei), incenso (para Deus) e mirra (para o Salvador).",
+                "xp": 100
         },
         {
-          "id": 12104,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "12. Os Evangelhos - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12004,
+                "question": "Qual era a profissão de José, o pai terreno que cuidou de Jesus com muito carinho?",
+                "options": [
+                        "Pescador",
+                        "Pastor de camelos",
+                        "Carpinteiro (trabalhava com madeira)",
+                        "Soldado"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 13:55",
+                "explanation": "José era um justo e dedicado carpinteiro que ensinou a Jesus o ofício de trabalhar com madeira.",
+                "xp": 100
         },
         {
-          "id": 12105,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "12. Os Evangelhos - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12005,
+                "question": "Onde os pais encontraram o menino Jesus aos 12 anos, ouvindo e conversando com os doutores e mestres?",
+                "options": [
+                        "No mercado de Nazaré",
+                        "No Templo em Jerusalém",
+                        "Brincando na praça",
+                        "No barco no rio"
+                ],
+                "correctIndex": 1,
+                "reference": "Lucas 2:46",
+                "explanation": "Jesus estava no Templo e todos ficavam maravilhados com a sabedoria e as respostas d'Ele.",
+                "xp": 100
         },
         {
-          "id": 12106,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "12. Os Evangelhos - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12006,
+                "question": "Quem era o profeta que pregava no deserto, vestia pele de camelo e batizou Jesus no Rio Jordão?",
+                "options": [
+                        "Apóstolo Pedro",
+                        "Profeta Isaías",
+                        "Rei Herodes",
+                        "João Batista"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:1-13",
+                "explanation": "João Batista preparou o caminho para Jesus e O batizou nas águas do Rio Jordão.",
+                "xp": 100
         },
         {
-          "id": 12107,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "12. Os Evangelhos - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12007,
+                "question": "Quando Jesus foi batizado, o que desceu do céu sobre Ele em forma de uma pomba?",
+                "options": [
+                        "Uma nuvem dourada",
+                        "Uma folha de louro",
+                        "Uma chuva de prata",
+                        "O Espírito Santo de Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:16",
+                "explanation": "O Espírito Santo desceu suavemente como pomba sobre Jesus e uma voz do céu disse: 'Este é o meu Filho amado!'",
+                "xp": 100
         },
         {
-          "id": 12108,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "12. Os Evangelhos - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12008,
+                "question": "Quantos discípulos mais achegados Jesus escolheu para serem Seus 12 Apóstolos?",
+                "options": [
+                        "10 discípulos",
+                        "20 discípulos",
+                        "12 discípulos",
+                        "7 discípulos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 6:13",
+                "explanation": "Jesus escolheu 12 homens fiéis para serem Seus apóstolos e ensinar a mensagem do Evangelho pelo mundo.",
+                "xp": 100
         },
         {
-          "id": 12109,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "12. Os Evangelhos - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12009,
+                "question": "Qual foi o primeiro milagre que Jesus realizou, durante uma festa de casamento em Caná da Galileia?",
+                "options": [
+                        "Transformou água em vinho puro",
+                        "Acalmou o vento",
+                        "Curou um leproso",
+                        "Multiplicou os pães"
+                ],
+                "correctIndex": 0,
+                "reference": "João 2:1-11",
+                "explanation": "A pedido de Sua mãe Maria, Jesus mandou encher 6 potes com água e a transformou no melhor vinho da festa.",
+                "xp": 100
         },
         {
-          "id": 12110,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "12. Os Evangelhos - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12010,
+                "question": "O que os discípulos Pedro, André, Tiago e João faziam de trabalho antes de Jesus chamá-los?",
+                "options": [
+                        "Eram pescadores no mar",
+                        "Eram alfaiates",
+                        "Eram pastores de vacas",
+                        "Eram soldados"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 4:18-22",
+                "explanation": "Eles pescavam com redes no mar, e Jesus lhes disse: 'Sigam-me e eu os farei pescadores de homens!'",
+                "xp": 100
         },
         {
-          "id": 12111,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "12. Os Evangelhos - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12011,
+                "question": "O que Jesus fez quando uma grande tempestade quase afundou o barco dos discípulos no Mar da Galileia?",
+                "options": [
+                        "Chorou com medo",
+                        "Mandou o vento e o mar se calarem e tudo ficou calmo",
+                        "Remou mais depressa",
+                        "Pulou na água"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 4:39",
+                "explanation": "Jesus Se levantou, repreendeu o vento forte e disse ao mar: 'Cala-te, aquieta-te!', e houve grande calmaria.",
+                "xp": 100
         },
         {
-          "id": 12112,
-          "question": "Em 12. Os Evangelhos, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "12. Os Evangelhos - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 12012,
+                "question": "Qual apóstolo pediu para descer do barco e andou por cima das águas ao encontro de Jesus?",
+                "options": [
+                        "Pedro",
+                        "Mateus",
+                        "João",
+                        "Tomé"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 14:29",
+                "explanation": "Pedro teve coragem e andou sobre a água enquanto olhou firmemente para Jesus.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 12201,
@@ -7188,174 +7188,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 13101,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "13. Atos dos Apóstolos - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13001,
+                "question": "Onde os pais encontraram o menino Jesus aos 12 anos, ouvindo e conversando com os doutores e mestres?",
+                "options": [
+                        "No mercado de Nazaré",
+                        "No Templo em Jerusalém",
+                        "Brincando na praça",
+                        "No barco no rio"
+                ],
+                "correctIndex": 1,
+                "reference": "Lucas 2:46",
+                "explanation": "Jesus estava no Templo e todos ficavam maravilhados com a sabedoria e as respostas d'Ele.",
+                "xp": 100
         },
         {
-          "id": 13102,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "13. Atos dos Apóstolos - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13002,
+                "question": "Quem era o profeta que pregava no deserto, vestia pele de camelo e batizou Jesus no Rio Jordão?",
+                "options": [
+                        "Apóstolo Pedro",
+                        "Profeta Isaías",
+                        "Rei Herodes",
+                        "João Batista"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:1-13",
+                "explanation": "João Batista preparou o caminho para Jesus e O batizou nas águas do Rio Jordão.",
+                "xp": 100
         },
         {
-          "id": 13103,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "13. Atos dos Apóstolos - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13003,
+                "question": "Quando Jesus foi batizado, o que desceu do céu sobre Ele em forma de uma pomba?",
+                "options": [
+                        "Uma nuvem dourada",
+                        "Uma folha de louro",
+                        "Uma chuva de prata",
+                        "O Espírito Santo de Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 3:16",
+                "explanation": "O Espírito Santo desceu suavemente como pomba sobre Jesus e uma voz do céu disse: 'Este é o meu Filho amado!'",
+                "xp": 100
         },
         {
-          "id": 13104,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "13. Atos dos Apóstolos - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13004,
+                "question": "Quantos discípulos mais achegados Jesus escolheu para serem Seus 12 Apóstolos?",
+                "options": [
+                        "10 discípulos",
+                        "20 discípulos",
+                        "12 discípulos",
+                        "7 discípulos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 6:13",
+                "explanation": "Jesus escolheu 12 homens fiéis para serem Seus apóstolos e ensinar a mensagem do Evangelho pelo mundo.",
+                "xp": 100
         },
         {
-          "id": 13105,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "13. Atos dos Apóstolos - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13005,
+                "question": "Qual foi o primeiro milagre que Jesus realizou, durante uma festa de casamento em Caná da Galileia?",
+                "options": [
+                        "Transformou água em vinho puro",
+                        "Acalmou o vento",
+                        "Curou um leproso",
+                        "Multiplicou os pães"
+                ],
+                "correctIndex": 0,
+                "reference": "João 2:1-11",
+                "explanation": "A pedido de Sua mãe Maria, Jesus mandou encher 6 potes com água e a transformou no melhor vinho da festa.",
+                "xp": 100
         },
         {
-          "id": 13106,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "13. Atos dos Apóstolos - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13006,
+                "question": "O que os discípulos Pedro, André, Tiago e João faziam de trabalho antes de Jesus chamá-los?",
+                "options": [
+                        "Eram pescadores no mar",
+                        "Eram alfaiates",
+                        "Eram pastores de vacas",
+                        "Eram soldados"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 4:18-22",
+                "explanation": "Eles pescavam com redes no mar, e Jesus lhes disse: 'Sigam-me e eu os farei pescadores de homens!'",
+                "xp": 100
         },
         {
-          "id": 13107,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "13. Atos dos Apóstolos - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13007,
+                "question": "O que Jesus fez quando uma grande tempestade quase afundou o barco dos discípulos no Mar da Galileia?",
+                "options": [
+                        "Chorou com medo",
+                        "Mandou o vento e o mar se calarem e tudo ficou calmo",
+                        "Remou mais depressa",
+                        "Pulou na água"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 4:39",
+                "explanation": "Jesus Se levantou, repreendeu o vento forte e disse ao mar: 'Cala-te, aquieta-te!', e houve grande calmaria.",
+                "xp": 100
         },
         {
-          "id": 13108,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "13. Atos dos Apóstolos - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13008,
+                "question": "Qual apóstolo pediu para descer do barco e andou por cima das águas ao encontro de Jesus?",
+                "options": [
+                        "Pedro",
+                        "Mateus",
+                        "João",
+                        "Tomé"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 14:29",
+                "explanation": "Pedro teve coragem e andou sobre a água enquanto olhou firmemente para Jesus.",
+                "xp": 100
         },
         {
-          "id": 13109,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "13. Atos dos Apóstolos - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13009,
+                "question": "Com o que Jesus alimentou uma multidão de mais de 5 mil pessoas que estavam com fome no deserto?",
+                "options": [
+                        "5 pãezinhos de cevada e 2 peixinhos de um menino",
+                        "Uma cesta cheia de frutas",
+                        "Maná do céu",
+                        "Pão e mel de abelha"
+                ],
+                "correctIndex": 0,
+                "reference": "João 6:9-11",
+                "explanation": "Um menino entregou seu lanchinho de 5 pães e 2 peixes; Jesus abençoou, multiplicou e todos comeram até sobrar 12 cestos cheios!",
+                "xp": 100
         },
         {
-          "id": 13110,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "13. Atos dos Apóstolos - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13010,
+                "question": "Como os quatro amigos levaram o homem paralítico até Jesus quando a casa estava cheia de gente?",
+                "options": [
+                        "Empurraram a porta",
+                        "Chamaram pela janela",
+                        "Esperaram na calçada",
+                        "Abriram o telhado e desceram a maca por cordas"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 2:4",
+                "explanation": "Pela grande fé que tinham em Jesus, os quatro amigos subiram no telhado, abriram um espaço e desceram o amigo diante d'Ele.",
+                "xp": 100
         },
         {
-          "id": 13111,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "13. Atos dos Apóstolos - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13011,
+                "question": "O que Jesus disse ao homem cego chamado Bartimeu que gritava 'Jesus, Filho de Davi, tem misericórdia de mim!'?",
+                "options": [
+                        "'Vá para casa no escuro'",
+                        "'Espere mais um ano'",
+                        "'Não posso te ajudar'",
+                        "'A tua fé te salvou', e ele enxergou na mesma hora"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 10:52",
+                "explanation": "Jesus com muito amor parou no caminho, atendeu o cego Bartimeu e devolveu-lhe a visão imediatamente.",
+                "xp": 100
         },
         {
-          "id": 13112,
-          "question": "Em 13. Atos dos Apóstolos, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "13. Atos dos Apóstolos - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 13012,
+                "question": "Quantos dias Lázaro já estava sepultado quando Jesus chorou e depois o chamou: 'Lázaro, vem para fora!'?",
+                "options": [
+                        "10 dias",
+                        "1 dia",
+                        "4 dias",
+                        "2 dias"
+                ],
+                "correctIndex": 2,
+                "reference": "João 11:17, 43-44",
+                "explanation": "Lázaro já estava sepultado há 4 dias, mas quando Jesus ordenou, ele levantou com vida e saiu da sepultura.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 13201,
@@ -7783,174 +7783,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 14101,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "14. Epístola aos Hebreus - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14001,
+                "question": "Qual foi o primeiro milagre que Jesus realizou, durante uma festa de casamento em Caná da Galileia?",
+                "options": [
+                        "Transformou água em vinho puro",
+                        "Acalmou o vento",
+                        "Curou um leproso",
+                        "Multiplicou os pães"
+                ],
+                "correctIndex": 0,
+                "reference": "João 2:1-11",
+                "explanation": "A pedido de Sua mãe Maria, Jesus mandou encher 6 potes com água e a transformou no melhor vinho da festa.",
+                "xp": 100
         },
         {
-          "id": 14102,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "14. Epístola aos Hebreus - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14002,
+                "question": "O que os discípulos Pedro, André, Tiago e João faziam de trabalho antes de Jesus chamá-los?",
+                "options": [
+                        "Eram pescadores no mar",
+                        "Eram alfaiates",
+                        "Eram pastores de vacas",
+                        "Eram soldados"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 4:18-22",
+                "explanation": "Eles pescavam com redes no mar, e Jesus lhes disse: 'Sigam-me e eu os farei pescadores de homens!'",
+                "xp": 100
         },
         {
-          "id": 14103,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "14. Epístola aos Hebreus - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14003,
+                "question": "O que Jesus fez quando uma grande tempestade quase afundou o barco dos discípulos no Mar da Galileia?",
+                "options": [
+                        "Chorou com medo",
+                        "Mandou o vento e o mar se calarem e tudo ficou calmo",
+                        "Remou mais depressa",
+                        "Pulou na água"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 4:39",
+                "explanation": "Jesus Se levantou, repreendeu o vento forte e disse ao mar: 'Cala-te, aquieta-te!', e houve grande calmaria.",
+                "xp": 100
         },
         {
-          "id": 14104,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "14. Epístola aos Hebreus - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14004,
+                "question": "Qual apóstolo pediu para descer do barco e andou por cima das águas ao encontro de Jesus?",
+                "options": [
+                        "Pedro",
+                        "Mateus",
+                        "João",
+                        "Tomé"
+                ],
+                "correctIndex": 0,
+                "reference": "Mateus 14:29",
+                "explanation": "Pedro teve coragem e andou sobre a água enquanto olhou firmemente para Jesus.",
+                "xp": 100
         },
         {
-          "id": 14105,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "14. Epístola aos Hebreus - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14005,
+                "question": "Com o que Jesus alimentou uma multidão de mais de 5 mil pessoas que estavam com fome no deserto?",
+                "options": [
+                        "5 pãezinhos de cevada e 2 peixinhos de um menino",
+                        "Uma cesta cheia de frutas",
+                        "Maná do céu",
+                        "Pão e mel de abelha"
+                ],
+                "correctIndex": 0,
+                "reference": "João 6:9-11",
+                "explanation": "Um menino entregou seu lanchinho de 5 pães e 2 peixes; Jesus abençoou, multiplicou e todos comeram até sobrar 12 cestos cheios!",
+                "xp": 100
         },
         {
-          "id": 14106,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "14. Epístola aos Hebreus - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14006,
+                "question": "Como os quatro amigos levaram o homem paralítico até Jesus quando a casa estava cheia de gente?",
+                "options": [
+                        "Empurraram a porta",
+                        "Chamaram pela janela",
+                        "Esperaram na calçada",
+                        "Abriram o telhado e desceram a maca por cordas"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 2:4",
+                "explanation": "Pela grande fé que tinham em Jesus, os quatro amigos subiram no telhado, abriram um espaço e desceram o amigo diante d'Ele.",
+                "xp": 100
         },
         {
-          "id": 14107,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "14. Epístola aos Hebreus - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14007,
+                "question": "O que Jesus disse ao homem cego chamado Bartimeu que gritava 'Jesus, Filho de Davi, tem misericórdia de mim!'?",
+                "options": [
+                        "'Vá para casa no escuro'",
+                        "'Espere mais um ano'",
+                        "'Não posso te ajudar'",
+                        "'A tua fé te salvou', e ele enxergou na mesma hora"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 10:52",
+                "explanation": "Jesus com muito amor parou no caminho, atendeu o cego Bartimeu e devolveu-lhe a visão imediatamente.",
+                "xp": 100
         },
         {
-          "id": 14108,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "14. Epístola aos Hebreus - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14008,
+                "question": "Quantos dias Lázaro já estava sepultado quando Jesus chorou e depois o chamou: 'Lázaro, vem para fora!'?",
+                "options": [
+                        "10 dias",
+                        "1 dia",
+                        "4 dias",
+                        "2 dias"
+                ],
+                "correctIndex": 2,
+                "reference": "João 11:17, 43-44",
+                "explanation": "Lázaro já estava sepultado há 4 dias, mas quando Jesus ordenou, ele levantou com vida e saiu da sepultura.",
+                "xp": 100
         },
         {
-          "id": 14109,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "14. Epístola aos Hebreus - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14009,
+                "question": "Por que Zaqueu, que era muito baixinho, subiu numa árvore chamada sicômoro?",
+                "options": [
+                        "Para conseguir ver Jesus passando no meio da multidão",
+                        "Para fugir da chuva",
+                        "Para caçar passarinhos",
+                        "Para apanhar frutas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 19:4",
+                "explanation": "Zaqueu subiu na árvore porque queria muito ver Jesus; e Jesus olhou para cima e disse: 'Zaqueu, desce depressa, hoje vou à tua casa!'",
+                "xp": 100
         },
         {
-          "id": 14110,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "14. Epístola aos Hebreus - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14010,
+                "question": "Na famosa parábola de Jesus, o que o pai amoroso fez quando o 'Filho Pródigo' voltou para casa arrependido?",
+                "options": [
+                        "Mandou-o embora",
+                        "Deu-lhe uma bronca severa",
+                        "Correu, abraçou-o com carinho, beijou-o e fez uma grande festa",
+                        "Trancou a porta"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 15:20-24",
+                "explanation": "Deus é como esse pai tão bom: quando nos arrependemos, Ele nos abraça e Se alegra profundamente com o nosso retorno.",
+                "xp": 100
         },
         {
-          "id": 14111,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "14. Epístola aos Hebreus - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14011,
+                "question": "Na parábola do 'Bom Samaritano', quem parou no caminho e cuidou com amor do homem ferido?",
+                "options": [
+                        "Um soldado romano",
+                        "Um estalajadeiro rico",
+                        "Um samaritano generoso",
+                        "Um cobrador de impostos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 10:33-34",
+                "explanation": "O bom samaritano sentiu compaixão, enfaixou as feridas do homem ferido e pagou sua hospedagem com amor.",
+                "xp": 100
         },
         {
-          "id": 14112,
-          "question": "Em 14. Epístola aos Hebreus, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "14. Epístola aos Hebreus - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 14012,
+                "question": "Se um pastor tiver 100 ovelhas e apenas 1 se perder no caminho, o que o Bom Pastor faz?",
+                "options": [
+                        "Deixa as 99 no pasto e vai com amor procurar a ovelha perdida até encontrá-la",
+                        "Não liga para a que sumiu",
+                        "Volta para casa",
+                        "Compra outra ovelha"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 15:4",
+                "explanation": "Jesus é o nosso Bom Pastor: Ele cuida de cada um de nós com infinito amor e nunca nos abandona.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 14201,
@@ -8378,174 +8378,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 15101,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15001,
+                "question": "Com o que Jesus alimentou uma multidão de mais de 5 mil pessoas que estavam com fome no deserto?",
+                "options": [
+                        "5 pãezinhos de cevada e 2 peixinhos de um menino",
+                        "Uma cesta cheia de frutas",
+                        "Maná do céu",
+                        "Pão e mel de abelha"
+                ],
+                "correctIndex": 0,
+                "reference": "João 6:9-11",
+                "explanation": "Um menino entregou seu lanchinho de 5 pães e 2 peixes; Jesus abençoou, multiplicou e todos comeram até sobrar 12 cestos cheios!",
+                "xp": 100
         },
         {
-          "id": 15102,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15002,
+                "question": "Como os quatro amigos levaram o homem paralítico até Jesus quando a casa estava cheia de gente?",
+                "options": [
+                        "Empurraram a porta",
+                        "Chamaram pela janela",
+                        "Esperaram na calçada",
+                        "Abriram o telhado e desceram a maca por cordas"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 2:4",
+                "explanation": "Pela grande fé que tinham em Jesus, os quatro amigos subiram no telhado, abriram um espaço e desceram o amigo diante d'Ele.",
+                "xp": 100
         },
         {
-          "id": 15103,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15003,
+                "question": "O que Jesus disse ao homem cego chamado Bartimeu que gritava 'Jesus, Filho de Davi, tem misericórdia de mim!'?",
+                "options": [
+                        "'Vá para casa no escuro'",
+                        "'Espere mais um ano'",
+                        "'Não posso te ajudar'",
+                        "'A tua fé te salvou', e ele enxergou na mesma hora"
+                ],
+                "correctIndex": 3,
+                "reference": "Marcos 10:52",
+                "explanation": "Jesus com muito amor parou no caminho, atendeu o cego Bartimeu e devolveu-lhe a visão imediatamente.",
+                "xp": 100
         },
         {
-          "id": 15104,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15004,
+                "question": "Quantos dias Lázaro já estava sepultado quando Jesus chorou e depois o chamou: 'Lázaro, vem para fora!'?",
+                "options": [
+                        "10 dias",
+                        "1 dia",
+                        "4 dias",
+                        "2 dias"
+                ],
+                "correctIndex": 2,
+                "reference": "João 11:17, 43-44",
+                "explanation": "Lázaro já estava sepultado há 4 dias, mas quando Jesus ordenou, ele levantou com vida e saiu da sepultura.",
+                "xp": 100
         },
         {
-          "id": 15105,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15005,
+                "question": "Por que Zaqueu, que era muito baixinho, subiu numa árvore chamada sicômoro?",
+                "options": [
+                        "Para conseguir ver Jesus passando no meio da multidão",
+                        "Para fugir da chuva",
+                        "Para caçar passarinhos",
+                        "Para apanhar frutas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 19:4",
+                "explanation": "Zaqueu subiu na árvore porque queria muito ver Jesus; e Jesus olhou para cima e disse: 'Zaqueu, desce depressa, hoje vou à tua casa!'",
+                "xp": 100
         },
         {
-          "id": 15106,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15006,
+                "question": "Na famosa parábola de Jesus, o que o pai amoroso fez quando o 'Filho Pródigo' voltou para casa arrependido?",
+                "options": [
+                        "Mandou-o embora",
+                        "Deu-lhe uma bronca severa",
+                        "Correu, abraçou-o com carinho, beijou-o e fez uma grande festa",
+                        "Trancou a porta"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 15:20-24",
+                "explanation": "Deus é como esse pai tão bom: quando nos arrependemos, Ele nos abraça e Se alegra profundamente com o nosso retorno.",
+                "xp": 100
         },
         {
-          "id": 15107,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15007,
+                "question": "Na parábola do 'Bom Samaritano', quem parou no caminho e cuidou com amor do homem ferido?",
+                "options": [
+                        "Um soldado romano",
+                        "Um estalajadeiro rico",
+                        "Um samaritano generoso",
+                        "Um cobrador de impostos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 10:33-34",
+                "explanation": "O bom samaritano sentiu compaixão, enfaixou as feridas do homem ferido e pagou sua hospedagem com amor.",
+                "xp": 100
         },
         {
-          "id": 15108,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15008,
+                "question": "Se um pastor tiver 100 ovelhas e apenas 1 se perder no caminho, o que o Bom Pastor faz?",
+                "options": [
+                        "Deixa as 99 no pasto e vai com amor procurar a ovelha perdida até encontrá-la",
+                        "Não liga para a que sumiu",
+                        "Volta para casa",
+                        "Compra outra ovelha"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 15:4",
+                "explanation": "Jesus é o nosso Bom Pastor: Ele cuida de cada um de nós com infinito amor e nunca nos abandona.",
+                "xp": 100
         },
         {
-          "id": 15109,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15009,
+                "question": "O que Jesus disse aos discípulos quando eles quiseram afastar as criancinhas que queriam abraçá-Lo?",
+                "options": [
+                        "'Elas são muito pequenas'",
+                        "'Deixai vir a mim as criancinhas, porque das tais é o Reino de Deus'",
+                        "'Mandem-nas para casa'",
+                        "'Criancinhas fazem muito barulho'"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 10:14",
+                "explanation": "Jesus ama imensamente as crianças, pegou-as no colo, colocou as mãos sobre elas e as abençoou.",
+                "xp": 100
         },
         {
-          "id": 15110,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15010,
+                "question": "Qual é a oração que o próprio Jesus nos ensinou que começa dizendo 'Pai nosso que estás nos céus'?",
+                "options": [
+                        "Cântico de Moisés",
+                        "Salmo 23",
+                        "Oração do Pai Nosso",
+                        "Oração de Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 6:9-13",
+                "explanation": "A oração do Pai Nosso é o modelo perfeito de oração que Jesus nos ensinou para falar com o nosso Pai Celestial.",
+                "xp": 100
         },
         {
-          "id": 15111,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15011,
+                "question": "Em que animal humilde e manso Jesus entrou na cidade de Jerusalém no Domingo de Ramos, enquanto o povo acenava ramos de palmeira?",
+                "options": [
+                        "Num cavalo branco com asas",
+                        "Num camelo dourado",
+                        "Num jumentinho (potrinho)",
+                        "Num elefante real"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 21:5-7",
+                "explanation": "Jesus entrou em Jerusalém montado num jumentinho humilde, e o povo gritava com alegria: 'Hosana ao Filho de Davi!'",
+                "xp": 100
         },
         {
-          "id": 15112,
-          "question": "Em 15. A Doutrina do Espírito Santo, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "15. A Doutrina do Espírito Santo - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 15012,
+                "question": "O que as pessoas espalhavam pelo chão por onde Jesus passava no Domingo de Ramos?",
+                "options": [
+                        "Tapetes de lã",
+                        "Moedas de ouro",
+                        "Flores de plástico",
+                        "Mantos e ramos verdes de palmeiras"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 21:8",
+                "explanation": "As pessoas colocavam seus mantos no chão e folhas de palmeiras para homenagear o Rei Jesus com honra e júbilo.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 15201,
@@ -8973,174 +8973,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 16101,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "16. Epístolas Paulinas I - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16001,
+                "question": "Por que Zaqueu, que era muito baixinho, subiu numa árvore chamada sicômoro?",
+                "options": [
+                        "Para conseguir ver Jesus passando no meio da multidão",
+                        "Para fugir da chuva",
+                        "Para caçar passarinhos",
+                        "Para apanhar frutas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 19:4",
+                "explanation": "Zaqueu subiu na árvore porque queria muito ver Jesus; e Jesus olhou para cima e disse: 'Zaqueu, desce depressa, hoje vou à tua casa!'",
+                "xp": 100
         },
         {
-          "id": 16102,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "16. Epístolas Paulinas I - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16002,
+                "question": "Na famosa parábola de Jesus, o que o pai amoroso fez quando o 'Filho Pródigo' voltou para casa arrependido?",
+                "options": [
+                        "Mandou-o embora",
+                        "Deu-lhe uma bronca severa",
+                        "Correu, abraçou-o com carinho, beijou-o e fez uma grande festa",
+                        "Trancou a porta"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 15:20-24",
+                "explanation": "Deus é como esse pai tão bom: quando nos arrependemos, Ele nos abraça e Se alegra profundamente com o nosso retorno.",
+                "xp": 100
         },
         {
-          "id": 16103,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "16. Epístolas Paulinas I - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16003,
+                "question": "Na parábola do 'Bom Samaritano', quem parou no caminho e cuidou com amor do homem ferido?",
+                "options": [
+                        "Um soldado romano",
+                        "Um estalajadeiro rico",
+                        "Um samaritano generoso",
+                        "Um cobrador de impostos"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 10:33-34",
+                "explanation": "O bom samaritano sentiu compaixão, enfaixou as feridas do homem ferido e pagou sua hospedagem com amor.",
+                "xp": 100
         },
         {
-          "id": 16104,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "16. Epístolas Paulinas I - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16004,
+                "question": "Se um pastor tiver 100 ovelhas e apenas 1 se perder no caminho, o que o Bom Pastor faz?",
+                "options": [
+                        "Deixa as 99 no pasto e vai com amor procurar a ovelha perdida até encontrá-la",
+                        "Não liga para a que sumiu",
+                        "Volta para casa",
+                        "Compra outra ovelha"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 15:4",
+                "explanation": "Jesus é o nosso Bom Pastor: Ele cuida de cada um de nós com infinito amor e nunca nos abandona.",
+                "xp": 100
         },
         {
-          "id": 16105,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "16. Epístolas Paulinas I - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16005,
+                "question": "O que Jesus disse aos discípulos quando eles quiseram afastar as criancinhas que queriam abraçá-Lo?",
+                "options": [
+                        "'Elas são muito pequenas'",
+                        "'Deixai vir a mim as criancinhas, porque das tais é o Reino de Deus'",
+                        "'Mandem-nas para casa'",
+                        "'Criancinhas fazem muito barulho'"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 10:14",
+                "explanation": "Jesus ama imensamente as crianças, pegou-as no colo, colocou as mãos sobre elas e as abençoou.",
+                "xp": 100
         },
         {
-          "id": 16106,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "16. Epístolas Paulinas I - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16006,
+                "question": "Qual é a oração que o próprio Jesus nos ensinou que começa dizendo 'Pai nosso que estás nos céus'?",
+                "options": [
+                        "Cântico de Moisés",
+                        "Salmo 23",
+                        "Oração do Pai Nosso",
+                        "Oração de Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 6:9-13",
+                "explanation": "A oração do Pai Nosso é o modelo perfeito de oração que Jesus nos ensinou para falar com o nosso Pai Celestial.",
+                "xp": 100
         },
         {
-          "id": 16107,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "16. Epístolas Paulinas I - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16007,
+                "question": "Em que animal humilde e manso Jesus entrou na cidade de Jerusalém no Domingo de Ramos, enquanto o povo acenava ramos de palmeira?",
+                "options": [
+                        "Num cavalo branco com asas",
+                        "Num camelo dourado",
+                        "Num jumentinho (potrinho)",
+                        "Num elefante real"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 21:5-7",
+                "explanation": "Jesus entrou em Jerusalém montado num jumentinho humilde, e o povo gritava com alegria: 'Hosana ao Filho de Davi!'",
+                "xp": 100
         },
         {
-          "id": 16108,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "16. Epístolas Paulinas I - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16008,
+                "question": "O que as pessoas espalhavam pelo chão por onde Jesus passava no Domingo de Ramos?",
+                "options": [
+                        "Tapetes de lã",
+                        "Moedas de ouro",
+                        "Flores de plástico",
+                        "Mantos e ramos verdes de palmeiras"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 21:8",
+                "explanation": "As pessoas colocavam seus mantos no chão e folhas de palmeiras para homenagear o Rei Jesus com honra e júbilo.",
+                "xp": 100
         },
         {
-          "id": 16109,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "16. Epístolas Paulinas I - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16009,
+                "question": "Na Última Ceia, o que Jesus repartiu com Seus discípulos para lembrar o Seu corpo e o Seu sangue dados por amor?",
+                "options": [
+                        "O pão e o cálice (suco de uva)",
+                        "Bolo e leite",
+                        "Peixe e mel",
+                        "Frutas e azeitonas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 22:19-20",
+                "explanation": "Jesus tomou o pão, abençoou, partiu e disse: 'Fazei isto em memória de mim', instituindo a Santa Ceia.",
+                "xp": 100
         },
         {
-          "id": 16110,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "16. Epístolas Paulinas I - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16010,
+                "question": "O que Jesus fez na Última Ceia para dar exemplo de humildade e amor ao próximo aos Seus discípulos?",
+                "options": [
+                        "Pediu que O servissem",
+                        "Lavou os pés dos discípulos com água e uma toalha",
+                        "Sentou num trono alto",
+                        "Fez um discurso longo"
+                ],
+                "correctIndex": 1,
+                "reference": "João 13:4-5",
+                "explanation": "Jesus ensinou que o maior no Reino de Deus é aquele que serve aos outros com amor e humildade.",
+                "xp": 100
         },
         {
-          "id": 16111,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "16. Epístolas Paulinas I - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16011,
+                "question": "Em qual jardim de oliveiras Jesus orou a Deus na noite antes de ser entregue?",
+                "options": [
+                        "Jardim da Babilônia",
+                        "Jardim do Éden",
+                        "Jardim de Jericó",
+                        "Jardim do Getsêmani"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 26:36",
+                "explanation": "No Jardim do Getsêmani, Jesus orou de joelhos dizendo: 'Pai, não seja feita a minha vontade, mas a tua!'",
+                "xp": 100
         },
         {
-          "id": 16112,
-          "question": "Em 16. Epístolas Paulinas I, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "16. Epístolas Paulinas I - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 16012,
+                "question": "Quantas moedas de prata Judas Iscariotes recebeu para trair Jesus?",
+                "options": [
+                        "10 moedas de ouro",
+                        "50 moedas",
+                        "30 moedas de prata",
+                        "100 moedas"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 26:15",
+                "explanation": "Judas traiu o Mestre por 30 moedas de prata, cumprindo as profecias do Antigo Testamento.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 16201,
@@ -9568,174 +9568,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 17101,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "17. Teologia Prática - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17001,
+                "question": "O que Jesus disse aos discípulos quando eles quiseram afastar as criancinhas que queriam abraçá-Lo?",
+                "options": [
+                        "'Elas são muito pequenas'",
+                        "'Deixai vir a mim as criancinhas, porque das tais é o Reino de Deus'",
+                        "'Mandem-nas para casa'",
+                        "'Criancinhas fazem muito barulho'"
+                ],
+                "correctIndex": 1,
+                "reference": "Marcos 10:14",
+                "explanation": "Jesus ama imensamente as crianças, pegou-as no colo, colocou as mãos sobre elas e as abençoou.",
+                "xp": 100
         },
         {
-          "id": 17102,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "17. Teologia Prática - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17002,
+                "question": "Qual é a oração que o próprio Jesus nos ensinou que começa dizendo 'Pai nosso que estás nos céus'?",
+                "options": [
+                        "Cântico de Moisés",
+                        "Salmo 23",
+                        "Oração do Pai Nosso",
+                        "Oração de Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 6:9-13",
+                "explanation": "A oração do Pai Nosso é o modelo perfeito de oração que Jesus nos ensinou para falar com o nosso Pai Celestial.",
+                "xp": 100
         },
         {
-          "id": 17103,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "17. Teologia Prática - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17003,
+                "question": "Em que animal humilde e manso Jesus entrou na cidade de Jerusalém no Domingo de Ramos, enquanto o povo acenava ramos de palmeira?",
+                "options": [
+                        "Num cavalo branco com asas",
+                        "Num camelo dourado",
+                        "Num jumentinho (potrinho)",
+                        "Num elefante real"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 21:5-7",
+                "explanation": "Jesus entrou em Jerusalém montado num jumentinho humilde, e o povo gritava com alegria: 'Hosana ao Filho de Davi!'",
+                "xp": 100
         },
         {
-          "id": 17104,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "17. Teologia Prática - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17004,
+                "question": "O que as pessoas espalhavam pelo chão por onde Jesus passava no Domingo de Ramos?",
+                "options": [
+                        "Tapetes de lã",
+                        "Moedas de ouro",
+                        "Flores de plástico",
+                        "Mantos e ramos verdes de palmeiras"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 21:8",
+                "explanation": "As pessoas colocavam seus mantos no chão e folhas de palmeiras para homenagear o Rei Jesus com honra e júbilo.",
+                "xp": 100
         },
         {
-          "id": 17105,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "17. Teologia Prática - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17005,
+                "question": "Na Última Ceia, o que Jesus repartiu com Seus discípulos para lembrar o Seu corpo e o Seu sangue dados por amor?",
+                "options": [
+                        "O pão e o cálice (suco de uva)",
+                        "Bolo e leite",
+                        "Peixe e mel",
+                        "Frutas e azeitonas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 22:19-20",
+                "explanation": "Jesus tomou o pão, abençoou, partiu e disse: 'Fazei isto em memória de mim', instituindo a Santa Ceia.",
+                "xp": 100
         },
         {
-          "id": 17106,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "17. Teologia Prática - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17006,
+                "question": "O que Jesus fez na Última Ceia para dar exemplo de humildade e amor ao próximo aos Seus discípulos?",
+                "options": [
+                        "Pediu que O servissem",
+                        "Lavou os pés dos discípulos com água e uma toalha",
+                        "Sentou num trono alto",
+                        "Fez um discurso longo"
+                ],
+                "correctIndex": 1,
+                "reference": "João 13:4-5",
+                "explanation": "Jesus ensinou que o maior no Reino de Deus é aquele que serve aos outros com amor e humildade.",
+                "xp": 100
         },
         {
-          "id": 17107,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "17. Teologia Prática - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17007,
+                "question": "Em qual jardim de oliveiras Jesus orou a Deus na noite antes de ser entregue?",
+                "options": [
+                        "Jardim da Babilônia",
+                        "Jardim do Éden",
+                        "Jardim de Jericó",
+                        "Jardim do Getsêmani"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 26:36",
+                "explanation": "No Jardim do Getsêmani, Jesus orou de joelhos dizendo: 'Pai, não seja feita a minha vontade, mas a tua!'",
+                "xp": 100
         },
         {
-          "id": 17108,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "17. Teologia Prática - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17008,
+                "question": "Quantas moedas de prata Judas Iscariotes recebeu para trair Jesus?",
+                "options": [
+                        "10 moedas de ouro",
+                        "50 moedas",
+                        "30 moedas de prata",
+                        "100 moedas"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 26:15",
+                "explanation": "Judas traiu o Mestre por 30 moedas de prata, cumprindo as profecias do Antigo Testamento.",
+                "xp": 100
         },
         {
-          "id": 17109,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "17. Teologia Prática - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17009,
+                "question": "Quantas vezes Pedro negou que conhecia Jesus antes de o galo cantar na madrugada?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "3 vezes",
+                        "1 vez"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 22:61",
+                "explanation": "Pedro negou 3 vezes por medo, mas depois chorou amargamente, se arrependeu e foi perdoado por Jesus.",
+                "xp": 100
         },
         {
-          "id": 17110,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "17. Teologia Prática - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17010,
+                "question": "O que os soldados cruéis colocaram na cabeça de Jesus para zombar d'Ele?",
+                "options": [
+                        "Um chapéu de palha",
+                        "Uma coroa de espinhos",
+                        "Um elmo de ferro",
+                        "Uma coroa de flores"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:29",
+                "explanation": "Eles teceram uma coroa de espinhos e zombaram do Rei Jesus, mas Ele sofreu tudo calado por amor a nós.",
+                "xp": 100
         },
         {
-          "id": 17111,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "17. Teologia Prática - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17011,
+                "question": "O que aconteceu com o grande véu do Templo no momento em que Jesus entregou Seu espírito na cruz?",
+                "options": [
+                        "Ficou transparente",
+                        "Rasgou-se de alto a baixo",
+                        "Pegou fogo",
+                        "Caiu no chão"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:51",
+                "explanation": "O véu do templo se rasgou de alto a baixo, mostrando que agora temos livre acesso direto a Deus através de Jesus!",
+                "xp": 100
         },
         {
-          "id": 17112,
-          "question": "Em 17. Teologia Prática, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "17. Teologia Prática - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 17012,
+                "question": "Em que dia da semana Jesus ressuscitou vitorioso da sepultura, vencendo a morte para sempre?",
+                "options": [
+                        "Depois de 40 dias",
+                        "Depois de um ano",
+                        "No mesmo dia",
+                        "No terceiro dia (no domingo de manhã)"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 28:1-6",
+                "explanation": "Ao amanhecer do domingo, o anjo desceu, removeu a pedra e disse: 'Ele não está aqui, porque já ressuscitou!' O túmulo está vazio!",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 17201,
@@ -10163,174 +10163,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 18101,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "18. História da Igreja - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18001,
+                "question": "Na Última Ceia, o que Jesus repartiu com Seus discípulos para lembrar o Seu corpo e o Seu sangue dados por amor?",
+                "options": [
+                        "O pão e o cálice (suco de uva)",
+                        "Bolo e leite",
+                        "Peixe e mel",
+                        "Frutas e azeitonas"
+                ],
+                "correctIndex": 0,
+                "reference": "Lucas 22:19-20",
+                "explanation": "Jesus tomou o pão, abençoou, partiu e disse: 'Fazei isto em memória de mim', instituindo a Santa Ceia.",
+                "xp": 100
         },
         {
-          "id": 18102,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "18. História da Igreja - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18002,
+                "question": "O que Jesus fez na Última Ceia para dar exemplo de humildade e amor ao próximo aos Seus discípulos?",
+                "options": [
+                        "Pediu que O servissem",
+                        "Lavou os pés dos discípulos com água e uma toalha",
+                        "Sentou num trono alto",
+                        "Fez um discurso longo"
+                ],
+                "correctIndex": 1,
+                "reference": "João 13:4-5",
+                "explanation": "Jesus ensinou que o maior no Reino de Deus é aquele que serve aos outros com amor e humildade.",
+                "xp": 100
         },
         {
-          "id": 18103,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "18. História da Igreja - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18003,
+                "question": "Em qual jardim de oliveiras Jesus orou a Deus na noite antes de ser entregue?",
+                "options": [
+                        "Jardim da Babilônia",
+                        "Jardim do Éden",
+                        "Jardim de Jericó",
+                        "Jardim do Getsêmani"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 26:36",
+                "explanation": "No Jardim do Getsêmani, Jesus orou de joelhos dizendo: 'Pai, não seja feita a minha vontade, mas a tua!'",
+                "xp": 100
         },
         {
-          "id": 18104,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "18. História da Igreja - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18004,
+                "question": "Quantas moedas de prata Judas Iscariotes recebeu para trair Jesus?",
+                "options": [
+                        "10 moedas de ouro",
+                        "50 moedas",
+                        "30 moedas de prata",
+                        "100 moedas"
+                ],
+                "correctIndex": 2,
+                "reference": "Mateus 26:15",
+                "explanation": "Judas traiu o Mestre por 30 moedas de prata, cumprindo as profecias do Antigo Testamento.",
+                "xp": 100
         },
         {
-          "id": 18105,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "18. História da Igreja - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18005,
+                "question": "Quantas vezes Pedro negou que conhecia Jesus antes de o galo cantar na madrugada?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "3 vezes",
+                        "1 vez"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 22:61",
+                "explanation": "Pedro negou 3 vezes por medo, mas depois chorou amargamente, se arrependeu e foi perdoado por Jesus.",
+                "xp": 100
         },
         {
-          "id": 18106,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "18. História da Igreja - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18006,
+                "question": "O que os soldados cruéis colocaram na cabeça de Jesus para zombar d'Ele?",
+                "options": [
+                        "Um chapéu de palha",
+                        "Uma coroa de espinhos",
+                        "Um elmo de ferro",
+                        "Uma coroa de flores"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:29",
+                "explanation": "Eles teceram uma coroa de espinhos e zombaram do Rei Jesus, mas Ele sofreu tudo calado por amor a nós.",
+                "xp": 100
         },
         {
-          "id": 18107,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "18. História da Igreja - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18007,
+                "question": "O que aconteceu com o grande véu do Templo no momento em que Jesus entregou Seu espírito na cruz?",
+                "options": [
+                        "Ficou transparente",
+                        "Rasgou-se de alto a baixo",
+                        "Pegou fogo",
+                        "Caiu no chão"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:51",
+                "explanation": "O véu do templo se rasgou de alto a baixo, mostrando que agora temos livre acesso direto a Deus através de Jesus!",
+                "xp": 100
         },
         {
-          "id": 18108,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "18. História da Igreja - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18008,
+                "question": "Em que dia da semana Jesus ressuscitou vitorioso da sepultura, vencendo a morte para sempre?",
+                "options": [
+                        "Depois de 40 dias",
+                        "Depois de um ano",
+                        "No mesmo dia",
+                        "No terceiro dia (no domingo de manhã)"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 28:1-6",
+                "explanation": "Ao amanhecer do domingo, o anjo desceu, removeu a pedra e disse: 'Ele não está aqui, porque já ressuscitou!' O túmulo está vazio!",
+                "xp": 100
         },
         {
-          "id": 18109,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "18. História da Igreja - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18009,
+                "question": "Quem foi a primeira mulher que foi de manhã bem cedo ao túmulo e viu o Senhor Jesus ressuscitado?",
+                "options": [
+                        "Marta",
+                        "Salomé",
+                        "Isabel",
+                        "Maria Madalena"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:11-18",
+                "explanation": "Jesus apareceu a Maria Madalena no jardim e disse com voz mansa: 'Maria!', e ela correu radiante avisar aos discípulos.",
+                "xp": 100
         },
         {
-          "id": 18110,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "18. História da Igreja - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18010,
+                "question": "Qual discípulo disse que só acreditaria que Jesus estava vivo se visse a marca dos cravos nas Suas mãos?",
+                "options": [
+                        "João",
+                        "Pedro",
+                        "Filipe",
+                        "Tomé"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:25",
+                "explanation": "Jesus apareceu a Tomé com muita paciência e amor, e Tomé exclamou com fé: 'Senhor meu e Deus meu!'",
+                "xp": 100
         },
         {
-          "id": 18111,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "18. História da Igreja - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18011,
+                "question": "Quantos dias Jesus passou com os discípulos após Sua ressurreição, ensinando-lhes sobre o Reino de Deus?",
+                "options": [
+                        "40 dias",
+                        "7 dias",
+                        "3 dias",
+                        "100 dias"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 1:3",
+                "explanation": "Por 40 dias Jesus apareceu vivo com muitas provas infalíveis aos Seus apóstolos e irmãos.",
+                "xp": 100
         },
         {
-          "id": 18112,
-          "question": "Em 18. História da Igreja, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "18. História da Igreja - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 18012,
+                "question": "O que aconteceu com Jesus no Monte das Oliveiras diante dos olhos de todos os Seus discípulos?",
+                "options": [
+                        "Mergulhou no mar",
+                        "Foi elevado às alturas e uma nuvem O recebeu no céu",
+                        "Ficou escondido",
+                        "Entrou numa caverna"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 1:9",
+                "explanation": "Jesus subiu triunfante ao céu para Se sentar à direita de Deus Pai, e dois anjos prometeram que Ele voltará!",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 18201,
@@ -10758,174 +10758,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 19101,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "19. Cristologia - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19001,
+                "question": "Quantas vezes Pedro negou que conhecia Jesus antes de o galo cantar na madrugada?",
+                "options": [
+                        "7 vezes",
+                        "10 vezes",
+                        "3 vezes",
+                        "1 vez"
+                ],
+                "correctIndex": 2,
+                "reference": "Lucas 22:61",
+                "explanation": "Pedro negou 3 vezes por medo, mas depois chorou amargamente, se arrependeu e foi perdoado por Jesus.",
+                "xp": 100
         },
         {
-          "id": 19102,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "19. Cristologia - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19002,
+                "question": "O que os soldados cruéis colocaram na cabeça de Jesus para zombar d'Ele?",
+                "options": [
+                        "Um chapéu de palha",
+                        "Uma coroa de espinhos",
+                        "Um elmo de ferro",
+                        "Uma coroa de flores"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:29",
+                "explanation": "Eles teceram uma coroa de espinhos e zombaram do Rei Jesus, mas Ele sofreu tudo calado por amor a nós.",
+                "xp": 100
         },
         {
-          "id": 19103,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "19. Cristologia - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19003,
+                "question": "O que aconteceu com o grande véu do Templo no momento em que Jesus entregou Seu espírito na cruz?",
+                "options": [
+                        "Ficou transparente",
+                        "Rasgou-se de alto a baixo",
+                        "Pegou fogo",
+                        "Caiu no chão"
+                ],
+                "correctIndex": 1,
+                "reference": "Mateus 27:51",
+                "explanation": "O véu do templo se rasgou de alto a baixo, mostrando que agora temos livre acesso direto a Deus através de Jesus!",
+                "xp": 100
         },
         {
-          "id": 19104,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "19. Cristologia - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19004,
+                "question": "Em que dia da semana Jesus ressuscitou vitorioso da sepultura, vencendo a morte para sempre?",
+                "options": [
+                        "Depois de 40 dias",
+                        "Depois de um ano",
+                        "No mesmo dia",
+                        "No terceiro dia (no domingo de manhã)"
+                ],
+                "correctIndex": 3,
+                "reference": "Mateus 28:1-6",
+                "explanation": "Ao amanhecer do domingo, o anjo desceu, removeu a pedra e disse: 'Ele não está aqui, porque já ressuscitou!' O túmulo está vazio!",
+                "xp": 100
         },
         {
-          "id": 19105,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "19. Cristologia - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19005,
+                "question": "Quem foi a primeira mulher que foi de manhã bem cedo ao túmulo e viu o Senhor Jesus ressuscitado?",
+                "options": [
+                        "Marta",
+                        "Salomé",
+                        "Isabel",
+                        "Maria Madalena"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:11-18",
+                "explanation": "Jesus apareceu a Maria Madalena no jardim e disse com voz mansa: 'Maria!', e ela correu radiante avisar aos discípulos.",
+                "xp": 100
         },
         {
-          "id": 19106,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "19. Cristologia - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19006,
+                "question": "Qual discípulo disse que só acreditaria que Jesus estava vivo se visse a marca dos cravos nas Suas mãos?",
+                "options": [
+                        "João",
+                        "Pedro",
+                        "Filipe",
+                        "Tomé"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:25",
+                "explanation": "Jesus apareceu a Tomé com muita paciência e amor, e Tomé exclamou com fé: 'Senhor meu e Deus meu!'",
+                "xp": 100
         },
         {
-          "id": 19107,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "19. Cristologia - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19007,
+                "question": "Quantos dias Jesus passou com os discípulos após Sua ressurreição, ensinando-lhes sobre o Reino de Deus?",
+                "options": [
+                        "40 dias",
+                        "7 dias",
+                        "3 dias",
+                        "100 dias"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 1:3",
+                "explanation": "Por 40 dias Jesus apareceu vivo com muitas provas infalíveis aos Seus apóstolos e irmãos.",
+                "xp": 100
         },
         {
-          "id": 19108,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "19. Cristologia - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19008,
+                "question": "O que aconteceu com Jesus no Monte das Oliveiras diante dos olhos de todos os Seus discípulos?",
+                "options": [
+                        "Mergulhou no mar",
+                        "Foi elevado às alturas e uma nuvem O recebeu no céu",
+                        "Ficou escondido",
+                        "Entrou numa caverna"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 1:9",
+                "explanation": "Jesus subiu triunfante ao céu para Se sentar à direita de Deus Pai, e dois anjos prometeram que Ele voltará!",
+                "xp": 100
         },
         {
-          "id": 19109,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "19. Cristologia - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19009,
+                "question": "No Dia de Pentecostes, como o Espírito Santo Se manifestou sobre os discípulos reunidos em oração?",
+                "options": [
+                        "Como um trovão sem vento",
+                        "Como um vento impetuoso e línguas como de fogo sobre cada um",
+                        "Como um terremoto",
+                        "Como uma grande chuva"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 2:2-3",
+                "explanation": "O Espírito Santo encheu toda a casa com som de vento impetuoso e desceram línguas como de fogo, capacitando a igreja a testemunhar.",
+                "xp": 100
         },
         {
-          "id": 19110,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "19. Cristologia - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19010,
+                "question": "O que o apóstolo Pedro disse ao homem coxo que pedia esmolas na porta Formosa do Templo?",
+                "options": [
+                        "'Não tenho prata nem ouro, mas o que tenho te dou: em nome de Jesus Cristo, levanta e anda!'",
+                        "'Vá trabalhar'",
+                        "'Não tenho nada para te dar'",
+                        "'Volte amanhã'"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 3:6",
+                "explanation": "Pedro segurou na mão direita do coxo, ele se levantou saltando de alegria e louvando a Deus no templo!",
+                "xp": 100
         },
         {
-          "id": 19111,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "19. Cristologia - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19011,
+                "question": "O que aconteceu com o perseguidor Saulo na estrada para Damasco que mudou toda a sua vida?",
+                "options": [
+                        "Uma forte luz do céu brilhou e Jesus falou com ele: 'Saulo, Saulo, por que me persegues?'",
+                        "Ele encontrou uma bolsa de ouro",
+                        "Ele caiu num poço",
+                        "Ele perdeu o cavalo"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 9:3-5",
+                "explanation": "Uma luz mais brilhante que o sol resplandeceu, Jesus Se revelou a Saulo, e ele se transformou no grande apóstolo Paulo!",
+                "xp": 100
         },
         {
-          "id": 19112,
-          "question": "Em 19. Cristologia, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "19. Cristologia - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 19012,
+                "question": "O que Paulo e Silas faziam à meia-noite dentro da prisão em Filipos mesmo estando com os pés presos no tronco?",
+                "options": [
+                        "Dormiam tristes",
+                        "Brigavam com o guarda",
+                        "Oravam e cantavam hinos a Deus com alegria",
+                        "Choravam desesperados"
+                ],
+                "correctIndex": 2,
+                "reference": "Atos 16:25",
+                "explanation": "Eles oravam e cantavam louvores; de repente sobreveio um terremoto, as portas se abriram e as correntes caíram!",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 19201,
@@ -11353,174 +11353,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 20101,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "20. Escatologia Bíblica - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20001,
+                "question": "Quem foi a primeira mulher que foi de manhã bem cedo ao túmulo e viu o Senhor Jesus ressuscitado?",
+                "options": [
+                        "Marta",
+                        "Salomé",
+                        "Isabel",
+                        "Maria Madalena"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:11-18",
+                "explanation": "Jesus apareceu a Maria Madalena no jardim e disse com voz mansa: 'Maria!', e ela correu radiante avisar aos discípulos.",
+                "xp": 100
         },
         {
-          "id": 20102,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "20. Escatologia Bíblica - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20002,
+                "question": "Qual discípulo disse que só acreditaria que Jesus estava vivo se visse a marca dos cravos nas Suas mãos?",
+                "options": [
+                        "João",
+                        "Pedro",
+                        "Filipe",
+                        "Tomé"
+                ],
+                "correctIndex": 3,
+                "reference": "João 20:25",
+                "explanation": "Jesus apareceu a Tomé com muita paciência e amor, e Tomé exclamou com fé: 'Senhor meu e Deus meu!'",
+                "xp": 100
         },
         {
-          "id": 20103,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "20. Escatologia Bíblica - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20003,
+                "question": "Quantos dias Jesus passou com os discípulos após Sua ressurreição, ensinando-lhes sobre o Reino de Deus?",
+                "options": [
+                        "40 dias",
+                        "7 dias",
+                        "3 dias",
+                        "100 dias"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 1:3",
+                "explanation": "Por 40 dias Jesus apareceu vivo com muitas provas infalíveis aos Seus apóstolos e irmãos.",
+                "xp": 100
         },
         {
-          "id": 20104,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "20. Escatologia Bíblica - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20004,
+                "question": "O que aconteceu com Jesus no Monte das Oliveiras diante dos olhos de todos os Seus discípulos?",
+                "options": [
+                        "Mergulhou no mar",
+                        "Foi elevado às alturas e uma nuvem O recebeu no céu",
+                        "Ficou escondido",
+                        "Entrou numa caverna"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 1:9",
+                "explanation": "Jesus subiu triunfante ao céu para Se sentar à direita de Deus Pai, e dois anjos prometeram que Ele voltará!",
+                "xp": 100
         },
         {
-          "id": 20105,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "20. Escatologia Bíblica - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20005,
+                "question": "No Dia de Pentecostes, como o Espírito Santo Se manifestou sobre os discípulos reunidos em oração?",
+                "options": [
+                        "Como um trovão sem vento",
+                        "Como um vento impetuoso e línguas como de fogo sobre cada um",
+                        "Como um terremoto",
+                        "Como uma grande chuva"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 2:2-3",
+                "explanation": "O Espírito Santo encheu toda a casa com som de vento impetuoso e desceram línguas como de fogo, capacitando a igreja a testemunhar.",
+                "xp": 100
         },
         {
-          "id": 20106,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "20. Escatologia Bíblica - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20006,
+                "question": "O que o apóstolo Pedro disse ao homem coxo que pedia esmolas na porta Formosa do Templo?",
+                "options": [
+                        "'Não tenho prata nem ouro, mas o que tenho te dou: em nome de Jesus Cristo, levanta e anda!'",
+                        "'Vá trabalhar'",
+                        "'Não tenho nada para te dar'",
+                        "'Volte amanhã'"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 3:6",
+                "explanation": "Pedro segurou na mão direita do coxo, ele se levantou saltando de alegria e louvando a Deus no templo!",
+                "xp": 100
         },
         {
-          "id": 20107,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "20. Escatologia Bíblica - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20007,
+                "question": "O que aconteceu com o perseguidor Saulo na estrada para Damasco que mudou toda a sua vida?",
+                "options": [
+                        "Uma forte luz do céu brilhou e Jesus falou com ele: 'Saulo, Saulo, por que me persegues?'",
+                        "Ele encontrou uma bolsa de ouro",
+                        "Ele caiu num poço",
+                        "Ele perdeu o cavalo"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 9:3-5",
+                "explanation": "Uma luz mais brilhante que o sol resplandeceu, Jesus Se revelou a Saulo, e ele se transformou no grande apóstolo Paulo!",
+                "xp": 100
         },
         {
-          "id": 20108,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "20. Escatologia Bíblica - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20008,
+                "question": "O que Paulo e Silas faziam à meia-noite dentro da prisão em Filipos mesmo estando com os pés presos no tronco?",
+                "options": [
+                        "Dormiam tristes",
+                        "Brigavam com o guarda",
+                        "Oravam e cantavam hinos a Deus com alegria",
+                        "Choravam desesperados"
+                ],
+                "correctIndex": 2,
+                "reference": "Atos 16:25",
+                "explanation": "Eles oravam e cantavam louvores; de repente sobreveio um terremoto, as portas se abriram e as correntes caíram!",
+                "xp": 100
         },
         {
-          "id": 20109,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "20. Escatologia Bíblica - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20009,
+                "question": "Quem era o jovem companheiro de viagens e ministério do apóstolo Paulo que aprendeu a Bíblia desde criancinha com sua mãe e sua avó?",
+                "options": [
+                        "Lucas",
+                        "Tito",
+                        "Timóteo",
+                        "Barnabé"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Timóteo 1:5; 3:15",
+                "explanation": "O jovem Timóteo aprendeu as Sagradas Letras desde a infância através de sua mãe Eunice e de sua avó Lóide.",
+                "xp": 100
         },
         {
-          "id": 20110,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "20. Escatologia Bíblica - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20010,
+                "question": "Qual era a profissão do evangelista Lucas, autor de um dos quatro Evangelhos e do livro de Atos?",
+                "options": [
+                        "Pescador",
+                        "Soldado",
+                        "Médico amado",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "Colossenses 4:14",
+                "explanation": "Lucas era um médico dedicado que pesquisou tudo com muito cuidado e escreveu as histórias preciosas sobre Jesus.",
+                "xp": 100
         },
         {
-          "id": 20111,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "20. Escatologia Bíblica - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20011,
+                "question": "Em qual ilha isolada no mar o apóstolo João estava exilado quando teve as maravilhosas visões do livro de Apocalipse?",
+                "options": [
+                        "Ilha de Malta",
+                        "Ilha de Patmos",
+                        "Ilha de Creta",
+                        "Ilha de Chipre"
+                ],
+                "correctIndex": 1,
+                "reference": "Apocalipse 1:9",
+                "explanation": "Na Ilha de Patmos, João foi arrebatado em espírito no dia do Senhor e viu a glória de Jesus Cristo.",
+                "xp": 100
         },
         {
-          "id": 20112,
-          "question": "Em 20. Escatologia Bíblica, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "20. Escatologia Bíblica - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 20012,
+                "question": "Segundo o Salmo 23, quem é o nosso Pastor que não deixa nos faltar nada?",
+                "options": [
+                        "O rei da terra",
+                        "O anjo da guarda",
+                        "O sacerdote",
+                        "O Senhor Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Salmo 23:1",
+                "explanation": "'O Senhor é o meu pastor; nada me faltará. Deitar-me faz em verdes pastos e guia-me mansamente a águas tranquilas.'",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 20201,
@@ -11948,174 +11948,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 21101,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "21. Epístolas Gerais - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21001,
+                "question": "No Dia de Pentecostes, como o Espírito Santo Se manifestou sobre os discípulos reunidos em oração?",
+                "options": [
+                        "Como um trovão sem vento",
+                        "Como um vento impetuoso e línguas como de fogo sobre cada um",
+                        "Como um terremoto",
+                        "Como uma grande chuva"
+                ],
+                "correctIndex": 1,
+                "reference": "Atos 2:2-3",
+                "explanation": "O Espírito Santo encheu toda a casa com som de vento impetuoso e desceram línguas como de fogo, capacitando a igreja a testemunhar.",
+                "xp": 100
         },
         {
-          "id": 21102,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "21. Epístolas Gerais - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21002,
+                "question": "O que o apóstolo Pedro disse ao homem coxo que pedia esmolas na porta Formosa do Templo?",
+                "options": [
+                        "'Não tenho prata nem ouro, mas o que tenho te dou: em nome de Jesus Cristo, levanta e anda!'",
+                        "'Vá trabalhar'",
+                        "'Não tenho nada para te dar'",
+                        "'Volte amanhã'"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 3:6",
+                "explanation": "Pedro segurou na mão direita do coxo, ele se levantou saltando de alegria e louvando a Deus no templo!",
+                "xp": 100
         },
         {
-          "id": 21103,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "21. Epístolas Gerais - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21003,
+                "question": "O que aconteceu com o perseguidor Saulo na estrada para Damasco que mudou toda a sua vida?",
+                "options": [
+                        "Uma forte luz do céu brilhou e Jesus falou com ele: 'Saulo, Saulo, por que me persegues?'",
+                        "Ele encontrou uma bolsa de ouro",
+                        "Ele caiu num poço",
+                        "Ele perdeu o cavalo"
+                ],
+                "correctIndex": 0,
+                "reference": "Atos 9:3-5",
+                "explanation": "Uma luz mais brilhante que o sol resplandeceu, Jesus Se revelou a Saulo, e ele se transformou no grande apóstolo Paulo!",
+                "xp": 100
         },
         {
-          "id": 21104,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "21. Epístolas Gerais - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21004,
+                "question": "O que Paulo e Silas faziam à meia-noite dentro da prisão em Filipos mesmo estando com os pés presos no tronco?",
+                "options": [
+                        "Dormiam tristes",
+                        "Brigavam com o guarda",
+                        "Oravam e cantavam hinos a Deus com alegria",
+                        "Choravam desesperados"
+                ],
+                "correctIndex": 2,
+                "reference": "Atos 16:25",
+                "explanation": "Eles oravam e cantavam louvores; de repente sobreveio um terremoto, as portas se abriram e as correntes caíram!",
+                "xp": 100
         },
         {
-          "id": 21105,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "21. Epístolas Gerais - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21005,
+                "question": "Quem era o jovem companheiro de viagens e ministério do apóstolo Paulo que aprendeu a Bíblia desde criancinha com sua mãe e sua avó?",
+                "options": [
+                        "Lucas",
+                        "Tito",
+                        "Timóteo",
+                        "Barnabé"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Timóteo 1:5; 3:15",
+                "explanation": "O jovem Timóteo aprendeu as Sagradas Letras desde a infância através de sua mãe Eunice e de sua avó Lóide.",
+                "xp": 100
         },
         {
-          "id": 21106,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "21. Epístolas Gerais - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21006,
+                "question": "Qual era a profissão do evangelista Lucas, autor de um dos quatro Evangelhos e do livro de Atos?",
+                "options": [
+                        "Pescador",
+                        "Soldado",
+                        "Médico amado",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "Colossenses 4:14",
+                "explanation": "Lucas era um médico dedicado que pesquisou tudo com muito cuidado e escreveu as histórias preciosas sobre Jesus.",
+                "xp": 100
         },
         {
-          "id": 21107,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "21. Epístolas Gerais - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21007,
+                "question": "Em qual ilha isolada no mar o apóstolo João estava exilado quando teve as maravilhosas visões do livro de Apocalipse?",
+                "options": [
+                        "Ilha de Malta",
+                        "Ilha de Patmos",
+                        "Ilha de Creta",
+                        "Ilha de Chipre"
+                ],
+                "correctIndex": 1,
+                "reference": "Apocalipse 1:9",
+                "explanation": "Na Ilha de Patmos, João foi arrebatado em espírito no dia do Senhor e viu a glória de Jesus Cristo.",
+                "xp": 100
         },
         {
-          "id": 21108,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "21. Epístolas Gerais - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21008,
+                "question": "Segundo o Salmo 23, quem é o nosso Pastor que não deixa nos faltar nada?",
+                "options": [
+                        "O rei da terra",
+                        "O anjo da guarda",
+                        "O sacerdote",
+                        "O Senhor Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Salmo 23:1",
+                "explanation": "'O Senhor é o meu pastor; nada me faltará. Deitar-me faz em verdes pastos e guia-me mansamente a águas tranquilas.'",
+                "xp": 100
         },
         {
-          "id": 21109,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "21. Epístolas Gerais - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21009,
+                "question": "De acordo com a Bíblia, 'A palavra de Deus é lâmpada para os meus pés e...' o quê?",
+                "options": [
+                        "Música para os ouvidos",
+                        "Água para a sede",
+                        "Luz para o meu caminho",
+                        "Sombra para a tarde"
+                ],
+                "correctIndex": 2,
+                "reference": "Salmo 119:105",
+                "explanation": "A Bíblia Sagrada é a luz brilhante que nos guia no caminho certo para nunca tropeçarmos no escuro.",
+                "xp": 100
         },
         {
-          "id": 21110,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "21. Epístolas Gerais - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21010,
+                "question": "Qual é o primeiro mandamento com promessa para as crianças e os jovens segundo Efésios 6:2?",
+                "options": [
+                        "Brinque todo dia",
+                        "Honra a teu pai e a tua mãe",
+                        "Não coma doce",
+                        "Estude muito"
+                ],
+                "correctIndex": 1,
+                "reference": "Efésios 6:2-3",
+                "explanation": "Honrar e respeitar pai e mãe traz a promessa de uma vida longa, abençoada e cheia de paz.",
+                "xp": 100
         },
         {
-          "id": 21111,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "21. Epístolas Gerais - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21011,
+                "question": "Qual é o versículo mais famoso da Bíblia que diz: 'Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito...'?",
+                "options": [
+                        "Apocalipse 22:20",
+                        "João 3:16",
+                        "Salmo 23:1",
+                        "Gênesis 1:1"
+                ],
+                "correctIndex": 1,
+                "reference": "João 3:16",
+                "explanation": "João 3:16 resume o imenso amor de Deus: todo aquele que crê em Jesus não perece, mas tem a vida eterna!",
+                "xp": 100
         },
         {
-          "id": 21112,
-          "question": "Em 21. Epístolas Gerais, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "21. Epístolas Gerais - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 21012,
+                "question": "Em quantas partes principais a Bíblia Sagrada é dividida?",
+                "options": [
+                        "10 partes",
+                        "5 partes",
+                        "3 partes",
+                        "2 partes: Antigo Testamento e Novo Testamento"
+                ],
+                "correctIndex": 3,
+                "reference": "Estrutura Bíblica",
+                "explanation": "A Bíblia é composta pelo Antigo Testamento (antes de Jesus) e pelo Novo Testamento (com Jesus e os Apóstolos).",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 21201,
@@ -12543,174 +12543,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 22101,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "22. Doutrina de Deus - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22001,
+                "question": "Quem era o jovem companheiro de viagens e ministério do apóstolo Paulo que aprendeu a Bíblia desde criancinha com sua mãe e sua avó?",
+                "options": [
+                        "Lucas",
+                        "Tito",
+                        "Timóteo",
+                        "Barnabé"
+                ],
+                "correctIndex": 2,
+                "reference": "2 Timóteo 1:5; 3:15",
+                "explanation": "O jovem Timóteo aprendeu as Sagradas Letras desde a infância através de sua mãe Eunice e de sua avó Lóide.",
+                "xp": 100
         },
         {
-          "id": 22102,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "22. Doutrina de Deus - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22002,
+                "question": "Qual era a profissão do evangelista Lucas, autor de um dos quatro Evangelhos e do livro de Atos?",
+                "options": [
+                        "Pescador",
+                        "Soldado",
+                        "Médico amado",
+                        "Carpinteiro"
+                ],
+                "correctIndex": 2,
+                "reference": "Colossenses 4:14",
+                "explanation": "Lucas era um médico dedicado que pesquisou tudo com muito cuidado e escreveu as histórias preciosas sobre Jesus.",
+                "xp": 100
         },
         {
-          "id": 22103,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "22. Doutrina de Deus - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22003,
+                "question": "Em qual ilha isolada no mar o apóstolo João estava exilado quando teve as maravilhosas visões do livro de Apocalipse?",
+                "options": [
+                        "Ilha de Malta",
+                        "Ilha de Patmos",
+                        "Ilha de Creta",
+                        "Ilha de Chipre"
+                ],
+                "correctIndex": 1,
+                "reference": "Apocalipse 1:9",
+                "explanation": "Na Ilha de Patmos, João foi arrebatado em espírito no dia do Senhor e viu a glória de Jesus Cristo.",
+                "xp": 100
         },
         {
-          "id": 22104,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "22. Doutrina de Deus - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22004,
+                "question": "Segundo o Salmo 23, quem é o nosso Pastor que não deixa nos faltar nada?",
+                "options": [
+                        "O rei da terra",
+                        "O anjo da guarda",
+                        "O sacerdote",
+                        "O Senhor Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Salmo 23:1",
+                "explanation": "'O Senhor é o meu pastor; nada me faltará. Deitar-me faz em verdes pastos e guia-me mansamente a águas tranquilas.'",
+                "xp": 100
         },
         {
-          "id": 22105,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "22. Doutrina de Deus - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22005,
+                "question": "De acordo com a Bíblia, 'A palavra de Deus é lâmpada para os meus pés e...' o quê?",
+                "options": [
+                        "Música para os ouvidos",
+                        "Água para a sede",
+                        "Luz para o meu caminho",
+                        "Sombra para a tarde"
+                ],
+                "correctIndex": 2,
+                "reference": "Salmo 119:105",
+                "explanation": "A Bíblia Sagrada é a luz brilhante que nos guia no caminho certo para nunca tropeçarmos no escuro.",
+                "xp": 100
         },
         {
-          "id": 22106,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "22. Doutrina de Deus - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22006,
+                "question": "Qual é o primeiro mandamento com promessa para as crianças e os jovens segundo Efésios 6:2?",
+                "options": [
+                        "Brinque todo dia",
+                        "Honra a teu pai e a tua mãe",
+                        "Não coma doce",
+                        "Estude muito"
+                ],
+                "correctIndex": 1,
+                "reference": "Efésios 6:2-3",
+                "explanation": "Honrar e respeitar pai e mãe traz a promessa de uma vida longa, abençoada e cheia de paz.",
+                "xp": 100
         },
         {
-          "id": 22107,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "22. Doutrina de Deus - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22007,
+                "question": "Qual é o versículo mais famoso da Bíblia que diz: 'Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito...'?",
+                "options": [
+                        "Apocalipse 22:20",
+                        "João 3:16",
+                        "Salmo 23:1",
+                        "Gênesis 1:1"
+                ],
+                "correctIndex": 1,
+                "reference": "João 3:16",
+                "explanation": "João 3:16 resume o imenso amor de Deus: todo aquele que crê em Jesus não perece, mas tem a vida eterna!",
+                "xp": 100
         },
         {
-          "id": 22108,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "22. Doutrina de Deus - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22008,
+                "question": "Em quantas partes principais a Bíblia Sagrada é dividida?",
+                "options": [
+                        "10 partes",
+                        "5 partes",
+                        "3 partes",
+                        "2 partes: Antigo Testamento e Novo Testamento"
+                ],
+                "correctIndex": 3,
+                "reference": "Estrutura Bíblica",
+                "explanation": "A Bíblia é composta pelo Antigo Testamento (antes de Jesus) e pelo Novo Testamento (com Jesus e os Apóstolos).",
+                "xp": 100
         },
         {
-          "id": 22109,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "22. Doutrina de Deus - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22009,
+                "question": "Quantos livros a Bíblia possui ao todo (39 no Antigo Testamento e 27 no Novo Testamento)?",
+                "options": [
+                        "100 livros",
+                        "50 livros",
+                        "66 livros",
+                        "70 livros"
+                ],
+                "correctIndex": 2,
+                "reference": "Cânon Bíblico",
+                "explanation": "A Bíblia Sagrada é uma linda biblioteca divina de 66 livros inspirados pelo Espírito Santo.",
+                "xp": 100
         },
         {
-          "id": 22110,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "22. Doutrina de Deus - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22010,
+                "question": "Qual é o primeiro livro de toda a Bíblia?",
+                "options": [
+                        "Gênesis",
+                        "Salmos",
+                        "Êxodo",
+                        "Mateus"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis",
+                "explanation": "Gênesis significa 'início' ou 'origem', e conta a história da criação do mundo e dos patriarcas.",
+                "xp": 100
         },
         {
-          "id": 22111,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "22. Doutrina de Deus - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22011,
+                "question": "Qual é o último livro de toda a Bíblia, que fala sobre o céu e a volta de Jesus?",
+                "options": [
+                        "Apocalipse (Revelação)",
+                        "Malaquias",
+                        "Atos",
+                        "Gênesis"
+                ],
+                "correctIndex": 0,
+                "reference": "Apocalipse",
+                "explanation": "Apocalipse é o último livro da Bíblia e fala da vitória final de Jesus e da Nova Jerusalém celestial.",
+                "xp": 100
         },
         {
-          "id": 22112,
-          "question": "Em 22. Doutrina de Deus, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "22. Doutrina de Deus - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 22012,
+                "question": "Quantos Mandamentos Deus deu a Moisés no Monte Sinai escritos em pedras?",
+                "options": [
+                        "12 Mandamentos",
+                        "10 Mandamentos",
+                        "5 Mandamentos",
+                        "20 Mandamentos"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 20:1-17",
+                "explanation": "Os Dez Mandamentos são as regras de amor a Deus e amor ao próximo dadas no Monte Sinai.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 22201,
@@ -13138,174 +13138,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 23101,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23001,
+                "question": "De acordo com a Bíblia, 'A palavra de Deus é lâmpada para os meus pés e...' o quê?",
+                "options": [
+                        "Música para os ouvidos",
+                        "Água para a sede",
+                        "Luz para o meu caminho",
+                        "Sombra para a tarde"
+                ],
+                "correctIndex": 2,
+                "reference": "Salmo 119:105",
+                "explanation": "A Bíblia Sagrada é a luz brilhante que nos guia no caminho certo para nunca tropeçarmos no escuro.",
+                "xp": 100
         },
         {
-          "id": 23102,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23002,
+                "question": "Qual é o primeiro mandamento com promessa para as crianças e os jovens segundo Efésios 6:2?",
+                "options": [
+                        "Brinque todo dia",
+                        "Honra a teu pai e a tua mãe",
+                        "Não coma doce",
+                        "Estude muito"
+                ],
+                "correctIndex": 1,
+                "reference": "Efésios 6:2-3",
+                "explanation": "Honrar e respeitar pai e mãe traz a promessa de uma vida longa, abençoada e cheia de paz.",
+                "xp": 100
         },
         {
-          "id": 23103,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23003,
+                "question": "Qual é o versículo mais famoso da Bíblia que diz: 'Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito...'?",
+                "options": [
+                        "Apocalipse 22:20",
+                        "João 3:16",
+                        "Salmo 23:1",
+                        "Gênesis 1:1"
+                ],
+                "correctIndex": 1,
+                "reference": "João 3:16",
+                "explanation": "João 3:16 resume o imenso amor de Deus: todo aquele que crê em Jesus não perece, mas tem a vida eterna!",
+                "xp": 100
         },
         {
-          "id": 23104,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23004,
+                "question": "Em quantas partes principais a Bíblia Sagrada é dividida?",
+                "options": [
+                        "10 partes",
+                        "5 partes",
+                        "3 partes",
+                        "2 partes: Antigo Testamento e Novo Testamento"
+                ],
+                "correctIndex": 3,
+                "reference": "Estrutura Bíblica",
+                "explanation": "A Bíblia é composta pelo Antigo Testamento (antes de Jesus) e pelo Novo Testamento (com Jesus e os Apóstolos).",
+                "xp": 100
         },
         {
-          "id": 23105,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23005,
+                "question": "Quantos livros a Bíblia possui ao todo (39 no Antigo Testamento e 27 no Novo Testamento)?",
+                "options": [
+                        "100 livros",
+                        "50 livros",
+                        "66 livros",
+                        "70 livros"
+                ],
+                "correctIndex": 2,
+                "reference": "Cânon Bíblico",
+                "explanation": "A Bíblia Sagrada é uma linda biblioteca divina de 66 livros inspirados pelo Espírito Santo.",
+                "xp": 100
         },
         {
-          "id": 23106,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23006,
+                "question": "Qual é o primeiro livro de toda a Bíblia?",
+                "options": [
+                        "Gênesis",
+                        "Salmos",
+                        "Êxodo",
+                        "Mateus"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis",
+                "explanation": "Gênesis significa 'início' ou 'origem', e conta a história da criação do mundo e dos patriarcas.",
+                "xp": 100
         },
         {
-          "id": 23107,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23007,
+                "question": "Qual é o último livro de toda a Bíblia, que fala sobre o céu e a volta de Jesus?",
+                "options": [
+                        "Apocalipse (Revelação)",
+                        "Malaquias",
+                        "Atos",
+                        "Gênesis"
+                ],
+                "correctIndex": 0,
+                "reference": "Apocalipse",
+                "explanation": "Apocalipse é o último livro da Bíblia e fala da vitória final de Jesus e da Nova Jerusalém celestial.",
+                "xp": 100
         },
         {
-          "id": 23108,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23008,
+                "question": "Quantos Mandamentos Deus deu a Moisés no Monte Sinai escritos em pedras?",
+                "options": [
+                        "12 Mandamentos",
+                        "10 Mandamentos",
+                        "5 Mandamentos",
+                        "20 Mandamentos"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 20:1-17",
+                "explanation": "Os Dez Mandamentos são as regras de amor a Deus e amor ao próximo dadas no Monte Sinai.",
+                "xp": 100
         },
         {
-          "id": 23109,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23009,
+                "question": "Segundo 1 Coríntios 13, de três virtudes preciosas (a fé, a esperança e o amor), qual é a maior de todas?",
+                "options": [
+                        "A Esperança",
+                        "A Sabedoria",
+                        "A Fé",
+                        "O Amor"
+                ],
+                "correctIndex": 3,
+                "reference": "1 Coríntios 13:13",
+                "explanation": "'Agora, pois, permanecem a fé, a esperança e o amor, estes três; mas o maior destes é o amor!'",
+                "xp": 100
         },
         {
-          "id": 23110,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23010,
+                "question": "Quem é a videira verdadeira e nós somos os ramos que devemos dar bons frutos de amor?",
+                "options": [
+                        "Pedro",
+                        "Davi",
+                        "Moisés",
+                        "Jesus"
+                ],
+                "correctIndex": 3,
+                "reference": "João 15:5",
+                "explanation": "Jesus disse: 'Eu sou a videira, vós as varas; quem está em mim, e eu nele, esse dá muito fruto; porque sem mim nada podeis fazer.'",
+                "xp": 100
         },
         {
-          "id": 23111,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23011,
+                "question": "O que a Bíblia diz que não haverá mais no Céu, junto de Deus e de Jesus?",
+                "options": [
+                        "Não haverá luz",
+                        "Não haverá amigos",
+                        "Não haverá mais choro, nem morte, nem tristeza, nem dor",
+                        "Não haverá música"
+                ],
+                "correctIndex": 2,
+                "reference": "Apocalipse 21:4",
+                "explanation": "No céu com Deus, Ele enxugará dos nossos olhos toda lágrima e viveremos na mais perfeita alegria para sempre!",
+                "xp": 100
         },
         {
-          "id": 23112,
-          "question": "Em 23. Angelologia, Antropologia e Hamartiologia, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "23. Angelologia, Antropologia e Hamartiologia - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 23012,
+                "question": "Qual é a melhor resposta para a pergunta: 'Como posso falar com Deus todos os dias?'",
+                "options": [
+                        "Mandando uma carta pelo correio",
+                        "Somente gritando bem alto",
+                        "Somente quando for adulto",
+                        "Através da oração simples e sincera do coração a qualquer momento"
+                ],
+                "correctIndex": 3,
+                "reference": "Filipenses 4:6; 1 Tessalonicenses 5:17",
+                "explanation": "Deus ouve a voz de cada criança e iniciante a qualquer hora do dia ou da noite quando oramos com fé no coração!",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 23201,
@@ -13733,174 +13733,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 24101,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "24. História de Israel I - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24001,
+                "question": "Quantos livros a Bíblia possui ao todo (39 no Antigo Testamento e 27 no Novo Testamento)?",
+                "options": [
+                        "100 livros",
+                        "50 livros",
+                        "66 livros",
+                        "70 livros"
+                ],
+                "correctIndex": 2,
+                "reference": "Cânon Bíblico",
+                "explanation": "A Bíblia Sagrada é uma linda biblioteca divina de 66 livros inspirados pelo Espírito Santo.",
+                "xp": 100
         },
         {
-          "id": 24102,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "24. História de Israel I - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24002,
+                "question": "Qual é o primeiro livro de toda a Bíblia?",
+                "options": [
+                        "Gênesis",
+                        "Salmos",
+                        "Êxodo",
+                        "Mateus"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis",
+                "explanation": "Gênesis significa 'início' ou 'origem', e conta a história da criação do mundo e dos patriarcas.",
+                "xp": 100
         },
         {
-          "id": 24103,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "24. História de Israel I - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24003,
+                "question": "Qual é o último livro de toda a Bíblia, que fala sobre o céu e a volta de Jesus?",
+                "options": [
+                        "Apocalipse (Revelação)",
+                        "Malaquias",
+                        "Atos",
+                        "Gênesis"
+                ],
+                "correctIndex": 0,
+                "reference": "Apocalipse",
+                "explanation": "Apocalipse é o último livro da Bíblia e fala da vitória final de Jesus e da Nova Jerusalém celestial.",
+                "xp": 100
         },
         {
-          "id": 24104,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "24. História de Israel I - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24004,
+                "question": "Quantos Mandamentos Deus deu a Moisés no Monte Sinai escritos em pedras?",
+                "options": [
+                        "12 Mandamentos",
+                        "10 Mandamentos",
+                        "5 Mandamentos",
+                        "20 Mandamentos"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 20:1-17",
+                "explanation": "Os Dez Mandamentos são as regras de amor a Deus e amor ao próximo dadas no Monte Sinai.",
+                "xp": 100
         },
         {
-          "id": 24105,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "24. História de Israel I - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24005,
+                "question": "Segundo 1 Coríntios 13, de três virtudes preciosas (a fé, a esperança e o amor), qual é a maior de todas?",
+                "options": [
+                        "A Esperança",
+                        "A Sabedoria",
+                        "A Fé",
+                        "O Amor"
+                ],
+                "correctIndex": 3,
+                "reference": "1 Coríntios 13:13",
+                "explanation": "'Agora, pois, permanecem a fé, a esperança e o amor, estes três; mas o maior destes é o amor!'",
+                "xp": 100
         },
         {
-          "id": 24106,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "24. História de Israel I - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24006,
+                "question": "Quem é a videira verdadeira e nós somos os ramos que devemos dar bons frutos de amor?",
+                "options": [
+                        "Pedro",
+                        "Davi",
+                        "Moisés",
+                        "Jesus"
+                ],
+                "correctIndex": 3,
+                "reference": "João 15:5",
+                "explanation": "Jesus disse: 'Eu sou a videira, vós as varas; quem está em mim, e eu nele, esse dá muito fruto; porque sem mim nada podeis fazer.'",
+                "xp": 100
         },
         {
-          "id": 24107,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "24. História de Israel I - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24007,
+                "question": "O que a Bíblia diz que não haverá mais no Céu, junto de Deus e de Jesus?",
+                "options": [
+                        "Não haverá luz",
+                        "Não haverá amigos",
+                        "Não haverá mais choro, nem morte, nem tristeza, nem dor",
+                        "Não haverá música"
+                ],
+                "correctIndex": 2,
+                "reference": "Apocalipse 21:4",
+                "explanation": "No céu com Deus, Ele enxugará dos nossos olhos toda lágrima e viveremos na mais perfeita alegria para sempre!",
+                "xp": 100
         },
         {
-          "id": 24108,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "24. História de Israel I - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24008,
+                "question": "Qual é a melhor resposta para a pergunta: 'Como posso falar com Deus todos os dias?'",
+                "options": [
+                        "Mandando uma carta pelo correio",
+                        "Somente gritando bem alto",
+                        "Somente quando for adulto",
+                        "Através da oração simples e sincera do coração a qualquer momento"
+                ],
+                "correctIndex": 3,
+                "reference": "Filipenses 4:6; 1 Tessalonicenses 5:17",
+                "explanation": "Deus ouve a voz de cada criança e iniciante a qualquer hora do dia ou da noite quando oramos com fé no coração!",
+                "xp": 100
         },
         {
-          "id": 24109,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "24. História de Israel I - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24009,
+                "question": "Quem criou os céus, a terra, o sol e todos os animais?",
+                "options": [
+                        "Noé",
+                        "Moisés",
+                        "Abraão",
+                        "Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 1:1",
+                "explanation": "No princípio, Deus criou os céus e a terra e tudo o que neles existe com Seu grande poder e amor.",
+                "xp": 100
         },
         {
-          "id": 24110,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "24. História de Israel I - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24010,
+                "question": "Quem foram o primeiro homem e a primeira mulher criados por Deus no Jardim do Éden?",
+                "options": [
+                        "Abraão e Sara",
+                        "Sansão e Dalila",
+                        "Davi e Golias",
+                        "Adão e Eva"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 2:7, 22",
+                "explanation": "Deus criou Adão do pó da terra e Eva como sua companheira no lindo Jardim do Éden.",
+                "xp": 100
         },
         {
-          "id": 24111,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "24. História de Israel I - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24011,
+                "question": "Qual animal falou com Eva no Jardim do Éden?",
+                "options": [
+                        "O cordeiro",
+                        "A pomba",
+                        "A serpente",
+                        "O leão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 3:1",
+                "explanation": "A serpente enganou Eva para desobedecer a Deus e comer do fruto proibido.",
+                "xp": 100
         },
         {
-          "id": 24112,
-          "question": "Em 24. História de Israel I, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "24. História de Israel I - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 24012,
+                "question": "Quem construiu uma grande arca de madeira para salvar sua família e os animais do dilúvio?",
+                "options": [
+                        "Pedro",
+                        "Jonas",
+                        "Noé",
+                        "Paulo"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 6:14",
+                "explanation": "Noé foi um homem fiel e obediente a Deus que construiu a grande arca para salvar os animais e sua família.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 24201,
@@ -14328,174 +14328,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 25101,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "25. História de Israel II - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25001,
+                "question": "Segundo 1 Coríntios 13, de três virtudes preciosas (a fé, a esperança e o amor), qual é a maior de todas?",
+                "options": [
+                        "A Esperança",
+                        "A Sabedoria",
+                        "A Fé",
+                        "O Amor"
+                ],
+                "correctIndex": 3,
+                "reference": "1 Coríntios 13:13",
+                "explanation": "'Agora, pois, permanecem a fé, a esperança e o amor, estes três; mas o maior destes é o amor!'",
+                "xp": 100
         },
         {
-          "id": 25102,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "25. História de Israel II - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25002,
+                "question": "Quem é a videira verdadeira e nós somos os ramos que devemos dar bons frutos de amor?",
+                "options": [
+                        "Pedro",
+                        "Davi",
+                        "Moisés",
+                        "Jesus"
+                ],
+                "correctIndex": 3,
+                "reference": "João 15:5",
+                "explanation": "Jesus disse: 'Eu sou a videira, vós as varas; quem está em mim, e eu nele, esse dá muito fruto; porque sem mim nada podeis fazer.'",
+                "xp": 100
         },
         {
-          "id": 25103,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "25. História de Israel II - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25003,
+                "question": "O que a Bíblia diz que não haverá mais no Céu, junto de Deus e de Jesus?",
+                "options": [
+                        "Não haverá luz",
+                        "Não haverá amigos",
+                        "Não haverá mais choro, nem morte, nem tristeza, nem dor",
+                        "Não haverá música"
+                ],
+                "correctIndex": 2,
+                "reference": "Apocalipse 21:4",
+                "explanation": "No céu com Deus, Ele enxugará dos nossos olhos toda lágrima e viveremos na mais perfeita alegria para sempre!",
+                "xp": 100
         },
         {
-          "id": 25104,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "25. História de Israel II - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25004,
+                "question": "Qual é a melhor resposta para a pergunta: 'Como posso falar com Deus todos os dias?'",
+                "options": [
+                        "Mandando uma carta pelo correio",
+                        "Somente gritando bem alto",
+                        "Somente quando for adulto",
+                        "Através da oração simples e sincera do coração a qualquer momento"
+                ],
+                "correctIndex": 3,
+                "reference": "Filipenses 4:6; 1 Tessalonicenses 5:17",
+                "explanation": "Deus ouve a voz de cada criança e iniciante a qualquer hora do dia ou da noite quando oramos com fé no coração!",
+                "xp": 100
         },
         {
-          "id": 25105,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "25. História de Israel II - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25005,
+                "question": "Quem criou os céus, a terra, o sol e todos os animais?",
+                "options": [
+                        "Noé",
+                        "Moisés",
+                        "Abraão",
+                        "Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 1:1",
+                "explanation": "No princípio, Deus criou os céus e a terra e tudo o que neles existe com Seu grande poder e amor.",
+                "xp": 100
         },
         {
-          "id": 25106,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "25. História de Israel II - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25006,
+                "question": "Quem foram o primeiro homem e a primeira mulher criados por Deus no Jardim do Éden?",
+                "options": [
+                        "Abraão e Sara",
+                        "Sansão e Dalila",
+                        "Davi e Golias",
+                        "Adão e Eva"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 2:7, 22",
+                "explanation": "Deus criou Adão do pó da terra e Eva como sua companheira no lindo Jardim do Éden.",
+                "xp": 100
         },
         {
-          "id": 25107,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "25. História de Israel II - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25007,
+                "question": "Qual animal falou com Eva no Jardim do Éden?",
+                "options": [
+                        "O cordeiro",
+                        "A pomba",
+                        "A serpente",
+                        "O leão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 3:1",
+                "explanation": "A serpente enganou Eva para desobedecer a Deus e comer do fruto proibido.",
+                "xp": 100
         },
         {
-          "id": 25108,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "25. História de Israel II - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25008,
+                "question": "Quem construiu uma grande arca de madeira para salvar sua família e os animais do dilúvio?",
+                "options": [
+                        "Pedro",
+                        "Jonas",
+                        "Noé",
+                        "Paulo"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 6:14",
+                "explanation": "Noé foi um homem fiel e obediente a Deus que construiu a grande arca para salvar os animais e sua família.",
+                "xp": 100
         },
         {
-          "id": 25109,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "25. História de Israel II - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25009,
+                "question": "Que sinal colorido Deus colocou no céu como promessa de que nunca mais haveria outro dilúvio?",
+                "options": [
+                        "Um cometa",
+                        "O arco-íris",
+                        "Uma nuvem escura",
+                        "Uma estrela cadente"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 9:13",
+                "explanation": "O arco-íris é o sinal da aliança e promessa de Deus para com toda a terra.",
+                "xp": 100
         },
         {
-          "id": 25110,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "25. História de Israel II - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25010,
+                "question": "Que pássaro Noé soltou da arca que voltou trazendo uma folhinha de oliveira no bico?",
+                "options": [
+                        "Uma pomba",
+                        "Uma andorinha",
+                        "Um corvo",
+                        "Um gavião"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 8:11",
+                "explanation": "A pombinha voltou à arca trazendo uma folha verde de oliveira, mostrando que a terra estava secando.",
+                "xp": 100
         },
         {
-          "id": 25111,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "25. História de Israel II - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25011,
+                "question": "Como se chamava a torre muito alta que os homens tentaram construir até o céu para ficarem famosos?",
+                "options": [
+                        "Torre de Babel",
+                        "Torre de Davi",
+                        "Torre de Jericó",
+                        "Torre de Belém"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 11:4-9",
+                "explanation": "Na Torre de Babel, Deus confundiu as línguas porque os homens se tornaram orgulhosos.",
+                "xp": 100
         },
         {
-          "id": 25112,
-          "question": "Em 25. História de Israel II, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "25. História de Israel II - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 25012,
+                "question": "Qual foi o filho que nasceu para Abraão e Sara quando eles já eram bem idosos, conforme a promessa de Deus?",
+                "options": [
+                        "Moisés",
+                        "Davi",
+                        "Isaque",
+                        "Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 21:2-3",
+                "explanation": "Isaque significa riso de alegria, o filho prometido por Deus ao fiel Abraão e Sara.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 25201,
@@ -14923,174 +14923,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 26101,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "26. Livros Poéticos I - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26001,
+                "question": "Quem criou os céus, a terra, o sol e todos os animais?",
+                "options": [
+                        "Noé",
+                        "Moisés",
+                        "Abraão",
+                        "Deus"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 1:1",
+                "explanation": "No princípio, Deus criou os céus e a terra e tudo o que neles existe com Seu grande poder e amor.",
+                "xp": 100
         },
         {
-          "id": 26102,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "26. Livros Poéticos I - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26002,
+                "question": "Quem foram o primeiro homem e a primeira mulher criados por Deus no Jardim do Éden?",
+                "options": [
+                        "Abraão e Sara",
+                        "Sansão e Dalila",
+                        "Davi e Golias",
+                        "Adão e Eva"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 2:7, 22",
+                "explanation": "Deus criou Adão do pó da terra e Eva como sua companheira no lindo Jardim do Éden.",
+                "xp": 100
         },
         {
-          "id": 26103,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "26. Livros Poéticos I - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26003,
+                "question": "Qual animal falou com Eva no Jardim do Éden?",
+                "options": [
+                        "O cordeiro",
+                        "A pomba",
+                        "A serpente",
+                        "O leão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 3:1",
+                "explanation": "A serpente enganou Eva para desobedecer a Deus e comer do fruto proibido.",
+                "xp": 100
         },
         {
-          "id": 26104,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "26. Livros Poéticos I - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26004,
+                "question": "Quem construiu uma grande arca de madeira para salvar sua família e os animais do dilúvio?",
+                "options": [
+                        "Pedro",
+                        "Jonas",
+                        "Noé",
+                        "Paulo"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 6:14",
+                "explanation": "Noé foi um homem fiel e obediente a Deus que construiu a grande arca para salvar os animais e sua família.",
+                "xp": 100
         },
         {
-          "id": 26105,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "26. Livros Poéticos I - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26005,
+                "question": "Que sinal colorido Deus colocou no céu como promessa de que nunca mais haveria outro dilúvio?",
+                "options": [
+                        "Um cometa",
+                        "O arco-íris",
+                        "Uma nuvem escura",
+                        "Uma estrela cadente"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 9:13",
+                "explanation": "O arco-íris é o sinal da aliança e promessa de Deus para com toda a terra.",
+                "xp": 100
         },
         {
-          "id": 26106,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "26. Livros Poéticos I - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26006,
+                "question": "Que pássaro Noé soltou da arca que voltou trazendo uma folhinha de oliveira no bico?",
+                "options": [
+                        "Uma pomba",
+                        "Uma andorinha",
+                        "Um corvo",
+                        "Um gavião"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 8:11",
+                "explanation": "A pombinha voltou à arca trazendo uma folha verde de oliveira, mostrando que a terra estava secando.",
+                "xp": 100
         },
         {
-          "id": 26107,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "26. Livros Poéticos I - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26007,
+                "question": "Como se chamava a torre muito alta que os homens tentaram construir até o céu para ficarem famosos?",
+                "options": [
+                        "Torre de Babel",
+                        "Torre de Davi",
+                        "Torre de Jericó",
+                        "Torre de Belém"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 11:4-9",
+                "explanation": "Na Torre de Babel, Deus confundiu as línguas porque os homens se tornaram orgulhosos.",
+                "xp": 100
         },
         {
-          "id": 26108,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "26. Livros Poéticos I - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26008,
+                "question": "Qual foi o filho que nasceu para Abraão e Sara quando eles já eram bem idosos, conforme a promessa de Deus?",
+                "options": [
+                        "Moisés",
+                        "Davi",
+                        "Isaque",
+                        "Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 21:2-3",
+                "explanation": "Isaque significa riso de alegria, o filho prometido por Deus ao fiel Abraão e Sara.",
+                "xp": 100
         },
         {
-          "id": 26109,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "26. Livros Poéticos I - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26009,
+                "question": "Quantos filhos homens Jacó teve, que deram origem às 12 tribos de Israel?",
+                "options": [
+                        "3 filhos",
+                        "10 filhos",
+                        "7 filhos",
+                        "12 filhos"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 35:22",
+                "explanation": "Jacó teve 12 filhos, entre eles José, Judá, Benjamim e Levi.",
+                "xp": 100
         },
         {
-          "id": 26110,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "26. Livros Poéticos I - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26010,
+                "question": "Quem ganhou do seu pai Jacó uma linda túnica de muitas cores?",
+                "options": [
+                        "Sansão",
+                        "Gideão",
+                        "José",
+                        "Moisés"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 37:3",
+                "explanation": "José era muito amado por seu pai Jacó, que lhe deu uma túnica especial de muitas cores.",
+                "xp": 100
         },
         {
-          "id": 26111,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "26. Livros Poéticos I - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26011,
+                "question": "O que aconteceu com José quando seus irmãos ficaram com ciúmes dele?",
+                "options": [
+                        "Fizeram uma festa",
+                        "Venderam-no para o Egito",
+                        "Esconderam-no numa tenda",
+                        "Deram-lhe uma coroa"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 37:28",
+                "explanation": "José foi vendido para o Egito, mas Deus esteve com ele em todo o tempo e o abençoou.",
+                "xp": 100
         },
         {
-          "id": 26112,
-          "question": "Em 26. Livros Poéticos I, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "26. Livros Poéticos I - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 26012,
+                "question": "Depois de muitos anos e com a ajuda de Deus, José se tornou o quê no Egito?",
+                "options": [
+                        "Marinheiro",
+                        "Guerreiro",
+                        "Pescador",
+                        "Governador de todo o Egito"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 41:41",
+                "explanation": "Faraó colocou José como governador do Egito, e ele salvou milhares de pessoas da fome.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 26201,
@@ -15518,174 +15518,174 @@ export const ALL_27_MODULES: QuizModule[] = [
     "levels": {
       "basico": [
         {
-          "id": 27101,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Definição e Fundamento Revelado'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A autoridade divina e o propósito primordial de salvação, confirmando o fundamento irrevogável da aliança nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "27. Livros Poéticos II - Tópico: Definição e Fundamento Revelado",
-          "explanation": "A sã doutrina estabelece que a autoridade divina e o propósito primordial de salvação, servindo como fundamento irrevogável da aliança. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27001,
+                "question": "Que sinal colorido Deus colocou no céu como promessa de que nunca mais haveria outro dilúvio?",
+                "options": [
+                        "Um cometa",
+                        "O arco-íris",
+                        "Uma nuvem escura",
+                        "Uma estrela cadente"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 9:13",
+                "explanation": "O arco-íris é o sinal da aliança e promessa de Deus para com toda a terra.",
+                "xp": 100
         },
         {
-          "id": 27102,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Contexto Histórico e Autoria'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A preservação fiel através dos séculos inspirada pelo Espírito, confirmando o registro histórico fidedigno nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "27. Livros Poéticos II - Tópico: Contexto Histórico e Autoria",
-          "explanation": "A sã doutrina estabelece que a preservação fiel através dos séculos inspirada pelo espírito, servindo como registro histórico fidedigno. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27002,
+                "question": "Que pássaro Noé soltou da arca que voltou trazendo uma folhinha de oliveira no bico?",
+                "options": [
+                        "Uma pomba",
+                        "Uma andorinha",
+                        "Um corvo",
+                        "Um gavião"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 8:11",
+                "explanation": "A pombinha voltou à arca trazendo uma folha verde de oliveira, mostrando que a terra estava secando.",
+                "xp": 100
         },
         {
-          "id": 27103,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Doutrina Teológica Central'?",
-          "options": [
-            "A soberania e a graça incondicional manifestas no plano eterno, confirmando o ortodoxia bíblica inegociável nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "27. Livros Poéticos II - Tópico: Doutrina Teológica Central",
-          "explanation": "A sã doutrina estabelece que a soberania e a graça incondicional manifestas no plano eterno, servindo como ortodoxia bíblica inegociável. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27003,
+                "question": "Como se chamava a torre muito alta que os homens tentaram construir até o céu para ficarem famosos?",
+                "options": [
+                        "Torre de Babel",
+                        "Torre de Davi",
+                        "Torre de Jericó",
+                        "Torre de Belém"
+                ],
+                "correctIndex": 0,
+                "reference": "Gênesis 11:4-9",
+                "explanation": "Na Torre de Babel, Deus confundiu as línguas porque os homens se tornaram orgulhosos.",
+                "xp": 100
         },
         {
-          "id": 27104,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Cristocentrismo e Profecia'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A centralidade absoluta da pessoa e obra do Messias Jesus, confirmando o revelação messiânica consumada na cruz nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "27. Livros Poéticos II - Tópico: Cristocentrismo e Profecia",
-          "explanation": "A sã doutrina estabelece que a centralidade absoluta da pessoa e obra do messias jesus, servindo como revelação messiânica consumada na cruz. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27004,
+                "question": "Qual foi o filho que nasceu para Abraão e Sara quando eles já eram bem idosos, conforme a promessa de Deus?",
+                "options": [
+                        "Moisés",
+                        "Davi",
+                        "Isaque",
+                        "Salomão"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 21:2-3",
+                "explanation": "Isaque significa riso de alegria, o filho prometido por Deus ao fiel Abraão e Sara.",
+                "xp": 100
         },
         {
-          "id": 27105,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Aplicação Pastoral e Eclesiástica'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A edificação da congregação dos santos na santidade prática, confirmando o ordem e ministério na igreja nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "27. Livros Poéticos II - Tópico: Aplicação Pastoral e Eclesiástica",
-          "explanation": "A sã doutrina estabelece que a edificação da congregação dos santos na santidade prática, servindo como ordem e ministério na igreja. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27005,
+                "question": "Quantos filhos homens Jacó teve, que deram origem às 12 tribos de Israel?",
+                "options": [
+                        "3 filhos",
+                        "10 filhos",
+                        "7 filhos",
+                        "12 filhos"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 35:22",
+                "explanation": "Jacó teve 12 filhos, entre eles José, Judá, Benjamim e Levi.",
+                "xp": 100
         },
         {
-          "id": 27106,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Hermenêutica e Exegese Correta'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A interpretação literal-gramatical e histórico-teológica do texto, confirmando o manejo reto da Palavra da Verdade nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "27. Livros Poéticos II - Tópico: Hermenêutica e Exegese Correta",
-          "explanation": "A sã doutrina estabelece que a interpretação literal-gramatical e histórico-teológica do texto, servindo como manejo reto da Palavra da Verdade. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27006,
+                "question": "Quem ganhou do seu pai Jacó uma linda túnica de muitas cores?",
+                "options": [
+                        "Sansão",
+                        "Gideão",
+                        "José",
+                        "Moisés"
+                ],
+                "correctIndex": 2,
+                "reference": "Gênesis 37:3",
+                "explanation": "José era muito amado por seu pai Jacó, que lhe deu uma túnica especial de muitas cores.",
+                "xp": 100
         },
         {
-          "id": 27107,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Defesa Apologética contra Erros'?",
-          "options": [
-            "A refutação firme contra heresias, desvios e sincretismos, confirmando o batalha pela fé que foi dada aos santos nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "27. Livros Poéticos II - Tópico: Defesa Apologética contra Erros",
-          "explanation": "A sã doutrina estabelece que a refutação firme contra heresias, desvios e sincretismos, servindo como batalha pela fé que foi dada aos santos. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27007,
+                "question": "O que aconteceu com José quando seus irmãos ficaram com ciúmes dele?",
+                "options": [
+                        "Fizeram uma festa",
+                        "Venderam-no para o Egito",
+                        "Esconderam-no numa tenda",
+                        "Deram-lhe uma coroa"
+                ],
+                "correctIndex": 1,
+                "reference": "Gênesis 37:28",
+                "explanation": "José foi vendido para o Egito, mas Deus esteve com ele em todo o tempo e o abençoou.",
+                "xp": 100
         },
         {
-          "id": 27108,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'A Obra do Espírito Santo'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A iluminação regeneradora e a capacitação espiritual do crente, confirmando o poder sobrenatural para testemunho nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "27. Livros Poéticos II - Tópico: A Obra do Espírito Santo",
-          "explanation": "A sã doutrina estabelece que a iluminação regeneradora e a capacitação espiritual do crente, servindo como poder sobrenatural para testemunho. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27008,
+                "question": "Depois de muitos anos e com a ajuda de Deus, José se tornou o quê no Egito?",
+                "options": [
+                        "Marinheiro",
+                        "Guerreiro",
+                        "Pescador",
+                        "Governador de todo o Egito"
+                ],
+                "correctIndex": 3,
+                "reference": "Gênesis 41:41",
+                "explanation": "Faraó colocou José como governador do Egito, e ele salvou milhares de pessoas da fome.",
+                "xp": 100
         },
         {
-          "id": 27109,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Implicações Morais e Éticas'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A vida de integridade, pureza e amor operante no cotidiano, confirmando o fruto da justiça em Cristo nas Sagradas Escrituras.",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 2,
-          "reference": "27. Livros Poéticos II - Tópico: Implicações Morais e Éticas",
-          "explanation": "A sã doutrina estabelece que a vida de integridade, pureza e amor operante no cotidiano, servindo como fruto da justiça em Cristo. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27009,
+                "question": "O que a mãe de Moisés fez para salvá-lo quando ele era apenas um bebezinho?",
+                "options": [
+                        "Entregou-o aos soldados",
+                        "Escondeu-o numa caverna",
+                        "Colocou-o num cestinho de junco no rio Nilo",
+                        "Fugiu para o deserto"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 2:3",
+                "explanation": "A mãe de Moisés colocou o bebezinho num cesto de junco à beira do rio, e a filha do Faraó o encontrou e cuidou dele.",
+                "xp": 100
         },
         {
-          "id": 27110,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Escatologia e Esperança Futura'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular",
-            "A glorificação dos eleitos e a vitória final do Reino de Deus, confirmando o consumação dos séculos no juízo final nas Sagradas Escrituras."
-          ],
-          "correctIndex": 3,
-          "reference": "27. Livros Poéticos II - Tópico: Escatologia e Esperança Futura",
-          "explanation": "A sã doutrina estabelece que a glorificação dos eleitos e a vitória final do reino de deus, servindo como consumação dos séculos no juízo final. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27010,
+                "question": "Onde Deus falou com Moisés através de um arbusto que queimava em chamas mas não se consumia?",
+                "options": [
+                        "Num barco",
+                        "No fundo do poço",
+                        "No Templo",
+                        "Na Sarça Ardente"
+                ],
+                "correctIndex": 3,
+                "reference": "Êxodo 3:2",
+                "explanation": "Deus chamou Moisés na sarça ardente no Monte Horebe e lhe deu a missão de libertar o Seu povo.",
+                "xp": 100
         },
         {
-          "id": 27111,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Diferenciações Teológicas Clássicas'?",
-          "options": [
-            "A distinção entre preceitos permanentes e elementos cerimoniais, confirmando o clareza doutrinária sistemática nas Sagradas Escrituras.",
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 0,
-          "reference": "27. Livros Poéticos II - Tópico: Diferenciações Teológicas Clássicas",
-          "explanation": "A sã doutrina estabelece que a distinção entre preceitos permanentes e elementos cerimoniais, servindo como clareza doutrinária sistemática. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27011,
+                "question": "O que Deus usou nas mãos de Moisés para realizar milagres diante de Faraó?",
+                "options": [
+                        "Uma espada de ouro",
+                        "Um cajado de madeira",
+                        "Uma corda de prata",
+                        "Um escudo de ferro"
+                ],
+                "correctIndex": 1,
+                "reference": "Êxodo 4:17",
+                "explanation": "Moisés estendia seu cajado conforme a ordem de Deus e grandes maravilhas aconteciam.",
+                "xp": 100
         },
         {
-          "id": 27112,
-          "question": "Em 27. Livros Poéticos II, qual é o ensino bíblico fundamental referente a 'Legado Histórico dos Pais e Reformadores'?",
-          "options": [
-            "A imposição de cerimoniais legalistas como condição de mérito humano",
-            "A confissão histórica da suficiência e pureza da sã doutrina, confirmando o herança reformada fundamentada na Palavra nas Sagradas Escrituras.",
-            "A teoria de que o texto sagrado é apenas uma coleção de fábulas antigas",
-            "A subordinação da revelação bíblica à autoridade civil do império secular"
-          ],
-          "correctIndex": 1,
-          "reference": "27. Livros Poéticos II - Tópico: Legado Histórico dos Pais e Reformadores",
-          "explanation": "A sã doutrina estabelece que a confissão histórica da suficiência e pureza da sã doutrina, servindo como herança reformada fundamentada na Palavra. As demais alternativas representam equívocos teológicos ou desvios doutrinários refutados pela ortodoxia cristã.",
-          "xp": 100
+                "id": 27012,
+                "question": "Qual mar se abriu ao meio para que o povo de Israel passasse a pé seco fugindo do exército de Faraó?",
+                "options": [
+                        "Mar Mediterrâneo",
+                        "Mar Morto",
+                        "Mar Vermelho",
+                        "Mar da Galileia"
+                ],
+                "correctIndex": 2,
+                "reference": "Êxodo 14:21-22",
+                "explanation": "Deus abriu o Mar Vermelho com um sopro de vento, e o povo atravessou em segurança em terra seca.",
+                "xp": 100
         }
-      ],
+],
       "medio": [
         {
           "id": 27201,
