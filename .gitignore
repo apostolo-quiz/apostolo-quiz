@@ -45,3 +45,6 @@ android/captures/
 
 # Server local database
 server-data/
+
+# Raw music folder (clean version in public/harpa)
+/Harpa/

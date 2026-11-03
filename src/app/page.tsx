@@ -7,6 +7,7 @@ import ChurchDirectory from '@/components/ChurchDirectory';
 import RegistrationModal from '@/components/RegistrationModal';
 import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
+import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
@@ -482,9 +483,12 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Menu de Navegação Inferior (6 Abas Modernas) */}
+      {/* Reprodutor Flutuante da Harpa Cristã Instrumental em Looping */}
+      <BackgroundMusicPlayer />
+
+      {/* Menu de Navegação Inferior (5 Abas Modernas) */}
       <nav className="sticky bottom-0 bg-zinc-950/95 backdrop-blur-md border-t border-amber-500/30 px-2 py-2.5 z-40">
-        <div className="max-w-lg mx-auto grid grid-cols-6 gap-1">
+        <div className="max-w-lg mx-auto grid grid-cols-5 gap-1">
           <button
             onClick={() => setActiveTab('quiz')}
             className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
