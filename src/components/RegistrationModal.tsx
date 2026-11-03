@@ -526,7 +526,7 @@ export default function RegistrationModal({
             Bem-Vindo à Fraternidade Apostólica
           </h2>
           <p className="text-xs text-zinc-400 max-w-md mx-auto">
-            Identifique-se com Google ou formulário para acessar o Quiz com premiação, certificado e mapeamento ministerial.
+            Identifique-se com Google ou formulário para acessar o Quiz com premiação e mapeamento ministerial.
           </p>
         </div>
 

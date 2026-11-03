@@ -33,7 +33,6 @@ import { UserProfile, syncQuizProgressServer } from '@/data/db';
 interface Props {
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
-  onNavigateToCertificate?: () => void;
   completedModules?: number[];
   setCompletedModules?: React.Dispatch<React.SetStateAction<number[]>>;
   userProfile?: UserProfile | null;
@@ -72,7 +71,6 @@ function getShuffledQuiz(questions: QuizQuestion[]): QuizQuestion[] {
 export default function QuizArena({
   score,
   setScore,
-  onNavigateToCertificate,
   completedModules = [],
   setCompletedModules,
   userProfile,
@@ -432,14 +430,6 @@ export default function QuizArena({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            {onNavigateToCertificate && (
-              <button
-                onClick={onNavigateToCertificate}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-zinc-950 font-black uppercase text-xs inline-flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 hover:brightness-110 transition cursor-pointer"
-              >
-                <Award className="w-4 h-4" /> Emitir Meu Certificado
-              </button>
-            )}
             <button
               onClick={handleRestart}
               className="px-6 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-zinc-200 font-bold uppercase text-xs inline-flex items-center justify-center gap-2 shadow-lg hover:bg-zinc-700 transition cursor-pointer"

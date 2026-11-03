@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import CharacterCreator from '@/components/CharacterCreator';
 import QuizArena from '@/components/QuizArena';
-import CertificateView from '@/components/CertificateView';
 import ChurchDirectory from '@/components/ChurchDirectory';
 import RegistrationModal from '@/components/RegistrationModal';
 import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
@@ -29,7 +28,7 @@ const APOSTLES_LIST = [
 ];
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'quiz' | 'avatar' | 'modules' | 'apostles' | 'certificate' | 'churches'>('quiz');
+  const [activeTab, setActiveTab] = useState<'quiz' | 'avatar' | 'modules' | 'apostles' | 'churches'>('quiz');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
   const [completedModules, setCompletedModules] = useState<number[]>([1]);
@@ -349,10 +348,10 @@ export default function HomePage() {
 
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setActiveTab('certificate')}
+              onClick={() => setActiveTab('modules')}
               className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer"
             >
-              <Award className="w-3.5 h-3.5 text-amber-400" />
+              <BookOpen className="w-3.5 h-3.5 text-amber-400" />
               <span>{completedModules.length}/27 Módulos</span>
             </button>
             <div className="flex items-center gap-1.5 text-amber-400 font-extrabold shrink-0">
@@ -368,7 +367,6 @@ export default function HomePage() {
           <QuizArena
             score={score}
             setScore={setScore}
-            onNavigateToCertificate={() => setActiveTab('certificate')}
             completedModules={completedModules}
             setCompletedModules={setCompletedModules}
             userProfile={userProfile}
@@ -443,23 +441,6 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        )}
-
-        {/* Certificado de Conclusão de Teologia Básica */}
-        {activeTab === 'certificate' && (
-          <CertificateView
-            studentName={userProfile?.name || displayName}
-            setStudentName={(newName) => {
-              if (userProfile) {
-                setUserProfile({ ...userProfile, name: newName });
-              }
-            }}
-            userTitle={userProfile?.title || (avatar.gender === 'male' ? 'Irmão' : 'Irmã')}
-            churchName={userProfile?.churchName}
-            ministry={userProfile?.ministry}
-            completedModules={completedModules}
-            score={score}
-          />
         )}
 
         {/* Aba dos 12 Apóstolos e Jesus Glorificado */}
@@ -542,16 +523,6 @@ export default function HomePage() {
           >
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>27 Livros</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('certificate')}
-            className={`flex flex-col items-center gap-1 text-[9px] sm:text-[10px] font-black uppercase transition cursor-pointer ${
-              activeTab === 'certificate' ? 'text-amber-400' : 'text-zinc-500 hover:text-zinc-300'
-            }`}
-          >
-            <Award className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>Diploma</span>
           </button>
 
           <button
