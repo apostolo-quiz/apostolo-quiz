@@ -20,7 +20,9 @@ import {
   Clock,
   Timer,
   Zap,
-  Flame
+  Flame,
+  Send,
+  Check
 } from 'lucide-react';
 
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
@@ -96,6 +98,7 @@ export default function QuizArena({
   const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState(false);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
@@ -108,14 +111,14 @@ export default function QuizArena({
   const [roundEarnedPoints, setRoundEarnedPoints] = useState<number>(0);
   const [totalTimeSpentRound, setTotalTimeSpentRound] = useState<number>(0);
 
-  // Temporizador que corre enquanto a questão estiver sendo respondida
+  // Temporizador que corre enquanto a questão estiver sendo respondida (para apenas após o envio)
   useEffect(() => {
-    if (isFinished || selectedOption !== null) return;
+    if (isFinished || isSubmitted) return;
     const interval = setInterval(() => {
       setSecondsElapsed((prev) => prev + 1);
     }, 1000);
     return () => clearInterval(interval);
-  }, [isFinished, selectedOption, currentIndex]);
+  }, [isFinished, isSubmitted, currentIndex]);
 
   const currentModule: QuizModule =
     ALL_27_MODULES.find((m) => m.id === selectedModuleId) || ALL_27_MODULES[0];
@@ -135,6 +138,7 @@ export default function QuizArena({
     setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
+    setIsSubmitted(false);
     setIsFinished(false);
     setCorrectAnswersCount(0);
     setSecondsElapsed(0);
@@ -152,13 +156,21 @@ export default function QuizArena({
     setLevel(newLevel);
   };
 
+  // Escolhe a resposta sem enviar e sem mudar a cor (permite alterar a escolha antes de enviar)
   const handleSelectOption = (idx: number) => {
-    if (selectedOption !== null) return;
+    if (isSubmitted) return;
     setSelectedOption(idx);
+  };
+
+  // Enviar a resposta escolhida: trava o tempo e atribui pontuação SOMENTE se correta
+  const handleSubmitAnswer = () => {
+    if (selectedOption === null || isSubmitted) return;
+    setIsSubmitted(true);
     const timeSpent = secondsElapsed;
     setTotalTimeSpentRound((prev) => prev + timeSpent);
 
-    if (idx === currentQ.correctIndex) {
+    // Pontuação estritamente SOMENTE para respostas corretas
+    if (selectedOption === currentQ.correctIndex) {
       const bonus = calculateTimeBonus(timeSpent);
       const points = 1.0 + bonus;
       setLastQuestionTimeBonus(bonus);
@@ -170,6 +182,7 @@ export default function QuizArena({
       setScore((prev) => prev + gainedXP);
       setCorrectAnswersCount((prev) => prev + 1);
     } else {
+      // Resposta incorreta: ZERO pontos
       setLastQuestionTimeBonus(0);
       setLastQuestionEarnedPoints(0);
     }
@@ -179,6 +192,7 @@ export default function QuizArena({
     if (currentIndex + 1 < questionList.length) {
       setCurrentIndex((prev) => prev + 1);
       setSelectedOption(null);
+      setIsSubmitted(false);
       setSecondsElapsed(0);
       setLastQuestionTimeBonus(null);
       setLastQuestionEarnedPoints(null);
@@ -216,6 +230,7 @@ export default function QuizArena({
     setActiveQuestions(rawList);
     setCurrentIndex(0);
     setSelectedOption(null);
+    setIsSubmitted(false);
     setIsFinished(false);
     setCorrectAnswersCount(0);
     setSecondsElapsed(0);
@@ -544,10 +559,10 @@ export default function QuizArena({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
             {currentQ.options.map((option, idx) => {
               const letter = OPTION_LETTERS[idx] || `${idx + 1}`;
-              let btnStyle =
-                'bg-zinc-900/95 border-zinc-700 text-white hover:border-amber-400 hover:bg-zinc-800 shadow-md';
+              let btnStyle = '';
 
-              if (selectedOption !== null) {
+              if (isSubmitted) {
+                // Revelação doutrinária somente APÓS o envio da resposta
                 if (idx === currentQ.correctIndex) {
                   btnStyle =
                     'bg-emerald-950 border-emerald-400 text-emerald-100 shadow-[0_0_20px_rgba(16,185,129,0.4)] ring-2 ring-emerald-400';
@@ -556,24 +571,56 @@ export default function QuizArena({
                 } else {
                   btnStyle = 'bg-zinc-950/80 border-zinc-800 text-zinc-500 opacity-40';
                 }
+              } else {
+                // NÃO mudar a cor ao escolher a resposta (mantém o visual limpo, neutro e escuro)
+                if (selectedOption === idx) {
+                  btnStyle =
+                    'bg-zinc-900 border-amber-400 text-white ring-2 ring-amber-400/50 shadow-[0_0_15px_rgba(245,158,11,0.2)]';
+                } else {
+                  btnStyle =
+                    'bg-zinc-900/95 border-zinc-700 text-white hover:border-amber-400/60 hover:bg-zinc-850 shadow-md';
+                }
               }
 
               return (
                 <button
                   key={idx}
+                  type="button"
+                  disabled={isSubmitted}
                   onClick={() => handleSelectOption(idx)}
                   className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left font-bold text-sm sm:text-base flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${btnStyle}`}
                 >
                   <span className="leading-relaxed flex items-start gap-2.5">
-                    <span className="shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/20 border border-amber-400/60 text-amber-300 font-black text-sm sm:text-base flex items-center justify-center shadow-inner">
+                    <span
+                      className={`shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg font-black text-sm sm:text-base flex items-center justify-center shadow-inner transition-colors ${
+                        selectedOption === idx && !isSubmitted
+                          ? 'bg-amber-400 text-zinc-950 border-2 border-amber-300'
+                          : 'bg-amber-500/20 border border-amber-400/60 text-amber-300'
+                      }`}
+                    >
                       {letter}
                     </span>
                     <span className="pt-0.5">{option}</span>
                   </span>
-                  {selectedOption !== null && idx === currentQ.correctIndex && (
+
+                  {/* Indicador de Seleção Neutro (sem spoiler de cores antes do envio) */}
+                  {!isSubmitted && (
+                    <span
+                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 transition-all ${
+                        selectedOption === idx
+                          ? 'border-amber-400 bg-amber-400 text-zinc-950'
+                          : 'border-zinc-600 bg-zinc-800'
+                      }`}
+                    >
+                      {selectedOption === idx && <span className="w-2 h-2 rounded-full bg-zinc-950" />}
+                    </span>
+                  )}
+
+                  {/* Indicadores de Correção após o Envio */}
+                  {isSubmitted && idx === currentQ.correctIndex && (
                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 shrink-0 ml-2 animate-bounce" />
                   )}
-                  {selectedOption === idx && idx !== currentQ.correctIndex && (
+                  {isSubmitted && selectedOption === idx && idx !== currentQ.correctIndex && (
                     <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 shrink-0 ml-2" />
                   )}
                 </button>
@@ -581,14 +628,46 @@ export default function QuizArena({
             })}
           </div>
 
-          {/* Justificativa e Próxima Questão */}
-          {selectedOption !== null && (
+          {/* Botão de Envio (Escolher a resposta e enviar) */}
+          {!isSubmitted && (
+            <div className="mt-4 pt-3.5 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="text-xs sm:text-sm text-zinc-300 font-medium text-center sm:text-left">
+                {selectedOption === null ? (
+                  <span className="text-zinc-400">
+                    👉 Toque em uma das 4 alternativas acima e clique em <strong>Enviar Resposta</strong>.
+                  </span>
+                ) : (
+                  <span className="text-amber-300 font-bold flex items-center gap-1.5 justify-center sm:justify-start">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    Alternativa <strong>{OPTION_LETTERS[selectedOption]}</strong> selecionada. Pronto para enviar!
+                  </span>
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={handleSubmitAnswer}
+                disabled={selectedOption === null}
+                className={`w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl font-black text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all shadow-xl ${
+                  selectedOption !== null
+                    ? 'bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-zinc-950 shadow-amber-500/30 hover:brightness-110 active:scale-98 cursor-pointer ring-2 ring-amber-400'
+                    : 'bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed opacity-60'
+                }`}
+              >
+                <Send className="w-5 h-5" />
+                <span>Enviar Resposta</span>
+              </button>
+            </div>
+          )}
+
+          {/* Justificativa e Próxima Questão (Apenas após o Envio) */}
+          {isSubmitted && (
             <div className="mt-4 pt-3.5 border-t border-zinc-800 space-y-3.5">
-              {/* Feedback de Pontos e Bônus de Tempo */}
+              {/* Feedback de Pontos: Pontuação SOMENTE para respostas corretas */}
               {selectedOption === currentQ.correctIndex ? (
-                <div className="bg-emerald-950 border-2 border-emerald-400 rounded-2xl p-3 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
+                <div className="bg-emerald-950 border-2 border-emerald-400 rounded-2xl p-3.5 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
                   <div className="text-emerald-300 font-black text-sm sm:text-base flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
                     <span>Resposta Correta! +{lastQuestionEarnedPoints?.toFixed(2)} Pontos</span>
                   </div>
                   <p className="text-xs sm:text-sm text-emerald-200 font-semibold mt-1">
@@ -596,13 +675,13 @@ export default function QuizArena({
                   </p>
                 </div>
               ) : (
-                <div className="bg-red-950 border-2 border-red-400 rounded-2xl p-3 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
+                <div className="bg-red-950 border-2 border-red-400 rounded-2xl p-3.5 sm:p-4 text-center shadow-xl animate-in zoom-in-95">
                   <div className="text-red-300 font-black text-sm sm:text-base flex items-center justify-center gap-2">
-                    <XCircle className="w-5 h-5 text-red-400" />
+                    <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" />
                     <span>Resposta Incorreta (0 pontos)</span>
                   </div>
                   <p className="text-xs sm:text-sm text-red-200 font-semibold mt-1">
-                    Tempo: {secondsElapsed}s. A alternativa bíblica correta está destacada em verde acima.
+                    Pontuação somente para respostas corretas. A resposta bíblica correta está destacada em verde acima.
                   </p>
                 </div>
               )}
