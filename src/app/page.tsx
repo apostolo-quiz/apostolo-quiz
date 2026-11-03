@@ -365,8 +365,8 @@ export default function HomePage() {
 
       {/* Conteúdo Central Conforme Aba Ativa */}
       <section className="flex-1 max-w-3xl w-full mx-auto px-4 py-4 overflow-y-auto">
-        {/* Botão de Doação Pequeno - Visível em Todos os Painéis */}
-        <BrazilDonationBanner className="mb-3" />
+        {/* Ícone Pequeno de Doação Escrito - Visível em Todos os Painéis */}
+        <BrazilDonationBanner className="mb-2" />
 
         {activeTab === 'quiz' && (
           <QuizArena
