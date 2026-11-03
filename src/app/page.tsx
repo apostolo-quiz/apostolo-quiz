@@ -8,6 +8,7 @@ import RegistrationModal from '@/components/RegistrationModal';
 import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
+import BrazilDonationBanner from '@/components/BrazilDonationBanner';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
@@ -364,6 +365,9 @@ export default function HomePage() {
 
       {/* Conteúdo Central Conforme Aba Ativa */}
       <section className="flex-1 max-w-3xl w-full mx-auto px-4 py-4 overflow-y-auto">
+        {/* Botão de Doação Pequeno - Visível em Todos os Painéis */}
+        <BrazilDonationBanner className="mb-3" />
+
         {activeTab === 'quiz' && (
           <QuizArena
             score={score}

@@ -28,7 +28,6 @@ import {
 
 import PaymentGateway from './PaymentGateway';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
-import BrazilDonationBanner from './BrazilDonationBanner';
 import { AvatarState } from '@/data/avatarConfig';
 import { UserProfile, syncQuizProgressServer } from '@/data/db';
 
@@ -265,9 +264,6 @@ export default function QuizArena({
 
   return (
     <div className="space-y-5 pb-16">
-      {/* Banner de Doação Fixo no Quiz com as Cores da Bandeira do Brasil - Fortaleça Nosso Projeto */}
-      <BrazilDonationBanner />
-
       {/* Seletor de Módulo e Cenário Bíblico */}
       <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 p-5 shadow-2xl bg-zinc-950">
         {/* Imagem de Fundo Bíblica com Overlay */}
