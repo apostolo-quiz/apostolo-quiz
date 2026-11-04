@@ -11,7 +11,6 @@ import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
 import BrazilDonationBanner from '@/components/BrazilDonationBanner';
 import LeaderboardView from '@/components/LeaderboardView';
-import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
 import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass } from 'lucide-react';
@@ -32,7 +31,7 @@ const APOSTLES_LIST = [
 ];
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'ranking' | 'avatar' | 'modules' | 'apostles' | 'churches'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'ranking' | 'avatar' | 'apostles' | 'churches'>('home');
   const [selectedLevel, setSelectedLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
@@ -284,13 +283,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Título e Módulos */}
+        {/* Título Oficial */}
         <div className="max-w-3xl mx-auto px-4 text-center mt-2.5">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-wider bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent drop-shadow-md">
             APÓSTOLOS - QUIZ BÍBLICO
           </h1>
           <p className="text-[10px] sm:text-[11px] md:text-xs font-serif font-bold tracking-[0.2em] text-amber-300/90 uppercase mt-0.5">
-            27 Módulos Teológicos • Certificação Oficial de Teologia Básica
+            A Bíblia Sagrada de Gênesis a Apocalipse • 100% Bíblia Sagrada
           </p>
         </div>
 
@@ -364,11 +363,12 @@ export default function HomePage() {
               </span>
 
               <button
-                onClick={() => setActiveTab('modules')}
+                onClick={() => setActiveTab('quiz')}
                 className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0"
+                title="Abrir Quiz da Bíblia Sagrada"
               >
                 <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-                <span>{completedModules.length}/27</span>
+                <span>Quiz Bíblico</span>
               </button>
 
               <button
@@ -394,14 +394,12 @@ export default function HomePage() {
             userProfile={userProfile}
             avatar={avatar}
             score={score}
-            completedModulesCount={completedModules.length}
             selectedLevel={selectedLevel}
             onSelectLevel={setSelectedLevel}
             onStartQuiz={() => setActiveTab('quiz')}
             onOpenRanking={() => setActiveTab('ranking')}
             onOpenAvatar={() => setActiveTab('avatar')}
             onOpenChurches={() => setActiveTab('churches')}
-            onOpenModules={() => setActiveTab('modules')}
           />
         )}
 
@@ -454,48 +452,6 @@ export default function HomePage() {
 
         {/* Mapeamento de Igrejas e Ministérios */}
         {activeTab === 'churches' && <ChurchDirectory />}
-
-        {/* Guia dos 27 Módulos Teológicos */}
-        {activeTab === 'modules' && (
-          <div className="space-y-4 pb-14">
-            <div className="bg-amber-950/40 border-2 border-amber-500/40 rounded-2xl p-5 text-center">
-              <BookOpen className="w-8 h-8 text-amber-400 mx-auto mb-2" />
-              <h2 className="text-lg font-black text-amber-200 uppercase tracking-wide">
-                Grade Curricular: 27 Livros de Teologia
-              </h2>
-              <p className="text-xs text-zinc-300 max-w-lg mx-auto mt-1">
-                Conteúdo doutrinário completo. Cada módulo inclui os níveis{' '}
-                <strong className="text-emerald-300">Básico (Livre)</strong>,{' '}
-                <strong className="text-sky-300">Médio (Livre)</strong> e{' '}
-                <strong className="text-amber-400">Avançado (Adulto - 100% Livre)</strong>.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {ALL_27_MODULES.map((m) => (
-                <div
-                  key={m.id}
-                  onClick={() => setActiveTab('quiz')}
-                  className="bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/60 p-3.5 rounded-xl transition cursor-pointer group"
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-amber-300 text-xs group-hover:text-amber-200">
-                      {m.title}
-                    </span>
-                    <span className="text-[10px] uppercase bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20">
-                      {m.bgScene.badge}
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-zinc-400 mt-1 line-clamp-2">{m.subtitle}</p>
-                  <div className="mt-2 text-[10px] text-zinc-500 flex items-center justify-between">
-                    <span>36 Questões (12 B, 12 M, 12 A)</span>
-                    <span className="text-amber-400 group-hover:underline">Jogar Módulo →</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Aba dos 12 Apóstolos e Jesus Glorificado */}
         {activeTab === 'apostles' && (
@@ -590,16 +546,6 @@ export default function HomePage() {
           >
             <Church className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span className="truncate w-full text-center">Igrejas</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('modules')}
-            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
-              activeTab === 'modules' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-            <span className="truncate w-full text-center">27 Livros</span>
           </button>
         </div>
       </nav>

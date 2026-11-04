@@ -92,7 +92,7 @@ export default function PaymentGateway({ profile, onSuccess, onClose }: Props) {
             Gateway de Pagamento Seguro
           </h3>
           <p className="text-xs text-zinc-400">
-            Desbloqueio de Acesso Completo ao Nível Avançado dos 27 Módulos Teológicos.
+            Acesso Completo ao Nível Avançado das 300 Questões Bíblicas Oficiais.
           </p>
           <div className="text-2xl font-black text-amber-400 py-1">
             R$ 10,00 <span className="text-xs text-zinc-400 font-normal">/ taxa única</span>

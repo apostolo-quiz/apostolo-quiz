@@ -25,28 +25,26 @@ interface Props {
   userProfile: UserProfile | null;
   avatar: AvatarState;
   score: number;
-  completedModulesCount: number;
+  completedModulesCount?: number;
   selectedLevel: 'basico' | 'medio' | 'avancado';
   onSelectLevel: (lvl: 'basico' | 'medio' | 'avancado') => void;
   onStartQuiz: () => void;
   onOpenRanking: () => void;
   onOpenAvatar: () => void;
   onOpenChurches: () => void;
-  onOpenModules: () => void;
+  onOpenModules?: () => void;
 }
 
 export default function HomeJourneyView({
   userProfile,
   avatar,
   score,
-  completedModulesCount,
   selectedLevel,
   onSelectLevel,
   onStartQuiz,
   onOpenRanking,
   onOpenAvatar,
   onOpenChurches,
-  onOpenModules
 }: Props) {
   const title = userProfile?.title || (avatar.gender === 'male' ? 'Irmão' : 'Irmã');
   const displayName = userProfile?.name || 'Visitante da Fé';
@@ -209,15 +207,15 @@ export default function HomeJourneyView({
         </h3>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {/* Métrica 1: Módulos Teológicos */}
+          {/* Métrica 1: Bíblia Sagrada */}
           <div className="bg-zinc-900/90 border border-zinc-800 p-3.5 rounded-2xl text-center space-y-1">
             <div className="text-zinc-400 text-[10px] uppercase font-bold flex items-center justify-center gap-1">
-              <BookOpen className="w-3 h-3 text-amber-400" /> Módulos
+              <BookOpen className="w-3 h-3 text-amber-400" /> Bíblia Sagrada
             </div>
             <div className="text-lg sm:text-xl font-black text-amber-300">
-              {completedModulesCount} <span className="text-xs text-zinc-400 font-normal">/ 27</span>
+              300 <span className="text-xs text-zinc-400 font-normal">Questões</span>
             </div>
-            <p className="text-[10px] text-zinc-400">Livros Concluídos</p>
+            <p className="text-[10px] text-zinc-400">Gênesis a Apocalipse</p>
           </div>
 
           {/* Métrica 2: Gamificação e XP */}
@@ -291,20 +289,20 @@ export default function HomeJourneyView({
           </div>
           <div>
             <div className="text-xs font-black text-white group-hover:text-amber-300 transition">Meu Avatar 3D</div>
-            <div className="text-[10px] text-zinc-400">Roupas de igreja por etnia</div>
+            <div className="text-[10px] text-zinc-400">Personalizar personagem bíblico</div>
           </div>
         </button>
 
         <button
-          onClick={onOpenModules}
-          className="p-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 flex items-center gap-3 text-left transition cursor-pointer group"
+          onClick={onStartQuiz}
+          className="p-3.5 rounded-2xl bg-zinc-900/90 border border-amber-500/40 hover:border-amber-400 flex items-center gap-3 text-left transition cursor-pointer group"
         >
-          <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-300 group-hover:bg-amber-500/20 transition">
-            <BookOpen className="w-5 h-5" />
+          <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300 group-hover:bg-amber-500/30 transition">
+            <BookOpen className="w-5 h-5 text-amber-400" />
           </div>
           <div>
-            <div className="text-xs font-black text-white group-hover:text-amber-300 transition">27 Livros de Teologia</div>
-            <div className="text-[10px] text-zinc-400">Grade curricular completa</div>
+            <div className="text-xs font-black text-white group-hover:text-amber-300 transition">Quiz da Bíblia</div>
+            <div className="text-[10px] text-zinc-400">Gênesis a Apocalipse (100% Bíblia)</div>
           </div>
         </button>
 

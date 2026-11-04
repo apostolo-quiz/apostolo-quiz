@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ALL_27_MODULES, QuizModule, QuizQuestion } from '@/data/modulesQuizData';
+import { QuizQuestion } from '@/data/modulesQuizData';
 import { BASIC_KIDS_100_QUESTIONS } from '@/data/basicKidsQuestions';
 import { MEDIUM_YOUTH_100_QUESTIONS } from '@/data/mediumYouthQuestions';
 import { ADVANCED_ADULT_100_QUESTIONS } from '@/data/advancedAdultQuestions';
@@ -114,7 +114,6 @@ export default function QuizArena({
   initialLevel = 'basico',
   onLevelChange,
 }: Props) {
-  const [selectedModuleId, setSelectedModuleId] = useState<number>(1);
   const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>(initialLevel);
   const [showRestartModal, setShowRestartModal] = useState<boolean>(false);
 
@@ -179,9 +178,6 @@ export default function QuizArena({
     return () => clearInterval(interval);
   }, [isFinished, isSubmitted, currentIndex]);
 
-  const currentModule: QuizModule =
-    ALL_27_MODULES.find((m) => m.id === selectedModuleId) || ALL_27_MODULES[0];
-
   // Obter o pool de 100 questões puro de Gênesis a Apocalipse de acordo com o nível bíblico
   const getBaseQuestionsForLevel = (lvl: 'basico' | 'medio' | 'avancado'): QuizQuestion[] => {
     if (lvl === 'basico') return BASIC_KIDS_100_QUESTIONS;
@@ -237,7 +233,7 @@ export default function QuizArena({
     setTotalTimeSpentRound(0);
     setLastQuestionTimeBonus(null);
     setLastQuestionEarnedPoints(null);
-  }, [selectedModuleId, level, questionCount]);
+  }, [level, questionCount]);
 
   const questionList: QuizQuestion[] =
     activeQuestions.length > 0 ? activeQuestions : getBaseQuestionsForLevel(level);
@@ -306,21 +302,10 @@ export default function QuizArena({
         try {
           // Remove progresso em andamento pois o nível foi concluído
           localStorage.removeItem('apostolos_saved_progress_' + level);
-          const raw = localStorage.getItem('apostolos_completed_modules');
-          const list: number[] = raw ? JSON.parse(raw) : [];
-          if (!list.includes(selectedModuleId)) {
-            list.push(selectedModuleId);
-            localStorage.setItem('apostolos_completed_modules', JSON.stringify(list));
-            if (setCompletedModules) {
-              setCompletedModules(list);
-            }
-          }
-          // Sincroniza o nível de progresso e XP no banco de dados do servidor
+          // Sincroniza o progresso e XP no banco de dados do servidor
           syncQuizProgressServer(userProfile?.id || 'user_guest', {
-            completedModules: list,
             score: score,
             currentLevel: level,
-            selectedModuleId,
             userName: userProfile?.name || 'Irmão(ã)'
           });
         } catch (e) {}
@@ -353,12 +338,12 @@ export default function QuizArena({
   // Letras das opções: 4 alternativas bíblicas (A-D)
   const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
-  // Cenário de fundo dinâmico de acordo com o módulo
-  const bgImage = selectedModuleId % 2 === 0 ? '/bg_galileia.jpg' : '/bg_biblico.jpg';
+  // Cenário de fundo bíblico dinâmico de acordo com o nível
+  const bgImage = level === 'avancado' ? '/bg_biblico.jpg' : '/bg_galileia.jpg';
 
   return (
     <div className="space-y-5 pb-16">
-      {/* Seletor de Módulo e Cenário Bíblico */}
+      {/* Cabeçalho da Jornada Bíblica */}
       <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 p-5 shadow-2xl bg-zinc-950">
         {/* Imagem de Fundo Bíblica com Overlay */}
         <div
@@ -375,10 +360,10 @@ export default function QuizArena({
               </span>
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
-                  Cenário Bíblico: {currentModule.bgScene.name}
+                  Quiz Bíblico Oficial: Gênesis a Apocalipse
                 </span>
                 <div className="text-[11px] text-zinc-300 italic">
-                  {currentModule.bgScene.atmosphere}
+                  100% Bíblia Sagrada • 300 Questões de Fé e Sabedoria
                 </div>
               </div>
             </div>
