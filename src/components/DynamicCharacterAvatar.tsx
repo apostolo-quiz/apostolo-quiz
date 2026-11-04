@@ -7,6 +7,7 @@ interface Props {
   avatar: AvatarState;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   showPedestal?: boolean;
+  framing?: 'face' | 'full';
   className?: string;
   onClick?: () => void;
 }
@@ -43,6 +44,7 @@ export default function DynamicCharacterAvatar({
   avatar,
   size = 'lg',
   showPedestal = true,
+  framing,
   className = '',
   onClick
 }: Props) {
@@ -50,6 +52,10 @@ export default function DynamicCharacterAvatar({
   const isFemale = avatar.gender === 'female';
   const ethKey = (avatar.ethnicity || 'pardo') as EthnicityType;
   const ethData = ETHNICITY_PALETTE[ethKey] || ETHNICITY_PALETTE.pardo;
+
+  // Enquadramento: 'face' (foco no rosto) ou 'full' (reduz o personagem para caber inteiro no círculo)
+  const currentFraming = framing || avatar.framing || 'face';
+  const isFullBody = currentFraming === 'full';
 
   // Resolução da imagem 3D de acordo com o gênero e a roupa
   const baseImg = resolvePixarImage(avatar);
@@ -78,14 +84,23 @@ export default function DynamicCharacterAvatar({
       }`}
     >
       <img
-        key={`${baseImg}_${outfitKey}`}
-        src={`${baseImg}?v=20261104c`}
+        key={`${baseImg}_${outfitKey}_${currentFraming}`}
+        src={`${baseImg}?v=20261104d`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
-        style={{
-          transform: 'translateY(16%) scale(2.05)',
-          transformOrigin: 'center center'
-        }}
-        className="w-full h-full object-cover transition-transform duration-300 ease-out select-none pointer-events-none"
+        style={
+          isFullBody
+            ? {
+                transform: 'scale(0.86)',
+                transformOrigin: 'center center'
+              }
+            : {
+                transform: 'scale(2.35)',
+                transformOrigin: '50% 24%'
+              }
+        }
+        className={`w-full h-full ${
+          isFullBody ? 'object-contain' : 'object-cover'
+        } transition-transform duration-300 ease-out select-none pointer-events-none`}
         loading="eager"
       />
 
@@ -94,7 +109,11 @@ export default function DynamicCharacterAvatar({
 
       {/* Selo do Personagem no rodapé do avatar */}
       {size !== 'sm' && size !== 'md' && (
-        <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 z-20 bg-black/95 border border-amber-400/90 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
+        <div
+          className={`absolute ${
+            isFullBody ? 'bottom-1 sm:bottom-1.5' : 'bottom-1.5 sm:bottom-2'
+          } left-1/2 -translate-x-1/2 z-20 bg-black/95 border border-amber-400/90 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap`}
+        >
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full inline-block shrink-0 bg-amber-400 animate-pulse" />
           <span className="text-[9px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider">
             {isFemale ? 'Irmã' : 'Irmão'} • {avatar.ageStage ? avatar.ageStage.toUpperCase() : 'MEMBRO'}

@@ -102,6 +102,16 @@ export default function CharacterCreator({
     triggerToast(updated);
   };
 
+  const handleFramingChange = (newFraming: 'face' | 'full') => {
+    const updated: AvatarState = {
+      ...avatar,
+      framing: newFraming
+    };
+    setAvatar(updated);
+    saveAvatarToStorage(updated);
+    triggerToast(updated);
+  };
+
   const ethnicityList: {
     id: EthnicityType;
     label: string;
@@ -223,6 +233,34 @@ export default function CharacterCreator({
             showPedestal={true}
             className="shadow-2xl"
           />
+
+          {/* Seletor Interativo de Enquadramento: Foco no Rosto vs Personagem Completo */}
+          <div className="flex items-center gap-1.5 mt-3 bg-zinc-950/95 border-2 border-amber-500/60 p-1 rounded-full shadow-xl z-20">
+            <button
+              type="button"
+              onClick={() => handleFramingChange('face')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-black transition flex items-center gap-1.5 cursor-pointer ${
+                avatar.framing !== 'full'
+                  ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-zinc-950 shadow-md font-black scale-105'
+                  : 'text-zinc-400 hover:text-amber-300'
+              }`}
+              title="Focar no rosto do avatar em close-up"
+            >
+              <span>👤 Foco no Rosto</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => handleFramingChange('full')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-black transition flex items-center gap-1.5 cursor-pointer ${
+                avatar.framing === 'full'
+                  ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-zinc-950 shadow-md font-black scale-105'
+                  : 'text-zinc-400 hover:text-amber-300'
+              }`}
+              title="Reduzir o personagem para caber por inteiro no círculo"
+            >
+              <span>🧍 Personagem Completo</span>
+            </button>
+          </div>
         </div>
       </div>
 

@@ -25,6 +25,7 @@ export interface AvatarState {
   birthDate: string;
   calculatedAge: number;
   imageUrl?: string;
+  framing?: 'face' | 'full';
   // Campos legados para compatibilidade
   skinTone?: string;
   bodyBuild?: string;
