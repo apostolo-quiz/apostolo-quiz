@@ -79,7 +79,7 @@ export default function DynamicCharacterAvatar({
     >
       <img
         key={`${baseImg}_${outfitKey}`}
-        src={baseImg}
+        src={`${baseImg}?v=20261104b`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
         className="w-full h-full object-cover transition-transform duration-300 ease-out select-none"
         loading="eager"

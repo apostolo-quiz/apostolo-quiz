@@ -261,7 +261,7 @@ export default function HomePage() {
           >
             <div className="relative aspect-[16/9] w-full bg-zinc-950 flex items-center justify-center overflow-hidden">
               <img
-                src="/banner_logo_original.jpg?v=20261104"
+                src="/banner_logo_original.jpg?v=20261104b"
                 alt="Banner Logo Oficial Apóstolos - Quiz Bíblico"
                 className="w-full h-full object-contain group-hover:scale-[1.02] transition duration-500"
                 loading="eager"
@@ -269,7 +269,7 @@ export default function HomePage() {
                 onError={(e) => {
                   const target = e.currentTarget;
                   if (!target.src.includes('/logo.jpg')) {
-                    target.src = '/logo.jpg?v=20261104';
+                    target.src = '/logo.jpg?v=20261104b';
                   }
                 }}
               />
