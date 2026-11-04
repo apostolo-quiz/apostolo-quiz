@@ -79,9 +79,13 @@ export default function DynamicCharacterAvatar({
     >
       <img
         key={`${baseImg}_${outfitKey}`}
-        src={`${baseImg}?v=20261104b`}
+        src={`${baseImg}?v=20261104c`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
-        className="w-full h-full object-cover transition-transform duration-300 ease-out select-none"
+        style={{
+          transform: 'translateY(16%) scale(2.05)',
+          transformOrigin: 'center center'
+        }}
+        className="w-full h-full object-cover transition-transform duration-300 ease-out select-none pointer-events-none"
         loading="eager"
       />
 
@@ -90,9 +94,9 @@ export default function DynamicCharacterAvatar({
 
       {/* Selo do Personagem no rodapé do avatar */}
       {size !== 'sm' && size !== 'md' && (
-        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/95 border border-amber-400/90 rounded-full px-3 py-1 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
-          <span className="w-2 h-2 rounded-full inline-block shrink-0 bg-amber-400 animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-black uppercase text-amber-200 tracking-wider">
+        <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 z-20 bg-black/95 border border-amber-400/90 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 shadow-lg flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap">
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full inline-block shrink-0 bg-amber-400 animate-pulse" />
+          <span className="text-[9px] sm:text-[11px] font-black uppercase text-amber-200 tracking-wider">
             {isFemale ? 'Irmã' : 'Irmão'} • {avatar.ageStage ? avatar.ageStage.toUpperCase() : 'MEMBRO'}
           </span>
         </div>

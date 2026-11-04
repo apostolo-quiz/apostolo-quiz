@@ -13,7 +13,7 @@ import BrazilDonationBanner from '@/components/BrazilDonationBanner';
 import LeaderboardView from '@/components/LeaderboardView';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
-import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass } from 'lucide-react';
+import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check } from 'lucide-react';
 
 const APOSTLES_LIST = [
   { name: 'Pedro', side: 'Esquerda de Jesus (1º)', tunic: 'Azul-Marinho e Ocre', desc: 'Forte e robusto, pescador da Galileia, calçando sandálias de couro.' },
@@ -41,6 +41,14 @@ export default function HomePage() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const [serverSyncStatus, setServerSyncStatus] = useState<'synced' | 'syncing' | 'offline'>('syncing');
+  const [pixCopied, setPixCopied] = useState(false);
+
+  const handleCopyPix = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    navigator.clipboard.writeText('6431189@vakinha.com.br');
+    setPixCopied(true);
+    setTimeout(() => setPixCopied(false), 2500);
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -290,8 +298,9 @@ export default function HomePage() {
         </div>
 
         {/* Barra de Status do Irmão / Irmã (100% Responsiva sem ultrapassar margens) */}
-        <div className="max-w-3xl mx-3 sm:mx-auto mt-2.5 bg-zinc-900/95 border border-amber-500/30 rounded-2xl p-2.5 sm:px-4 sm:py-2 text-xs shadow-lg">
-          <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
+        <div className="max-w-3xl mx-3 sm:mx-auto mt-2.5 bg-zinc-900/95 border border-amber-500/30 rounded-2xl p-2.5 sm:px-4 sm:py-2.5 text-xs shadow-lg space-y-2">
+          {/* Linha Superior: Nome do Irmão (Esquerda) e Chave Pix Doação Alinhada à Margem Direita */}
+          <div className="flex items-center justify-between gap-2 w-full flex-wrap sm:flex-nowrap">
             {/* Lado Esquerdo: Perfil e Avatar */}
             <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
               <button
@@ -306,7 +315,7 @@ export default function HomePage() {
                     <DynamicCharacterAvatar avatar={avatar} size="sm" showPedestal={false} />
                   )}
                 </div>
-                <span className="text-zinc-200 font-bold truncate max-w-[110px] sm:max-w-[180px] text-xs">
+                <span className="text-zinc-200 font-bold truncate max-w-[120px] sm:max-w-[190px] text-xs">
                   <span className="text-amber-400">{title}:</span> {displayName}
                 </span>
               </button>
@@ -314,7 +323,7 @@ export default function HomePage() {
               {/* Atalho para Mudar Avatar */}
               <button
                 onClick={() => setActiveTab('avatar')}
-                className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-1 rounded-full hover:bg-amber-500/30 transition flex items-center gap-1 cursor-pointer shrink-0"
+                className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full hover:bg-amber-500/30 transition flex items-center gap-1 cursor-pointer shrink-0"
                 title="Personalizar seu avatar bíblico quando e como quiser"
               >
                 <Sparkles className="w-3 h-3 text-amber-400" />
@@ -323,7 +332,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => setShowRegistrationModal(true)}
-                className="text-[10px] text-zinc-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer shrink-0 p-1"
+                className="text-[10px] text-zinc-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer shrink-0 p-0.5"
                 title="Editar dados cadastrais"
               >
                 <Edit3 className="w-3 h-3 text-zinc-500 hover:text-amber-400" />
@@ -336,8 +345,31 @@ export default function HomePage() {
               )}
             </div>
 
-            {/* Lado Direito: Módulos, XP e Servidor */}
-            <div className="flex items-center gap-2 shrink-0 ml-auto sm:ml-0">
+            {/* Lado Direito: Chave Pix para Doação Alinhado e Justificado ao Nome do Irmão Próximo à Margem Direita */}
+            <button
+              onClick={handleCopyPix}
+              className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-950/80 via-zinc-900 to-amber-950/80 hover:from-emerald-900 hover:to-amber-900 border border-emerald-500/60 hover:border-emerald-400 text-emerald-300 px-2.5 py-1 rounded-xl text-[10px] sm:text-xs font-semibold shadow transition-all cursor-pointer shrink-0 ml-auto group"
+              title="Clique para copiar a Chave Pix de Doação: 6431189@vakinha.com.br"
+            >
+              <span className="text-[9px] sm:text-[10px] font-black text-amber-300 uppercase tracking-wider">
+                Pix Doação:
+              </span>
+              <span className="font-mono text-zinc-100 font-bold text-[10px] sm:text-xs select-all">
+                6431189@vakinha.com.br
+              </span>
+              {pixCopied ? (
+                <span className="flex items-center gap-0.5 text-emerald-400 font-bold text-[10px] animate-bounce">
+                  <Check className="w-3.5 h-3.5" /> Copiado!
+                </span>
+              ) : (
+                <Copy className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform shrink-0" />
+              )}
+            </button>
+          </div>
+
+          {/* Linha Inferior: Conexão com Servidor, Quiz Bíblico e Pontuação XP */}
+          <div className="flex items-center justify-between gap-2 w-full pt-1 border-t border-zinc-800/60 text-[11px]">
+            <div className="flex items-center gap-2">
               <span
                 className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 border shrink-0 ${
                   serverSyncStatus === 'synced'
@@ -353,11 +385,13 @@ export default function HomePage() {
                 }
               >
                 <Cloud className="w-2.5 h-2.5" />
-                <span className="hidden sm:inline">
+                <span>
                   {serverSyncStatus === 'synced' ? 'Conectado' : serverSyncStatus === 'syncing' ? 'Sincronizando' : 'Local'}
                 </span>
               </span>
+            </div>
 
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => setActiveTab('quiz')}
                 className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0"
