@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import HomeJourneyView from '@/components/HomeJourneyView';
 import CharacterCreator from '@/components/CharacterCreator';
 import QuizArena from '@/components/QuizArena';
 import ChurchDirectory from '@/components/ChurchDirectory';
@@ -13,7 +14,7 @@ import LeaderboardView from '@/components/LeaderboardView';
 import { ALL_27_MODULES } from '@/data/modulesQuizData';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
-import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles } from 'lucide-react';
+import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass } from 'lucide-react';
 
 const APOSTLES_LIST = [
   { name: 'Pedro', side: 'Esquerda de Jesus (1º)', tunic: 'Azul-Marinho e Ocre', desc: 'Forte e robusto, pescador da Galileia, calçando sandálias de couro.' },
@@ -31,7 +32,8 @@ const APOSTLES_LIST = [
 ];
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'quiz' | 'ranking' | 'avatar' | 'modules' | 'apostles' | 'churches'>('quiz');
+  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'ranking' | 'avatar' | 'modules' | 'apostles' | 'churches'>('home');
+  const [selectedLevel, setSelectedLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
   const [completedModules, setCompletedModules] = useState<number[]>([1]);
@@ -255,7 +257,7 @@ export default function HomePage() {
         {/* Banner do Logo: Com margem segura para smartphones e proporção perfeita */}
         <div className="w-full px-3 sm:px-4 pt-2 md:pt-3 max-w-3xl mx-auto">
           <div
-            onClick={() => setActiveTab('quiz')}
+            onClick={() => setActiveTab('home')}
             className="w-full cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-amber-500/50 shadow-[0_0_30px_rgba(234,179,8,0.2)] transition duration-300 hover:border-amber-400 bg-black"
           >
             <div className="relative aspect-[16/9] w-full bg-zinc-950 flex items-center justify-center overflow-hidden">
@@ -387,6 +389,22 @@ export default function HomePage() {
         {/* Ícone Pequeno de Doação Escrito - Visível em Todos os Painéis */}
         <BrazilDonationBanner className="mb-2" />
 
+        {activeTab === 'home' && (
+          <HomeJourneyView
+            userProfile={userProfile}
+            avatar={avatar}
+            score={score}
+            completedModulesCount={completedModules.length}
+            selectedLevel={selectedLevel}
+            onSelectLevel={setSelectedLevel}
+            onStartQuiz={() => setActiveTab('quiz')}
+            onOpenRanking={() => setActiveTab('ranking')}
+            onOpenAvatar={() => setActiveTab('avatar')}
+            onOpenChurches={() => setActiveTab('churches')}
+            onOpenModules={() => setActiveTab('modules')}
+          />
+        )}
+
         {activeTab === 'ranking' && (
           <LeaderboardView
             userProfile={userProfile}
@@ -407,6 +425,8 @@ export default function HomePage() {
             onOpenAvatarCreator={() => setActiveTab('avatar')}
             onOpenRegistration={() => setShowRegistrationModal(true)}
             onOpenLeaderboard={() => setActiveTab('ranking')}
+            initialLevel={selectedLevel}
+            onLevelChange={setSelectedLevel}
           />
         )}
 
@@ -523,6 +543,16 @@ export default function HomePage() {
       <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-1 sm:px-2 py-2 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)] w-full max-w-full overflow-hidden">
         <div className="max-w-xl mx-auto grid grid-cols-6 gap-0.5 sm:gap-1">
           <button
+            onClick={() => setActiveTab('home')}
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
+              activeTab === 'home' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            <Compass className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Início</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('quiz')}
             className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'quiz' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
@@ -570,16 +600,6 @@ export default function HomePage() {
           >
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span className="truncate w-full text-center">27 Livros</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('apostles')}
-            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
-              activeTab === 'apostles' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <Users className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-            <span className="truncate w-full text-center">Apóstolos</span>
           </button>
         </div>
       </nav>

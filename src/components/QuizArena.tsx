@@ -54,6 +54,8 @@ interface Props {
   avatar?: AvatarState;
   onOpenAvatarCreator?: () => void;
   onOpenLeaderboard?: () => void;
+  initialLevel?: 'basico' | 'medio' | 'avancado';
+  onLevelChange?: (lvl: 'basico' | 'medio' | 'avancado') => void;
 }
 
 // Função de embaralhamento dinâmico (Fisher-Yates) para questões e alternativas
@@ -93,9 +95,17 @@ export default function QuizArena({
   avatar,
   onOpenAvatarCreator,
   onOpenLeaderboard,
+  initialLevel = 'basico',
+  onLevelChange,
 }: Props) {
   const [selectedModuleId, setSelectedModuleId] = useState<number>(1);
-  const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
+  const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>(initialLevel);
+
+  useEffect(() => {
+    if (initialLevel && initialLevel !== level) {
+      setLevel(initialLevel);
+    }
+  }, [initialLevel]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -154,6 +164,7 @@ export default function QuizArena({
 
   const handleSelectLevel = (newLevel: 'basico' | 'medio' | 'avancado') => {
     setLevel(newLevel);
+    onLevelChange?.(newLevel);
   };
 
   // Escolhe a resposta sem enviar e sem mudar a cor (permite alterar a escolha antes de enviar)
