@@ -85,7 +85,7 @@ export default function DynamicCharacterAvatar({
     >
       <img
         key={`${baseImg}_${outfitKey}_${currentFraming}`}
-        src={`${baseImg}?v=20261104e`}
+        src={`${baseImg}?v=20261104g`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
         style={
           isFullBody
@@ -94,8 +94,8 @@ export default function DynamicCharacterAvatar({
                 transformOrigin: 'center center'
               }
             : {
-                transform: 'scale(2.35)',
-                transformOrigin: '50% 24%'
+                transform: 'translateY(45%) scale(2.1)',
+                transformOrigin: 'center center'
               }
         }
         className={`w-full h-full ${
