@@ -382,68 +382,68 @@ export const DEFAULT_AVATAR_STATE: AvatarState = {
 
 export const BIOTYPE_PRESETS = [
   {
-    id: 'm1_lider',
+    id: 'm1_pardo',
     category: 'Masculino',
-    name: 'Irmão Pardo (Líder)',
-    description: 'Pardo, atlético, medieval.',
-    previewImage: '/avatar_pixar_lider.jpg',
+    name: 'Irmão Pardo',
+    description: 'Pardo, camisa polo, calça jeans e tênis.',
+    previewImage: '/avatar_pardo_masc_adulto.jpg',
     config: {
       ...DEFAULT_AVATAR_STATE,
       gender: 'male' as GenderType,
       ethnicity: 'pardo' as EthnicityType,
-      imageUrl: '/avatar_pixar_lider.jpg'
+      imageUrl: '/avatar_pardo_masc_adulto.jpg'
     }
   },
   {
     id: 'm2_negro',
     category: 'Masculino',
-    name: 'Irmão Negro (Levita)',
-    description: 'Negro, atlético, casual.',
-    previewImage: '/avatar_pixar_levita.jpg',
+    name: 'Irmão Negro',
+    description: 'Negro, camisa polo, calça jeans e tênis.',
+    previewImage: '/avatar_preto_masc_adulto.jpg',
     config: {
       ...DEFAULT_AVATAR_STATE,
       gender: 'male' as GenderType,
       ethnicity: 'negro' as EthnicityType,
-      imageUrl: '/avatar_pixar_levita.jpg'
+      imageUrl: '/avatar_preto_masc_adulto.jpg'
     }
   },
   {
     id: 'm3_branco',
     category: 'Masculino',
-    name: 'Irmão Branco (Sênior)',
-    description: 'Branco, maduro, a rigor.',
-    previewImage: '/avatar_pixar_anciao.jpg',
+    name: 'Irmão Branco',
+    description: 'Branco, camisa polo, calça jeans e tênis.',
+    previewImage: '/avatar_branco_masc_adulto.jpg',
     config: {
       ...DEFAULT_AVATAR_STATE,
       gender: 'male' as GenderType,
       ethnicity: 'branco' as EthnicityType,
-      imageUrl: '/avatar_pixar_anciao.jpg'
+      imageUrl: '/avatar_branco_masc_adulto.jpg'
     }
   },
   {
     id: 'm4_indigena',
     category: 'Masculino',
     name: 'Irmão Indígena',
-    description: 'Indígena, forte, medieval.',
-    previewImage: '/avatar_pixar_indigena.jpg',
+    description: 'Indígena, camisa polo, calça jeans e tênis.',
+    previewImage: '/avatar_indigena_masc_adulto.jpg',
     config: {
       ...DEFAULT_AVATAR_STATE,
       gender: 'male' as GenderType,
       ethnicity: 'indigena' as EthnicityType,
-      imageUrl: '/avatar_pixar_indigena.jpg'
+      imageUrl: '/avatar_indigena_masc_adulto.jpg'
     }
   },
   {
     id: 'm5_asiatico',
     category: 'Masculino',
-    name: 'Irmão Asiático',
-    description: 'Asiático, atlético, casual.',
-    previewImage: '/avatar_pixar_asiatico.jpg',
+    name: 'Irmão Amarelo',
+    description: 'Amarelo, camisa polo, calça jeans e tênis.',
+    previewImage: '/avatar_amarelo_masc_adulto.jpg',
     config: {
       ...DEFAULT_AVATAR_STATE,
       gender: 'male' as GenderType,
       ethnicity: 'asiatico' as EthnicityType,
-      imageUrl: '/avatar_pixar_asiatico.jpg'
+      imageUrl: '/avatar_amarelo_masc_adulto.jpg'
     }
   }
 ];
