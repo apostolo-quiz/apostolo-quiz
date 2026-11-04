@@ -1,7 +1,7 @@
 // =========================================================================
-// 100 QUESTÕES BÍBLICAS OFICIAIS - NÍVEL AVANÇADO / ADULTO
-// 100 Questões Bíblicas Oficiais de Gênesis a Apocalipse
-// Baseadas na Bíblia Evangélica L.C.C. - João Ferreira de Almeida
+// 100 QUESTÕES BÍBLICAS OFICIAIS - NÍVEL AVANÇADO / ADULTO (TEOLOGIA PURA)
+// 100 Questões de Gênesis a Apocalipse • Bíblia Evangélica L.C.C. / Almeida
+// Todas as alternativas com alta complexidade e profundidade teológica equivalente.
 // =========================================================================
 
 import { QuizQuestion } from './modulesQuizData';
@@ -9,1402 +9,1402 @@ import { QuizQuestion } from './modulesQuizData';
 export const ADVANCED_ADULT_100_QUESTIONS: QuizQuestion[] = [
   {
     "id": 1,
-    "question": "O que a teologia cristã denomina como 'Protoevangelho' em Gênesis 3:15?",
+    "question": "Na teologia bíblica veterotestamentária, qual é o alcance exegético e soteriológico do 'Protoevangelho' registrado em Gênesis 3:15?",
     "options": [
-      "A criação do homem à imagem e semelhança de Deus",
-      "A primeira promessa messiânica de que o descendente da mulher feriria a cabeça da serpente",
-      "O mandamento da circuncisão dado a Abraão",
-      "A aliança do arco-íris feita com Noé"
+      "A primeira promessa messiânica de redenção, prefigurando a vitória definitiva de Cristo sobre o diabo através de Sua morte e ressurreição.",
+      "A promessa da restauração ecológica e perpétua do Jardim do Éden mediante a observância sacrificial da descendência física de Noé.",
+      "A instituição da aliança abraâmica baseada no pacto da circuncisão como selo de justificação externa perante a comunidade teocrática.",
+      "O estabelecimento da dispensação da consciência humana para governar a conduta moral dos patriarcas antes da entrega da Lei Mosaica."
     ],
-    "correctIndex": 1,
-    "reference": "Gênesis 3:15",
-    "explanation": "Gênesis 3:15 é o primeiro anúncio profético da redenção em Cristo Jesus, que aniquilaria o poder do diabo na cruz.",
+    "correctIndex": 0,
+    "reference": "Gênesis 3:15; Gálatas 4:4; Hebreus 2:14",
+    "explanation": "Gênesis 3:15 é denominado Protoevangelho por ser a primeira proclamação da vitória messiânica sobre Satanás e a redenção da humanidade caída.",
     "xp": 200
   },
   {
     "id": 2,
-    "question": "Qual doutrina bíblica é expressa na criação do universo a partir do nada pela pura Palavra onipotente de Deus?",
+    "question": "Qual doutrina fundamental da cosmologia bíblica afirma que o universo foi criado pelo poder absoluto da Palavra de Deus a partir do nada?",
     "options": [
-      "Emanacionismo",
-      "Criação Ex Nihilo",
-      "Panteísmo cosmológico",
-      "Dualismo gnóstico"
+      "Conceito de Emanacionismo Divino, onde o cosmo material procede como irradiação gradual da substância essencial e eterna da Divindade.",
+      "Doutrina da Criação Ex Nihilo, que rejeita a matéria pré-existente e confirma a transcendência soberana do Criador sobre toda a ordem temporal.",
+      "Teoria do Dualismo Cósmico, que postula a coexistência primordial e eterna entre o princípio espiritual da luz e o elemento caótico da escuridão.",
+      "Visão do Panteísmo Teocrático, que identifica a estrutura física do cosmos como a própria encarnação visível e imanente do Criador."
     ],
     "correctIndex": 1,
-    "reference": "Gênesis 1:1; Hebreus 11:3",
-    "explanation": "Pela fé entendemos que os mundos foram criados pela Palavra de Deus de modo que o visível não foi feito do que se vê (Ex Nihilo).",
+    "reference": "Gênesis 1:1; Salmos 33:6,9; Hebreus 11:3",
+    "explanation": "A criação 'Ex Nihilo' (do nada) expressa que Deus não usou matéria preexistente, mas chamou à existência o que não existia pela Sua santa Palavra.",
     "xp": 200
   },
   {
     "id": 3,
-    "question": "Em Gênesis 15:6, qual princípio fundamental de justificação pela fé foi imputado a Abraão antes de qualquer obra da lei?",
+    "question": "Em Gênesis 15:6, qual princípio basilar da teologia paulina da salvação é imputado a Abraão antes da instituição da circuncisão ou da entrega da Lei?",
     "options": [
-      "Abraão obedeceu aos sacerdotes e foi justificado",
-      "Abraão creu no Senhor, e isso lhe foi imputado para justiça",
-      "Abraão construiu o maior templo e foi salvo",
-      "Abraão jejuou quarenta dias"
+      "A conformidade rigorosa aos rituais sacerdotais do altar patriarcal como meio eficaz para aplacar a ira de Deus através de obras meritórias.",
+      "A aquisição de mérito ético perpétuo pela fidelidade demonstrada na peregrinação de Ur dos Caldeus até os carvalhais de Manre.",
+      "A justificação pela graça mediante a fé, onde a confiança irrestrita na promessa divina é creditada como justiça sem mérito das obras humanas.",
+      "A purificação legal provisória garantida pelo derramamento do sangue de animais no pacto dos pedaços dividido entre as tochas acesas."
     ],
-    "correctIndex": 1,
-    "reference": "Gênesis 15:6; Romanos 4:3; Gálatas 3:6",
-    "explanation": "Paulo cita Gênesis 15:6 como alicerce da doutrina da justificação pela graça mediante a fé (Sola Fide).",
+    "correctIndex": 2,
+    "reference": "Gênesis 15:6; Romanos 4:1-5; Gálatas 3:6-9",
+    "explanation": "Paulo utiliza Gênesis 15:6 como pilar central da justificação pela fé: Abraão creu no Senhor, e isso lhe foi imputado para justiça antes da Lei.",
     "xp": 200
   },
   {
     "id": 4,
-    "question": "Qual era o significado teológico e tipológico da oferta de Isaque por Abraão no monte Moriá?",
+    "question": "Qual é a correspondência tipológica e profética do sacrifício de Isaque no monte Moriá (Gênesis 22) no plano salvífico revelado nas Escrituras?",
     "options": [
-      "Um teste de coragem bélica",
-      "Uma prefiguração profética do sacrifício do Filho Unigênito pelo Pai no Calvário",
-      "Uma tradição cananeia adotada",
-      "Um rito de coroação tribal"
+      "O estabelecimento de um rito de passagem patriarcal obrigatório para a validação da primogenitura dos filhos da promessa em Canaã.",
+      "Uma celebração da coragem militar dos hebreus contra as ameaças de extermínio perpetradas pelas tribos filistéias circunvizinhas.",
+      "Uma advertência moral contra a prática de votos precipitados no contexto da liturgia sacrificial das famílias do Antigo Oriente.",
+      "A prefiguração do sacrifício voluntário do Filho Unigênito pelo Pai eterno, onde o próprio Deus soberanamente provê o Cordeiro para a expiação vicária."
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "reference": "Gênesis 22:2-14; João 3:16; Hebreus 11:17-19",
-    "explanation": "No mesmo monte onde séculos depois seria erguido o Templo e próximo ao Gólgota, Deus demonstrou que Ele mesmo proveria o Cordeiro para expiação.",
+    "explanation": "O sacrifício no monte Moriá tipifica de maneira contundente o Pai entregando Seu Filho e provendo o verdadeiro Cordeiro para nos substituir no juízo.",
     "xp": 200
   },
   {
     "id": 5,
-    "question": "O que a vara de amendoeira de Arão que floresceu, brotou e produziu amêndoas representava em Números 17?",
+    "question": "No Dia da Expiação (Yom Kippur) segundo Levítico 16, qual era o significado teológico do ritual do bode emissário (Azazel) conduzido ao deserto?",
     "options": [
-      "A fertilidade agrícola da terra",
-      "A confirmação soberana e incontestável da escolha divina do sacerdócio arônico contra rebeliões",
-      "Um amuleto militar de guerra",
-      "A riqueza mineral de Israel"
+      "A remoção expiatória e o afastamento definitivo da culpa e das iniquidades confessadas do povo para uma terra inabitada, tipificando o perdão pleno.",
+      "A pacificação formal de potestades espirituais rebeldes que habitavam as regiões desérticas além das fronteiras do acampamento de Israel.",
+      "A consagração periódica do sumo sacerdote arônico para renovar seu direito de ingresso no Santo dos Santos durante o ano subsequente.",
+      "O pagamento do tributo simbólico exigido pela aliança do Sinai para preservar a pureza cerimonial dos utensílios sagrados do Tabernáculo."
     ],
-    "correctIndex": 1,
-    "reference": "Números 17:8-10",
-    "explanation": "O florescer milagroso da vara de Arão silenciou os murmuradores e confirmou a eleição divina exclusiva para o sacerdócio.",
+    "correctIndex": 0,
+    "reference": "Levítico 16:20-22; Salmos 103:12; Hebreus 9:26-28",
+    "explanation": "O bode emissário carregava simbolicamente sobre si as transgressões do povo para longe da presença de Deus, prefigurando Cristo que afasta nossa culpa.",
     "xp": 200
   },
   {
     "id": 6,
-    "question": "No Dia da Expiação (Yom Kippur) em Levítico 16, qual era a função do bode emissário (Azazel)?",
+    "question": "Qual era o significado espiritual e a função jurídica das seis Cidades de Refúgio instituídas pela Lei Mosaica em Números 35 e Josué 20?",
     "options": [
-      "Ser oferecido em holocausto pelo sumo sacerdote",
-      "Levar simbolicamente sobre si todas as iniquidades do povo para uma terra solitária no deserto",
-      "Ser guardado no átrio como troféu",
-      "Ser vendido para comprar incenso"
+      "Centros administrativos subordinados ao Sinédrio para a cobrança das primícias agrícolas e dízimos de todas as doze tribos de Israel.",
+      "Asilos sagrados destinados a acolher e proteger o homicida involuntário contra o vingador do sangue até a realização do julgamento pela congregação.",
+      "Fortalezas militares estratégicas ocupadas exclusivamente pela tribo de Benjamim para conter incursões armadas dos povos limítrofes.",
+      "Santuários regionais alternativos autorizados para a realização de sacrifícios diários durante períodos de impossibilidade de ida a Siló."
     ],
     "correctIndex": 1,
-    "reference": "Levítico 16:21-22",
-    "explanation": "Arão confessava todos os pecados de Israel sobre a cabeça do bode vivo e o enviava ao deserto, prefigurando Cristo que levou nossos pecados para longe.",
+    "reference": "Números 35:9-15; Josué 20:1-6; Hebreus 6:18",
+    "explanation": "As cidades de refúgio protegiam quem matasse sem intenção, demonstrando a justiça com misericórdia e tipificando Cristo como nosso refúgio seguro.",
     "xp": 200
   },
   {
     "id": 7,
-    "question": "Qual era a função das seis Cidades de Refúgio instituídas na Lei Mosaica em Números 35 e Josué 20?",
+    "question": "De acordo com o ensino do próprio Senhor Jesus em João 3:14-15, o que a serpente de bronze levantada na haste por Moisés em Números 21 representava profeticamente?",
     "options": [
-      "Quartéis de treinamento do exército",
-      "Proteger o homicida involuntário do vingador do sangue até o julgamento perante a congregação",
-      "Armazéns de grãos para a seca",
-      "Centros de comércio exterior"
+      "A vitória temporária dos exércitos de Israel sobre as hostes amalequitas nas proximidades das planícies desérticas de Cades-Barnéia.",
+      "A ordenança litúrgica de veneração de símbolos visíveis instituída para fortalecer a moral dos peregrinos em momentos de escassez hídrica.",
+      "A elevação vicária do Filho do Homem no Calvário, para que todo aquele que Nele crer olhando pela fé seja liberto da condenação e tenha a vida eterna.",
+      "A erradicação definitiva de pragas materiais decorrente do estrito cumprimento da lei sacerdotal das oblações de farinha e azeite."
     ],
-    "correctIndex": 1,
-    "reference": "Números 35:11-15; Josué 20:2-6",
-    "explanation": "As cidades de refúgio tipificam Cristo como o refúgio seguro daquele que busca misericórdia e livramento da condenação.",
+    "correctIndex": 2,
+    "reference": "Números 21:6-9; João 3:14-15; 2 Coríntios 5:21",
+    "explanation": "Cristo comparou a serpente levantada na haste à Sua crucifixão: assim como os feridos olhavam para ela e viviam, os pecadores olham para Cristo e são salvos.",
     "xp": 200
   },
   {
     "id": 8,
-    "question": "O que a serpente de bronze levantada na haste por Moisés em Números 21 representava profeticamente segundo as palavras do próprio Jesus em João 3:14?",
+    "question": "Qual confissão de fé e monoteísmo estrito, pronunciada em Deuteronômio 6:4, estabelece a base inegociável de toda a revelação teológica veterotestamentária?",
     "options": [
-      "Um ídolo de adoração perpétua",
-      "O Filho do Homem levantado na cruz para que todo o que n'Ele crer não pereça mas tenha a vida eterna",
-      "A medicina do Antigo Oriente",
-      "A vitória sobre o Egito"
+      "O Cântico de Moisés proferido perante o Mar Vermelho exaltando a soberania bélica do Deus invisível sobre as divindades do panteão egípcio.",
+      "A bênção sacerdotal de Arão pronunciada sobre a congregação congregada no tabernáculo para concessão da paz e da benevolência do Todo-Poderoso.",
+      "O pacto das bênçãos e maldições proclamado simultaneamente no monte Gerizim e no monte Ebal para preservação da pureza da teocracia.",
+      "O 'Shemá Israel', que declara 'Ouve, Israel, o Senhor nosso Deus é o único Senhor', exigindo amor integral, reverência e exclusividade cúltica."
     ],
-    "correctIndex": 1,
-    "reference": "Números 21:8-9; João 3:14-15",
-    "explanation": "Assim como os israelitas mordidos olhavam pela fé para a serpente de bronze e viviam, nós olhamos para Cristo crucificado e somos salvos.",
+    "correctIndex": 3,
+    "reference": "Deuteronômio 6:4-5; Marcos 12:29-30",
+    "explanation": "O Shemá ('Ouve, Israel...') é o coração da teologia monoteísta bíblica, reafirmado por Jesus como o primeiro e maior de todos os mandamentos.",
     "xp": 200
   },
   {
     "id": 9,
-    "question": "Qual declaração monoteísta fundamental em Deuteronômio 6:4 é conhecida historicamente como o 'Shemá Israel'?",
+    "question": "Em Deuteronômio 18:15-19, qual promessa profética messiânica é anunciada por Moisés como superior a qualquer sistema mediador anterior?",
     "options": [
-      "'O Senhor é minha luz e salvação'",
-      "'Ouve, Israel, o Senhor nosso Deus é o único Senhor'",
-      "'Grande é o Senhor e mui digno de louvor'",
-      "'Santo, Santo, Santo é o Senhor'"
+      "A vinda de um Profeta semelhante a Moisés, suscitado do meio do povo, em cuja boca Deus poria Suas palavras e a quem todos deveriam obedecer.",
+      "A instituição perene de uma linhagem sacerdotal originária da tribo de Judá encarregada de administrar os oráculos sagrados na Terra Prometida.",
+      "A promulgação futura de uma segunda lei cerimonial imutável que anularia a necessidade da expiação pelo sangue dos holocaustos levíticos.",
+      "O advento de um monarca guerreiro que subjugaria militarmente todos os impérios gentílicos no vale de Josafá."
     ],
-    "correctIndex": 1,
-    "reference": "Deuteronômio 6:4; Marcos 12:29",
-    "explanation": "O Shemá é a confissão de fé nuclear da revelação bíblica afirmando a unidade e soberania exclusiva do Deus único e verdadeiro.",
+    "correctIndex": 0,
+    "reference": "Deuteronômio 18:15-19; Atos 3:22-26; 7:37",
+    "explanation": "Pedro e Estêvão em Atos confirmam que o Profeta prometido por Moisés é Jesus Cristo, o Mediador supremo da Nova Aliança.",
     "xp": 200
   },
   {
     "id": 10,
-    "question": "Qual solene profecia messiânica Moisés pronunciou em Deuteronômio 18:15 a respeito de um Profeta superior que Deus suscitaria?",
+    "question": "O que o milagroso florescer, brotar e produzir amêndoas da vara de Arão em Números 17 demonstrou de maneira incontestável perante toda a congregação?",
     "options": [
-      "'O Senhor suscitará um rei como Saul'",
-      "'O Senhor teu Deus te suscitará um profeta do meio de ti, de teus irmãos, como eu; a ele ouvireis'",
-      "'Um sacerdote segundo a ordem de Arão'",
-      "'Um juiz da tribo de Dã'"
+      "A inauguração de um ciclo anual de abundância na safra de frutos secos que garantiria o sustento dos levitas no território de Moabe.",
+      "A ratificação divina exclusiva e soberana da eleição sacerdotal da linhagem de Arão, silenciando permanentemente as rebeliões de Coré e seus partidários.",
+      "A autorização profética para que os chefes das doze tribos confeccionassem cetros memoriais no interior da Tenda do Encontro.",
+      "O início do período de transição política onde os juízes assumiriam a liderança civil em detrimento da autoridade sacerdotal do sumo sacerdote."
     ],
     "correctIndex": 1,
-    "reference": "Deuteronômio 18:15; Atos 3:22; 7:37",
-    "explanation": "Pedro e Estêvão em Atos identificam expressamente que este Profeta anunciado por Moisés é o Senhor Jesus Cristo.",
+    "reference": "Números 17:1-10; Hebreus 9:4",
+    "explanation": "A vara de amendoeira de Arão que brotou foi colocada diante da arca do testemunho como sinal contra as murmurações e prova da escolha de Deus.",
     "xp": 200
   },
   {
     "id": 11,
-    "question": "Na Aliança Davídica descrita em 2 Samuel 7, qual promessa eterna Deus fez a respeito da descendência e do trono de Davi?",
+    "question": "Na Aliança Davídica formalizada em 2 Samuel 7:12-16, qual promessa escatológica e eterna Deus estabeleceu a respeito do trono e da linhagem de Davi?",
     "options": [
-      "Que Israel nunca perderia batalhas militares temporais",
-      "Que a sua casa e o seu reino seriam firmados para sempre e o seu trono estabelecido eternamente",
-      "Que o Templo de pedra nunca seria derrubado",
-      "Que Davi reinaria por cem anos"
+      "A garantia condicional de que os descendentes de Davi reinariam em Jerusalém enquanto não permitissem a introdução de altares estrangeiros em Samaria.",
+      "A promessa de que a monarquia unida de Israel nunca sofreria fragmentação territorial decorrente de guerras dinásticas ou crises econômicas.",
+      "O pacto incondicional de que o reino, a casa e o trono davídico seriam estabelecidos para sempre, cumprindo-se cabalmente no reinado messiânico de Cristo.",
+      "A determinação de que o templo de pedras construído por Salomão permaneceria indestrutível através de todas as sucessões imperiais do Oriente Próximo."
     ],
-    "correctIndex": 1,
-    "reference": "2 Samuel 7:12-16; Lucas 1:32-33",
-    "explanation": "Esta promessa messiânica cumpre-se perfeitamente em Jesus Cristo, o Filho de Davi, cujo Reino celestial não terá fim.",
+    "correctIndex": 2,
+    "reference": "2 Samuel 7:12-16; Salmos 89:3-4; Lucas 1:32-33",
+    "explanation": "A Aliança Davídica promete um Reino perpétuo que transcende os reis terrenos e tem seu cumprimento perfeito no reinado eterno de Jesus Cristo.",
     "xp": 200
   },
   {
     "id": 12,
-    "question": "Qual manifestação gloriosa da presença de Deus encheu o Templo de Salomão na dedicação de modo que os sacerdotes não podiam ministrar?",
+    "question": "Qual fenômeno solene atestou a aprovação e habitação de Deus na consagração do Templo edificado por Salomão em 1 Reis 8 e 2 Crônicas 7?",
     "options": [
-      "Um tremor de terra contínuo",
-      "A Nuvem da Glória do Senhor (Shekinah)",
-      "Chamas em todas as portas",
-      "Um vento forte congelante"
+      "A descida de uma saraivada luminosa que consumiu as oferendas das tribos sem inflamar as cortinas sagradas bordadas em linho fino e ouro.",
+      "O ressoar espontâneo das trombetas de prata sem que nenhum dos levitas as tocasse, anunciando a paz com os reis do Egito e de Tiro.",
+      "Um abalo sísmico contínuo que fendeu a rocha de Moriá e fez brotar fontes termais límpidas sob as colunas Jaquim e Boaz.",
+      "A manifestação da Nuvem da Glória do Senhor (Shekinah) acompanhada por fogo celestial que encheu a Casa a ponto de impedir os sacerdotes de ministrarem."
     ],
-    "correctIndex": 1,
-    "reference": "1 Reis 8:10-11; 2 Crônicas 7:1-2",
-    "explanation": "A glória de Deus desceu e encheu a casa do Senhor como sinal visível de Sua habitação santa no meio de Israel.",
+    "correctIndex": 3,
+    "reference": "1 Reis 8:10-11; 2 Crônicas 7:1-3",
+    "explanation": "O fogo caiu do céu consumindo o holocausto e a glória do Senhor encheu o templo de tal maneira que os sacerdotes não podiam entrar no recinto sagrado.",
     "xp": 200
   },
   {
     "id": 13,
-    "question": "Após a morte de Salomão, qual foi a causa política e espiritual da divisão de Israel em Reino do Norte (Israel) e Reino do Sul (Judá)?",
+    "question": "Qual foi a causa basilar da cisão geopolítica e espiritual da monarquia que culminou na divisão entre o Reino do Norte (Israel) e o Reino do Sul (Judá)?",
     "options": [
-      "Uma invasão dos filisteus",
-      "A dureza e recusa de Roboão em aliviar os pesados tributos e a idolatria promovida por Jeroboão com os bezerros de ouro",
-      "A falta de sacerdotes levitas",
-      "Uma peste epidêmica"
+      "A arrogância de Roboão ao rejeitar o conselho dos anciãos e agravar as cargas tributárias, aliada à apostasia idólatra de Jeroboão nos bezerros de ouro.",
+      "A incursão vitoriosa das tropas de Sisaque, faraó do Egito, que sequestrou os tesouros do palácio real e desarticulou o comando central do exército.",
+      "A recusa dos levitas em prestar assistência aos cultos familiares nas províncias setentrionais de Efraim, Manassés e Zebulom.",
+      "Uma disputa teológica acirrada sobre a validade do calendário litúrgico lunar adotado pelos profetas em Siló após a morte de Salomão."
     ],
-    "correctIndex": 1,
-    "reference": "1 Reis 12:1-20; 28-30",
-    "explanation": "Roboão desprezou o conselho dos anciãos e Jeroboão erigiu bezerros em Dã e Betel, selando o cisma dos dois reinos.",
+    "correctIndex": 0,
+    "reference": "1 Reis 12:1-20, 26-33",
+    "explanation": "A insensatez de Roboão em oprimir o povo e a política apóstata de Jeroboão ao criar bezerros em Dã e Betel selaram o cisma das dez tribos.",
     "xp": 200
   },
   {
     "id": 14,
-    "question": "Qual profeta confrontou o rei Acabe e a rainha Jezabel sobre o assassinato de Nabote e a tomada injusta de sua vinha em Jezreel?",
+    "question": "Por qual razão teológica o profeta Elias pronunciou a iminente destruição dinástica da casa de Acabe e Jezabel no caso da vinha de Nabote em Jezreel?",
     "options": [
-      "Miqueias",
-      "Elias, o tisbita",
-      "Eliseu",
-      "Obadias"
+      "Por terem celebrado um pacto de comércio de trigo com os fenícios de Tiro sem a prévia autorização da corte dos sacerdotes de Jerusalém.",
+      "Por terem violado a lei levítica da herança inalienável da terra através de falso testemunho, assassinato judicial tirânico e confisco criminoso.",
+      "Por terem edificado um palácio de marfim utilizando mão de obra escrava importada das cidades costeiras do mar Mediterrâneo.",
+      "Por terem negligenciado a entrega dos dízimos correspondentes à produção vinícola das colinas de Samaria no templo do Senhor."
     ],
     "correctIndex": 1,
-    "reference": "1 Reis 21:17-24",
-    "explanation": "Elias pronunciou a sentença de Deus sobre a casa de Acabe e Jezabel pela violência tirânica e sangue inocente derramado.",
+    "reference": "1 Reis 21:17-24; Levítico 25:23",
+    "explanation": "A lei mosaica proibia a alienação perpétua da terra patrimonial. Jezabel e Acabe usaram mentira e homicídio para se apossar da vinha, atraindo o juízo divino.",
     "xp": 200
   },
   {
     "id": 15,
-    "question": "Em que ano e por qual império a cidade de Samaria foi conquistada e o Reino do Norte (Israel) levado em cativeiro definitivo?",
+    "question": "Em que ano e por qual potência imperial o Reino do Norte (Israel/Samaria) foi sitiado, conquistado e levado em exílio compulsório irreversível?",
     "options": [
-      "605 a.C. pelos babilônios",
-      "722 a.C. pelo Império Assírio (Sargão II e Salmaneser)",
-      "586 a.C. pelo Egito",
-      "333 a.C. pelos persas"
+      "Em 605 a.C., pelo Império Neobabilônico sob o comando do general Nabucodonosor durante a primeira deportação dos nobres da Judeia.",
+      "Em 586 a.C., pelas tropas caldéias que incendiaram as fortificações de Jerusalém e levaram o rei Zedequias cativo com os olhos vazados.",
+      "Em 722 a.C., pelo Império Assírio sob Salmaneser V e Sargão II, como juízo divino pela idolatria contínua e abandono dos mandamentos do Senhor.",
+      "Em 538 a.C., pelas forças medo-persas lideradas por Ciro, o Grande, que reorganizou administrativamente as satrapias do Oriente Próximo."
     ],
-    "correctIndex": 1,
-    "reference": "2 Reis 17:5-6",
-    "explanation": "O Reino do Norte foi destruído e dispersado pelos assírios em 722 a.C. devido à contínua apostasia idólatra de seus reis.",
+    "correctIndex": 2,
+    "reference": "2 Reis 17:5-23; Oséias 13:16",
+    "explanation": "O Reino do Norte caiu em 722 a.C. perante os assírios após um cerco de três anos a Samaria, em cumprimento das profecias de juízo pela idolatria.",
     "xp": 200
   },
   {
     "id": 16,
-    "question": "Em que ano o rei Nabucodonosor da Babilônia destruiu Jerusalém, incendiou o Templo de Salomão e levou o povo de Judá cativo?",
+    "question": "Qual foi o ano histórico e a consequência teológica da terceira e definitiva deportação de Judá perpetrada pelo rei Nabucodonosor?",
     "options": [
-      "722 a.C.",
-      "586 a.C.",
-      "457 a.C.",
-      "300 a.C."
+      "Em 722 a.C., marcando a queda das muralhas de Megido e a incorporação forçada dos sacerdotes nas fileiras administrativas da Assíria.",
+      "Em 445 a.C., correspondendo à autorização régia concedida a Neemias para restaurar as portas de armas e muralhas da cidade sagrada.",
+      "Em 516 a.C., marcando a oposição ferrenha dos samaritanos contra a reconstrução dos alicerces do altar de Zorobabel.",
+      "Em 586 a.C., resultando na queima de Jerusalém, na destruição do Primeiro Templo e no exílio babilônico pelo endurecimento do rei Zedequias."
     ],
-    "correctIndex": 1,
-    "reference": "2 Reis 25:8-11; 2 Crônicas 36:17-20",
-    "explanation": "Em 586 a.C. ocorreu a terceira e definitiva deportação para a Babilônia com a destruição do primeiro templo.",
+    "correctIndex": 3,
+    "reference": "2 Reis 25:8-12; 2 Crônicas 36:17-21; Jeremias 52:12-15",
+    "explanation": "Em 586 a.C. os babilônios destruíram o Templo de Salomão, queimaram a cidade santa e levaram a terceira leva do povo ao cativeiro.",
     "xp": 200
   },
   {
     "id": 17,
-    "question": "Qual decreto imperial permitiu o retorno dos judeus do cativeiro babilônico e o início da reconstrução do Templo em Jerusalém?",
+    "question": "Qual proclamação imperial emitiu autorização legal aos judeus para retornarem a Jerusalém e reconstruírem o Templo, cumprindo Isaías e Jeremias?",
     "options": [
-      "O Édito de Ciro, rei da Pérsia (538 a.C.)",
-      "O Decreto de César Augusto",
-      "O Édito de Dario contra Daniel",
-      "A Lei de Hamã"
+      "O Édito de Ciro, rei da Pérsia, promulgado em 538 a.C., que atestou o mover soberano do Deus do céu no coração de um governante gentílico.",
+      "O Decreto de Hamã, promulgado na corte de Susã, estabelecendo a anistia política mediante o pagamento de tributos em prata.",
+      "O Tratado de Artaxerxes com os nobres fenícios, permitindo a circulação de caravanas de madeiras nobres das florestas do Líbano.",
+      "A Resolução Imperial de Dario I, determinando a conversão de todos os sacerdotes zoroastrianos ao culto exclusivo de Javé no vale do Eufrates."
     ],
     "correctIndex": 0,
-    "reference": "Esdras 1:1-4; Isaías 44:28",
-    "explanation": "Ciro, rei da Pérsia, comissionou o retorno conforme Deus havia profetizado por Isaías com mais de um século de antecedência.",
+    "reference": "Esdras 1:1-4; Isaías 44:28; Jeremias 29:10",
+    "explanation": "Deus despertou o espírito de Ciro da Pérsia em 538 a.C. para autorizar o retorno dos judeus e a reconstrução do Templo em cumprimento das profecias.",
     "xp": 200
   },
   {
     "id": 18,
-    "question": "Qual é o tema teológico central do livro de Jó em relação ao sofrimento humano e à soberania de Deus?",
+    "question": "Em Esdras 7:10, qual tríplice compromisso ministerial e intelectual estabeleceu o padrão perene para o estudioso fiel das Sagradas Escrituras?",
     "options": [
-      "Que todo sofrimento é resultado imediato de um pecado oculto específico",
-      "A soberania insondável de Deus e a fé desinteressada que confia no Criador mesmo sem compreender todas as causas",
-      "Que os ímpios sempre prosperam",
-      "Que Deus é indiferente à dor"
+      "Procurar riquezas, construir fortalezas e derrotar as confederações samaritanas na província d'Além do Rio.",
+      "Dispor o coração para buscar a Lei do Senhor, para cumpri-la e para ensinar em Israel os Seus estatutos e os Seus juízos.",
+      "Disputar os privilégios nobiliárquicos na corte persa, redigir anais genealógicos e celebrar os holocaustos da lua nova.",
+      "Impor alianças matrimoniais forçadas, traduzir os provérbios em aramaico e interditar as portas da cidade no dia de sábado."
     ],
     "correctIndex": 1,
-    "reference": "Jó 38-42; Romanos 8:28",
-    "explanation": "O livro de Jó refuta a teologia simplista da retribuição moralista dos seus amigos e revela a majestade e sabedoria soberana do Deus Todo-Poderoso.",
+    "reference": "Esdras 7:10; Neemias 8:1-8",
+    "explanation": "Esdras preparou o seu coração para: 1) Buscar a Lei; 2) Praticá-la; e 3) Ensiná-la. Esse é o modelo indispensável de integridade ministerial bíblica.",
     "xp": 200
   },
   {
     "id": 19,
-    "question": "Qual Salmo messiânico descreve com riqueza de detalhes a agonia da crucificação, incluindo 'traspassaram-me as mãos e os pés' e o deitar sortes sobre as vestes?",
+    "question": "Qual estratégia de dependência divina e liderança corajosa a rainha Ester e Mardoqueu adotaram para reverter o decreto de extermínio de Hamã?",
     "options": [
-      "Salmo 1",
-      "Salmo 22",
-      "Salmo 91",
-      "Salmo 119"
+      "O recrutamento secreto de guerreiros mercenários entre as colônias gregas estabelecidas nas costas da Ásia Menor.",
+      "O suborno financeiro dos conselheiros reais de Assuero mediante o tesouro oculto nas fortalezas da Média.",
+      "A submissão e o jejum de três dias de toda a comunidade judaica em Susã, culminando na apresentação voluntária de Ester arriscando a própria vida.",
+      "A fuga coordenada das famílias hebréias para as montanhas de Ararate antes da data sorteada pelas sortes (Purim)."
     ],
-    "correctIndex": 1,
-    "reference": "Salmos 22:1; 16-18; Mateus 27:46",
-    "explanation": "O Salmo 22 de Davi prediz as palavras de Jesus na cruz: 'Deus meu, Deus meu, por que me desamparaste?' e a zombaria da multidão.",
+    "correctIndex": 2,
+    "reference": "Ester 4:13-16; 7:1-6",
+    "explanation": "Ester proclamou três dias de jejum total antes de comparecer perante o rei sem ser chamada, declarando 'Se perecer, pereci', alcançando favor divino.",
     "xp": 200
   },
   {
     "id": 20,
-    "question": "Qual Salmo régio messiânico é o mais citado no Novo Testamento, proclamando: 'Disse o Senhor ao meu Senhor: Assenta-te à minha direita, até que ponha os teus inimigos por escabelo dos teus pés'?",
+    "question": "Qual é a tese teológica central do livro de Jó em contraposição à teologia moralista e reducionista da retribuição defendida por seus três amigos?",
     "options": [
-      "Salmo 23",
-      "Salmo 110",
-      "Salmo 100",
-      "Salmo 46"
+      "A tese de que todo sofrimento humano é inevitavelmente decorrente de pecados secretos específicos que requerem confissão judicial perante anciãos.",
+      "A proposição de que as forças cegas do acaso governam o destino humano sem interferência providencial ou escatológica da justiça celestial.",
+      "A afirmação de que a justiça divina é impotente para conter a investida de potestades cósmicas nas esferas biológicas e materiais da vida terrena.",
+      "A demonstração de que o justo pode sofrer por desígnios soberanos de Deus que ultrapassam o saber humano, sustentando a fé pura e desinteressada."
     ],
-    "correctIndex": 1,
-    "reference": "Salmos 110:1-4; Mateus 22:44; Hebreus 7:17",
-    "explanation": "Jesus e os apóstolos citam o Salmo 110 para comprovar a divindade eterna de Cristo e Seu sacerdócio segundo a ordem de Melquisedeque.",
+    "correctIndex": 3,
+    "reference": "Jó 1:9-11; 38:1-4; 42:1-6",
+    "explanation": "O livro de Jó desmascara a ideia simplista de que todo sofrimento é punição por pecado pessoal, revelando a transcendência, soberania e fidelidade de Deus.",
     "xp": 200
   },
   {
     "id": 21,
-    "question": "Qual conclusão teológica e existencial solene o sábio rei Salomão expressa no final de Eclesiastes 12:13?",
+    "question": "No Salmo 22, quais elementos proféticos atestam de maneira minuciosa a cena da crucifixão do Messias séculos antes da invenção desse método romano?",
     "options": [
-      "'Comamos e bebamos, que amanhã morreremos'",
-      "'De tudo o que se tem ouvido, o fim é: Teme a Deus e guarda os seus mandamentos; porque este é o dever de todo o homem'",
-      "'A riqueza é o bem supremo sob o sol'",
-      "'Tudo é obra do destino cego'"
+      "O clamor do desamparo divino, o traspassar das mãos e pés, a zombaria dos algozes e o sorteio de Suas vestes pelos soldados.",
+      "A menção ao sepultamento numa cova de pedras lacrada por sentinelas armadas do governador da Síria e da Palestina.",
+      "A coroação solene com ramos de oliveira no monte Sião acompanhada pelo cântico triunfal dos levitas do Templo.",
+      "A libertação física do justo antes do anoitecer através de um carro de fogo que desce dos céus perante os sacerdotes."
     ],
-    "correctIndex": 1,
-    "reference": "Eclesiastes 12:13",
-    "explanation": "Após examinar a transitoriedade de todas as buscas terrenas sob o sol, Salomão declara que o propósito supremo do homem é temer a Deus e obedecer à Sua Santa Palavra.",
+    "correctIndex": 0,
+    "reference": "Salmos 22:1, 7-8, 16-18; Mateus 27:35, 46",
+    "explanation": "Davi profetizou com rigor impressionante a crucificação de Jesus: o grito de abandono, ossos desconjuntados, mãos e pés perfurados e o deitar sortes sobre as vestes.",
     "xp": 200
   },
   {
     "id": 22,
-    "question": "Qual profecia régia e messiânica de Isaías 7:14 anuncia o nascimento sobrenatural do Salvador?",
+    "question": "Por qual razão o Salmo 110 é a passagem do Antigo Testamento mais citada no Novo Testamento para fundamentar a Cristologia apostólica?",
     "options": [
-      "'O Senhor enviará um anjo armado'",
-      "'Eis que a virgem conceberá, e dará à luz um filho, e chamará o seu nome Emanuel'",
-      "'Um rei nascerá no palácio do Egito'",
-      "'O Messias virá das águas do Jordão'"
+      "Por ordenar a consagração perpétua de animais nas festas da lua nova para atestar a fidelidade dos juízes em Jerusalém.",
+      "Por proclamar que o Messias é tanto Senhor soberano assentado à destra de Deus quanto Sacerdote eterno segundo a ordem de Melquisedeque.",
+      "Por predizer a coroação de Salomão sobre as doze tribos com apoio diplomático dos embaixadores das ilhas do Mediterrâneo.",
+      "Por condenar o uso de instrumentos musicais nas cerimônias sagradas durante o período do cativeiro babilônico."
     ],
     "correctIndex": 1,
-    "reference": "Isaías 7:14; Mateus 1:22-23",
-    "explanation": "Cumprida literalmente em Maria e Jesus, a profecia revela Emanuel, que traduzido significa 'Deus conosco'.",
+    "reference": "Salmos 110:1-4; Mateus 22:41-45; Hebreus 5:6; 7:17",
+    "explanation": "Jesus usou o Salmo 110 para provar que o Messias é superior a Davi ('Disse o Senhor ao meu Senhor'), e Hebreus comprova Seu sacerdócio eterno superior ao arônico.",
     "xp": 200
   },
   {
     "id": 23,
-    "question": "Quais são os quatro títulos sublimes atribuídos ao Messias Menino prometido em Isaías 9:6?",
+    "question": "Qual conclusão doutrinária e existencial o sábio rei Salomão pronuncia no encerramento de Eclesiastes (12:13-14) após analisar a vaidade debaixo do sol?",
     "options": [
-      "General, Sacerdote, Juiz e Profeta",
-      "Maravilhoso Conselheiro, Deus Forte, Pai da Eternidade, Príncipe da Paz",
-      "Criador dos Mares, Fundador do Mundo, Guarda de Israel e Soberano da Terra",
-      "Mestre da Lei, Doutor dos Povos, Pastor das Ovelhas e Juiz dos Séculos"
+      "Que o homem deve buscar o prazer hedônico e o acúmulo de bens como único alívio passageiro contra o absurdo da morte inexorável.",
+      "Que a sabedoria humana e as leis filosóficas são suficientes para assegurar a justiça perfeita e o progresso das nações civis.",
+      "Que o sentido supremo da vida reside em temer a Deus e guardar os Seus mandamentos, pois Ele trará a juízo toda obra e segredo.",
+      "Que a justiça divina é indiferente às ações humanas diárias, cabendo ao indivíduo moldar o destino pelas suas próprias paixões."
     ],
-    "correctIndex": 1,
-    "reference": "Isaías 9:6",
-    "explanation": "Estes quatro títulos afirmam a divindade plena, a autoridade cósmica e a missão salvadora e reconciliadora de Jesus Cristo.",
+    "correctIndex": 2,
+    "reference": "Eclesiastes 12:13-14",
+    "explanation": "A síntese de Eclesiastes desmonta a ilusão do secularismo: 'De tudo o que se tem ouvido, o fim é: Teme a Deus e guarda os Seus mandamentos; porque este é o dever de todo o homem'.",
     "xp": 200
   },
   {
     "id": 24,
-    "question": "Em qual passagem Jeremias profetiza a Nova Aliança que Deus estabeleceria, escrevendo a Sua lei nos corações e perdoando a iniquidade para sempre?",
+    "question": "Em Isaías 53, qual conceito soteriológico central e inegociável descreve a morte expiatória do Servo Sofredor do Senhor?",
     "options": [
-      "Jeremias 1:5",
-      "Jeremias 17:9",
-      "Jeremias 31:31-34",
-      "Jeremias 50:1"
+      "A morte de um mártir ético cuja conduta nobre serve unicamente de modelo de resignação pacifista perante a tirania humana.",
+      "Um pacto político de pacificação firmado entre os anciãos de Jerusalém e os imperadores da Mesopotâmia para evitar derramamento de sangue.",
+      "A anulação cósmica temporária das penalidades do pecado original, restrita apenas aos descendentes circuncidados da tribo de Judá.",
+      "A substituição vicária e penal, onde o Messias inocente levou sobre Si as nossas transgressões, e o castigo que nos traz a paz estava sobre Ele."
     ],
-    "correctIndex": 2,
-    "reference": "Jeremias 31:31-34; Hebreus 8:8-12",
-    "explanation": "A Nova Aliança predita por Jeremias é inaugurada pelo sangue de Jesus Cristo e confirmada aos crentes pelo Espírito Santo.",
+    "correctIndex": 3,
+    "reference": "Isaías 53:4-6, 10-12; 1 Pedro 2:24; 2 Coríntios 5:21",
+    "explanation": "Isaías 53 é o pináculo veterotestamentário da expiação substitutiva: o Senhor fez cair sobre Ele a iniquidade de todos nós, e pelas Suas pisaduras fomos sarados.",
     "xp": 200
   },
   {
     "id": 25,
-    "question": "Qual promessa de regeneração espiritual e purificação pelo Espírito Santo Deus faz ao Seu povo em Ezequiel 36:26-27?",
+    "question": "Em Jeremias 31:31-34, quais são as características distintivas da 'Nova Aliança' que Deus prometeu fazer com as casas de Israel e de Judá?",
     "options": [
-      "'Dar-vos-ei armas para vencer os gentios'",
-      "'Dar-vos-ei um coração novo e porei dentro de vós um espírito novo; tirarei o coração de pedra e vos darei um coração de carne'",
-      "'Construirei palácios de marfim'",
-      "'Aumentarei as vossas colheitas de trigo'"
+      "A gravação da Lei nos corações pela habitação do Espírito, o conhecimento universal de Deus na comunidade e o perdão pleno e indelével dos pecados.",
+      "A restauração literal dos sacrifícios de touros e bodes ministrados exclusivamente pelos descendentes de Zadoque em altares provinciais.",
+      "A ampliação territorial das fronteiras da monarquia davídica até as margens do rio Eufrates através de vitórias bélicas sucessivas.",
+      "A exigência da circuncisão externa para todos os cidadãos das nações aliadas como requisito irrevogável para a concessão da graça."
     ],
-    "correctIndex": 1,
-    "reference": "Ezequiel 36:26-27",
-    "explanation": "Esta é a promessa clássica do Novo Nascimento descrita por Jesus a Nicodemos em João 3: a transformação interior operada pelo Espírito.",
+    "correctIndex": 0,
+    "reference": "Jeremias 31:31-34; Hebreus 8:8-12; 10:16-17",
+    "explanation": "A Nova Aliança, selada no sangue de Jesus, interioriza a Lei no coração, oferece conhecimento íntimo de Deus e remove para sempre a lembrança da culpa.",
     "xp": 200
   },
   {
     "id": 26,
-    "question": "Na visão das quatro grandes bestas em Daniel 7, quem se aproxima do Ancião de Dias nas nuvens do céu e recebe um domínio, glória e Reino eterno?",
+    "question": "Na visão escatológica de Ezequiel 37 (o Vale de Ossos Secos), qual realidade dupla Deus revelou ao profeta através do sopro do Espírito?",
     "options": [
-      "O arcanjo Miguel",
-      "Um como o Filho do Homem",
-      "O profeta Elias",
-      "O rei Nabucodonosor convertido"
+      "A destruição física dos exércitos de Gogue e Magogue nas montanhas de Israel e a purificação dos vales por sepultadores de armas de guerra.",
+      "A regeneração espiritual soberana do povo e a restauração corporativa e nacional de Israel da sepultura do cativeiro pela ação vivificadora do Espírito.",
+      "A condenação eterna de todas as doze tribos por sua rebelião contumaz e a substituição perpétua do santuário por sinagogas no exílio.",
+      "A institucionalização da liturgia das primícias das árvores frutíferas como condição primária para o retorno das chuvas temporãs."
     ],
     "correctIndex": 1,
-    "reference": "Daniel 7:13-14; Mateus 26:64",
-    "explanation": "Jesus aplicou expressamente a Si mesmo este título profético de glória: 'O Filho do Homem vindo sobre as nuvens do céu'.",
+    "reference": "Ezequiel 37:1-14; Romanos 11:25-27",
+    "explanation": "O Vale de Ossos Secos profetiza tanto o renascimento espiritual do indivíduo pelo sopro do Espírito quanto a ressurreição e restauração de Israel como nação.",
     "xp": 200
   },
   {
     "id": 27,
-    "question": "Qual é o cronograma profético messiânico revelado pelo anjo Gabriel a Daniel no capítulo 9 versículo 24 a 27?",
+    "question": "Na interpretação das visões proféticas de Daniel (capítulos 2 e 7), o que a Pedra cortada sem auxílio de mãos que esmiúça a estátua representa?",
     "options": [
-      "A profecia das 10 Luas",
-      "A profecia das 70 Semanas de anos decretadas sobre o povo e a santa cidade",
-      "A profecia dos 120 anos do dilúvio",
-      "O ciclo dos três jubileus"
+      "A revolta dos Macabeus contra os monarcas selêucidas que profanaram o altar de Jerusalém durante o período intertestamentário.",
+      "A expansão marítima do Império Romano que estabeleceu a Pax Romana em torno de toda a bacia mediterrânica no primeiro século.",
+      "O Reino eterno de Deus inaugurado por Jesus Cristo, que destruirá todos os impérios humanos terrenos e encherá toda a terra para sempre.",
+      "A reconstrução das fortificações de Jerusalém sob a liderança de Neemias após o retorno da terceira leva de exilados de Susã."
     ],
-    "correctIndex": 1,
-    "reference": "Daniel 9:24-27",
-    "explanation": "As Setenta Semanas predisseram com antecedência histórica exata a reconstrução de Jerusalém, o advento e a morte expiatória do Messias ('o Ungido será tirado').",
+    "correctIndex": 2,
+    "reference": "Daniel 2:34-35, 44-45; 7:13-14, 27; Lucas 1:33",
+    "explanation": "A Pedra sem mãos humanas é o Reino eterno do Messias, que suplanta os impérios babilônico, persa, grego e romano, governando para sempre.",
     "xp": 200
   },
   {
     "id": 28,
-    "question": "O casamento doloroso do profeta Oséias com a infiel Gomer foi ordenado por Deus para ilustrar qual realidade teológica?",
+    "question": "Na profecia das 'Setenta Semanas' revelada pelo anjo Gabriel em Daniel 9:24-27, qual acontecimento crucial ocorreria após as 62 semanas?",
     "options": [
-      "A beleza da poesia hebraica",
-      "A fidelidade e o amor redentor inabalável de Deus (Hesed) por Israel apesar de sua reiterada apostasia e adultério espiritual",
-      "A necessidade de celibato no templo",
-      "As leis de divórcio no Oriente"
+      "A edificação do Templo de Herodes com recursos auríferos extraídos das minas no território de Ofir.",
+      "A coroação militar de um descendente da dinastia asmonéia como governador perpétuo sobre as cidades da Samaria.",
+      "O envio de embaixadores de paz à capital de Nínive para ratificar o armistício entre os caldeus e os hebreus dispersos.",
+      "A morte vicária do Messias ('o Ungido será tirado, e não terá nada para Si') para fazer expiação pela iniquidade e selar a profecia."
     ],
-    "correctIndex": 1,
-    "reference": "Oséias 1-3",
-    "explanation": "O livro de Oséias manifesta a graça e o coração paternal e nupcial de Deus que perdoa e restaura o Seu povo arrependido.",
+    "correctIndex": 3,
+    "reference": "Daniel 9:24-27; Marcos 15:37-38",
+    "explanation": "Daniel 9:26 profetiza com precisão matemática a morte expiatória de Cristo ('o Messias será tirado') e a subsequente destruição de Jerusalém pelos romanos em 70 d.C.",
     "xp": 200
   },
   {
     "id": 29,
-    "question": "Em Joel 2:28-29, qual derramamento escatológico do Espírito Santo foi profetizado e identificado por Pedro em Atos 2 como cumprido no Pentecostes?",
+    "question": "Qual é o significado teológico do casamento do profeta Oséias com Gomer (Oséias 1 a 3) no contexto da aliança entre Deus e o Seu povo?",
     "options": [
-      "Apenas sobre os reis e sacerdotes",
-      "'Derramarei o meu Espírito sobre toda a carne; vossos filhos e vossas filhas profetizarão...'",
-      "Apenas no deserto da Arábia",
-      "Durante as guerras dos macabeus"
+      "Uma representação viva do amor redentor, fiel e incondicional de Deus (Hesed), que resgata e perdoa Israel apesar de seu adultério espiritual e apostasia.",
+      "Um modelo pedagógico da lei conjugal do Antigo Testamento que restringia a herança de bens exclusivamente aos filhos da primeira esposa legítima.",
+      "Uma determinação judicial que obrigava os profetas de Judá a desposarem mulheres de terras estrangeiras para promover alianças de comércio.",
+      "Um ato de punição divina aplicada a Oséias pela sua inicial hesitação em profetizar perante a corte idólatra do rei Jeroboão II."
     ],
-    "correctIndex": 1,
-    "reference": "Joel 2:28-29; Atos 2:16-18",
-    "explanation": "Joel anunciou a democratização do poder do Espírito Santo para todos os crentes: homens, mulheres, servos e servas sem acepção.",
+    "correctIndex": 0,
+    "reference": "Oséias 1:2; 2:19-20; 3:1-3",
+    "explanation": "A fidelidade de Oséias em recomprar sua esposa infiel ilustra o amor leal (Hesed) de Deus, que compra de volta e redime o Seu povo do cativeiro do pecado.",
     "xp": 200
   },
   {
     "id": 30,
-    "question": "Qual famosa declaração teológica de Habacuque 2:4 foi citada três vezes no Novo Testamento (Romanos, Gálatas e Hebreus) tornando-se o lema da Reforma Protestante?",
+    "question": "Qual profecia solene de Joel 2:28-32 é proclamada pelo apóstolo Pedro no dia de Pentecostes em Atos 2 como início de seu cumprimento inaugural?",
     "options": [
-      "'O Senhor está no Seu santo templo'",
-      "'O justo viverá da sua fé'",
-      "'Ouvi a tua voz e temi'",
-      "'O sol e a lua pararam'"
+      "A previsão do envio de pragas de gafanhotos para devastar as searas dos povos gentios que cercavam as províncias de Judá e Jerusalém.",
+      "O derramamento soberano do Espírito Santo sobre toda a carne, com filhos e filhas profetizando, e a garantia de salvação a quem invocar o Senhor.",
+      "O anúncio de que o templo de pedra seria substituído por altares familiares erguidos em todas as nações da dispersão judaica.",
+      "A convocação obrigatória de todos os sacerdotes para celebrarem a festa dos tabernáculos sem o recolhimento das décimas ofertas de cevada."
     ],
     "correctIndex": 1,
-    "reference": "Habacuque 2:4; Romanos 1:17; Gálatas 3:11; Hebreus 10:38",
-    "explanation": "'O justo viverá da sua fé' (Sola Fide) é a espinha dorsal da doutrina bíblica da salvação e da confiança perseverante na soberania de Deus.",
+    "reference": "Joel 2:28-32; Atos 2:16-21",
+    "explanation": "Pedro citou Joel 2:28 para explicar o derramamento pentecostal: Deus derramando o Seu Espírito Santo sobre todos os crentes, inaugurando a era da Igreja.",
     "xp": 200
   },
   {
     "id": 31,
-    "question": "Em Zacarias 12:10, qual declaração profética extraordinária prediz o arrependimento futuro de Israel ao reconhecer o Messias traspassado?",
+    "question": "Em Amós 5:21-24, qual repreensão drástica o Senhor profere contra a hipocrisia de um culto puramente externo desprovido de justiça ética?",
     "options": [
-      "'Edificarão altares de prata'",
-      "'Olharão para mim, a quem traspassaram; e prantearão sobre ele como quem pranteia pelo unigênito'",
-      "'Celebrarão a festa dos tabernáculos sem sacrifício'",
-      "'Buscarão a sabedoria da Grécia'"
+      "A exigência de que as ofertas de cereais fossem dobradas e acompanhadas pelo incenso importado das costas da Arábia meridional.",
+      "O mandamento para que os levitas cantassem exclusivamente os salmos imprecatórios de Davi antes das festividades do ano do jubileu.",
+      "A declaração de que Deus aborrece e despreza suas festas religiosas solenes, exigindo: 'Corra o juízo como as águas, e a justiça como ribeiro perene'.",
+      "A interdição da participação de cidadãos pobres nos banquetes sacrificiais das praças públicas das capitais de Samaria e Betel."
     ],
-    "correctIndex": 1,
-    "reference": "Zacarias 12:10; João 19:37; Apocalipse 1:7",
-    "explanation": "O próprio Deus Yahweh afirma que olharão para Ele a quem traspassaram na cruz, revelando a divindade do Messias e o luto da conversão.",
+    "correctIndex": 2,
+    "reference": "Amós 5:21-24; Miqueias 6:8",
+    "explanation": "Amós denuncia o formalismo hipócrita: Deus rejeita sacrifícios e cânticos quando não há justiça social, retidão moral e santidade sincera no viver diário.",
     "xp": 200
   },
   {
     "id": 32,
-    "question": "Qual é a ênfase cristológica distintiva do Evangelho de Mateus demonstrada por sua genealogia a partir de Abraão e Davi e frequentes citações do Antigo Testamento?",
+    "question": "Em Jonas 4, qual lição soberana sobre a universalidade da graça e misericórdia divina Deus ministra ao desapontado profeta em Nínive?",
     "options": [
-      "Jesus como o Servo Sofredor humilde",
-      "Jesus como o Rei Messiânico prometido e o cumprimento supremo de todas as profecias do Antigo Testamento",
-      "Jesus como o homem universal perfeito",
-      "Jesus como a sabedoria cósmica abstrata"
+      "Que a misericórdia de Deus é prerrogativa exclusiva e irrevogável dos filhos biológicos de Abraão, reservando aos gentios somente a condenação bélica.",
+      "Que os prodígios na natureza são concedidos com o único intuito de punir os governantes que não pagam tributos de trigo à casa de Deus.",
+      "Que o profeta tinha total autoridade moral para exigir a destruição com fogo de qualquer cidade estrangeira que houvesse oprimido as tribos de Israel.",
+      "Que Deus soberanamente se compadece de grandes multidões de povos que não sabem discernir entre a mão direita e a esquerda, acolhendo o arrependimento sincero."
     ],
-    "correctIndex": 1,
-    "reference": "Mateus 1:1; 2:15; 28:18",
-    "explanation": "Mateus escreveu primordialmente para demonstrar aos judeus que Jesus de Nazaré é o Messias prometido, o Filho de Davi e Rei de Israel.",
+    "correctIndex": 3,
+    "reference": "Jonas 4:10-11; 2 Pedro 3:9",
+    "explanation": "O livro de Jonas confronta o etnocentrismo religioso, revelando o coração de Deus que estende Sua graça e compaixão a todas as nações que se arrependem.",
     "xp": 200
   },
   {
     "id": 33,
-    "question": "Qual é o propósito e a ênfase teológica do Evangelho de Marcos caracterizado pelo uso frequente da palavra grega 'Euthus' (logo/imediatamente)?",
+    "question": "Qual famosa profecia geográfica e messiânica de Miqueias 5:2 identifica a insignificante localidade onde haveria de nascer o Governador eterno de Israel?",
     "options": [
-      "Apresentar uma tese genealógica detalhada",
-      "Apresentar Jesus em ação como o Servo Perfeito de Deus que veio para servir e dar a Sua vida em resgate de muitos",
-      "Registrar sermões longos exclusivamente",
-      "Focar nas festas anuais de Jerusalém"
+      "Belém de Judá (Efrata), cujas origens remontam aos dias da eternidade, cumprindo-se perfeitamente no nascimento de Cristo Jesus.",
+      "Nazaré da Galileia, povoado de pescadores situado nas encostas do monte Carmelo perto da baía de Aco.",
+      "Hebrom, antiga capital de Davi onde os anciãos de Israel selaram o pacto monárquico perante o altar do Senhor.",
+      "Siquém, vale sagrado ladeado pelos montes Gerizim e Ebal onde repousavam as ossadas do patriarca José."
     ],
-    "correctIndex": 1,
-    "reference": "Marcos 10:45",
-    "explanation": "Marcos retrata o Filho de Deus como o incansável Servo obediente que culmina Sua missão na cruz redentora.",
+    "correctIndex": 0,
+    "reference": "Miqueias 5:2; Mateus 2:1-6; João 7:42",
+    "explanation": "Miqueias 5:2 profetizou que Belém Efrata, mesmo sendo pequena entre os milhares de Judá, seria o berço do Messias eterno, cumprido em Mateus 2.",
     "xp": 200
   },
   {
     "id": 34,
-    "question": "No prólogo monumental do Evangelho de João (João 1:1-14), qual título teológico é dado a Jesus antes de Sua encarnação?",
+    "question": "Qual declaração teológica nuclear proferida em Habacuque 2:4 fundamenta a doutrina apostólica da salvação em Romanos, Gálatas e Hebreus?",
     "options": [
-      "O Anjo do Senhor",
-      "O Logos (O Verbo de Deus)",
-      "A Voz da Sabedoria Humana",
-      "O Primeiro dos Profetas"
+      "'Aquele que multiplica seus tesouros pela fraude colherá o desengano no dia da invasão dos caldeus pela costa do mar Salgado'.",
+      "'O justo viverá da sua fé', estabelecendo que a confiança perseverante na justiça e fidelidade de Deus é o fundamento da vida do redimido.",
+      "'A soberba das muralhas de Babilônia resistirá por milênios até que a espada dos medos se levante nas portas do oriente'.",
+      "'Os sacrifícios celebrados com sangue de bodes e cordeiros serão suficientes para aplacar o furor do juízo das nações ímpias'."
     ],
     "correctIndex": 1,
-    "reference": "João 1:1; 1:14",
-    "explanation": "'No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus... E o Verbo se fez carne e habitou entre nós, cheio de graça e de verdade.'",
+    "reference": "Habacuque 2:4; Romanos 1:17; Gálatas 3:11; Hebreus 10:38",
+    "explanation": "Habacuque 2:4 ('o justo viverá da sua fé') é o lema da Reforma Protestante e o alicerce bíblico usado por Paulo para proclamar a salvação pela fé.",
     "xp": 200
   },
   {
     "id": 35,
-    "question": "Qual doutrina bíblica sobre a natureza de Cristo foi afirmada nas Escrituras e sintetizada na fórmula da união hipostática?",
+    "question": "Em Ageu 2:6-9, qual promessa gloriosa Deus pronunciou aos desanimados judeus que reconstruíam o Segundo Templo sob Zorobabel?",
     "options": [
-      "Cristo era apenas um homem extraordinário iluminado",
-      "Cristo é plenamente Deus e plenamente homem, duas naturezas completas e perfeitas em uma só Pessoa divina",
-      "Cristo era apenas um espírito sem corpo real",
-      "A humanidade de Cristo aniquilou Sua divindade"
+      "Que as paredes do novo santuário seriam revestidas com pedras de jaspe e esmeraldas doadas pelos comerciantes da Grécia e da Macedônia.",
+      "Que os sacerdotes levitas receberiam autoridade militar sobre todas as províncias que pagavam dízimos aos governadores medo-persas.",
+      "Que a glória desta última casa seria maior do que a da primeira, cumprindo-se na presença física de Jesus Cristo, o Desejado de todas as nações.",
+      "Que a arca da aliança oculta por Jeremias ressurgiria das cavernas do monte Nebo para inaugurar um milênio terreno de colheitas abundantes."
     ],
-    "correctIndex": 1,
-    "reference": "João 1:14; Romanos 9:5; Colossenses 2:9; 1 Timóteo 2:5",
-    "explanation": "Em Cristo habita corporalmente toda a plenitude da Divindade (Colossenses 2:9). Ele é verdadeiro Deus e verdadeiro homem.",
+    "correctIndex": 2,
+    "reference": "Ageu 2:6-9; Lucas 2:27-32",
+    "explanation": "A glória do Segundo Templo superou a do Templo de Salomão não por ouro terreno, mas porque o próprio Filho de Deus pisou e ensinou nos seus átrios.",
     "xp": 200
   },
   {
     "id": 36,
-    "question": "O que a Transfiguração de Jesus no monte em Mateus 17 revela através da aparição ao lado de Moisés e Elias?",
+    "question": "Na visão sacerdotal de Zacarias 3, o que as vestes imundas do sumo sacerdote Josué sendo trocadas por vestes limpas representam teologicamente?",
     "options": [
-      "Que Moisés e Elias eram iguais a Cristo",
-      "Que Jesus é superior à Lei (representada por Moisés) e aos Profetas (representados por Elias), sendo Ele o Filho Amado a quem todos devem ouvir",
-      "Que os discípulos deveriam construir três tabernáculos físicos",
-      "Um encontro casual de profetas"
+      "A aprovação formal de um novo código de vestimentas litúrgicas confeccionado com linho fino egípcio para as celebrações do Yom Kippur.",
+      "A concessão de imunidade jurídica aos magistrados do Sinédrio contra acusações de corrupção tributária perante a corte persa.",
+      "A desqualificação irrevogável do sacerdócio arônico e a entrega da chave dos altares aos juízes civis da província de Judá.",
+      "A remoção da culpa e iniquidade pelo ato soberano de graça de Deus, imputando justiça e pureza para que o sacerdote ministre perante o Senhor."
     ],
-    "correctIndex": 1,
-    "reference": "Mateus 17:1-8; 2 Pedro 1:16-18",
-    "explanation": "A voz do Pai desde a nuvem luminosa declarou: 'Este é o meu Filho amado, em quem me comprazo; a ele ouvi', deixando somente Jesus diante deles.",
+    "correctIndex": 3,
+    "reference": "Zacarias 3:1-5; Isaías 61:10; Romanos 3:24-26",
+    "explanation": "O despojo das vestes imundas de Josué diante do Anjo do Senhor simboliza a justificação: Deus perdoa o pecado e nos veste com o manto de Sua justiça.",
     "xp": 200
   },
   {
     "id": 37,
-    "question": "Na Oração Sacerdotal de Jesus em João 17:3, como o Senhor definiu a vida eterna?",
+    "question": "Qual profecia messiânica régia em Zacarias 9:9 anunciou a entrada humilde e triunfal de Jesus em Jerusalém?",
     "options": [
-      "Uma existência sem trabalho",
-      "'E a vida eterna é esta: que te conheçam, a ti só, por único Deus verdadeiro, e a Jesus Cristo, a quem enviaste'",
-      "Apenas a perpetuidade do tempo biológico",
-      "Reinar sobre reinos terrenos"
+      "A aclamação: 'Alegra-te muito, filha de Sião... eis que o teu Rei virá a ti, justo e Salvador, pobre e montado sobre um jumento'.",
+      "A marcha triunfante do soberano sobre carros dourados ladeado pelos líderes armados das doze tribos vindos de Belém.",
+      "A descida de um capitão celestial empunhando uma espada flamejante montado num cavalo alazão seguido pelas coortes de anjos.",
+      "A convocação de todas as cidades fenícias para estenderem tapetes de púrpura imperial nos portões do vale de Cedrom."
     ],
-    "correctIndex": 1,
-    "reference": "João 17:3",
-    "explanation": "A vida eterna na Bíblia não é mera duração de existência, mas a comunhão íntima, salvífica e transformadora com o Pai e o Filho.",
+    "correctIndex": 0,
+    "reference": "Zacarias 9:9; Mateus 21:4-5; João 12:14-15",
+    "explanation": "Jesus cumpriu Zacarias 9:9 no Domingo de Ramos, entrando em Jerusalém montado num jumentinho como o Rei manso, justo e portador da salvação eterna.",
     "xp": 200
   },
   {
     "id": 38,
-    "question": "O que o rasgar do véu do Templo de alto a baixo no momento exato da morte expiatória de Cristo em Mateus 27:51 significa teologicamente?",
+    "question": "Qual valor profético exato Zacarias 11:12-13 predisse sobre a traição do Bom Pastor e o destino do dinheiro jogado no Templo?",
     "options": [
-      "A necessidade de construir um novo templo de mármore",
-      "O livre acesso de todos os crentes à santa presença de Deus pelo sangue de Jesus, abolindo o antigo sacerdócio levítico",
-      "Um sinal de derrota temporal dos judeus",
-      "O fim da arquitetura sagrada"
+      "Cem talentos de ouro refinado entregues aos sacerdotes para a compra de armas de defesa na fortaleza de Antônia.",
+      "Trinta moedas de prata pagas pelo Seu salário e posteriormente arrojadas ao oleiro na Casa do Senhor, cumprido na traição de Judas Iscariotes.",
+      "Cinquenta siclos de prata correspondentes ao valor da redenção dos primogênitos perante a tribo de Levi nos dias de Neemias.",
+      "Dez denários de prata arrecadados entre os cambistas para custear o azeite dos candelabros de ouro do pátio interno."
     ],
     "correctIndex": 1,
-    "reference": "Mateus 27:51; Hebreus 10:19-22",
-    "explanation": "Temos agora ousadia para entrar no Santo dos Santos pelo novo e vivo caminho que Jesus nos consagrou pelo véu, isto é, pela Sua carne.",
+    "reference": "Zacarias 11:12-13; Mateus 26:14-15; 27:3-10",
+    "explanation": "Zacarias profetizou com séculos de antecedência as exatas 30 moedas de prata do preço de Cristo e o dinheiro sendo jogado no Templo para o campo do oleiro.",
     "xp": 200
   },
   {
     "id": 39,
-    "question": "Qual é a base bíblica da Doutrina da Trindade revelada de forma explícita na Grande Comissão e nas bênçãos apostólicas?",
+    "question": "Qual profecia de Zacarias 12:10 anuncia o arrependimento escatológico e a lamentação de Israel ao reconhecer o Messias traspassado?",
     "options": [
-      "Que existem três deuses separados",
-      "Há um só Deus verdadeiro, subsistindo eternamente em três Pessoas distintas: o Pai, o Filho e o Espírito Santo, iguais em poder e glória",
-      "Que Deus muda de modos e máscaras consecutivamente",
-      "Que o Filho e o Espírito foram criados no tempo"
+      "A conversão militar das dez tribos do norte para sitiarem as fortificações gentílicas na planície costeira de Gaza.",
+      "A celebração perpétua do banquete de Páscoa sem o consumo de ervas amargas em memória da libertação do jugo assírio.",
+      "O derramamento do Espírito de graça e de súplicas sobre a casa de Davi: 'e olharão para Mim, a quem traspassaram; e prantearão por Ele'.",
+      "A unificação civil de todas as províncias semíticas sob o comando de um novo sumo sacerdote eleito pela congregação de Siló."
     ],
-    "correctIndex": 1,
-    "reference": "Mateus 28:19; 2 Coríntios 13:14; 1 Pedro 1:2",
-    "explanation": "Batizando-os 'em nome' (singular, uma só divindade) do Pai, e do Filho, e do Espírito Santo (três Pessoas divinas coeternas e consubstanciais).",
+    "correctIndex": 2,
+    "reference": "Zacarias 12:10; João 19:37; Apocalipse 1:7",
+    "explanation": "Zacarias 12:10 revela o arrependimento futuro de Israel ao contemplar o Senhor Jesus a quem traspassaram na cruz, recebendo o Espírito de graça.",
     "xp": 200
   },
   {
     "id": 40,
-    "question": "No Concílio de Jerusalém registrado em Atos 15, qual decisão histórica fundamental sobre a salvação dos gentios foi ratificada pelos apóstolos sob a direção do Espírito Santo?",
+    "question": "Qual é a última profecia messiânica de Malaquias (3:1 e 4:5-6) que encerra o cânon do Antigo Testamento preparando o advento de João Batista?",
     "options": [
-      "Que os gentios tinham de ser circuncidados e guardar a lei de Moisés para serem salvos",
-      "Que a salvação é exclusivamente pela graça do Senhor Jesus mediante a fé, sem a imposição do jugo da circuncisão da lei mosaica",
-      "Que os gentios deveriam fundar outra religião",
-      "Que apenas judeus poderiam ser apóstolos"
+      "O envio de um anjo armado para interditar as fontes fluviais do rio Eufrates até o estabelecimento do império romano.",
+      "A promulgação de uma moratória tributária permanente para todas as viúvas e órfãos residentes na província da Judeia.",
+      "A ordem para reconstruir a arca do concerto com tábuas de cedro no interior da câmara mais secreta do monte Sião.",
+      "O anúncio do anjo da aliança precedido pelo mensageiro que prepararia o caminho, e o envio do profeta Elias antes do grande e terrível Dia do Senhor."
     ],
-    "correctIndex": 1,
-    "reference": "Atos 15:10-11; 28",
-    "explanation": "Pedro declarou: 'Cremos que seremos salvos pela graça do Senhor Jesus Cristo, como eles também'. O evangelho da graça prevaleceu sobre o legalismo.",
+    "correctIndex": 3,
+    "reference": "Malaquias 3:1; 4:5-6; Mateus 11:13-14; Lucas 1:17",
+    "explanation": "Malaquias fecha o Antigo Testamento apontando para João Batista, o mensageiro com o espírito de Elias que preparou os corações para a chegada do Messias.",
     "xp": 200
   },
   {
     "id": 41,
-    "question": "Em Romanos 3:25, qual termo teológico grego ('Hilasterion') Paulo utiliza para descrever o sacrifício de Cristo que aplaca a ira santa de Deus e remove a culpa do pecador?",
+    "question": "Qual é a ênfase cristológica e teológica primordial de cada um dos quatro Evangelhos no cânon do Novo Testamento?",
     "options": [
-      "Iluminação",
-      "Propiciação",
-      "Emancipação social",
-      "Santificação moral"
+      "Mateus apresenta o Rei Messiânico; Marcos o Servo Obediente; Lucas o Filho do Homem perfeito; João o Filho de Deus eterno e encarnado.",
+      "Mateus retrata o Homem Perfeito; Marcos o Deus Criador; Lucas o Rei de Israel; João o Servo Sofredor sem genealogia.",
+      "Mateus foca na filosofia grega; Marcos no sacerdócio levítico; Lucas na história militar romana; João nos rituais de consagração de templos.",
+      "Mateus descreve a dispersão das tribos; Marcos as leis agrícolas de Tiro; Lucas o código civil de Herodes; João a cosmologia dos profetas essênios."
     ],
-    "correctIndex": 1,
-    "reference": "Romanos 3:25; 1 João 2:2; 4:10",
-    "explanation": "Cristo foi proposto por Deus como propiciação pela fé no Seu sangue, satisfazendo a perfeita justiça divina e derramando misericórdia.",
+    "correctIndex": 0,
+    "reference": "Mateus 1; Marcos 1; Lucas 1; João 1",
+    "explanation": "Os 4 Evangelhos oferecem uma visão harmoniosa de Cristo: Mateus (Rei/Leão), Marcos (Servo/Boi), Lucas (Homem) e João (Deus/Águia).",
     "xp": 200
   },
   {
     "id": 42,
-    "question": "Qual paralelo e contraste teológico o apóstolo Paulo traça em Romanos 5:12-19 entre Adão e Cristo?",
+    "question": "No Prólogo de João (1:1-18), qual profunda verdade teológica sobre a divindade e preexistência de Cristo é expressa pelo conceito de 'Logos'?",
     "options": [
-      "Ambos cometeram pecados perdoados",
-      "Assim como por um só homem (Adão) o pecado e a morte entraram no mundo, muito mais pela obediência e graça de um só (Jesus Cristo) a justiça e a vida eterna abundaram",
-      "Adão era divino e Cristo era humano",
-      "Não há nenhuma relação entre eles"
+      "Que Jesus foi a primeira e mais sublime criatura produzida no tempo pela vontade criativa do Pai antes da formação dos anjos.",
+      "Que no princípio era o Verbo, o Verbo estava com Deus, e o Verbo era Deus; Ele Se fez carne e habitou entre nós cheio de graça e de verdade.",
+      "Que o Verbo era uma força impessoal de sabedoria cósmica que habitava temporariamente nos profetas e nos sacerdotes do templo.",
+      "Que a divindade de Jesus foi-Lhe outorgada exclusivamente por mérito moral após demonstrar obediência inabalável no rio Jordão."
     ],
     "correctIndex": 1,
-    "reference": "Romanos 5:12-19; 1 Coríntios 15:22; 45",
-    "explanation": "Adão é a cabeça federal da humanidade caída; Cristo é o Último Adão e a Cabeça da nova criação redimida.",
+    "reference": "João 1:1-3, 14, 18; Colossenses 2:9",
+    "explanation": "João 1 afirma categoricamente a deidade eterna, pessoal e absoluta de Jesus: Ele é o Logos eterno que estava com Deus e era plenamente Deus.",
     "xp": 200
   },
   {
     "id": 43,
-    "question": "De acordo com Romanos 8:1, qual é a gloriosa declaração para todos os que estão em Cristo Jesus?",
+    "question": "No Sermão do Monte (Mateus 5 a 7), qual é a atitude do Senhor Jesus em relação à Lei Mosaica e aos Profetas?",
     "options": [
-      "'Haverá muitas acusações válidas'",
-      "'Portanto, agora nenhuma condenação há para os que estão em Cristo Jesus, que não andam segundo a carne, mas segundo o Espírito'",
-      "'A lei mosaica ainda os condena'",
-      "'Devem pagar penitências'"
+      "Ele declara que veio para revogar e abolir formalmente as ordenanças éticas da Lei em virtude da incapacidade natural humana em cumpri-las.",
+      "Ele estabelece uma nova legislação civil baseada no direito consuetudinário das colônias romanas para substituir os mandamentos do decálogo.",
+      "Ele afirma enfaticamente que não veio destruir a Lei ou os Profetas, mas cumpri-los em sua totalidade, aprofundando as exigências no coração.",
+      "Ele delega aos fariseus e escribas a autoridade de modificar as sentenças morais segundo as conveniências temporais da Judeia."
     ],
-    "correctIndex": 1,
-    "reference": "Romanos 8:1",
-    "explanation": "O crente justificado em Cristo foi absolvido de todo juízo condenatório: 'Quem intentará acusação contra os escolhidos de Deus? É Deus quem os justifica' (Rm 8:33).",
+    "correctIndex": 2,
+    "reference": "Mateus 5:17-20",
+    "explanation": "Jesus não aboliu a Lei, mas a cumpriu perfeitamente (Plērōsai), demonstrando que o padrão divino exige justiça interior no coração e não mero legalismo exterior.",
     "xp": 200
   },
   {
     "id": 44,
-    "question": "Qual é o tema e o encadeamento da chamada 'Cadeia de Ouro da Salvação' (Ordo Salutis) em Romanos 8:29-30?",
+    "question": "Em Mateus 16:16-18, o que a confissão de Pedro ('Tu és o Cristo, o Filho do Deus vivo') representa como alicerce para a edificação da Igreja?",
     "options": [
-      "Dízimos, ofertas, jejuns e penitências",
-      "Os que dantes conheceu, também os predestinou, chamou, justificou e glorificou",
-      "Trabalho, estudo, riqueza e fama",
-      "Nascimento, batismo, confirmação e velhice"
+      "A fundação da autoridade infalível exclusiva de um patriarcado terreno instituído na cidade de Roma para governar os concílios eclesiásticos.",
+      "A revelação de que a Igreja seria estabelecida sobre as tradições rabínicas e os decretos civis da dinastia asmonéia de Jerusalém.",
+      "A ordenança de que a salvação dependeria do cumprimento estrito das cerimônias sabáticas praticadas na província da Judeia.",
+      "A revelação concedida pelo Pai sobre a identidade messiânica e divina de Jesus Cristo, sendo Ele a Rocha inabalável sobre a qual a Igreja é edificada."
     ],
-    "correctIndex": 1,
-    "reference": "Romanos 8:29-30",
-    "explanation": "Paulo descreve a inquebrantável certeza da redenção soberana de Deus desde a eternidade até a consumação na glória.",
+    "correctIndex": 3,
+    "reference": "Mateus 16:16-18; 1 Coríntios 3:11; 1 Pedro 2:4-8",
+    "explanation": "A Igreja está edificada sobre a Rocha inabalável que é Jesus Cristo, confessado como o Filho do Deus vivo por Pedro mediante revelação do Pai celestial.",
     "xp": 200
   },
   {
     "id": 45,
-    "question": "Em Romanos 12:1-2, como Paulo exorta os cristãos a apresentarem as suas próprias vidas a Deus?",
+    "question": "Na Transfiguração de Jesus no monte (Mateus 17 e Lucas 9), qual significado teológico tem a aparição de Moisés e Elias conversando com Cristo?",
     "options": [
-      "Como sacrifício de animais no altar",
-      "Como sacrifício vivo, santo e agradável a Deus, que é o vosso culto racional; e não vos conformeis com este século, mas transformai-vos pela renovação da vossa mente",
-      "Apenas comparecendo ao templo uma vez por mês",
-      "Isolando-se da sociedade no deserto"
+      "A representação solene da Lei (Moisés) e dos Profetas (Elias) prestando testemunho e convergindo para Jesus, cuja voz o Pai ordena ouvir exclusivamente.",
+      "A investidura de Jesus como um terceiro profeta de categoria idêntica encarregado de compartilhar o governo do Reino messiânico terreno.",
+      "A autorização cerimonial para a construção de três tendas sagradas permanentes no cume da montanha em substituição ao Templo de Jerusalém.",
+      "A demonstração de que o Antigo Testamento devia ser rejeitado para dar lugar a um evangelho gnóstico desconectado da história de Israel."
     ],
-    "correctIndex": 1,
-    "reference": "Romanos 12:1-2",
-    "explanation": "O culto do Novo Testamento abrange a consagração integral do corpo, da mente e da conduta diária para experimentar a boa, agradável e perfeita vontade de Deus.",
+    "correctIndex": 0,
+    "reference": "Mateus 17:1-8; Lucas 9:28-36; 2 Pedro 1:16-18",
+    "explanation": "Moisés (representando a Lei) e Elias (os Profetas) aparecem para atestar que toda a Escritura aponta para Jesus, e a voz do Pai declara: 'A Ele ouvi'.",
     "xp": 200
   },
   {
     "id": 46,
-    "question": "Em 1 Coríntios 1:18-24, como o apóstolo Paulo confronta a sabedoria humana em relação à pregação da Cruz de Cristo?",
+    "question": "Em João 3, no diálogo secreto com Nicodemos, qual condição basilar e inegociável Jesus declara ser necessária para ver e entrar no Reino de Deus?",
     "options": [
-      "A cruz agrada à filosofia dos sábios",
-      "A palavra da cruz é loucura para os que perecem, mas para nós que somos salvos é o poder de Deus e a sabedoria de Deus",
-      "A cruz deve ser escondida dos eruditos",
-      "A sabedoria grega é superior ao evangelho"
+      "A filiação genealógica pura comprovada através dos registros das doze tribos arquivados na corte do palácio sacerdotal de Jerusalém.",
+      "O Novo Nascimento (nascer de novo, da água e do Espírito), uma transformação ontológica e espiritual operada soberanamente por Deus no indivíduo.",
+      "A doação metódica de dízimos de todas as hortaliças e a observância rigorosa das orações farisaicas nas esquinas das praças públicas.",
+      "A aprovação com distinção nos exames teológicos do Sinédrio acerca dos tratados da tradição dos anciãos e da Torá oral."
     ],
     "correctIndex": 1,
-    "reference": "1 Coríntios 1:18; 23-24",
-    "explanation": "Deus aniquilou a presunção da sabedoria mundana revelando a Sua salvação redentora através da aparente fraqueza da cruz.",
+    "reference": "João 3:3-8; Tito 3:5; 1 Pedro 1:23",
+    "explanation": "Jesus afirmou a um dos maiores mestres de Israel: 'Aquele que não nascer de novo não pode ver o Reino de Deus'. A regeneração pelo Espírito é essencial.",
     "xp": 200
   },
   {
     "id": 47,
-    "question": "Qual capítulo doutrinário de 1 Coríntios é o mais extenso tratado do Novo Testamento defendendo a realidade factual e a necessidade da ressurreição corporal?",
+    "question": "Qual é a profunda significação teológica das sete solenes declarações 'EU SOU' proferidas por Jesus no Evangelho de João?",
     "options": [
-      "1 Coríntios 3",
-      "1 Coríntios 7",
-      "1 Coríntios 13",
-      "1 Coríntios 15"
+      "Títulos honoríficos de sabedoria hebraica adotados temporariamente por Jesus para cativar o auditório de pescadores da província da Galileia.",
+      "Fórmulas poéticas tradicionais utilizadas pelos cantores levitas nas comemorações anuais da festa dos tabernáculos e da dedicação.",
+      "Afirmações categóricas de Sua deidade absoluta, associando-se ao Nome sagrado revelado a Moisés na sarça ardente ('EU SOU O QUE SOU').",
+      "Termos retóricos de liderança política empregados para unificar as diferentes facções separatistas dos zelotes contra o império romano."
     ],
-    "correctIndex": 3,
-    "reference": "1 Coríntios 15:1-58",
-    "explanation": "'Se Cristo não ressuscitou, logo é vã a nossa pregação, e também é vã a vossa fé... Mas agora Cristo ressuscitou dos mortos e foi feito as primícias dos que dormem.'",
+    "correctIndex": 2,
+    "reference": "João 6:35; 8:12; 8:58; 10:9, 11; 11:25; 14:6; 15:1; Êxodo 3:14",
+    "explanation": "Ao declarar 'EU SOU' (o Pão da Vida, a Luz, a Porta, o Bom Pastor, a Ressurreição, o Caminho e a Videira; e 'antes que Abraão existisse, EU SOU'), Jesus reivindica a deidade plena de Javé.",
     "xp": 200
   },
   {
     "id": 48,
-    "question": "O que o apóstolo Paulo afirma com autoridade apostólica em 2 Coríntios 5:17 a respeito de todo aquele que está em Cristo?",
+    "question": "No discurso do Cenáculo em João 14 a 16, qual promessa consoladora Jesus revela sobre a vinda do Espírito Santo (o Paracleto)?",
     "options": [
-      "Ele melhora seus defeitos antigos gradualmente",
-      "'Assim que, se alguém está em Cristo, nova criatura é: as coisas velhas já passaram; eis que tudo se fez novo'",
-      "Ele adota novas regras humanas",
-      "Permanece escravo do pecado anterior"
+      "Que Ele viria como uma energia cósmica impessoal acessível exclusivamente através de transes místicos em retiros desérticos.",
+      "Que Ele restauraria imediatamente a monarquia política secular de Israel e expulsaria os governadores gentios com exércitos de anjos visíveis.",
+      "Que Ele concederia imunidade biológica aos apóstolos contra qualquer forma de enfermidade, perseguição física ou morte violenta.",
+      "Que Ele ensinaria todas as coisas, faria lembrar os mandamentos de Cristo, convenceria o mundo do pecado, da justiça e do juízo e habitaria para sempre nos crentes."
     ],
-    "correctIndex": 1,
-    "reference": "2 Coríntios 5:17",
-    "explanation": "A regeneração operada por Cristo não é mera reforma exterior, mas uma criação inteiramente nova no poder do Espírito.",
+    "correctIndex": 3,
+    "reference": "João 14:16-17, 26; 16:7-14",
+    "explanation": "O Parakletos (Aquele chamado para estar ao lado) é a terceira Pessoa da Trindade que habita nos salvos, consola, ensina, guia na verdade e glorifica a Cristo.",
     "xp": 200
   },
   {
     "id": 49,
-    "question": "Em 2 Coríntios 5:21, qual troca expiatória maravilhosa revela o cerne da justificação por imputação?",
+    "question": "Na oração sacerdotal de Jesus em João 17, qual definição sublime de 'Vida Eterna' o Senhor pronuncia diante do Pai celeste?",
     "options": [
-      "Deus ignorou os pecados do mundo",
-      "'Aquele que não conheceu pecado, Ele o fez pecado por nós; para que, n'Ele, fôssemos feitos justiça de Deus'",
-      "O homem pagou sua própria dívida com sacrifícios",
-      "Cristo cometeu pecados para nos salvar"
+      "O conhecimento íntimo e relacional do único Deus verdadeiro e de Jesus Cristo, a quem o Pai enviou para a redenção dos pecadores.",
+      "A concessão de longevidade física ilimitada no cosmo material desfrutando das riquezas terrenas prometidas aos herdeiros de Abraão.",
+      "O domínio político exercido pelas doze tribos de Israel sobre as nações gentílicas derrotadas nas planícies do vale de Josafá.",
+      "A fusão da consciência pessoal do crente com a essência impessoal do universo através de estágios de purificação filosófica."
     ],
-    "correctIndex": 1,
-    "reference": "2 Coríntios 5:21",
-    "explanation": "A dupla imputação da graça: os nossos pecados foram lançados sobre o Cristo imaculado na cruz, e a Sua perfeita justiça nos foi conferida gratuitamente.",
+    "correctIndex": 0,
+    "reference": "João 17:3; 1 João 5:20",
+    "explanation": "Jesus define a Vida Eterna não apenas como duração de tempo, mas como qualidade de relacionamento: conhecer o único Deus verdadeiro e a Jesus Cristo.",
     "xp": 200
   },
   {
     "id": 50,
-    "question": "Qual heresia judaizante o apóstolo Paulo combate com santa indignação em Gálatas 1 e 2?",
+    "question": "Qual era o significado teológico do rasgar do véu do Santuário de alto a baixo no momento exato em que Jesus expirou na cruz (Mateus 27:51)?",
     "options": [
-      "A negação da existência dos anjos",
-      "A tentativa de acrescentar a circuncisão e a guarda das obras da lei mosaica como requisito para a salvação, pervertendo a graça de Cristo",
-      "A crença na reencarnação grega",
-      "A guarda do sábado como feriado civil"
+      "Um sinal de destruição cósmica irreversível que impedia para sempre qualquer forma de culto ou oração comunitária perante o Deus Altíssimo.",
+      "O fim da barreira de separação do sacerdócio levítico e a abertura do livre e irrestrito acesso ao Trono da Graça para todos os crentes pelo sangue de Jesus.",
+      "A repreensão de Deus contra os soldados romanos por terem lançado sortes sobre as vestimentas sagradas do Messias.",
+      "A demonstração de que a estrutura arquitetônica do Segundo Templo havia sofrido um colapso estrutural decorrente de infiltrações de água subterrânea."
     ],
     "correctIndex": 1,
-    "reference": "Gálatas 1:6-9; 2:16",
-    "explanation": "Paulo declara anátema qualquer um que pregue outro evangelho além do evangelho da graça mediante a fé: 'o homem não é justificado pelas obras da lei, mas pela fé em Jesus Cristo'.",
+    "reference": "Mateus 27:50-51; Hebreus 10:19-22",
+    "explanation": "O rasgar do véu de cima a baixo comprovou que Deus abriu o caminho para a Sua santa presença: em Cristo, todo crente tem livre acesso ao Santo dos Santos.",
     "xp": 200
   },
   {
     "id": 51,
-    "question": "Qual texto bíblico de Efésios sintetiza a salvação pela graça exclusiva mediante a fé e o propósito das boas obras regeneradas?",
+    "question": "Qual foi o mandato eclesiástico e escatológico supremo concedido por Jesus ressurreto aos apóstolos antes de Sua ascensão em Mateus 28 e Atos 1?",
     "options": [
-      "Efésios 1:1",
-      "Efésios 2:8-10",
-      "Efésios 4:1",
-      "Efésios 6:1"
+      "A fundação de um estado monárquico teocrático armado na Judeia para expulsar as legiões de César com o auxílio dos chefes zelotes.",
+      "A organização de feiras comerciais nos portos do mar Mediterrâneo para financiar a manutenção material dos altares do templo de Jerusalém.",
+      "Fazer discípulos de todas as nações, batizando-os em nome do Pai, do Filho e do Espírito Santo, e ser testemunhas do Evangelho até os confins da terra.",
+      "A compilação de tratados rabínicos que harmonizassem a filosofia platônica com os ritos sacrificiais do sacerdócio arônico."
     ],
-    "correctIndex": 1,
-    "reference": "Efésios 2:8-10",
-    "explanation": "'Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus. Não vem das obras, para que ninguém se glorie; porque somos feitura sua, criados em Cristo Jesus para as boas obras.'",
+    "correctIndex": 2,
+    "reference": "Mateus 28:18-20; Atos 1:8",
+    "explanation": "A Grande Comissão comissiona a Igreja com toda a autoridade de Cristo a proclamar o Evangelho, batizar e ensinar todas as nações até a consumação dos séculos.",
     "xp": 200
   },
   {
     "id": 52,
-    "question": "Qual famosa passagem cristológica de Filipenses 2:5-11 descreve a 'Kenosis' (o esvaziamento e a humilhação voluntária de Cristo culminando em Sua soberana exaltação)?",
+    "question": "No discurso do dia de Pentecostes em Atos 2, qual profecia de Davi (Salmo 16:10) Pedro emprega para demonstrar a ressurreição corporal de Cristo?",
     "options": [
-      "Filipenses 1:21",
-      "Filipenses 2:5-11",
-      "Filipenses 3:14",
-      "Filipenses 4:8"
+      "'O Senhor é o meu pastor, e nada me faltará em pastos verdejantes e águas tranquilas da província da Judeia'.",
+      "'Levantai, ó portas, as vossas cabeças, para que entre o Rei da Glória triunfante com seus carros celestiais armados'.",
+      "'Porque os ímpios não subsistirão no juízo, nem os pecadores na congregação dos justos perante o tribunal de Deus'.",
+      "'Não deixarás a minha alma no Hades, nem permitirás que o teu Santo veja a corrupção', comprovando que a tumba de Davi permanecia com seus ossos, mas Cristo ressuscitou."
     ],
-    "correctIndex": 1,
-    "reference": "Filipenses 2:5-11",
-    "explanation": "Sendo em forma de Deus, não teve por usurpação ser igual a Deus, mas esvaziou-se a Si mesmo, tornando-se obediente até à morte e morte de cruz; pelo que Deus O exaltou soberanamente.",
+    "correctIndex": 3,
+    "reference": "Atos 2:25-32; Salmos 16:8-11",
+    "explanation": "Pedro demonstrou aos judeus que Davi morreu, foi sepultado e seu túmulo estava com eles; portanto, o Salmo 16 profetizava a ressurreição de Jesus.",
     "xp": 200
   },
   {
     "id": 53,
-    "question": "Em Colossenses 1:15-18, como o apóstolo Paulo exalta a supremacia absoluta e preeminência de Cristo sobre toda a criação?",
+    "question": "Em Atos 4:12, perante o Sinédrio de Jerusalém, qual afirmação de exclusividade soteriológica o apóstolo Pedro proclamou com intrepidez?",
     "options": [
-      "Cristo é o primeiro dos anjos criados",
-      "Ele é a imagem do Deus invisível, o primogênito de toda a criação; porque n'Ele foram criadas todas as coisas... e Ele é antes de todas as coisas e todas as coisas subsistem por Ele",
-      "Cristo governa apenas o mundo invisível",
-      "Cristo é subordinado aos principados"
+      "Que em nenhum outro há salvação, porque abaixo do céu não existe nenhum outro nome dado entre os homens pelo qual importa que sejamos salvos.",
+      "Que somente os escribas e fariseus detinham as chaves legais para perdoar iniquidades mediante a imposição de mãos sacerdotais.",
+      "Que a salvação pode ser alcançada indistintamente através de qualquer sistema moral ou litúrgico adotado pelas nações civilizadas.",
+      "Que os ritos sacrificiais do templo preservavam sua eficácia redentora paralela e independente da morte do nazareno na cruz."
     ],
-    "correctIndex": 1,
-    "reference": "Colossenses 1:15-18",
-    "explanation": "Paulo combate o gnosticismo incipiente provando que Cristo não é uma emanação intermediária, mas o Criador, Sustentador e Cabeça supremo da Igreja.",
+    "correctIndex": 0,
+    "reference": "Atos 4:11-12; 1 Timóteo 2:5",
+    "explanation": "Pedro declarou a exclusividade absoluta da salvação em Jesus Cristo: 'E em nenhum outro há salvação, porque também debaixo do céu nenhum outro nome há'.",
     "xp": 200
   },
   {
     "id": 54,
-    "question": "Qual evento escatológico glorioso da Igreja é revelado com detalhes inspirados em 1 Tessalonicenses 4:16-17?",
+    "question": "Qual foi a causa basilar da instituição dos sete homens cheios do Espírito Santo e de sabedoria em Atos 6 para o serviço da assistência social (diaconia)?",
     "options": [
-      "O cativeiro de Babilônia",
-      "O Arrebatamento dos santos na vinda do Senhor: a ressurreição dos mortos em Cristo e a transformação dos vivos para o encontro com o Senhor nos ares",
-      "A coroação de reis terrenos",
-      "A divisão de reinos terrestres"
+      "A necessidade de organizar brigadas de segurança armada para proteger os peregrinos que subiam a Jerusalém nas festividades anuais.",
+      "Uma murmuração dos judeus helenistas contra os hebreus porque suas viúvas estavam sendo negligenciadas na distribuição diária de alimentos.",
+      "Uma ordem emanada do governador romano da Síria exigindo o cadastramento fiscal de todos os membros das congregações nascentes.",
+      "A demissão voluntária dos doze apóstolos do ministério do ensino para se dedicarem exclusivamente ao comércio de tecidos e tendas."
     ],
     "correctIndex": 1,
-    "reference": "1 Tessalonicenses 4:16-17; 1 Coríntios 15:51-52",
-    "explanation": "'Porque o mesmo Senhor descerá do céu com alarido, e com voz de arcanjo, e com a trombeta de Deus... depois nós, os que ficarmos vivos, seremos arrebatados juntamente com eles nas nuvens.'",
+    "reference": "Atos 6:1-7; 1 Timóteo 3:8-13",
+    "explanation": "Os diáconos foram instituídos para cuidar com equidade das viúvas e dos necessitados, permitindo aos apóstolos manter foco na oração e no ministério da Palavra.",
     "xp": 200
   },
   {
     "id": 55,
-    "question": "Em 2 Tessalonicenses 2:3-8, que personagem escatológico de perdição e engano é profetizado antes da manifestação gloriosa de Cristo?",
+    "question": "No sermão perante o Sinédrio em Atos 7, qual denúncia solene Estêvão proferiu contra os líderes religiosos antes de sofrer o martírio?",
     "options": [
-      "O rei de Nínive",
-      "O homem do pecado, o filho da perdição (o Anticristo), a quem o Senhor desfará com o assopro da sua boca",
-      "O general Tito de Roma",
-      "O rei Nabucodonosor"
+      "Que eles haviam falsificado os documentos de arrecadação do censo imperial de César Augusto nas províncias da Judeia e da Pereia.",
+      "Que eles haviam permitido a entrada de soldados samaritanos no pátio interno do tabernáculo durante a consagração dos pães da proposição.",
+      "Que eles eram homens de cerviz dura e incircuncisos de coração e ouvido, que sempre resistiam ao Espírito Santo assim como seus antepassados mataram os profetas.",
+      "Que eles não possuíam ascendência legítima da tribo de Arão e governavam com base em decretos espúrios dos reis da Pérsia."
     ],
-    "correctIndex": 1,
-    "reference": "2 Tessalonicenses 2:3-8",
-    "explanation": "O iníquo se oporá contra tudo o que se chama Deus, mas será aniquilado pelo esplendor da vinda de Cristo.",
+    "correctIndex": 2,
+    "reference": "Atos 7:51-53, 59-60",
+    "explanation": "Estêvão confrontou a hipocrisia do Sinédrio, mostrando que eles resistiam ao Espírito Santo e culminaram sua apostasia traindo e assassinando o Justo.",
     "xp": 200
   },
   {
     "id": 56,
-    "question": "De acordo com 1 Timóteo 2:5, quem é o único Mediador entre o Deus Santo e os homens pecadores?",
+    "question": "No episódio da conversão do eunuco etíope em Atos 8, qual passagem profética das Escrituras Filipe utilizou para anunciar Jesus Cristo?",
     "options": [
-      "A Igreja e suas hierarquias humanas",
-      "Jesus Cristo, homem",
-      "Os anjos e os santos falecidos",
-      "Os sacerdotes da antiga aliança"
+      "A visão do vale de ossos secos de Ezequiel 37 sobre o renascimento da casa de Israel.",
+      "O relato da criação do mundo e a instituição do sábado sagrado em Gênesis 1 e 2.",
+      "A bênção profética de Jacó sobre a tribo de Judá e o cetro de Siló em Gênesis 49.",
+      "O cântico do Servo Sofredor em Isaías 53: 'Como ovelha foi levado ao matadouro; e, como cordeiro mudo perante o que o tosquia, não abriu a boca'."
     ],
-    "correctIndex": 1,
-    "reference": "1 Timóteo 2:5",
-    "explanation": "'Porque há um só Deus, e um só Mediador entre Deus e os homens, Jesus Cristo, homem, o qual se deu a Si mesmo em preço de redenção por todos.'",
+    "correctIndex": 3,
+    "reference": "Atos 8:32-35; Isaías 53:7-8",
+    "explanation": "O oficial etíope lia Isaías 53; a partir desse texto, Filipe lhe anunciou o Evangelho de Jesus, e ele creu de todo o coração e foi batizado nas águas.",
     "xp": 200
   },
   {
     "id": 57,
-    "question": "Quais são as duas categorias de ministros da liderança eclesiástica ordenadas nas Epístolas Pastorais (1 Timóteo 3 e Tito 1)?",
+    "question": "O que a visão do lençol com animais outrora considerados impuros que desceu do céu em Atos 10 revelou a Pedro sobre o plano salvífico de Deus?",
     "options": [
-      "Sumos sacerdotes e levitas",
-      "Bispos/Presbíteros (Pastores) e Diáconos",
-      "Cardeais e monges",
-      "Profetas errantes e escribas"
+      "A quebra da barreira entre judeus e gentios: que Deus não faz acepção de pessoas e que a salvação em Cristo é aberta livremente aos gentios pela fé.",
+      "A autorização profética para que os apóstolos comercializassem carnes de animais sacrificados nos templos de Diana dos efésios.",
+      "A revogação de todas as normas sanitárias de higiene pessoal para os trabalhadores dos portos marítimos de Jope e Cesareia.",
+      "A determinação de que os animais do deserto deveriam ser incorporados aos holocaustos celebrados nas sinagogas da diáspora."
     ],
-    "correctIndex": 1,
-    "reference": "1 Timóteo 3:1-13; Tito 1:5-9",
-    "explanation": "O Novo Testamento estabelece os presbíteros/pastores para o pastoreio, ensino e governo doutrinário, e os diáconos para o serviço compassivo e administrativo.",
+    "correctIndex": 0,
+    "reference": "Atos 10:9-16, 34-35, 44-48",
+    "explanation": "A visão ensinou a Pedro que Deus purificou os gentios pela fé: 'Não chames tu comum ou imundo ao que Deus purificou', abrindo as portas da Igreja às nações.",
     "xp": 200
   },
   {
     "id": 58,
-    "question": "O que o termo grego 'Theopneustos' em 2 Timóteo 3:16 ensina sobre a autoridade e inspiração da Bíblia Sagrada?",
+    "question": "Qual foi a resolução teológica histórica promulgada pelo Concílio de Jerusalém em Atos 15 em relação aos crentes convertidos do paganismo gentílico?",
     "options": [
-      "Que a Bíblia contém pensamentos de poetas iluminados",
-      "Que toda a Escritura é literalmente 'soprada por Deus' (divinamente inspirada), infalível em sua autoridade original",
-      "Que a Bíblia só é inspirada em alguns capítulos morais",
-      "Que os homens escreveram sem direção divina"
+      "A exigência irrevogável da circuncisão e da estrita observância de toda a lei cerimonial de Moisés como pré-requisito indispensável para a salvação.",
+      "A confirmação de que os gentios são salvos pela graça do Senhor Jesus mediante a fé sem o jugo da Lei, devendo apenas abster-se da idolatria, imoralidade, sufocado e sangue.",
+      "A delegação da jurisdição espiritual de todas as igrejas gentílicas aos anciãos da corte sinédrica instalada em Samaria.",
+      "A imposição de uma moratória litúrgica de sete anos onde os gentios não poderiam participar da Ceia do Senhor com os cristãos hebreus."
     ],
     "correctIndex": 1,
-    "reference": "2 Timóteo 3:16-17; 2 Pedro 1:21",
-    "explanation": "Homens santos de Deus falaram movidos pelo Espírito Santo; toda a Bíblia procede da própria respiração soberana do Deus Onisciente.",
+    "reference": "Atos 15:6-11, 19-21, 28-29; Gálatas 2:1-10",
+    "explanation": "O Concílio de Jerusalém defendeu a graça soberana contra o legalismo judaizante: a salvação é exclusivamente pela fé em Jesus, sem o jugo da circuncisão.",
     "xp": 200
   },
   {
     "id": 59,
-    "question": "Qual é o argumento teológico supremo da Epístola aos Hebreus nos capítulos 1 a 10?",
+    "question": "Em Atos 17:22-31, qual método apologético e teológico o apóstolo Paulo empregou ao discursar perante os filósofos estóicos e epicureus no Areópago de Atenas?",
     "options": [
-      "Que Israel deve reconstruir o templo de pedras com sacrifícios animais",
-      "A superioridade absoluta e eterna da Pessoa e do sacerdócio de Cristo sobre os anjos, Moisés, Josué, Arão e os repetidos sacrifícios levíticos",
-      "Que a lei cerimonial é eterna",
-      "Que os anjos salvaram a humanidade"
+      "O apelo direto às genealogias das doze tribos registradas nos anais levíticos de Crônicas para comprovar a primogenitura dos reis hebreus.",
+      "A condenação sumária de toda a poesia clássica e a recusa em dialogar com qualquer indivíduo que não compreendesse a língua aramaica.",
+      "A identificação do 'Deus Desconhecido' com o Deus Criador e Soberano sobre os tempos e nações, que não habita em templos de pedra e ordena o arrependimento ressuscitando a Jesus.",
+      "A defesa da doutrina da reencarnação cósmica como meio de purificação gradual das almas perante as divindades do monte Olimpo."
     ],
-    "correctIndex": 1,
-    "reference": "Hebreus 1:1-4; 7:23-27; 10:1-14",
-    "explanation": "Com uma só oferta de Si mesmo, Cristo aperfeiçoou para sempre os que são santificados, sendo Ele o Sumo Sacerdote eterno segundo a ordem de Melquisedeque.",
+    "correctIndex": 2,
+    "reference": "Atos 17:22-31; Romanos 1:19-20",
+    "explanation": "Paulo parte da cosmovisão grega para revelar o Deus vivo e soberano, que fez o mundo e tudo o que nele há, chamando todos ao arrependimento mediante a ressurreição de Cristo.",
     "xp": 200
   },
   {
     "id": 60,
-    "question": "Em Hebreus 4:14-16, qual consolo temos em Jesus como nosso Sumo Sacerdote perante o trono da graça?",
+    "question": "Em Atos 20:26-28, qual advertência solene e pneumatológica Paulo dirigiu aos presbíteros da igreja de Éfeso em Mileto?",
     "options": [
-      "Ele é distante e impassível",
-      "Não temos um sumo sacerdote que não possa compadecer-se das nossas fraquezas, mas um que, como nós, em tudo foi tentado, mas sem pecado",
-      "Ele não conhece nossas dores terrenas",
-      "Devemos buscar intercessores humanos intermediários"
+      "A recomendação de que buscassem cargos públicos na assembleia civil romana para assegurar a isenção tributária dos membros de comunhão.",
+      "A proibição expressa de receberem cristãos convertidos de origem grega ou fenícia no ministério de liderança eclesiástica.",
+      "A instrução de que a liderança pastoral deveria ser rotativa e reavaliada anualmente com base no volume de dízimos arrecadados pelas províncias.",
+      "A advertência para cuidarem de si e de todo o rebanho sobre o qual o Espírito Santo os constituiu bispos, pastoreando a Igreja de Deus resgatada com Seu próprio sangue."
     ],
-    "correctIndex": 1,
-    "reference": "Hebreus 4:14-16",
-    "explanation": "Podemos nos aproximar com confiança do trono da graça para alcançar misericórdia e achar graça a fim de sermos ajudados em tempo oportuno.",
+    "correctIndex": 3,
+    "reference": "Atos 20:26-31; 1 Pedro 5:1-4",
+    "explanation": "Paulo alertou os presbíteros de Éfeso contra lobos cruéis e exortou ao pastoreio vigilante do rebanho comprado com o precioso sangue do próprio Deus.",
     "xp": 200
   },
   {
     "id": 61,
-    "question": "O que a ordem de sacerdócio de Melquisedeque em Hebreus 7 representa em contraste com a ordem transitória de Arão?",
+    "question": "Qual é a tese teológica central de Romanos 1:16-17 sobre o Evangelho e a revelação da justiça de Deus?",
     "options": [
-      "Um sacerdócio tribal limitado pela morte",
-      "Um sacerdócio real eterno, intransmissível, sem genealogia levítica finita e estabelecido pelo poder de uma vida indissolúvel",
-      "Uma tradição militar de Canaã",
-      "Um ofício exercido apenas no deserto"
+      "O Evangelho é o poder de Deus para salvação de todo aquele que crê (judeu e grego), pois nele se descobre a justiça de Deus de fé em fé, como está escrito: 'O justo viverá da fé'.",
+      "O Evangelho é um compêndio moral reservado exclusivamente aos sábios e filósofos que dominam a dialética da tradição helenista.",
+      "O Evangelho representa um pacto político de não agressão firmado entre a igreja de Roma e o imperador Cláudio.",
+      "O Evangelho é a proclamação da salvação pelas obras meritórias da Lei cerimonial Mosaica aliada aos sacrifícios no altar de pedra."
     ],
-    "correctIndex": 1,
-    "reference": "Hebreus 7:15-17; 24-25; Salmos 110:4",
-    "explanation": "Jesus permanece eternamente e tem um sacerdócio perpétuo, podendo salvar perfeitamente os que por Ele se chegam a Deus, vivendo sempre para interceder por eles.",
+    "correctIndex": 0,
+    "reference": "Romanos 1:16-17; Habacuque 2:4; Gálatas 3:11",
+    "explanation": "Romanos 1:16-17 é o coração da carta aos Romanos e da teologia bíblica da graça: o Evangelho é poder de Deus para salvação mediante a fé.",
     "xp": 200
   },
   {
     "id": 62,
-    "question": "De acordo com Hebreus 9:22, qual princípio eterno rege a concessão de perdão e remissão de pecados?",
+    "question": "Em Romanos 3:23-26, qual definição doutrinária precisa descreve a obra de Cristo na cruz em relação à justiça e misericórdia de Deus?",
     "options": [
-      "A boa intenção moral",
-      "'Sem derramamento de sangue não há remissão'",
-      "O pagamento de tributos ao santuário",
-      "O esquecimento natural do tempo"
+      "Uma anistia arbitrária onde Deus suspendeu Sua santidade para ignorar a culpa sem exigir a punição devida ao pecado.",
+      "A propiciação pela fé no Seu sangue, mediante a qual Deus manifesta a Sua justiça, sendo Ele mesmo justo e o justificador daquele que tem fé em Jesus.",
+      "Uma demonstração simbólica de fraqueza divina desenhada para comover a humanidade a produzir obras de penitência e autoflagelação.",
+      "Um rito de coroação angelical que outorgou a Cristo a autoridade temporal sobre as potestades cósmicas da Galácia e da Frígia."
     ],
     "correctIndex": 1,
-    "reference": "Hebreus 9:22; Levítico 17:11",
-    "explanation": "O sangue atesta a gravidade do pecado e a exigência de justiça divina; somente o sangue imaculado de Cristo limpa a consciência de obras mortas.",
+    "reference": "Romanos 3:23-26; 1 João 2:2; 4:10",
+    "explanation": "Na cruz, Cristo foi a 'propiciação' (Hilasterion): Deus satisfez plenamente a Sua santa justiça punindo o pecado em Seu Filho, justificando o pecador pela graça.",
     "xp": 200
   },
   {
     "id": 63,
-    "question": "Em Tiago 1:22, qual admoestação prática é dada contra a autoilusão de ouvir a Bíblia sem colocá-la em prática?",
+    "question": "No contraste teológico de Romanos 5:12-21, qual paralelo soteriológico Paulo estabelece entre o primeiro Adão e o último Adão (Cristo)?",
     "options": [
-      "'Sede apenas ouvintes reflexivos'",
-      "'Sede cumpridores da palavra, e não somente ouvintes, enganando-vos com falsos discursos'",
-      "'Memorizai sem praticar'",
-      "'Ouvir basta para ser justificado'"
+      "A desobediência de Adão afetou apenas os povos do Oriente Médio, enquanto a vitória de Cristo beneficiou exclusivamente os apóstolos da circuncisão.",
+      "Adão e Cristo representam duas emanações divinas sucessivas incumbidas de restaurar a harmonia ecológica do jardim de Éden através dos tempos.",
+      "Assim como por um homem (Adão) o pecado entrou no mundo e com ele a morte, assim pela obediência e justiça de um só (Cristo) a graça e a justificação abundaram para vida eterna.",
+      "A lei mosaica intermediou com sucesso o abismo entre Adão e Cristo, tornando desnecessária a justificação pela fé aos descendentes de Abraão."
     ],
-    "correctIndex": 1,
-    "reference": "Tiago 1:22",
-    "explanation": "A genuína ortodoxia bíblica exige ortopraxia: aquele que contempla a lei perfeita da liberdade e a pratica é bem-aventurado no que faz.",
+    "correctIndex": 2,
+    "reference": "Romanos 5:12-19; 1 Coríntios 15:21-22, 45",
+    "explanation": "Paulo ensina a representação federal: em Adão toda a humanidade caiu e foi condenada; em Cristo, o segundo Adão, todos os que crerem recebem abundância da graça e da justiça.",
     "xp": 200
   },
   {
     "id": 64,
-    "question": "Qual doutrina bíblica reformada é proclamada pelo apóstolo Pedro em 1 Pedro 2:9 a respeito de toda a Igreja de Cristo?",
+    "question": "Em Romanos 8:28-30, qual é a 'Corrente de Ouro da Redenção' (Ordo Salutis) revelada pelo apóstolo Paulo sobre o propósito eterno de Deus?",
     "options": [
-      "O monopólio do clero medieval",
-      "O Sacerdócio Universal de todos os crentes: 'Vós sois a geração eleita, o sacerdócio real, a nação santa, o povo adquirido, para que anuncieis as virtudes d'Aquele que vos chamou das trevas para a sua maravilhosa luz'",
-      "A separação de castas espirituais",
-      "A realeza política de Roma"
+      "Circuncisão, consagração no templo, cumprimento do sábado, sacrifício pascal e sepultamento familiar nos carvalhais de Manre.",
+      "Purificação pelo fogo no purgatório cósmico, ascensão gradual pelas esferas angélicas e reintegração na substância impessoal do Criador.",
+      "Batismo com água, ingresso na tribo de Levi, memorização dos tratados rabínicos e orações solenes no monte das Oliveiras.",
+      "Aqueles a quem Deus dantes conheceu, também os predestinou para serem conformes à imagem de Seu Filho; e aos que predestinou, chamou; aos que chamou, justificou; e aos que justificou, glorificou."
     ],
-    "correctIndex": 1,
-    "reference": "1 Pedro 2:9; Apocalipse 1:6",
-    "explanation": "Todos os salvos em Cristo têm livre acesso a Deus como sacerdotes reais que oferecem sacrifícios espirituais agradáveis a Deus por Jesus Cristo.",
+    "correctIndex": 3,
+    "reference": "Romanos 8:28-30; Efésios 1:4-6",
+    "explanation": "A corrente inquebrantável da salvação garante a segurança eterna dos crentes: presciência, predestinação, chamamento eficaz, justificação e glorificação.",
     "xp": 200
   },
   {
     "id": 65,
-    "question": "O que 1 Pedro 3:15 ordena que todo cristão esteja sempre preparado para fazer com mansidão e temor?",
+    "question": "Na analogia da Oliveira em Romanos 11:16-24, como Paulo descreve a relação espiritual entre Israel e os gentios redimidos por Cristo?",
     "options": [
-      "Evitar qualquer diálogo sobre fé",
-      "Estar sempre preparados para responder com mansidão e temor a qualquer que vos pedir a razão da esperança que há em vós (Apologética Cristã)",
-      "Impor a fé pela força das armas",
-      "Discutir com soberba e arrogância"
+      "Os gentios foram enxertados como ramos de zambujeiro bravo na oliveira verdadeira, participando da raiz e da seiva, com a promessa de que todo o Israel será salvo.",
+      "Israel foi totalmente descartado e substituído de forma irrevogável, não havendo mais nenhum plano futuro para a conversão nacional dos judeus.",
+      "Os gentios devem obrigatoriamente adotar a circuncisão e os ritos de sacrifício levítico para permanecerem enxertados na oliveira.",
+      "A oliveira foi arrancada e substituída por uma vinha secular administrada exclusivamente pelos magistrados eclesiásticos de Roma."
     ],
-    "correctIndex": 1,
-    "reference": "1 Pedro 3:15",
-    "explanation": "A apologética bíblica é o mandamento de santificar a Cristo como Senhor no coração e apresentar a verdade do evangelho com mansidão e reverência.",
+    "correctIndex": 0,
+    "reference": "Romanos 11:16-27; Efésios 2:11-19",
+    "explanation": "Os gentios foram enxertados pela fé na oliveira e advertidos a não se ensoberbecerem, pois Deus é poderoso para enxertar novamente os ramos naturais (Israel) em Sua fidelidade.",
     "xp": 200
   },
   {
     "id": 66,
-    "question": "Em 2 Pedro 1:20-21, qual garantia pneumatológica é apresentada sobre a origem de toda profecia bíblica?",
+    "question": "Em 1 Coríntios 15:3-4, quais quatro verdades históricas e teológicas inegociáveis compõem o núcleo apostólico do Evangelho salvífico?",
     "options": [
-      "Que qualquer profeta escreve por sua própria imaginação",
-      "'Nenhuma profecia da Escritura é de particular interpretação; porque a profecia nunca outro tempo foi trazida por vontade de homem algum, mas os homens santos de Deus falaram inspirados pelo Espírito Santo'",
-      "Que as profecias dependem de sonhos pagãos",
-      "Que a Bíblia foi forjada por reis"
+      "A filiação tribal de José, a fuga das perseguições no Egito, o aprendizado da marcenaria em Nazaré e o batismo por imersão no Jordão.",
+      "Que Cristo morreu pelos nossos pecados, segundo as Escrituras; que foi sepultado; que ressuscitou ao terceiro dia, segundo as Escrituras; e que apareceu aos apóstolos.",
+      "A celebração da Ceia com pães asmos, a coleta semanal para as viúvas de Jerusalém, o jejum às quartas-feiras e a imposição de mãos sacerdotais.",
+      "A expulsão das legiões romanas do território da Judeia e o estabelecimento de uma corte monárquica com doze tronos materiais de pedra."
     ],
     "correctIndex": 1,
-    "reference": "2 Pedro 1:20-21",
-    "explanation": "O Espírito Santo guiou soberanamente os autores bíblicos preservando suas personalidades, mas garantindo a infalibilidade verbal e plenária da Escritura.",
+    "reference": "1 Coríntios 15:1-8; Gálatas 1:6-9",
+    "explanation": "O coração do Evangelho anunciado por Paulo é: Cristo morreu por nossos pecados conforme as Escrituras, foi sepultado, ressuscitou ao terceiro dia e apareceu vivo.",
     "xp": 200
   },
   {
     "id": 67,
-    "question": "Como o apóstolo Pedro descreve a paciência e a promessa da volta do Senhor em 2 Pedro 3:9 contra os escarnecedores dos últimos dias?",
+    "question": "Em 2 Coríntios 5:17-21, qual é o fundamento teológico da 'Doutrina da Reconciliação' e da imputação da justiça de Cristo?",
     "options": [
-      "Deus se esqueceu de Sua promessa",
-      "'O Senhor não retarda a sua promessa, ainda que alguns a têm por tardia; mas é longânimo para convosco, não querendo que alguns se percam, senão que todos venham a arrepender-se'",
-      "O mundo nunca terá fim",
-      "O julgamento já aconteceu no passado"
+      "A salvação foi universalizada a ponto de tornar desnecessária a pregação do arrependimento e da fé pessoal no sacrifício do Cordeiro.",
+      "A reconciliação é obtida pelo esforço humano cooperativo mediante o pagamento de indulgências pecuniárias ao tesouro das igrejas locais.",
+      "Deus reconciliou o mundo consigo em Cristo, não imputando aos homens os seus pecados, e fez daquele que não conheceu pecado pecado por nós, para que Nele fôssemos feitos justiça de Deus.",
+      "Cristo assumiu a natureza pecaminosa e caída dos anjos caídos para reconciliar as potestades das trevas nos ares celestiais."
     ],
-    "correctIndex": 1,
-    "reference": "2 Pedro 3:9-10",
-    "explanation": "A aparente demora da volta de Cristo é a demonstração de Sua imensa paciência e graça, estendendo a oportunidade de salvação aos pecadores.",
+    "correctIndex": 2,
+    "reference": "2 Coríntios 5:17-21; Romanos 4:5; 8:1",
+    "explanation": "A grande troca da redenção: Cristo, sem pecado, levou o nosso pecado sobre Si na cruz, para que nós recebêssemos a perfeita justiça de Deus imputada a nós.",
     "xp": 200
   },
   {
     "id": 68,
-    "question": "Qual teste cristológico o apóstolo João apresenta em 1 João 4:1-3 para discernir se um espírito procede de Deus contra o gnosticismo e o docetismo?",
+    "question": "Qual foi o motivo doutrinário urgente que levou Paulo a escrever a Epístola aos Gálatas com severidade apostólica inabalável?",
     "options": [
-      "Se o pregador realiza truques visíveis",
-      "'Todo o espírito que confessa que Jesus Cristo veio em carne é de Deus; e todo o espírito que não confessa que Jesus Cristo veio em carne não é de Deus'",
-      "Se ele fala palavras bonitas em público",
-      "Se ele possui títulos acadêmicos seculares"
+      "A oposição das congregações da Galácia contra a liderança pastoral de Timóteo e Tito nas igrejas da costa de Tarso.",
+      "A recusa dos cristãos da Galácia em enviar socorro financeiro às igrejas da Macedônia durante os anos de escassez alimentar.",
+      "A controvérsia sobre o uso de instrumentos musicais gregos nos cultos litúrgicos celebrados nas sinagogas da província de Pisídia.",
+      "A infiltração dos mestres judaizantes que pregavam um 'outro evangelho' espúrio, exigindo a circuncisão e a guarda da Lei para a justificação."
     ],
-    "correctIndex": 1,
-    "reference": "1 João 4:1-3; 2 João 1:7",
-    "explanation": "A encarnação real e física do Filho de Deus é dogma irrevogável da fé apostólica; negá-la é o espírito do anticristo.",
+    "correctIndex": 3,
+    "reference": "Gálatas 1:6-9; 2:16; 3:1-3; 5:1-4",
+    "explanation": "Gálatas é a carta da liberdade cristã: Paulo repreende o perigoso erro judaizante de acrescentar obras da Lei à fé para a justificação, afirmando que o homem é justificado só pela fé.",
     "xp": 200
   },
   {
     "id": 69,
-    "question": "Em 1 João 1:7-9, qual é a promessa para aqueles que andam na luz e confessam com humildade os seus pecados a Deus?",
+    "question": "Em Efésios 2:8-10, como Paulo harmoniza a gratuidade absoluta da salvação pela graça com a prática das boas obras do crente?",
     "options": [
-      "Que eles nunca mais cometerão erros humanos",
-      "'O sangue de Jesus Cristo, seu Filho, nos purifica de todo o pecado... Se confessarmos os nossos pecados, Ele é fiel e justo para nos perdoar os pecados, e nos purificar de toda a injustiça'",
-      "Que eles devem pagar penitências no deserto",
-      "Que os pecados passados voltam"
+      "Pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus; não de obras, para que ninguém se glorie. Pois somos criação Sua para as boas obras que Deus preparou.",
+      "A salvação é conquistada 50% pela graça divina e 50% pelo esforço ascético humano mediante rituais de consagração e abstinência.",
+      "As boas obras são a causa meritória primária pela qual Deus é obrigado a conceder a salvação e o perdão dos pecados ao indivíduo.",
+      "A graça outorga licença e permissão moral para a prática do pecado desenfreado, visto que as obras terrenas não possuem relevância perante Deus."
     ],
-    "correctIndex": 1,
-    "reference": "1 João 1:7; 9",
-    "explanation": "A fidelidade e a justiça de Deus perdoam e limpam plenamente o pecador que se achega com arrependimento sincero confiando nos méritos de Cristo.",
+    "correctIndex": 0,
+    "reference": "Efésios 2:8-10; Tito 3:4-8; Tiago 2:14-18",
+    "explanation": "A salvação é 100% pela graça mediante a fé, sem mérito de obras humanas; contudo, as boas obras são o fruto indispensável e resultado da nova vida em Cristo.",
     "xp": 200
   },
   {
     "id": 70,
-    "question": "Qual exortação vigorosa a epístola de Judas versículo 3 dirige aos crentes diante das apostasias e falsos mestres que se introduzem furtivamente?",
+    "question": "No célebre Hino Cristológico de Filipenses 2:5-11 (a Doutrina da Kenosis), qual profunda verdade é proclamada sobre a encarnação de Cristo?",
     "options": [
-      "'Concordai com todos os ensinos novos'",
-      "'Que batalheis pela fé que uma vez foi dada aos santos'",
-      "'Abandonai a teologia bíblica antiga'",
-      "'Construí novas doutrinas humanas'"
+      "Que Jesus era apenas um homem extraordinário que foi divinizado pelo Pai após suportar corajosamente o julgamento perante Pôncio Pilatos.",
+      "Que sendo em forma de Deus, não teve por usurpação ser igual a Deus; mas esvaziou-se a Si mesmo, tomando a forma de servo e humilhando-se até à morte de cruz; pelo que Deus O exaltou soberanamente.",
+      "Que Cristo despojou-se de Seus atributos divinos de modo irreversível, perdendo a onisciência e a santidade eterna ao assumir o corpo humano.",
+      "Que a encarnação foi apenas uma ilusão ótica (docetismo), pois o Logos divino jamais entrou em contato real com a matéria biológica mortal."
     ],
     "correctIndex": 1,
-    "reference": "Judas 1:3",
-    "explanation": "A verdade revelada do Evangelho foi entregue de uma vez por todas aos santos; a Igreja é chamada a defender e preservar a sã doutrina imutável.",
+    "reference": "Filipenses 2:5-11; João 1:14; Colossenses 2:9",
+    "explanation": "O 'Esvaziamento' (Kenosis) não significa que Cristo deixou de ser Deus, mas que velou Sua glória, abriu mão de Seus privilégios divinos e humilhou-Se até a cruz.",
     "xp": 200
   },
   {
     "id": 71,
-    "question": "No livro de Apocalipse 1:8 e 22:13, com qual título divino majestoso o Senhor Jesus Cristo Se declara o Princípio e o Fim?",
+    "question": "Em Colossenses 1:15-18, qual declaração solene afirma a primazia absoluta de Cristo sobre toda a criação cósmica e sobre a Igreja?",
     "options": [
-      "O Mestre dos tempos",
-      "'Eu sou o Alfa e o Ômega, o princípio e o fim, o primeiro e o derradeiro'",
-      "O Profeta das nações",
-      "A Chama do universo"
+      "Ele é a primeira criatura angelical que emanou da vontade do Pai para intermediar a formação dos astros celestes e dos mares primitivos.",
+      "Ele compartilha o governo celestial em paridade de poder com os profetas do Antigo Testamento e os doze patriarcas de Israel.",
+      "Ele é a imagem do Deus invisível, o primogênito de toda a criação; porque Nele foram criadas todas as coisas no céu e na terra; Ele é antes de todas as coisas, e a cabeça do corpo da Igreja.",
+      "Ele foi investido de glória temporária que cessará completamente quando o universo for consumido pelo fogo cósmico escatológico."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 1:8; 22:13; Isaías 44:6",
-    "explanation": "Alfa e Ômega são a primeira e a última letra do alfabeto grego, atestando a eternidade, a autoexistência e a soberania do Todo-Poderoso.",
+    "correctIndex": 2,
+    "reference": "Colossenses 1:15-20; Hebreus 1:2-3",
+    "explanation": "Cristo é o 'Primogênito' (Prototokos: soberano supremo em status e herança) de toda a criação, o Criador e Sustentador de tudo, e a Cabeça suprema da Igreja.",
     "xp": 200
   },
   {
     "id": 72,
-    "question": "Na mensagem de Jesus à igreja de Éfeso em Apocalipse 2:1-7, qual repreensão amorosa e grave o Senhor fez apesar de sua ortodoxia e trabalho incansável?",
+    "question": "Em 1 Tessalonicenses 4:13-18, qual revelação escatológica Paulo entrega para consolar os crentes a respeito dos irmãos que já dormiram no Senhor?",
     "options": [
-      "Que eles não davam o dízimo",
-      "'Tenho, porém, contra ti que deixaste o teu primeiro amor'",
-      "Que eles não tinham profetas suficientes",
-      "Que construíram templo pequeno"
+      "A explicação de que as almas dos falecidos permanecem em sono inconsciente perpétuo sem qualquer esperança de ressurreição corpórea tangível.",
+      "A declaração de que somente os crentes sepultados no solo da Terra Prometida terão direito ao banquete das bodas do Cordeiro.",
+      "A ordem para celebrarem rituais necromânticos de consagração no monte Sião para acelerar a entrada dos antepassados nos céus.",
+      "A promessa de que o próprio Senhor descerá do céu com alarido, os mortos em Cristo ressuscitarão primeiro, e os vivos serão arrebatados juntamente com eles nas nuvens para o encontro com o Senhor."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 2:4",
-    "explanation": "A ortodoxia doutrinária sem amor íntimo e ardente por Cristo e pelo próximo torna-se frieza religiosa; Jesus chama ao arrependimento e às primeiras obras.",
+    "correctIndex": 3,
+    "reference": "1 Tessalonicenses 4:13-18; 1 Coríntios 15:51-53",
+    "explanation": "Paulo revela o Arrebatamento da Igreja: na descida do Senhor, os mortos em Cristo ressuscitam incorruptíveis, e os vivos são transformados para estar para sempre com o Senhor.",
     "xp": 200
   },
   {
     "id": 73,
-    "question": "À igreja sofredora de Esmirna em Apocalipse 2:8-11, qual promessa gloriosa Jesus faz ao crente fiel até à morte?",
+    "question": "Em 2 Tessalonicenses 2:1-8, quais dois acontecimentos prévios devem ocorrer antes da manifestação pública do 'Homem do Pecado' (o Anticristo)?",
     "options": [
-      "Isenção de qualquer perseguição temporal",
-      "'Sê fiel até à morte, e dar-te-ei a coroa da vida'",
-      "Grandes riquezas monetárias na terra",
-      "Poder sobre as legiões romanas"
+      "A apostasia geral e a remoção daquele que o detém (o ministério do Espírito Santo atuando através da Igreja na terra).",
+      "A erradicação completa das moedas fiduciárias em todas as províncias do império romano e a unificação das frotas navais do Mediterrâneo.",
+      "A construção de um quarto templo suntuoso nas praias de Tiro e a conversão de todos os sacerdotes zoroastrianos ao judaísmo.",
+      "Uma guerra biológica generalizada que destrua dois terços da população agrária da Mesopotâmia e da Capadócia."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 2:10",
-    "explanation": "Esmirna não recebeu nenhuma repreensão de Cristo, mas a bendita promessa de que o vencedor de modo algum sofrerá o dano da segunda morte.",
+    "correctIndex": 0,
+    "reference": "2 Tessalonicenses 2:3-8",
+    "explanation": "Paulo esclarece o cronograma escatológico: o Dia do Senhor não ocorrerá sem que antes venha a apostasia e seja revelado o homem da iniquidade após ser afastado aquele que o detém.",
     "xp": 200
   },
   {
     "id": 74,
-    "question": "Qual era o estado espiritual deplorável da igreja de Laodiceia em Apocalipse 3:15-17 que provocava náusea ao Senhor?",
+    "question": "Em 1 Timóteo 2:5, qual doutrina nuclear da soteriologia e eclesiologia bíblica é proclamada contra qualquer forma de mediação sacerdotal humana?",
     "options": [
-      "Eles eram santos em excesso",
-      "'Não és frio nem quente... és morno, e estou a ponto de vomitar-te da minha boca; dizes: Rico sou, e de nada tenho falta; e não sabes que és um desgraçado, miserável, pobre, cego e nu'",
-      "Eles jejuavam todos os dias",
-      "Eles eram humildes demais"
+      "A doutrina de que os arcanjos e patriarcas veterotestamentários compartilham com os apóstolos o ofício de intercessores perante o trono de Deus.",
+      "A verdade inegociável de que há um só Deus, e um só Mediador entre Deus e os homens, Jesus Cristo, Homem, o qual Se deu a Si mesmo em resgate por todos.",
+      "A autorização para que os sacerdotes levitas confessem os pecados dos fiéis no interior do átrio sagrado mediante o pagamento de dízimos.",
+      "O ensino de que Maria e os apóstolos exercem funções co-redentoras essenciais para canalizar a graça salvífica aos batizados."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 3:15-17",
-    "explanation": "A autossuficiência orgulhosa e a mornidão espiritual de Laodiceia foram confrontadas pelo conselho de Cristo de comprar ouro refinado no fogo e colírio para enxergar.",
+    "reference": "1 Timóteo 2:5-6; Hebreus 7:25; 1 João 2:1-2",
+    "explanation": "As Escrituras afirmam com clareza cristalina: há um ÚNICO Deus e um ÚNICO Mediador entre Deus e a humanidade: Jesus Cristo, que Se entregou em resgate por nós.",
     "xp": 200
   },
   {
     "id": 75,
-    "question": "Em Apocalipse 4, que proclamação incessante os quatro seres viventes dia e noite entoam ao redor do trono de Deus?",
+    "question": "Qual declaração magistral sobre a inspiração divina e a suficiência das Escrituras Sagradas Paulo pronuncia em 2 Timóteo 3:16-17?",
     "options": [
-      "'Paz e segurança na terra'",
-      "'Santo, Santo, Santo é o Senhor Deus, o Todo-Poderoso, que era, e que é, e que há de vir!'",
-      "'Louvado seja o destino cósmico'",
-      "'Grande é a sabedoria dos homens'"
+      "Que as Escrituras contêm a Palavra de Deus misturada com mitos culturais que dependem do magistério do clero eclesiástico para serem decifrados.",
+      "Que somente as tábuas da Lei entregues a Moisés no Sinai possuem inspiração direta, sendo os demais livros meras crônicas poéticas humanas.",
+      "Toda a Escritura é divinamente inspirada (Theopneustos: soprada por Deus) e proveitosa para ensinar, redarguir, corrigir e instruir em justiça, para que o homem de Deus seja perfeito.",
+      "Que as tradições orais dos anciãos possuem autoridade canônica superior aos manuscritos apostólicos dos Evangelhos."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 4:8; Isaías 6:3",
-    "explanation": "A santidade tríplice e eterna de Deus é a base de toda adoração celestial e cósmica descrita no Apocalipse.",
+    "correctIndex": 2,
+    "reference": "2 Timóteo 3:16-17; 2 Pedro 1:20-21",
+    "explanation": "A doutrina da inspiração verbal e plenária (Theopneustos): toda a Escritura é soprada por Deus, sendo a única regra inerrante e infalível de fé e prática cristã.",
     "xp": 200
   },
   {
     "id": 76,
-    "question": "Em Apocalipse 5:6, como Jesus Cristo Se apresenta no meio do trono e dos anciãos para inaugurar os juízos da história?",
+    "question": "Em Tito 2:11-13, qual tríplice efeito moral e escatológico a graça salvadora de Deus opera na vida diária dos crentes santificados?",
     "options": [
-      "Como um guerreiro de ferro",
-      "'Um Cordeiro, como havendo sido morto, que tinha sete pontas e sete olhos, que são os sete Espíritos de Deus enviados a toda a terra'",
-      "Como um juiz de vestes cinzentas",
-      "Como um monarca invisível"
+      "A justificação pelas esmolas, a celebração obrigatória dos sábados lunares e o isolamento físico monástico em mosteiros desérticos.",
+      "A autorização para a conformidade com as paixões mundanas com a garantia de anistia incondicional no juízo final.",
+      "O recolhimento forçado de dízimos de todas as colheitas dos gentios como condição primária para o batismo nas águas.",
+      "Ensina-nos a renunciar à impiedade e paixões mundanas, a viver no presente século sóbria, justa e piamente, aguardando a bem-aventurada esperança e glória de Cristo."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 5:6; 9",
-    "explanation": "O Cordeiro que venceu pela morte expiatória é o Soberano digno de desatar os selos e conduzir os destinos do Universo.",
+    "correctIndex": 3,
+    "reference": "Tito 2:11-14; 1 Tessalonicenses 1:9-10",
+    "explanation": "A verdadeira graça de Deus não produz libertinagem, mas santificação: ensina a rejeitar o pecado, viver de modo justo e piedoso, e aguardar o glorioso retorno de Jesus.",
     "xp": 200
   },
   {
     "id": 77,
-    "question": "O que a abertura dos primeiros quatro selos em Apocalipse 6 manifesta simbolicamente na história humana?",
+    "question": "Qual apelo cristão de fraternidade e restauração o apóstolo Paulo faz a Filemom a respeito de Onésimo, o escravo fugitivo convertido?",
     "options": [
-      "Os quatro rios do Éden",
-      "Os Quatro Cavaleiros do Apocalipse (Cavalo branco, vermelho, preto e amarelo, representando conquista, guerra, fome e morte)",
-      "Quatro estações agrícolas de Canaã",
-      "Quatro filósofos de Roma"
+      "Que o acolhesse não mais como um simples escravo, mas muito acima disso, como um irmão amado no Senhor e companheiro no Evangelho.",
+      "Que Filemom o aplicasse as penas severas da lei civil romana contra servos desertores para servir de exemplo aos demais trabalhadores.",
+      "Que o vendesse imediatamente aos mercadores marítimos de Creta para ressarcir os prejuízos materiais sofridos na residência.",
+      "Que exigisse de Onésimo o pagamento em ouro de todo o tempo de trabalho negligenciado durante a fuga para a cidade de Roma."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 6:1-8",
-    "explanation": "Os Quatro Cavaleiros representam forças de juízo e convulsão histórica sobre a terra sob a permissão soberana de Deus.",
+    "correctIndex": 0,
+    "reference": "Filemom 1:15-18",
+    "explanation": "A epístola a Filemom manifesta o poder transformador do Evangelho: em Cristo, as barreiras sociais caem, e o escravo fugitivo torna-se irmão amado na fé.",
     "xp": 200
   },
   {
     "id": 78,
-    "question": "Em Apocalipse 7:9-14, quem é a incontável multidão vestida de vestiduras brancas que ninguém podia contar de todas as nações, tribos, povos e línguas?",
+    "question": "No livro de Hebreus (capítulos 1 e 2), qual verdade grandiosa comprova a superioridade absoluta de Jesus Cristo sobre a ordem dos anjos?",
     "options": [
-      "Apenas os líderes de Israel",
-      "'Estes são os que vieram da grande tribulação, e lavaram as suas vestes e as branquearam no sangue do Cordeiro'",
-      "Um exército de anjos celestiais",
-      "Os filósofos do mundo antigo"
+      "Jesus foi promovido à dignidade angelical após suportar o batismo de João no rio Jordão perante a multidão da Galileia.",
+      "A nenhum dos anjos Deus jamais disse: 'Tu és meu Filho, hoje te gerei'; o Filho é o resplendor da glória, a expressa imagem de Sua substância e o Criador adorado pelos anjos.",
+      "Os anjos possuem autoridade cósmica soberana para julgar a conduta e as decisões do Filho durante o período de Sua exaltação nos céus.",
+      "Jesus necessita da intercessão dos arcanjos Miguel e Gabriel para apresentar as orações dos crentes perante o trono da majestade celestial."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 7:9-14",
-    "explanation": "A redenção em Cristo alcança uma vasta colheita universal de adoradores remidos pelo precioso sangue de Jesus.",
+    "reference": "Hebreus 1:1-8; 2:5-9; Colossenses 2:18",
+    "explanation": "Hebreus 1 afirma a deidade de Cristo: Ele é superior aos anjos, pois é o Filho eterno, o Criador dos mundos a quem os próprios anjos adoram prostrados.",
     "xp": 200
   },
   {
     "id": 79,
-    "question": "Em Apocalipse 12:11, por quais três elementos decisivos os santos venceram o grande dragão, a antiga serpente, chamada o Diabo e Satanás?",
+    "question": "Em Hebreus 7, por qual razão o sacerdócio de Jesus Cristo segundo a ordem de Melquisedeque é infinitamente superior ao sacerdócio levítico arônico?",
     "options": [
-      "Pelo poder político, força das armas e ouro do mundo",
-      "'Pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até à morte'",
-      "Por rituais secretos e filosofias ocultas",
-      "Pela fuga para montanhas desertas"
+      "Porque o sacerdócio arônico exigia que os sacerdotes pertencessem exclusivamente à nobreza política da dinastia dos reis da Pérsia.",
+      "Porque o sacerdócio de Melquisedeque autorizava a celebração diária de holocaustos com pães e vinhos em todos os altares provinciais gentílicos.",
+      "Porque Cristo foi constituído não segundo a lei de mandamento carnal, mas segundo o poder de uma vida indissolúvel, com juramento eterno, sem pecado e sem sucessão por morte.",
+      "Porque os levitas não possuíam genealogias escritas arquivadas nos registros do templo de Zorobabel após o exílio babilônico."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 12:11",
-    "explanation": "A vitória espiritual do povo de Deus reside exclusivamente no sacrifício perfeito de Cristo, na fidelidade à confissão da verdade e na coragem do martírio.",
+    "correctIndex": 2,
+    "reference": "Hebreus 7:15-28; Salmos 110:4",
+    "explanation": "O sacerdócio de Cristo é eterno, imutável e perfeito: ao contrário dos sacerdotes levitas que morriam e tinham pecados, Jesus vive eternamente para interceder por nós.",
     "xp": 200
   },
   {
     "id": 80,
-    "question": "Em Apocalipse 13, quem são as duas bestas malignas que sobem respectivamente do mar e da terra operando sinais de engano?",
+    "question": "Em Hebreus 9 e 10, qual é o contraste definitivo entre os sacrifícios contínuos da Lei e o sacrifício único e consumado de Jesus Cristo?",
     "options": [
-      "Dois reis da Babilônia antiga",
-      "A besta que sobe do mar (o Anticristo / poder político totalitário blasfemo) e a besta que sobe da terra (o Falso Profeta / poder religioso apóstata enganador)",
-      "Faraó e Herodes ressuscitados",
-      "Dois anjos caídos no abismo"
+      "Os sacrifícios de animais purificavam perfeitamente a consciência dos adoradores de ano em ano sem necessidade de intervenção do Espírito Santo.",
+      "O sacrifício de Cristo precisa ser repetido liturgicamente em cada celebração dominical para aplacar novamente a ira de Deus contra os pecados semanais.",
+      "A aliança do tabernáculo mosaico permanece em vigor concomitante e com a mesma eficácia redentora da Nova Aliança inaugurada no Gólgota.",
+      "É impossível que o sangue de touros e bodes tire pecados; Cristo ofereceu um único e perfeito sacrifício pelos pecados para sempre, aperfeiçoando os santificados."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 13:1-18; 19:20",
-    "explanation": "A trindade satânica (o Dragão, o Anticristo e o Falso Profeta) promove a adoração idólatra da criatura em oposição ao Deus vivo.",
+    "correctIndex": 3,
+    "reference": "Hebreus 9:11-14; 10:1-4, 11-14",
+    "explanation": "O sangue de animais apenas cobria provisoriamente o pecado, mas Cristo, por Seu próprio sangue, entrou no Santo dos Santos uma vez por todas, obtendo eterna redenção.",
     "xp": 200
   },
   {
     "id": 81,
-    "question": "Qual proclamação angelical de advertência solene é feita pelo primeiro anjo com o 'Evangelho Eterno' em Apocalipse 14:6-7?",
+    "question": "Na Epístola de Tiago (2:14-26), como se harmoniza o ensino da justificação com a célebre doutrina paulina da justificação pela fé?",
     "options": [
-      "'Fazei guerras santas'",
-      "'Temei a Deus e dai-lhe glória, pois é chegada a hora do seu juízo; e adorai aquele que fez o céu, e a terra, e o mar, e as fontes das águas'",
-      "'Submetei-vos ao imperador romano'",
-      "'Confiai nas riquezas da Babilônia'"
+      "Paulo trata da justificação perante Deus pela fé sem obras da Lei (a raiz da salvação), enquanto Tiago trata da justificação perante os homens pelas obras como prova viva da fé genuína.",
+      "Tiago contradiz formalmente o apóstolo Paulo, ensinando que a salvação eterna é comprada e merecida pelo esforço autônomo das obras humanas.",
+      "Tiago defende que a fé no sangue de Cristo é dispensável para aqueles que praticam a caridade social e amparam os órfãos da comunidade.",
+      "Paulo e Tiago escreveram para congregações heréticas que haviam rejeitado totalmente o cânon do Antigo Testamento."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 14:6-7",
-    "explanation": "O Evangelho Eterno conclama toda criatura humana a se render ao Criador e Juiz soberano de todas as coisas.",
+    "correctIndex": 0,
+    "reference": "Tiago 2:14-26; Romanos 3:28; 4:1-5; Efésios 2:8-10",
+    "explanation": "Não há contradição: Paulo ensina que somos salvos somente pela fé (perante Deus), e Tiago ensina que a verdadeira fé salvífica nunca vem só, mas manifesta-se em obras (perante os homens).",
     "xp": 200
   },
   {
     "id": 82,
-    "question": "O que o cântico de Moisés e do Cordeiro entoado sobre o mar de vidro pelos vencedores em Apocalipse 15:3-4 celebra?",
+    "question": "Em 1 Pedro 2:9-10, quais quatro títulos gloriosos do Antigo Testamento o apóstolo aplica à Igreja do Senhor redimida pelo sangue do Cordeiro?",
     "options": [
-      "A vitória de exércitos terrenos",
-      "'Grandes e maravilhosas são as tuas obras, Senhor Deus Todo-Poderoso! Justos e verdadeiros são os teus caminhos, ó Rei dos santos! Quem te não temerá, ó Senhor, e não engrandecerá o teu nome? Porque só tu és santo...'",
-      "O retorno das festas cananeias",
-      "A glória da arquitetura de Jerusalém"
+      "Monarquia guerreira, colônia de sábios helenistas, exército de juízes e tribunal dos profetas do deserto de En-Gedi.",
+      "Geração eleita, sacerdócio real, nação santa e povo adquirido, para anunciar as virtudes Daquele que nos chamou das trevas para a Sua maravilhosa luz.",
+      "Sociedade dos escribas, irmandade dos nazireus, confederação dos peregrinos e sinagoga dos mártires da Judeia.",
+      "Tribo de Melquisedeque, conselho dos querubins, guarda do tabernáculo e corte dos nobres da linhagem de Davi."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 15:3-4",
-    "explanation": "O cântico unifica a redenção do Êxodo e a redenção suprema do Calvário celebrando a santidade, justiça e majestade incomparáveis de Deus.",
+    "reference": "1 Pedro 2:9-10; Êxodo 19:5-6; Apocalipse 1:6",
+    "explanation": "A Igreja é constituída como linhagem escolhida, sacerdócio real e povo exclusivo de Deus para proclamar Suas virtudes por todo o mundo.",
     "xp": 200
   },
   {
     "id": 83,
-    "question": "O que a misteriosa figura da 'Grande Babilônia, a mãe das prostituições e abominações da terra' em Apocalipse 17 personifica?",
+    "question": "Em 2 Pedro 1:20-21, qual doutrina inegociável sobre a origem e a autoridade da profecia bíblica é solenemente proclamada?",
     "options": [
-      "Apenas a cidade física às margens do Eufrates",
-      "O sistema mundial apóstata, corrupto, perseguidor dos santos e embriagado com o sangue dos mártires de Jesus",
-      "A tribo de Judá fiel",
-      "O império persa de Ciro"
+      "A profecia bíblica é fruto do gênio criativo e da imaginação poética individual dos escribas e sábios do Antigo Oriente.",
+      "A profecia dependia da aprovação dos reis de Samaria e da homologação jurídica dos juízes do Sinédrio para adquirir validade litúrgica.",
+      "Nenhuma profecia da Escritura provém de particular elucidação; porque a profecia nunca foi produzida por vontade de homem algum, mas homens santos falaram da parte de Deus inspirados pelo Espírito Santo.",
+      "Os profetas registraram oráculos ditados por anjos caídos que buscavam reconciliação cósmica antes do juízo das nações."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 17:1-6; 18:2-4",
-    "explanation": "Babilônia representa a sedução religiosa, política e mercantil do mundo em rebelião contra Deus; Deus convoca o Seu povo: 'Sai dela, povo meu, para que não sejas participante dos seus pecados'.",
+    "correctIndex": 2,
+    "reference": "2 Pedro 1:20-21; 2 Timóteo 3:16",
+    "explanation": "A profecia das Escrituras não é de interpretação particular nem de origem humana, mas homens de Deus falaram movidos (conduzidos soberanamente) pelo Espírito Santo.",
     "xp": 200
   },
   {
     "id": 84,
-    "question": "Qual grande júbilo celestial e banquete de comunhão perpétua é anunciado aos remidos em Apocalipse 19:7-9?",
+    "question": "Em 2 Pedro 3:8-13, qual revelação escatológica é entregue para refutar os escarnecedores que duvidam do glorioso retorno de Cristo?",
     "options": [
-      "O banquete dos reis persas",
-      "As Bodas do Cordeiro com Sua noiva (a Igreja de Cristo) ataviada de linho finíssimo, puro e resplandecente que são as justiças dos santos",
-      "A inauguração do segundo templo de pedra",
-      "A celebração da vitória militar em Roma"
+      "A afirmação de que o universo material atual existirá indefinidamente sem qualquer transformação cósmica por ação divina.",
+      "A declaração de que Deus suspendeu Seu juízo final em favor de um pacto perpétuo de coexistência com as nações gentílicas ímpias.",
+      "A promessa de que o retorno de Cristo ocorrerá em segredo absoluto sem que a humanidade perceba qualquer abalo na história temporal.",
+      "O ensino de que o Senhor não retarda a Sua promessa, mas é longânimo para conosco, não querendo que ninguém pereça; os céus passarão com grande estrondo e a terra será purificada pelo fogo."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 19:7-9",
-    "explanation": "As Bodas do Cordeiro marcam a união indissolúvel e gloriosa de Cristo com a Sua Igreja redimida para a eternidade.",
+    "correctIndex": 3,
+    "reference": "2 Pedro 3:3-13; Isaías 65:17; Apocalipse 21:1",
+    "explanation": "A aparente demora do Senhor é Sua misericórdia para que muitos se arrependam; no Dia do Senhor os céus passarão com estrondo e novos céus e nova terra serão estabelecidos.",
     "xp": 200
   },
   {
     "id": 85,
-    "question": "Em Apocalipse 19:11-16, como Jesus Cristo é retratado em Sua manifestação gloriosa sobre um cavalo branco para julgar e pelejar com justiça?",
+    "question": "Na 1ª Epístola de João (1:7 a 2:2), qual garantia de purificação e advocacia celestial é assegurada ao crente que anda na luz?",
     "options": [
-      "Humilde e calado em sofrimento",
-      "Com olhos como chama de fogo, na sua cabeça muitos diademas, vestido de um manto salpicado de sangue; e o nome pelo qual se chama é a Palavra de Deus",
-      "Com vestes de linho comum sem cetro",
-      "Acompanhado de filósofos"
+      "O sangue de Jesus Cristo nos purifica de todo o pecado; se confessarmos os nossos pecados, Ele é fiel e justo para nos perdoar; e se alguém pecar, temos um Advogado junto ao Pai, Jesus Cristo, o Justo.",
+      "A imunidade absoluta contra qualquer possibilidade de falha moral acompanhada pela erradicação da natureza carnal no batismo.",
+      "A necessidade de realizar penitências físicas e peregrinações anuais aos sepulcros dos patriarcas para reconquistar a graça perdida.",
+      "O pagamento compulsório de dízimos triplicados aos anciãos da igreja como preço de expiação perante a congregação."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 19:11-16",
-    "explanation": "A Segunda Vinda de Jesus não é mais em humilhação como no presépio, mas em soberania incontestável como Guerreiro Santo e Rei dos Reis.",
+    "correctIndex": 0,
+    "reference": "1 João 1:7-9; 2:1-2; Hebreus 7:25",
+    "explanation": "O sangue de Cristo purifica continuamente o crente que anda na luz; e diante de qualquer tropeço, temos Jesus como nosso perfeito Advogado e propiciação junto ao Pai.",
     "xp": 200
   },
   {
     "id": 86,
-    "question": "Em Apocalipse 20:1-3, por quanto tempo Satanás é amarrado e lançado no abismo para que não engane mais as nações durante o reinado milenar de Cristo?",
+    "question": "Em 1 João 4:1-3, qual teste doutrinário pneumatológico e cristológico o apóstolo estabelece para discernir os espíritos da verdade e do erro?",
     "options": [
-      "Por 70 anos",
-      "Por 1.000 anos (o Milênio)",
-      "Por 40 dias",
-      "Por 120 anos"
+      "A capacidade do ministro de realizar sinais mirabolantes no ar e prever o resultado financeiro das safras de azeitona da Galileia.",
+      "Todo o espírito que confessa que Jesus Cristo veio em carne é de Deus; e todo o espírito que não confessa a Jesus não é de Deus, mas é o espírito do Anticristo.",
+      "A demonstração de profunda erudição retórica na oratória grega e a filiação formal a uma escola filosófica da Ásia Menor.",
+      "A obrigatoriedade de jejuar quarenta dias consecutivos nas cavernas de Qumran sem ingerir pão ou azeite."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 20:1-3",
-    "explanation": "Durante o Milênio o adversário é contido e os santos reinam com Cristo sobre a terra em paz e justiça.",
+    "reference": "1 João 4:1-3; 2 João 1:7; 1 Timóteo 3:16",
+    "explanation": "Contra a heresia gnóstica que negava a encarnação real de Cristo, João declara que o verdadeiro Espírito confessa que Jesus Cristo veio verdadeiramente em carne.",
     "xp": 200
   },
   {
     "id": 87,
-    "question": "Qual solene julgamento universal é descrito em Apocalipse 20:11-15, diante do qual a terra e o céu fogem e os mortos são julgados segundo as suas obras escritas nos livros?",
+    "question": "Na Epístola de Judas (versículo 3), qual imperativo solene é ordenado aos cristãos diante da infiltração de falsos mestres libertinos?",
     "options": [
-      "O Tribunal de Salomão",
-      "O Juízo do Grande Trono Branco",
-      "O Sinédrio de Jerusalém",
-      "O Tribunal de César"
+      "A retirada imediata de todo o convívio social urbano e a fundação de comunidades isoladas nas margens do mar Morto.",
+      "A conciliação doutrinária com os hereges gnósticos para preservar a unidade numérica das sinagogas da diáspora judaica.",
+      "Batalhar ardentemente pela fé que uma vez por todas foi entregue aos santos, defendendo a sã doutrina bíblica contra a apostasia moral.",
+      "A proibição do estudo do Antigo Testamento nas congregações para evitar debates sobre as genealogias e ordenanças da Lei."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 20:11-15",
-    "explanation": "No Grande Trono Branco todo aquele cujo nome não foi achado escrito no Livro da Vida é lançado no lago de fogo, que é a segunda morte.",
+    "correctIndex": 2,
+    "reference": "Judas 1:3-4; Gálatas 1:8-9",
+    "explanation": "Judas exorta com zelo apostólico a 'batalhar pela fé que uma vez foi dada aos santos', preservando a sã doutrina imutável contra distorções heréticas e imoralidade.",
     "xp": 200
   },
   {
     "id": 88,
-    "question": "Em Apocalipse 21:1, qual transformação cósmica radical é consumada após o desaparecimento do primeiro céu e da primeira terra?",
+    "question": "Em Apocalipse 1:12-18, como o apóstolo João contempla o Senhor Jesus Cristo Glorificado no meio dos sete candelabros de ouro?",
     "options": [
-      "O universo é aniquilado para sempre",
-      "'E vi um novo céu e uma nova terra. Porque já o primeiro céu e a primeira terra passaram, e o mar já não existe'",
-      "Apenas a reconstrução de cidades antigas",
-      "O retorno à idade da pedra"
+      "Como um carpinteiro humilde com vestimentas empoeiradas pelas estradas pedregosas da província romana da Galileia.",
+      "Como um juiz terreno sentado na corte do pretório romano cercado pelos magistrados do senado imperial de Roma.",
+      "Como uma figura angelical alada empunhando um escudo de prata com as insígnias da monarquia asmonéia de Jerusalém.",
+      "Com vestes talares e cinto de ouro; cabelos brancos como a lã, olhos como chama de fogo, pés como bronze reluzente, voz de muitas águas e as chaves da morte e do Hades."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 21:1; 2 Pedro 3:13; Isaías 65:17",
-    "explanation": "Deus renovará toda a criação livrando-a da corrupção e do pecado: 'Eis que faço novas todas as coisas' (Ap 21:5).",
+    "correctIndex": 3,
+    "reference": "Apocalipse 1:12-18; Daniel 7:9, 13; 10:5-6",
+    "explanation": "João contempla o Cristo Glorificado, Juiz soberano e Rei eterno com vestes sacerdotais, olhos oniscientes, autoridade cósmica e as chaves da morte e do inferno.",
     "xp": 200
   },
   {
     "id": 89,
-    "question": "Quais dimensões e fundamentos gloriosos a Nova Jerusalém celeste possui em Apocalipse 21:12-14?",
+    "question": "À igreja em Éfeso (Apocalipse 2:1-7), qual repreensão solene o Senhor pronuncia apesar de seu discernimento teológico contra os falsos apóstolos?",
     "options": [
-      "Muros de barro e três portas de madeira",
-      "Doze portas com os nomes das doze tribos dos filhos de Israel e doze fundamentos com os nomes dos doze apóstolos do Cordeiro",
-      "Sete colunas de mármore grego",
-      "Quatro portais de ferro babilônico"
+      "O abandono do seu primeiro amor (o amor fervoroso a Cristo e ao próximo), advertindo com a remoção de seu candelabro se não houvesse arrependimento.",
+      "O fato de terem tolerado a doutrina de Balaão que ensinava a comer carnes sacrificadas aos ídolos nas festas de Pérgamo.",
+      "A recusa em construir um edifício arquitetônico suntuoso para abrigar os apóstolos que visitavam a província da Ásia.",
+      "A incapacidade de expulsar os guardas romanos que patrulhavam as portas das casas de oração no dia do Senhor."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 21:12-14",
-    "explanation": "A cidade celestial expressa a harmonia perfeita de todo o povo da aliança: o Israel de Deus e a Igreja fundada sobre o testemunho dos apóstolos.",
+    "correctIndex": 0,
+    "reference": "Apocalipse 2:1-7",
+    "explanation": "Éfeso era trabalhadora, ortodoxa e paciente, mas perdeu o essencial: abandonou o primeiro amor. O Senhor exige arrependimento sob pena de remover o candelabro.",
     "xp": 200
   },
   {
     "id": 90,
-    "question": "Por que não há templo físico construído na Nova Jerusalém segundo Apocalipse 21:22?",
+    "question": "À igreja em Laodiceia (Apocalipse 3:14-22), qual denúncia cáustica Cristo faz contra sua autossuficiência e mornidão espiritual?",
     "options": [
-      "Porque os fundos acabaram",
-      "'E nela não vi templo, porque o seu templo é o Senhor Deus Todo-Poderoso, e o Cordeiro'",
-      "Porque o povo preferiu os campos",
-      "Porque o templo de Salomão voltará"
+      "A queixa de que a congregação havia acolhido mestres gnósticos que negavam o batismo nas águas perante o presbitério.",
+      "A denúncia de que, dizendo-se rica e sem necessidade de nada, era desgraçada, miserável, pobre, cega e nua; e por ser morna, o Senhor a vomitaria de Sua boca.",
+      "A ordem para suspender imediatamente o comércio de colírios medicinais e lãs negras na feira da cidade de Hierápolis.",
+      "A acusação de que os anciãos haviam permitido que soldados gentios participassem das reuniões semanais de oração."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 21:22",
-    "explanation": "Não há necessidade de mediações rituais ou edifícios físicos: a comunhão com Deus e com o Cordeiro será direta, desimpedida, face a face e eterna.",
+    "reference": "Apocalipse 3:14-22",
+    "explanation": "Laodiceia tipifica a igreja materialista e autosuficiente: morna diante de Deus, cega espiritualmente e necessitada do ouro refinado e das vestes brancas de Cristo.",
     "xp": 200
   },
   {
     "id": 91,
-    "question": "De acordo com Apocalipse 21:23, qual é a fonte inefável de iluminação da Cidade Eterna que dispensa a luz do sol e da lua?",
+    "question": "Em Apocalipse 4 e 5, quem foi achado digno de abrir o livro selado com sete selos na mão Daquele que está assentado no Trono?",
     "options": [
-      "Tochas de fogo terreno",
-      "'A cidade não necessita de sol nem de lua, para que nela resplandeçam, porque a glória de Deus a tem alumiado, e o Cordeiro é a sua lâmpada'",
-      "Espelhos de ouro gigante",
-      "Estrelas artificiais"
+      "O arcanjo Miguel com seu exército de miríades celestiais que derrotou as potestades rebeldes no vale do Armagedom.",
+      "O patriarca Abraão em virtude de sua fidelidade inabalável ao pacto da circuncisão no monte Moriá.",
+      "O Leão da tribo de Judá, a Raiz de Davi, que Se manifestou como um Cordeiro em pé, como tendo sido morto, que venceu para abrir o livro e os selos.",
+      "O profeta Moisés por haver promulgado a Lei da santidade perante a congregação de Israel no cume do Sinai."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 21:23; 22:5; Isaías 60:19",
-    "explanation": "A Shekinah de Deus e a glória de Jesus iluminarão eternamente os remidos; e noite ali não haverá.",
+    "correctIndex": 2,
+    "reference": "Apocalipse 5:1-9; João 1:29",
+    "explanation": "Nenhum ser no céu ou na terra foi digno de abrir o livro da redenção e do juízo divino, exceto o Senhor Jesus, o Leão e Cordeiro imolado que venceu na cruz.",
     "xp": 200
   },
   {
     "id": 92,
-    "question": "O que corre límpido como cristal do trono de Deus e do Cordeiro no meio da praça da Nova Jerusalém em Apocalipse 22:1?",
+    "question": "Na abertura dos Quatro Primeiros Selos em Apocalipse 6 (os Quatro Cavaleiros do Apocalipse), qual é a sequência profética de suas representações?",
     "options": [
-      "Um rio de óleo sagrado",
-      "Um rio puro da água da vida, claro como cristal",
-      "Um ribeiro de bálsamo doce",
-      "Um rego de prata fundida"
+      "Cavalo Alado (arcanjos de guarda), Cavalo Terrestre (juízes de Israel), Cavalo Noturno (lamentos do cativeiro) e Cavalo Diurno (festas da Páscoa).",
+      "Cavalo Dourado (ouro do templo), Cavalo Prateado (comércio marítimo), Cavalo Bronze (exércitos persas) e Cavalo de Ferro (fortalezas romanas).",
+      "Cavalo Azul (águas do mar), Cavalo Verde (colheitas agrícolas), Cavalo Cinzento (terremotos da Ásia) e Cavalo Escarlate (fogo no monte Sião).",
+      "Cavalo Branco (conquista enganosa), Cavalo Vermelho (guerra que tira a paz), Cavalo Preto (fome e crise econômica) e Cavalo Amarelo (morte e Hades pela espada, fome e peste)."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:1; Ezequiel 47:1-12",
-    "explanation": "O rio da água da vida simboliza o Espírito Santo e a vida divina eterna que flui perpetuamente do trono de Deus para todos os santos.",
+    "correctIndex": 3,
+    "reference": "Apocalipse 6:1-8; Zacarias 1:8; 6:1-8",
+    "explanation": "Os 4 cavaleiros manifestam o juízo progressivo: Cavalo Branco (falso conquistador), Vermelho (guerra sanguinária), Preto (fome e inflação) e Amarelo (morte e inferno).",
     "xp": 200
   },
   {
     "id": 93,
-    "question": "O que cresce de ambos os lados do rio da vida em Apocalipse 22:2, produzindo doze frutos em cada mês, cujas folhas são para a cura das nações?",
+    "question": "Em Apocalipse 7, quem são os dois grupos solenes contemplados por João no cenário celestial antes do derramamento das trombetas?",
     "options": [
-      "A vinha de Nabote",
-      "A árvore da vida",
-      "A amendoeira de Arão",
-      "A sarça do Horebe"
+      "Os 144.000 assinalados das doze tribos dos filhos de Israel e a grande multidão inumerável de todas as nações, tribos, povos e línguas perante o Cordeiro.",
+      "Os reis da Pérsia convertidos perante Esdras e os levitas cantores encarregados das cerimônias dos pães asmos no tabernáculo.",
+      "Os discípulos martirizados no coliseu romano e os soldados centuriões que guardavam as portas do pretório em Jerusalém.",
+      "Os governadores das cidades de refúgio e os chefes das famílias patriarcais que acolheram a arca da aliança em Siló."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:2; Gênesis 3:22",
-    "explanation": "A árvore da vida do Éden, antes vedada ao homem caído, agora é plenamente acessível na glória sem risco de pecado ou maldição.",
+    "correctIndex": 0,
+    "reference": "Apocalipse 7:1-17",
+    "explanation": "João vê dois grupos gloriosos: os 144 mil selados de Israel para proteção e testemunho, e a multidão incontável de redimidos de todas as nações lavados no sangue do Cordeiro.",
     "xp": 200
   },
   {
     "id": 94,
-    "question": "Em Apocalipse 22:3-4, qual bendita promessa de comunhão beatífica coroa o destino eterno dos servos de Deus?",
+    "question": "Em Apocalipse 11, qual é a missão e o poder sobrenatural exercido pelas 'Duas Testemunhas' durante os 1.260 dias de seu ministério profético?",
     "options": [
-      "'Eles visitarão a terra de longe'",
-      "'E ali nunca mais haverá maldição contra alguém; e nela estará o trono de Deus e do Cordeiro, e os seus servos o servirão. E verão o seu rosto, e nas suas testas estará o seu nome'",
-      "'Eles esquecerão quem eram'",
-      "'Eles viverão em nuvens solitárias'"
+      "A construção de um palácio de mármore para abrigar os governadores romanos nas margens do mar da Galileia.",
+      "Profetizar vestidas de saco com poder para fechar os céus para não chover, converter águas em sangue e ferir a terra com pragas até serem mortas e ressuscitarem após três dias e meio.",
+      "A imposição de tributos fiscais aos mercadores de tecidos da fenícia para custear o azeite dos candelabros do Segundo Templo.",
+      "A celebração ininterrupta de danças guerreiras nas muralhas de Samaria para afugentar as incursões armadas dos beduínos."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 22:3-4; 1 Coríntios 13:12; 1 João 3:2",
-    "explanation": "Ver o rosto de Deus em glória sem véu (visio Dei) é a consumação suprema da redenção e a bem-aventurança eterna dos crentes em Cristo.",
+    "reference": "Apocalipse 11:3-12; Zacarias 4:14",
+    "explanation": "As duas testemunhas profetizam com o poder de Moisés e Elias; após seu martírio pelas forças do abismo, ressuscitam perante o mundo e sobem ao céu ao som da voz divina.",
     "xp": 200
   },
   {
     "id": 95,
-    "question": "Qual séria e severa advertência o Senhor Jesus sela no encerramento canônico de Apocalipse 22:18-19 contra quem alterar o conteúdo das Escrituras proféticas?",
+    "question": "Na visão escatológica de Apocalipse 12, qual é o conflito cósmico simbolizado pela Mulher vestida de sol, o Filho Varão e o Grande Dragão Vermelho?",
     "options": [
-      "Que haverá multas civis",
-      "'Se alguém lhes acrescentar alguma coisa, Deus fará vir sobre ele as pragas que estão escritas neste livro; e, se alguém tirar quaisquer palavras do livro desta profecia, Deus tirará a sua parte do livro da vida...'",
-      "Que os pergaminhos se rasgarão",
-      "Nenhuma advertência foi feita"
+      "A disputa territorial entre os generais alexandrinos pela posse das minas de cobre na península do Sinai após a morte de Filipe da Macedônia.",
+      "A rivalidade comercial entre os armadores navais de Tiro e as colônias fenícias no norte da África em torno das rotas marítimas.",
+      "O ódio implacável de Satanás contra Israel (a Mulher) e sua tentativa frustrada de devorar o Messias (o Filho Varão, arrebatado para Deus e Seu trono), culminando na vitória celestial.",
+      "A expulsão das cortes persas da cidade de Susã decorrente de uma insurreição militar das tropas satrapias da Média."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:18-19; Deuteronômio 4:2; Provérbios 30:5-6",
-    "explanation": "A Bíblia Sagrada é perfeita, completa e suficiente; qualquer acréscimo espúrio ou subtração herética atrai o juízo soberano de Deus.",
+    "correctIndex": 2,
+    "reference": "Apocalipse 12:1-11; Gênesis 3:15; Salmos 2:9",
+    "explanation": "Apocalipse 12 sintetiza o drama de toda a redenção: a serpente perseguindo a semente da mulher, o Messias ressurreto e exaltado, e os crentes vencendo o diabo pelo sangue do Cordeiro.",
     "xp": 200
   },
   {
     "id": 96,
-    "question": "Em Apocalipse 22:17, quem convida todo aquele que tem sede a vir e tomar de graça da água da vida?",
+    "question": "Em Apocalipse 13, quais são as identidades escatológicas e funções da Besta que sobe do mar e da Besta que sobe da terra (o Falso Profeta)?",
     "options": [
-      "Apenas os profetas do deserto",
-      "'E o Espírito e a noiva dizem: Vem. E quem ouve, diga: Vem. E quem tem sede, venha; e quem quiser, tome de graça da água da vida'",
-      "Os governantes de Roma",
-      "Os sacerdotes levitas"
+      "Alegorias morais da avareza e da gula humana desprovidas de qualquer implicação profética literal para o fim dos tempos.",
+      "Duas dinastias monárquicas que governaram o Egito e a Babilônia durante os séculos de opressão no período do cativeiro de Josué e dos juízes.",
+      "Aparelhos bélicos desenvolvidos pelos engenheiros militares de Roma para sitiar as fortificações de Masada na Judeia.",
+      "A Besta do Mar é o líder político mundial (o Anticristo) investido de poder satânico; a Besta da Terra é o líder religioso apóstata que induz as nações a adorarem o Anticristo e receberem a sua marca."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:17; Isaías 55:1; João 7:37-38",
-    "explanation": "O convite final da Bíblia é um apelo de graça irrestrita do Espírito Santo e da Igreja a todo coração necessitado para beber da salvação eterna gratuita em Cristo.",
+    "correctIndex": 3,
+    "reference": "Apocalipse 13:1-18; 16:13; 19:20; Daniel 7:7-8",
+    "explanation": "A trindade satânica: o Dragão (Satanás), a Besta do Mar (o Anticristo como tirano global) e a Besta da Terra (o Falso Profeta como articulador da religião global e do sinal 666).",
     "xp": 200
   },
   {
     "id": 97,
-    "question": "Qual título messiânico de realeza e alvorecer eterno Jesus atribui a Si mesmo em Apocalipse 22:16?",
+    "question": "Em Apocalipse 19:11-16, como o Senhor Jesus Cristo Se manifesta na Sua Segunda Vinda em Glória para a Batalha do Armagedom?",
     "options": [
-      "O Leão adormecido",
-      "'Eu, Jesus... sou a Raiz e a Geração de Davi, a resplandecente Estrela da manhã'",
-      "A Nuvem do deserto",
-      "O Martelo da terra"
+      "Montado num cavalo branco, chamado Fiel e Verdadeiro, com olhos como chama de fogo, na cabeça muitos diademas, vestido com manto salpicado de sangue e o nome: REI DOS REIS E SENHOR DOS SENHORES.",
+      "Como um peregrino desarmado batendo discretamente à porta das sinagogas para solicitar hospitalidade aos anciãos de Jerusalém.",
+      "Como uma autoridade civil romana vestindo a toga consular para outorgar anistia aos generais que combateram nas fronteiras da Germânia.",
+      "Acompanhado por doze embaixadores fenícios carregando oferendas de mirra e incenso para reconstruir os altares de Salomão."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:16; Números 24:17; 2 Pedro 1:19",
-    "explanation": "Como Raiz de Davi, Ele é o Deus Criador de Davi; como Geração de Davi, Ele é o Herdeiro humano do trono; como Estrela da Manhã, Ele dissipa as trevas para o Dia Eterno.",
+    "correctIndex": 0,
+    "reference": "Apocalipse 19:11-16; Isaías 63:1-4; Zacarias 14:3-5",
+    "explanation": "A Segunda Vinda visível e triunfal de Cristo: Ele desce montado no cavalo branco, acompanhado pelos exércitos celestiais, para julgar, guerrear com justiça e derrotar a Besta.",
     "xp": 200
   },
   {
     "id": 98,
-    "question": "Em Apocalipse 22:12, qual anúncio urgente e infalível Jesus proclama com relação à recompensa de cada ser humano?",
+    "question": "Qual é o ensino escatológico bíblico de Apocalipse 20:1-6 a respeito do Reino Milenar de Cristo na terra?",
     "options": [
-      "'O julgamento será demorado por milênios'",
-      "'E, eis que cedo venho, e o meu galardão está comigo, para dar a cada um segundo a sua obra'",
-      "'As obras terrenas não importam'",
-      "'Os homens decidirão seu destino'"
+      "Um período metafórico onde Satanás governa sem qualquer oposição enquanto a Igreja aguarda em sono profundo a destruição total da matéria.",
+      "A prisão de Satanás no abismo por mil anos para não enganar mais as nações, e o reinado glorioso e terreno de Cristo com os santos ressurretos sobre a terra.",
+      "A restauração perpétua dos sacrifícios de sangue de animais da lei mosaica como único meio de salvação para as famílias sobreviventes das nações.",
+      "O domínio teocrático exclusivo dos sacerdotes da tribo de Levi sobre os governadores romanos no vale do Jordão."
     ],
     "correctIndex": 1,
-    "reference": "Apocalipse 22:12; 2 Coríntios 5:10",
-    "explanation": "O Senhor virá sem demora e retribuirá aos Seus servos galardões de glória conforme a fidelidade e consagração demonstradas em vida.",
+    "reference": "Apocalipse 20:1-6; Isaías 11:1-10; Miqueias 4:1-4",
+    "explanation": "O Milênio é o reinado de 1.000 anos de Cristo sobre a terra com Satanás preso no abismo, cumprindo todas as promessas de paz, justiça e prosperidade profetizadas no Antigo Testamento.",
     "xp": 200
   },
   {
     "id": 99,
-    "question": "Qual é o clamor confiante, fervoroso e expectante da Igreja no versículo 20 de Apocalipse 22 em resposta à promessa de Jesus: 'Certamente cedo venho'?",
+    "question": "Em Apocalipse 20:11-15, o que acontece perante o 'Grande Trono Branco' no juízo universal final perante o Deus Todo-Poderoso?",
     "options": [
-      "'Tarda ainda, Senhor'",
-      "'Amém; vem, Senhor Jesus!' (Maranata!)",
-      "'Espera que o mundo melhore'",
-      "'Não temos pressa'"
+      "Os crentes redimidos por Cristo são julgados para decidir se merecem entrar no céu ou se devem passar por séculos de purificação pelo fogo.",
+      "Todos os reis gentílicos recebem anistia política incondicional com base em seus códigos de leis civis e conquistas administrativas.",
+      "A terra e o céu fogem de Sua presença; os mortos ímpios ressuscitam para julgamento segundo suas obras registradas nos livros; e todo aquele não achado no Livro da Vida é lançado no Lago de Fogo.",
+      "Os utensílios de ouro do Templo de Salomão são resgatados das águas do rio Eufrates para serem guardados como relíquias sagradas."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:20; 1 Coríntios 16:22",
-    "explanation": "'Maranata! O nosso Senhor vem!' é o suspiro da noiva apaixonada pela aparição do seu Noivo Celeste.",
+    "correctIndex": 2,
+    "reference": "Apocalipse 20:11-15; Daniel 7:9-10; Mateus 25:41",
+    "explanation": "O Juízo do Grande Trono Branco é o julgamento final e solene de todos os ímpios que rejeitaram a Deus: julgados pelas suas obras, os que não estão no Livro da Vida sofrem a segunda morte.",
     "xp": 200
   },
   {
     "id": 100,
-    "question": "Com qual bênção e doxologia apostólica final toda a revelação da Bíblia Sagrada é selada em Apocalipse 22:21?",
+    "question": "Na culminação gloriosa de Apocalipse 21 e 22, como as Escrituras Sagradas descrevem o Estado Eterno e a Nova Jerusalém para os salvos?",
     "options": [
-      "'Que a lei de Moisés seja guardada'",
-      "'A graça de nosso Senhor Jesus Cristo seja com todos vós. Amém.'",
-      "'Aqui jaz o mundo antigo'",
-      "'Fim dos livros'"
+      "Um retorno ao ciclo fechado da história humana onde os povos voltarão a lutar pelo domínio das rotas comerciais do Oriente Próximo.",
+      "Uma cidade terrena governada por sucessões hereditárias de reis de Judá submetidos a tributos cobrados pelos anjos de guarda.",
+      "A fusão da alma humana no vácuo impessoal cósmico sem memória individual, sem identidade pessoal e sem relacionamento com o Criador.",
+      "Novos Céus e Nova Terra onde não haverá mais morte, pranto, dor nem maldição; Deus habitará para sempre com o Seu povo, e o Cordeiro será o seu Templo e a sua Luz eterna."
     ],
-    "correctIndex": 1,
-    "reference": "Apocalipse 22:21",
-    "explanation": "Toda a Escritura começa com o Criador no princípio em Gênesis e termina com a suficiência da Graça do Senhor Jesus Cristo abraçando os crentes para todo o sempre. Amém!",
+    "correctIndex": 3,
+    "reference": "Apocalipse 21:1-7, 22-27; 22:1-5; Isaías 65:17-19",
+    "explanation": "O fim triunfante da Bíblia: a comunhão perfeita e eterna com Deus na Nova Jerusalém, sem morte, sem dor, onde os servos do Senhor verão a Sua face e reinarão pelos séculos dos séculos!",
     "xp": 200
   }
 ];

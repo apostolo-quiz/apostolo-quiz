@@ -429,11 +429,14 @@ export async function fetchUserProfileServer(userId?: string, email?: string): P
 export async function syncQuizProgressServer(
   userId: string,
   progress: {
-    completedModules: number[];
+    completedModules?: number[];
     score: number;
     currentLevel?: 'basico' | 'medio' | 'avancado';
     selectedModuleId?: number;
     userName?: string;
+    roundEarnedPoints?: number;
+    correctAnswersCount?: number;
+    currentIndex?: number;
   }
 ): Promise<boolean> {
   if (typeof window === 'undefined') return false;

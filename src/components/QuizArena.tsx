@@ -29,8 +29,24 @@ import DynamicCharacterAvatar from './DynamicCharacterAvatar';
 import { AvatarState } from '@/data/avatarConfig';
 import { UserProfile, syncQuizProgressServer } from '@/data/db';
 
-// Função de cálculo de bônus do Temporizador Progressivo solicitado
-export function calculateTimeBonus(secondsElapsed: number): number {
+// Função de cálculo de bônus do Temporizador Progressivo
+export function calculateTimeBonus(secondsElapsed: number, lvl: 'basico' | 'medio' | 'avancado' = 'basico'): number {
+  if (lvl === 'avancado') {
+    // Nível Avançado: tolerância de 30 segundos para leitura tranquila das questões e alternativas profundas
+    if (secondsElapsed <= 30) return 0.50;
+    if (secondsElapsed <= 40) return 0.45;
+    if (secondsElapsed <= 50) return 0.40;
+    if (secondsElapsed <= 60) return 0.35;
+    if (secondsElapsed <= 70) return 0.30;
+    if (secondsElapsed <= 80) return 0.25;
+    if (secondsElapsed <= 90) return 0.20;
+    if (secondsElapsed <= 100) return 0.15;
+    if (secondsElapsed <= 110) return 0.10;
+    if (secondsElapsed <= 120) return 0.05;
+    return 0.00; // após 2 minutos
+  }
+
+  // Níveis Básico e Médio: redução padrão a cada 10 segundos
   if (secondsElapsed <= 10) return 0.50;
   if (secondsElapsed <= 20) return 0.45;
   if (secondsElapsed <= 30) return 0.40;
@@ -41,7 +57,7 @@ export function calculateTimeBonus(secondsElapsed: number): number {
   if (secondsElapsed <= 80) return 0.15; // 1m20s
   if (secondsElapsed <= 90) return 0.10; // 1m30s
   if (secondsElapsed <= 100) return 0.05; // 1m40s
-  return 0.00; // após esse tempo, não terá pontuação por tempo
+  return 0.00;
 }
 
 interface Props {
@@ -100,6 +116,7 @@ export default function QuizArena({
 }: Props) {
   const [selectedModuleId, setSelectedModuleId] = useState<number>(1);
   const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>(initialLevel);
+  const [showRestartModal, setShowRestartModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (initialLevel && initialLevel !== level) {
@@ -121,6 +138,38 @@ export default function QuizArena({
   const [roundEarnedPoints, setRoundEarnedPoints] = useState<number>(0);
   const [totalTimeSpentRound, setTotalTimeSpentRound] = useState<number>(0);
 
+  // Helper de persistência contínua de progresso local e no servidor
+  const saveProgressSnapshot = (
+    idx: number,
+    roundPts: number,
+    correctCount: number,
+    totalTime: number,
+    questions: QuizQuestion[]
+  ) => {
+    if (typeof window === 'undefined') return;
+    try {
+      const payload = {
+        level,
+        currentIndex: idx,
+        roundEarnedPoints: roundPts,
+        correctAnswersCount: correctCount,
+        totalTimeSpentRound: totalTime,
+        activeQuestions: questions,
+        isFinished: false,
+        timestamp: Date.now()
+      };
+      localStorage.setItem('apostolos_saved_progress_' + level, JSON.stringify(payload));
+      syncQuizProgressServer(userProfile?.id || 'user_guest', {
+        currentLevel: level,
+        score,
+        roundEarnedPoints: roundPts,
+        correctAnswersCount: correctCount,
+        currentIndex: idx,
+        userName: userProfile?.name || 'Irmão(ã)'
+      });
+    } catch (e) {}
+  };
+
   // Temporizador que corre enquanto a questão estiver sendo respondida (para apenas após o envio)
   useEffect(() => {
     if (isFinished || isSubmitted) return;
@@ -140,8 +189,40 @@ export default function QuizArena({
     return ADVANCED_ADULT_100_QUESTIONS;
   };
 
-  // Inicializa e re-embaralha as questões sempre que o nível ou quantidade mudar
+  // Inicializa, restaura ou re-embaralha as questões sempre que o nível ou quantidade mudar
   useEffect(() => {
+    // 1. Tentar restaurar progresso salvo anteriormente para este nível
+    if (typeof window !== 'undefined') {
+      try {
+        const savedRaw = localStorage.getItem('apostolos_saved_progress_' + level);
+        if (savedRaw) {
+          const saved = JSON.parse(savedRaw);
+          if (
+            saved &&
+            Array.isArray(saved.activeQuestions) &&
+            saved.activeQuestions.length > 0 &&
+            typeof saved.currentIndex === 'number' &&
+            saved.currentIndex < saved.activeQuestions.length &&
+            !saved.isFinished
+          ) {
+            setActiveQuestions(saved.activeQuestions);
+            setCurrentIndex(saved.currentIndex);
+            setCorrectAnswersCount(saved.correctAnswersCount || 0);
+            setRoundEarnedPoints(saved.roundEarnedPoints || 0);
+            setTotalTimeSpentRound(saved.totalTimeSpentRound || 0);
+            setSelectedOption(null);
+            setIsSubmitted(false);
+            setIsFinished(false);
+            setSecondsElapsed(0);
+            setLastQuestionTimeBonus(null);
+            setLastQuestionEarnedPoints(null);
+            return;
+          }
+        }
+      } catch (e) {}
+    }
+
+    // 2. Se não houver progresso salvo válido, inicializa novo quiz embaralhado
     const fullPool = getBaseQuestionsForLevel(level);
     const shuffledAll = getShuffledQuiz(fullPool);
     const rawList = questionCount >= 100 ? shuffledAll : shuffledAll.slice(0, questionCount);
@@ -178,40 +259,53 @@ export default function QuizArena({
     if (selectedOption === null || isSubmitted) return;
     setIsSubmitted(true);
     const timeSpent = secondsElapsed;
-    setTotalTimeSpentRound((prev) => prev + timeSpent);
+    const newTotalTime = totalTimeSpentRound + timeSpent;
+    setTotalTimeSpentRound(newTotalTime);
 
-    // Pontuação estritamente SOMENTE para respostas corretas
+    let nextRoundPoints = roundEarnedPoints;
+    let nextCorrectCount = correctAnswersCount;
+
+    // Pontuação estritamente SOMENTE para respostas corretas (considerando bônus de 30s no avançado)
     if (selectedOption === currentQ.correctIndex) {
-      const bonus = calculateTimeBonus(timeSpent);
+      const bonus = calculateTimeBonus(timeSpent, level);
       const points = 1.0 + bonus;
       setLastQuestionTimeBonus(bonus);
       setLastQuestionEarnedPoints(points);
-      setRoundEarnedPoints((prev) => prev + points);
+      nextRoundPoints += points;
+      setRoundEarnedPoints(nextRoundPoints);
 
       // Converte pontos com bônus para a gamificação de XP
       const gainedXP = Math.round(currentQ.xp * (1 + bonus));
       setScore((prev) => prev + gainedXP);
-      setCorrectAnswersCount((prev) => prev + 1);
+      nextCorrectCount += 1;
+      setCorrectAnswersCount(nextCorrectCount);
     } else {
       // Resposta incorreta: ZERO pontos
       setLastQuestionTimeBonus(0);
       setLastQuestionEarnedPoints(0);
     }
+
+    // Salva o progresso imediatamente após a resposta
+    saveProgressSnapshot(currentIndex, nextRoundPoints, nextCorrectCount, newTotalTime, questionList);
   };
 
   const handleNext = () => {
     if (currentIndex + 1 < questionList.length) {
-      setCurrentIndex((prev) => prev + 1);
+      const nextIdx = currentIndex + 1;
+      setCurrentIndex(nextIdx);
       setSelectedOption(null);
       setIsSubmitted(false);
       setSecondsElapsed(0);
       setLastQuestionTimeBonus(null);
       setLastQuestionEarnedPoints(null);
+      // Salva snapshot do avanço para a próxima questão
+      saveProgressSnapshot(nextIdx, roundEarnedPoints, correctAnswersCount, totalTimeSpentRound, questionList);
     } else {
       setIsFinished(true);
-      // Salva o módulo como concluído para o certificado
       if (typeof window !== 'undefined') {
         try {
+          // Remove progresso em andamento pois o nível foi concluído
+          localStorage.removeItem('apostolos_saved_progress_' + level);
           const raw = localStorage.getItem('apostolos_completed_modules');
           const list: number[] = raw ? JSON.parse(raw) : [];
           if (!list.includes(selectedModuleId)) {
@@ -235,6 +329,11 @@ export default function QuizArena({
   };
 
   const handleRestart = () => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem('apostolos_saved_progress_' + level);
+      } catch (e) {}
+    }
     const fullPool = getBaseQuestionsForLevel(level);
     const shuffledAll = getShuffledQuiz(fullPool);
     const rawList = questionCount >= 100 ? shuffledAll : shuffledAll.slice(0, questionCount);
@@ -495,7 +594,7 @@ export default function QuizArena({
         <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-amber-500/50 rounded-3xl p-4 sm:p-6 shadow-2xl relative">
           {/* Cabeçalho da Questão */}
           <div className="flex justify-between items-center text-xs sm:text-sm text-amber-400 font-extrabold uppercase tracking-wider mb-2.5">
-            <span className="flex items-center gap-1.5 truncate max-w-[220px] sm:max-w-none">
+            <span className="flex items-center gap-1.5 truncate max-w-[180px] sm:max-w-none">
               <BookOpen className="w-5 h-5 shrink-0 text-amber-300" />
               {level === 'basico'
                 ? 'Nível 1 • Infantil (Gênesis a Apocalipse)'
@@ -504,14 +603,56 @@ export default function QuizArena({
                 : 'Nível 3 • Adulto (Gênesis a Apocalipse)'}
             </span>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs px-2.5 py-0.5 rounded-full items-center gap-1 font-mono font-bold">
-                🔀 Aleatório
-              </span>
+              <button
+                type="button"
+                onClick={() => setShowRestartModal(true)}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold text-amber-200 bg-amber-950/60 border border-amber-500/50 hover:bg-red-950 hover:border-red-500 hover:text-red-200 transition cursor-pointer shadow-sm active:scale-95"
+                title="Reiniciar este nível a qualquer momento"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-amber-400 hover:text-red-400" />
+                <span className="hidden xs:inline">Reiniciar</span>
+              </button>
               <span className="bg-amber-500/25 text-amber-300 px-3 py-1 rounded-full text-xs sm:text-sm font-black border border-amber-500/40 shrink-0">
                 Questão {currentIndex + 1} de {questionList.length}
               </span>
             </div>
           </div>
+
+          {/* Modal de Confirmação para Reiniciar o Nível a Qualquer Momento */}
+          {showRestartModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
+              <div className="bg-zinc-950 border-2 border-amber-500/80 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl space-y-4">
+                <div className="w-14 h-14 mx-auto rounded-full bg-amber-500/20 border-2 border-amber-500/50 flex items-center justify-center text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+                  <RotateCcw className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-amber-200">Reiniciar Nível?</h3>
+                  <p className="text-xs sm:text-sm text-zinc-300 mt-2 leading-relaxed">
+                    Deseja recomeçar a jornada neste nível bíblico? O progresso da rodada atual será reiniciado para a Questão 1.
+                  </p>
+                </div>
+                <div className="flex gap-2.5 justify-center pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowRestartModal(false)}
+                    className="flex-1 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-zinc-900 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 transition cursor-pointer"
+                  >
+                    Continuar
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowRestartModal(false);
+                      handleRestart();
+                    }}
+                    className="flex-1 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg transition cursor-pointer active:scale-95"
+                  >
+                    Sim, Reiniciar
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Barra de Progresso das Questões */}
           <div className="w-full bg-zinc-950 rounded-full h-2 sm:h-2.5 mb-3 border border-zinc-800">
@@ -521,43 +662,65 @@ export default function QuizArena({
             />
           </div>
 
-          {/* Temporizador Progressivo com Bônus Decrescente a Cada 10 Segundos */}
-          <div className="flex items-center justify-between bg-zinc-950 border-2 border-amber-500/40 rounded-2xl px-3.5 sm:px-4 py-2.5 mb-3 text-xs sm:text-sm shadow-inner">
-            <div className="flex items-center gap-2">
-              <Clock
-                className={`w-5 h-5 ${
-                  secondsElapsed <= 10
-                    ? 'text-emerald-400 animate-pulse'
-                    : secondsElapsed <= 50
-                    ? 'text-yellow-400'
-                    : 'text-amber-500'
-                }`}
-              />
-              <span className="font-mono font-extrabold text-white text-xs sm:text-sm">
-                ⏱️ {Math.floor(secondsElapsed / 60)}m {String(secondsElapsed % 60).padStart(2, '0')}s
-              </span>
-            </div>
+          {/* Temporizador Progressivo com Regra de 30s no Nível Avançado */}
+          {(() => {
+            const isAdv = level === 'avancado';
+            const isGraceReading = isAdv && secondsElapsed <= 30;
+            const isTopBonus = !isAdv && secondsElapsed <= 10;
+            const isGoodBonus = isAdv ? secondsElapsed <= 70 : secondsElapsed <= 50;
+            const isAnyBonus = isAdv ? secondsElapsed <= 120 : secondsElapsed <= 100;
+            const currentBonusVal = calculateTimeBonus(secondsElapsed, level);
 
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-zinc-300 uppercase font-extrabold hidden sm:inline">
-                Bônus de Tempo:
-              </span>
-              <span
-                className={`px-3 py-1 rounded-full font-black text-xs sm:text-sm border transition-all ${
-                  secondsElapsed <= 10
-                    ? 'bg-emerald-500/30 text-emerald-200 border-emerald-400 animate-pulse shadow-[0_0_12px_rgba(16,185,129,0.4)]'
-                    : secondsElapsed <= 50
-                    ? 'bg-amber-500/30 text-amber-200 border-amber-400'
-                    : secondsElapsed <= 100
-                    ? 'bg-sky-500/25 text-sky-200 border-sky-400'
-                    : 'bg-zinc-800 text-zinc-400 border-zinc-700'
-                }`}
-                title="Bônus adicionado se responder agora com acerto"
-              >
-                +{calculateTimeBonus(secondsElapsed).toFixed(2)} pts
-              </span>
-            </div>
-          </div>
+            return (
+              <div className="flex items-center justify-between bg-zinc-950 border-2 border-amber-500/40 rounded-2xl px-3.5 sm:px-4 py-2.5 mb-3 text-xs sm:text-sm shadow-inner">
+                <div className="flex items-center gap-2">
+                  <Clock
+                    className={`w-5 h-5 ${
+                      isGraceReading || isTopBonus
+                        ? 'text-emerald-400 animate-pulse'
+                        : isGoodBonus
+                        ? 'text-yellow-400'
+                        : 'text-amber-500'
+                    }`}
+                  />
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="font-mono font-extrabold text-white text-xs sm:text-sm">
+                      ⏱️ {Math.floor(secondsElapsed / 60)}m {String(secondsElapsed % 60).padStart(2, '0')}s
+                    </span>
+                    {isGraceReading && (
+                      <span className="text-[10px] text-emerald-300 font-sans font-bold bg-emerald-950/90 px-2 py-0.5 rounded-full border border-emerald-500/50 shadow-sm animate-pulse">
+                        30s Leitura Atenta (+0.50)
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-zinc-300 uppercase font-extrabold hidden sm:inline">
+                    {isGraceReading ? '📖 Bônus Leitura:' : 'Bônus de Tempo:'}
+                  </span>
+                  <span
+                    className={`px-3 py-1 rounded-full font-black text-xs sm:text-sm border transition-all ${
+                      isGraceReading || isTopBonus
+                        ? 'bg-emerald-500/30 text-emerald-200 border-emerald-400 animate-pulse shadow-[0_0_12px_rgba(16,185,129,0.4)]'
+                        : isGoodBonus
+                        ? 'bg-amber-500/30 text-amber-200 border-amber-400'
+                        : isAnyBonus
+                        ? 'bg-sky-500/25 text-sky-200 border-sky-400'
+                        : 'bg-zinc-800 text-zinc-400 border-zinc-700'
+                    }`}
+                    title={
+                      isGraceReading
+                        ? 'Nível Avançado: Os primeiros 30 segundos mantêm o bônus máximo (+0.50) para você ler a pergunta e as 4 opções teológicas com total calma!'
+                        : 'Bônus adicionado se responder agora com acerto'
+                    }
+                  >
+                    +{currentBonusVal.toFixed(2)} pts
+                  </span>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Enunciado de Alto Contraste e Letras Grandes para Todas as Idades */}
           <div className="bg-zinc-950 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-6 my-3.5 shadow-xl">
