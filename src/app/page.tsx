@@ -263,7 +263,7 @@ export default function HomePage() {
               <img
                 src="/logo.jpg"
                 alt="Logo Oficial Apóstolos - Quiz Bíblico"
-                className="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500"
+                className="w-full h-full object-contain group-hover:scale-[1.02] transition duration-500"
                 loading="eager"
                 fetchPriority="high"
                 onError={(e) => {
@@ -273,7 +273,6 @@ export default function HomePage() {
                   }
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-2 right-2 md:bottom-3 md:right-3">
                 <span className="bg-amber-500 text-zinc-950 text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-md tracking-wider">
                   OFICIAL
