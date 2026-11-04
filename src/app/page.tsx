@@ -251,7 +251,7 @@ export default function HomePage() {
         />
       )}
 
-      {/* Cabeçalho com o LOGO OFICIAL Retangular */}
+      {/* Cabeçalho com o LOGO OFICIAL Retangular Original */}
       <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3 w-full max-w-full overflow-hidden">
         {/* Banner do Logo: Com margem segura para smartphones e proporção perfeita */}
         <div className="w-full px-3 sm:px-4 pt-2 md:pt-3 max-w-3xl mx-auto">
@@ -261,15 +261,15 @@ export default function HomePage() {
           >
             <div className="relative aspect-[16/9] w-full bg-zinc-950 flex items-center justify-center overflow-hidden">
               <img
-                src="/logo.jpg"
-                alt="Logo Oficial Apóstolos - Quiz Bíblico"
+                src="/banner_logo_original.jpg?v=20261104"
+                alt="Banner Logo Oficial Apóstolos - Quiz Bíblico"
                 className="w-full h-full object-contain group-hover:scale-[1.02] transition duration-500"
                 loading="eager"
                 fetchPriority="high"
                 onError={(e) => {
                   const target = e.currentTarget;
-                  if (!target.src.endsWith('/logo.png')) {
-                    target.src = '/logo.png';
+                  if (!target.src.includes('/logo.jpg')) {
+                    target.src = '/logo.jpg?v=20261104';
                   }
                 }}
               />
@@ -282,12 +282,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Título Oficial */}
+        {/* Subtítulo Oficial */}
         <div className="max-w-3xl mx-auto px-4 text-center mt-2.5">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-wider bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent drop-shadow-md">
-            APÓSTOLOS - QUIZ BÍBLICO
-          </h1>
-          <p className="text-[10px] sm:text-[11px] md:text-xs font-serif font-bold tracking-[0.2em] text-amber-300/90 uppercase mt-0.5">
+          <p className="text-[10px] sm:text-[11px] md:text-xs font-serif font-bold tracking-[0.2em] text-amber-300/90 uppercase">
             A Bíblia Sagrada de Gênesis a Apocalipse • 100% Bíblia Sagrada
           </p>
         </div>
