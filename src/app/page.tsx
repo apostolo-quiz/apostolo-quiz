@@ -235,7 +235,7 @@ export default function HomePage() {
   const displayName = userProfile?.name || 'Visitante da Fé';
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-between select-none">
+    <main className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-between select-none w-full max-w-full overflow-x-hidden">
       {/* Modal de Cadastro Inicial ou Edição de Perfil */}
       {showRegistrationModal && (
         <RegistrationModal
@@ -251,22 +251,30 @@ export default function HomePage() {
       )}
 
       {/* Cabeçalho com o LOGO OFICIAL Retangular */}
-      <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3">
-        {/* Banner do Logo: 100% no smartphone e 50% centralizado com 25% de margem lateral em computadores */}
-        <div className="w-full">
+      <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3 w-full max-w-full overflow-hidden">
+        {/* Banner do Logo: Com margem segura para smartphones e proporção perfeita */}
+        <div className="w-full px-3 sm:px-4 pt-2 md:pt-3 max-w-3xl mx-auto">
           <div
             onClick={() => setActiveTab('quiz')}
-            className="w-full md:w-1/2 mx-auto cursor-pointer group relative overflow-hidden md:rounded-2xl md:border-2 md:border-amber-500/40 md:shadow-[0_0_35px_rgba(234,179,8,0.25)] transition duration-300 md:hover:scale-[1.01] md:mt-3"
+            className="w-full cursor-pointer group relative overflow-hidden rounded-2xl border-2 border-amber-500/50 shadow-[0_0_30px_rgba(234,179,8,0.2)] transition duration-300 hover:border-amber-400 bg-black"
           >
-            <div className="relative aspect-[16/9] w-full bg-black flex items-center justify-center">
+            <div className="relative aspect-[16/9] w-full bg-zinc-950 flex items-center justify-center overflow-hidden">
               <img
                 src="/logo.jpg"
                 alt="Logo Oficial Apóstolos - Quiz Bíblico"
-                className="w-full h-full object-cover group-hover:brightness-105 transition duration-300"
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500"
+                loading="eager"
+                fetchPriority="high"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.endsWith('/logo.png')) {
+                    target.src = '/logo.png';
+                  }
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-2 right-2 md:bottom-3 md:right-3">
-                <span className="bg-amber-500 text-zinc-950 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md tracking-wider">
+                <span className="bg-amber-500 text-zinc-950 text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-md tracking-wider">
                   OFICIAL
                 </span>
               </div>
@@ -275,7 +283,7 @@ export default function HomePage() {
         </div>
 
         {/* Título e Módulos */}
-        <div className="max-w-3xl mx-auto px-4 text-center mt-3">
+        <div className="max-w-3xl mx-auto px-4 text-center mt-2.5">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-wider bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent drop-shadow-md">
             APÓSTOLOS - QUIZ BÍBLICO
           </h1>
@@ -284,87 +292,92 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Barra de Status do Irmão / Irmã */}
-        <div className="max-w-3xl mx-auto mt-3 flex items-center justify-between bg-zinc-900/95 border border-amber-500/30 rounded-xl px-4 py-2 text-xs shadow-lg">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setActiveTab('avatar')}
-              className="flex items-center gap-2 hover:opacity-80 transition cursor-pointer text-left"
-              title="Clique para trocar características e roupas do seu avatar 3D"
-            >
-              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-black/60 flex items-center justify-center">
-                {userProfile?.photoUrl && userProfile.photoUrl.startsWith('data:') ? (
-                  <img src={userProfile.photoUrl} alt="Foto" className="w-full h-full object-cover" />
-                ) : (
-                  <DynamicCharacterAvatar avatar={avatar} size="sm" showPedestal={false} />
-                )}
-              </div>
-              <span className="text-zinc-200 font-bold truncate max-w-[120px] sm:max-w-xs flex items-center gap-1">
-                <span className="text-amber-400">{title}:</span> {displayName}
+        {/* Barra de Status do Irmão / Irmã (100% Responsiva sem ultrapassar margens) */}
+        <div className="max-w-3xl mx-3 sm:mx-auto mt-2.5 bg-zinc-900/95 border border-amber-500/30 rounded-2xl p-2.5 sm:px-4 sm:py-2 text-xs shadow-lg">
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
+            {/* Lado Esquerdo: Perfil e Avatar */}
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <button
+                onClick={() => setActiveTab('avatar')}
+                className="flex items-center gap-1.5 hover:opacity-85 transition cursor-pointer text-left min-w-0 shrink"
+                title="Clique para trocar características e roupas do seu avatar 3D"
+              >
+                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-black/60 flex items-center justify-center">
+                  {userProfile?.photoUrl && userProfile.photoUrl.startsWith('data:') ? (
+                    <img src={userProfile.photoUrl} alt="Foto" className="w-full h-full object-cover" />
+                  ) : (
+                    <DynamicCharacterAvatar avatar={avatar} size="sm" showPedestal={false} />
+                  )}
+                </div>
+                <span className="text-zinc-200 font-bold truncate max-w-[110px] sm:max-w-[180px] text-xs">
+                  <span className="text-amber-400">{title}:</span> {displayName}
+                </span>
+              </button>
+
+              {/* Atalho para Mudar Avatar */}
+              <button
+                onClick={() => setActiveTab('avatar')}
+                className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-1 rounded-full hover:bg-amber-500/30 transition flex items-center gap-1 cursor-pointer shrink-0"
+                title="Personalizar seu avatar bíblico quando e como quiser"
+              >
+                <Sparkles className="w-3 h-3 text-amber-400" />
+                <span className="hidden xs:inline">Avatar</span>
+              </button>
+
+              <button
+                onClick={() => setShowRegistrationModal(true)}
+                className="text-[10px] text-zinc-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer shrink-0 p-1"
+                title="Editar dados cadastrais"
+              >
+                <Edit3 className="w-3 h-3 text-zinc-500 hover:text-amber-400" />
+              </button>
+
+              {userProfile?.isVip && (
+                <span className="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
+                  <Crown className="w-2.5 h-2.5 text-amber-400" /> PRO
+                </span>
+              )}
+            </div>
+
+            {/* Lado Direito: Módulos, XP e Servidor */}
+            <div className="flex items-center gap-2 shrink-0 ml-auto sm:ml-0">
+              <span
+                className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 border shrink-0 ${
+                  serverSyncStatus === 'synced'
+                    ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
+                    : serverSyncStatus === 'syncing'
+                    ? 'bg-amber-500/10 text-amber-300 border-amber-500/30 animate-pulse'
+                    : 'bg-zinc-800 text-zinc-400 border-zinc-700'
+                }`}
+                title={
+                  serverSyncStatus === 'synced'
+                    ? 'Seus dados e progresso do Quiz estão salvos com segurança!'
+                    : 'Sincronizando com o servidor...'
+                }
+              >
+                <Cloud className="w-2.5 h-2.5" />
+                <span className="hidden sm:inline">
+                  {serverSyncStatus === 'synced' ? 'Conectado' : serverSyncStatus === 'syncing' ? 'Sincronizando' : 'Local'}
+                </span>
               </span>
-            </button>
 
-            {/* Atalho para Mudar Avatar */}
-            <button
-              onClick={() => setActiveTab('avatar')}
-              className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2.5 py-1 rounded-full hover:bg-amber-500/30 transition flex items-center gap-1 cursor-pointer"
-              title="Personalizar seu avatar bíblico quando e como quiser"
-            >
-              <Sparkles className="w-3 h-3 text-amber-400" />
-              <span>Mudar Avatar</span>
-            </button>
+              <button
+                onClick={() => setActiveTab('modules')}
+                className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+                <span>{completedModules.length}/27</span>
+              </button>
 
-            <button
-              onClick={() => setShowRegistrationModal(true)}
-              className="text-[10px] text-zinc-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer"
-              title="Editar dados cadastrais"
-            >
-              <Edit3 className="w-3 h-3 text-zinc-500 hover:text-amber-400 inline" />
-              <span className="hidden sm:inline">Perfil</span>
-            </button>
-
-            {userProfile?.isVip && (
-              <span className="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1">
-                <Crown className="w-3 h-3 text-amber-400" /> PRO
-              </span>
-            )}
-
-            {/* Indicador de Conexão e Sincronização com o Servidor */}
-            <span
-              className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 border ${
-                serverSyncStatus === 'synced'
-                  ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
-                  : serverSyncStatus === 'syncing'
-                  ? 'bg-amber-500/10 text-amber-300 border-amber-500/30 animate-pulse'
-                  : 'bg-zinc-800 text-zinc-400 border-zinc-700'
-              }`}
-              title={
-                serverSyncStatus === 'synced'
-                  ? 'Seus dados e progresso do Quiz estão salvos com segurança no servidor!'
-                  : 'Sincronizando com o servidor...'
-              }
-            >
-              <Cloud className="w-2.5 h-2.5" />
-              {serverSyncStatus === 'synced' ? 'Servidor Conectado' : serverSyncStatus === 'syncing' ? 'Sincronizando...' : 'Local'}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setActiveTab('modules')}
-              className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-              <span>{completedModules.length}/27 Módulos</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('ranking')}
-              className="flex items-center gap-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 px-2.5 py-1 rounded-full text-amber-300 font-extrabold shrink-0 transition cursor-pointer"
-              title="Abrir Ranking Oficial dos Irmãos"
-            >
-              <Trophy className="w-3.5 h-3.5 text-amber-400" />
-              <span>{score} XP</span>
-            </button>
+              <button
+                onClick={() => setActiveTab('ranking')}
+                className="flex items-center gap-1 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 px-2 py-0.5 rounded-full text-amber-300 font-extrabold shrink-0 transition cursor-pointer text-xs"
+                title="Abrir Ranking Oficial dos Irmãos"
+              >
+                <Trophy className="w-3 h-3 text-amber-400" />
+                <span>{score} XP</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -507,66 +520,66 @@ export default function HomePage() {
       <BackgroundMusicPlayer />
 
       {/* Menu de Navegação Inferior (6 Abas Modernas com Ranking) */}
-      <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-2 py-2.5 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)]">
-        <div className="max-w-xl mx-auto grid grid-cols-6 gap-1">
+      <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-1 sm:px-2 py-2 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)] w-full max-w-full overflow-hidden">
+        <div className="max-w-xl mx-auto grid grid-cols-6 gap-0.5 sm:gap-1">
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'quiz' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Scroll className="w-5 h-5" />
-            <span>Quiz</span>
+            <Scroll className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Quiz</span>
           </button>
 
           <button
             onClick={() => setActiveTab('ranking')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'ranking' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Trophy className="w-5 h-5" />
-            <span>Ranking</span>
+            <Trophy className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Ranking</span>
           </button>
 
           <button
             onClick={() => setActiveTab('avatar')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'avatar' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <User className="w-5 h-5" />
-            <span>Meu 3D</span>
+            <User className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Meu 3D</span>
           </button>
 
           <button
             onClick={() => setActiveTab('churches')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'churches' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Church className="w-5 h-5" />
-            <span>Igrejas</span>
+            <Church className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Igrejas</span>
           </button>
 
           <button
             onClick={() => setActiveTab('modules')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'modules' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <BookOpen className="w-5 h-5" />
-            <span>27 Livros</span>
+            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">27 Livros</span>
           </button>
 
           <button
             onClick={() => setActiveTab('apostles')}
-            className={`flex flex-col items-center gap-1 text-[10px] sm:text-xs font-black uppercase transition cursor-pointer py-1 rounded-lg ${
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
               activeTab === 'apostles' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <Users className="w-5 h-5" />
-            <span>Apóstolos</span>
+            <Users className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Apóstolos</span>
           </button>
         </div>
       </nav>
