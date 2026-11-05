@@ -939,6 +939,32 @@ const server = http.createServer(async (req, res) => {
         }
       }
 
+      if (action === 'delete_user') {
+        const { userId } = payload;
+        const user = db.users.find((u) => u.id === userId);
+        if (user) {
+          if (user.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+            res.writeHead(400);
+            res.end(JSON.stringify({ success: false, message: 'O Administrador Geral não pode ser excluído.' }));
+            return;
+          }
+          db.users = db.users.filter((u) => u.id !== userId);
+          db.rooms.forEach((r) => {
+            r.members = r.members.filter((m) => m.userId !== userId);
+          });
+          if (db.leaderboard) {
+            db.leaderboard = db.leaderboard.filter((lb) => lb.userId !== userId);
+          }
+          saveDatabase(db);
+          res.writeHead(200);
+          res.end(JSON.stringify({ success: true, message: `Usuário "${user.name}" excluído definitivamente do sistema.` }));
+          return;
+        }
+        res.writeHead(404);
+        res.end(JSON.stringify({ success: false, message: 'Usuário não encontrado.' }));
+        return;
+      }
+
       if (action === 'clear_chat') {
         const { roomId } = payload;
         const room = db.rooms.find((r) => r.id === roomId);

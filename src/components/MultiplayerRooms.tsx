@@ -27,6 +27,7 @@ import {
   LogOut,
   RotateCcw,
   Trash2,
+  UserX,
   ShieldAlert
 } from 'lucide-react';
 import { UserProfile, isUserAdmin, performAdminActionClient } from '@/data/db';
@@ -103,6 +104,43 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
       if (updated) setActiveRoom(updated);
     } catch (e: any) {
       alert('Erro ao apagar mensagem: ' + (e.message || e));
+    }
+  };
+
+  // Excluir sala (Administrador Geral ou Criador da Sala)
+  const handleDeleteRoomAction = async (roomId: string, roomName: string) => {
+    if (!confirm(`ATENÇÃO:\nDeseja realmente EXCLUIR DEFINITIVAMENTE a sala "${roomName}"?`)) return;
+    try {
+      await performAdminActionClient(
+        'delete_room',
+        { roomId },
+        userProfile?.email || ''
+      );
+      if (activeRoom?.id === roomId) {
+        setActiveRoom(null);
+      }
+      reloadRooms();
+    } catch (e: any) {
+      alert('Erro ao excluir sala: ' + (e.message || e));
+    }
+  };
+
+  // Expulsar participante da sala (Administrador Geral ou Criador da Sala)
+  const handleKickMemberAction = async (roomId: string, memberId: string, memberName: string) => {
+    if (!confirm(`Deseja remover "${memberName}" desta sala?`)) return;
+    try {
+      await performAdminActionClient(
+        'kick_member',
+        { roomId, memberId },
+        userProfile?.email || ''
+      );
+      const updated = await getRoomClient(roomId);
+      if (updated) {
+        setActiveRoom(updated);
+      }
+      reloadRooms();
+    } catch (e: any) {
+      alert('Erro ao remover participante: ' + (e.message || e));
     }
   };
 
@@ -556,6 +594,15 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
                       <span>Admin</span>
                     </button>
                   )}
+                  {(isAdmin || room.createdBy === currentUserId) && (
+                    <button
+                      onClick={() => handleDeleteRoomAction(room.id, room.name)}
+                      className="px-2.5 py-2.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white font-black text-xs flex items-center justify-center transition cursor-pointer shadow-md shrink-0"
+                      title="Excluir esta sala definitivamente"
+                    >
+                      <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
@@ -772,14 +819,26 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
             </div>
           </div>
 
-          {/* Botão Sair da Sala */}
-          <button
-            onClick={() => setActiveRoom(null)}
-            className="text-[11px] bg-zinc-800 hover:bg-red-950/80 hover:text-red-300 hover:border-red-500/50 text-zinc-400 border border-zinc-700 px-3 py-1.5 rounded-xl transition cursor-pointer flex items-center gap-1.5 ml-auto"
-          >
-            <LogOut className="w-3.5 h-3.5" />
-            <span>Sair do Grupo</span>
-          </button>
+          {/* Botões do Topo da Sala */}
+          <div className="flex items-center gap-1.5 ml-auto">
+            {(isAdminUser || activeRoom.createdBy === currentUserId) && (
+              <button
+                onClick={() => handleDeleteRoomAction(activeRoom.id, activeRoom.name)}
+                className="text-[11px] bg-rose-950/80 hover:bg-rose-900 hover:text-white text-rose-300 border border-rose-500/70 px-2.5 py-1.5 rounded-xl transition cursor-pointer flex items-center gap-1 shadow"
+                title="Excluir esta sala definitivamente"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                <span>Excluir Sala</span>
+              </button>
+            )}
+            <button
+              onClick={() => setActiveRoom(null)}
+              className="text-[11px] bg-zinc-800 hover:bg-red-950/80 hover:text-red-300 hover:border-red-500/50 text-zinc-400 border border-zinc-700 px-3 py-1.5 rounded-xl transition cursor-pointer flex items-center gap-1.5"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Sair do Grupo</span>
+            </button>
+          </div>
         </div>
 
         {/* Abas Superiores dentro da Sala (Disputa Bíblica / Chat Privado / Membros) */}
@@ -868,6 +927,16 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
                         <span title="Criador do Grupo">
                           <Crown className="w-3.5 h-3.5 text-amber-400" />
                         </span>
+                      )}
+                      {(isAdminUser || (isLeader && m.userId !== currentUserId)) && m.userId !== currentUserId && (
+                        <button
+                          type="button"
+                          onClick={() => handleKickMemberAction(activeRoom.id, m.userId, m.name)}
+                          className="ml-1 text-zinc-500 hover:text-rose-400 p-0.5 rounded transition cursor-pointer"
+                          title={`Expulsar ${m.name} do grupo`}
+                        >
+                          <UserX className="w-3.5 h-3.5" />
+                        </button>
                       )}
                     </div>
                   ))}
@@ -1347,10 +1416,22 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
                   </div>
                 </div>
 
-                <div className="text-right shrink-0">
-                  <div className="font-mono font-black text-amber-400 text-xs">
-                    {m.score} XP
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="text-right">
+                    <div className="font-mono font-black text-amber-400 text-xs">
+                      {m.score} XP
+                    </div>
                   </div>
+                  {(isAdminUser || (isLeader && m.userId !== currentUserId)) && m.userId !== currentUserId && (
+                    <button
+                      type="button"
+                      onClick={() => handleKickMemberAction(activeRoom.id, m.userId, m.name)}
+                      className="p-1.5 rounded-lg bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white transition cursor-pointer"
+                      title={`Expulsar ${m.name} da sala`}
+                    >
+                      <UserX className="w-3.5 h-3.5 text-rose-400" />
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

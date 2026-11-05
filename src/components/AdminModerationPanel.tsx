@@ -162,6 +162,27 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
     }
   };
 
+  const handleDeleteUser = async (user: UserProfile) => {
+    if (user.email?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+      alert('O Administrador Geral não pode ser excluído.');
+      return;
+    }
+    if (
+      !confirm(
+        `ATENÇÃO ADMINISTRADOR:\nDeseja EXCLUIR DEFINITIVAMENTE o usuário "${user.name}" (${user.email || 'Sem e-mail'})?\nEsta ação apagará o cadastro, progresso e removerá o usuário de todas as salas.`
+      )
+    )
+      return;
+
+    const res = await performAdminActionClient('delete_user', { userId: user.id }, adminEmail);
+    if (res.success) {
+      notify(`Usuário ${user.name} excluído definitivamente com sucesso.`);
+      loadData(true);
+    } else {
+      notify(res.message || 'Erro ao excluir usuário.', 'error');
+    }
+  };
+
   const handleDeleteRoom = async (roomId: string, roomName: string) => {
     if (!confirm(`Deseja excluir DEFINITIVAMENTE a sala "${roomName}"?`)) return;
     const res = await performAdminActionClient('delete_room', { roomId }, adminEmail);
@@ -780,26 +801,37 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                   {/* Ações para o Usuário */}
                   <div className="flex items-center gap-2 self-end sm:self-center">
                     {!isMaster && (
-                      <button
-                        onClick={() => handleToggleBan(u)}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-black transition cursor-pointer flex items-center gap-1.5 ${
-                          u.isBanned
-                            ? 'bg-emerald-600 text-zinc-950 hover:bg-emerald-500'
-                            : 'bg-rose-950 border border-rose-500 text-rose-300 hover:bg-rose-900'
-                        }`}
-                      >
-                        {u.isBanned ? (
-                          <>
-                            <UserCheck className="w-3.5 h-3.5" />
-                            <span>Reativar Usuário</span>
-                          </>
-                        ) : (
-                          <>
-                            <UserX className="w-3.5 h-3.5" />
-                            <span>Suspender / Banir</span>
-                          </>
-                        )}
-                      </button>
+                      <>
+                        <button
+                          onClick={() => handleToggleBan(u)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-black transition cursor-pointer flex items-center gap-1.5 ${
+                            u.isBanned
+                              ? 'bg-emerald-600 text-zinc-950 hover:bg-emerald-500'
+                              : 'bg-zinc-800 border border-zinc-700 text-zinc-300 hover:bg-zinc-700'
+                          }`}
+                        >
+                          {u.isBanned ? (
+                            <>
+                              <UserCheck className="w-3.5 h-3.5" />
+                              <span>Reativar</span>
+                            </>
+                          ) : (
+                            <>
+                              <UserX className="w-3.5 h-3.5" />
+                              <span>Suspender</span>
+                            </>
+                          )}
+                        </button>
+
+                        <button
+                          onClick={() => handleDeleteUser(u)}
+                          className="px-3 py-1.5 rounded-xl text-xs font-black transition cursor-pointer flex items-center gap-1.5 bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white shadow-md"
+                          title={`Excluir definitivamente o usuário ${u.name} do sistema`}
+                        >
+                          <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                          <span>Excluir Usuário</span>
+                        </button>
+                      </>
                     )}
                   </div>
                 </div>

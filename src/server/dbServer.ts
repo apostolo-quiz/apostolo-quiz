@@ -1001,6 +1001,29 @@ export async function performAdminActionServer(
       return { success: false, message: 'Sala não encontrada.' };
     }
 
+    // 8.1. Excluir Pessoa / Usuário Definitivamente do Sistema
+    case 'delete_user': {
+      const { userId } = payload;
+      const user = db.users.find((u) => u.id === userId);
+      if (user) {
+        if (user.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+          return { success: false, message: 'O Administrador Geral não pode ser excluído.' };
+        }
+        db.users = db.users.filter((u) => u.id !== userId);
+        if (db.quizProgress && db.quizProgress[userId]) {
+          delete db.quizProgress[userId];
+        }
+        if (db.rooms) {
+          db.rooms.forEach((r) => {
+            r.members = r.members.filter((m) => m.userId !== userId);
+          });
+        }
+        await writeDb(db);
+        return { success: true, message: `Usuário "${user.name}" excluído definitivamente do sistema.` };
+      }
+      return { success: false, message: 'Usuário não encontrado.' };
+    }
+
     // 9. Limpar Chat da Sala
     case 'clear_chat': {
       const { roomId } = payload;

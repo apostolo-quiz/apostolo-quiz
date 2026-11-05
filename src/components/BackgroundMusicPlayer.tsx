@@ -18,6 +18,7 @@ export default function BackgroundMusicPlayer() {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.20); // Volume padrão suave (20%)
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const isExplicitStoppedRef = useRef(false);
 
   const currentTrack: AudioTrack = AUDIO_TRACKS[currentTrackIndex] || AUDIO_TRACKS[0];
 
@@ -103,6 +104,7 @@ export default function BackgroundMusicPlayer() {
     }
     if (!audioRef.current) return;
 
+    isExplicitStoppedRef.current = false;
     if (typeof window !== 'undefined') {
       try {
         localStorage.setItem('apostolos_audio_user_stopped', 'false');
@@ -122,19 +124,14 @@ export default function BackgroundMusicPlayer() {
       });
   };
 
-  // Ação: Pause (Pausar ou Retomar se já estiver pausado)
+  // Ação: Pause (Pausar reprodução de forma imediata e garantida)
   const handlePause = (e?: React.SyntheticEvent) => {
     if (e) {
       e.stopPropagation();
     }
     if (!audioRef.current) return;
 
-    if (status === 'paused') {
-      // Se já estava pausado, clicar em Pausar retoma a reprodução
-      handlePlay(e);
-      return;
-    }
-
+    isExplicitStoppedRef.current = false;
     if (typeof window !== 'undefined') {
       try {
         localStorage.setItem('apostolos_audio_user_stopped', 'true');
@@ -152,6 +149,7 @@ export default function BackgroundMusicPlayer() {
     }
     if (!audioRef.current) return;
 
+    isExplicitStoppedRef.current = true;
     if (typeof window !== 'undefined') {
       try {
         localStorage.setItem('apostolos_audio_user_stopped', 'true');
@@ -204,9 +202,16 @@ export default function BackgroundMusicPlayer() {
         ref={audioRef}
         src={currentTrack.src}
         onEnded={handleTrackEnded}
-        onPlay={() => setStatus('playing')}
+        onPlay={() => {
+          isExplicitStoppedRef.current = false;
+          setStatus('playing');
+        }}
         onPause={() => {
-          setStatus((prev) => (prev === 'stopped' ? 'stopped' : 'paused'));
+          if (isExplicitStoppedRef.current) {
+            setStatus('stopped');
+          } else {
+            setStatus('paused');
+          }
         }}
         preload="auto"
       />
