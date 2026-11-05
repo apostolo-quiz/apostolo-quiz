@@ -7,7 +7,7 @@ export interface UserProfile {
   id: string;
   name: string;
   gender: 'male' | 'female';
-  title: 'Irmão' | 'Irmã';
+  title: 'Irmão' | 'Irmã' | 'Administrador';
   email: string;
   photoUrl: string;
   avatarConfig?: any; // Configuração visual detalhada do avatar 3D montado
@@ -26,6 +26,8 @@ export interface UserProfile {
   isBanned?: boolean;
   banReason?: string;
   role?: 'admin' | 'moderator' | 'member';
+  lastActiveAt?: string;
+  friends?: string[];
 }
 
 /**
@@ -882,7 +884,7 @@ export async function searchLiveOsmChurches(
 export interface LeaderboardEntry {
   userId: string;
   userName: string;
-  title: 'Irmão' | 'Irmã';
+  title: 'Irmão' | 'Irmã' | 'Administrador';
   churchName: string;
   city: string;
   state: string;

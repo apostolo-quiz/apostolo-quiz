@@ -87,7 +87,7 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
   // Usuário atual
   const currentUserId = userProfile?.id || 'guest_' + (typeof window !== 'undefined' ? (window.navigator?.userAgent?.length || 10) : 10);
   const currentUserName = userProfile?.name || 'Visitante da Fé';
-  const currentUserTitle: 'Irmão' | 'Irmã' = userProfile?.title || (avatar.gender === 'female' ? 'Irmã' : 'Irmão');
+  const currentUserTitle: 'Irmão' | 'Irmã' | 'Administrador' = userProfile?.title || (avatar.gender === 'female' ? 'Irmã' : 'Irmão');
   const isAdminUser = isUserAdmin(userProfile);
 
   // Ação de Moderação pelo Administrador dentro do chat da sala

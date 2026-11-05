@@ -1032,6 +1032,358 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    // ==========================================
+    // 8. Rotas da Rede Social Cristã & Comunidade
+    // ==========================================
+
+    if (pathname === '/api/community/heartbeat') {
+      const db = getDatabase();
+      const body = await readRequestBody(req);
+      const now = new Date().toISOString();
+      let user = db.users.find((u) => u.id === body.userId || (body.email && u.email && u.email.toLowerCase() === body.email.toLowerCase()));
+
+      if (user) {
+        user.lastActiveAt = now;
+        if (body.name) user.name = body.name;
+        if (body.title) user.title = body.title;
+        if (body.photoUrl) user.photoUrl = body.photoUrl;
+        if (body.avatarConfig) user.avatarConfig = body.avatarConfig;
+        if (body.churchName) user.churchName = body.churchName;
+        if (body.city) user.city = body.city;
+      } else if (body.userId) {
+        user = {
+          id: body.userId,
+          name: body.name || 'Irmão na Fé',
+          gender: body.gender || 'male',
+          title: body.title || 'Irmão',
+          email: body.email || '',
+          photoUrl: body.photoUrl || '/avatar_irmao_casual.jpg',
+          birthDate: '1990-01-01',
+          age: 30,
+          cep: '',
+          street: '',
+          neighborhood: '',
+          city: body.city || 'São Paulo',
+          state: body.state || 'SP',
+          churchName: body.churchName || '',
+          ministry: body.ministry || 'Membro em Comunhão',
+          isVip: false,
+          registeredAt: now,
+          lastActiveAt: now,
+          avatarConfig: body.avatarConfig
+        };
+        db.users.push(user);
+      }
+
+      saveDatabase(db);
+      const onlineThreshold = Date.now() - 120000;
+      const onlineCount = db.users.filter((u) => u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold).length;
+
+      res.writeHead(200);
+      res.end(JSON.stringify({ success: true, onlineCount }));
+      return;
+    }
+
+    if (pathname === '/api/community/overview') {
+      const db = getDatabase();
+      const userId = parsedUrl.searchParams.get('userId') || '';
+      const nowTime = Date.now();
+      const onlineThreshold = nowTime - 120000;
+
+      const caller = db.users.find((u) => u.id === userId);
+      if (caller) caller.lastActiveAt = new Date().toISOString();
+
+      if (!db.friendships) db.friendships = [];
+      if (!db.directMessages) db.directMessages = [];
+
+      const userFriendships = db.friendships.filter((f) => f.requesterId === userId || f.addresseeId === userId);
+      const acceptedFriendIds = new Set();
+      userFriendships.filter((f) => f.status === 'accepted').forEach((f) => {
+        acceptedFriendIds.add(f.requesterId === userId ? f.addresseeId : f.requesterId);
+      });
+
+      const pendingSentIds = new Set();
+      userFriendships.filter((f) => f.requesterId === userId && f.status === 'pending').forEach((f) => pendingSentIds.add(f.addresseeId));
+
+      const pendingReceivedIds = new Set();
+      userFriendships.filter((f) => f.addresseeId === userId && f.status === 'pending').forEach((f) => pendingReceivedIds.add(f.requesterId));
+
+      const mapUser = (u) => {
+        const isOnline = Boolean(u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold);
+        let friendStatus = 'none';
+        if (acceptedFriendIds.has(u.id)) friendStatus = 'friends';
+        else if (pendingSentIds.has(u.id)) friendStatus = 'pending_sent';
+        else if (pendingReceivedIds.has(u.id)) friendStatus = 'pending_received';
+
+        const prog = db.quizProgress ? db.quizProgress[u.id] : null;
+
+        return {
+          id: u.id,
+          name: u.name,
+          title: u.title || (u.gender === 'female' ? 'Irmã' : 'Irmão'),
+          gender: u.gender || 'male',
+          photoUrl: u.photoUrl,
+          avatarConfig: u.avatarConfig,
+          churchName: u.churchName,
+          city: u.city,
+          state: u.state,
+          ministry: u.ministry,
+          isVip: Boolean(u.isVip),
+          isAdmin: u.email && u.email.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase(),
+          score: prog ? prog.score : 1000,
+          lastActiveAt: u.lastActiveAt || u.registeredAt,
+          isOnline,
+          friendStatus
+        };
+      };
+
+      const allUsers = db.users.filter((u) => u.id !== userId).map(mapUser);
+      const onlineUsers = allUsers.filter((u) => u.isOnline);
+      const friends = allUsers.filter((u) => u.friendStatus === 'friends');
+
+      const pendingRequestsReceived = db.friendships
+        .filter((f) => f.addresseeId === userId && f.status === 'pending')
+        .map((f) => {
+          const r = db.users.find((u) => u.id === f.requesterId);
+          return { ...f, requester: r ? mapUser(r) : undefined };
+        });
+
+      const pendingRequestsSent = db.friendships
+        .filter((f) => f.requesterId === userId && f.status === 'pending')
+        .map((f) => {
+          const a = db.users.find((u) => u.id === f.addresseeId);
+          return { ...f, addressee: a ? mapUser(a) : undefined };
+        });
+
+      const unreadMessagesCount = db.directMessages.filter((m) => m.toUserId === userId && !m.read).length;
+
+      saveDatabase(db);
+      res.writeHead(200);
+      res.end(
+        JSON.stringify({
+          success: true,
+          totalUsers: db.users.length,
+          onlineCount: onlineUsers.length + 1,
+          onlineUsers,
+          allUsers,
+          friends,
+          pendingRequestsReceived,
+          pendingRequestsSent,
+          unreadMessagesCount
+        })
+      );
+      return;
+    }
+
+    if (pathname === '/api/community/friend') {
+      const db = getDatabase();
+      const body = await readRequestBody(req);
+      const { action, payload } = body;
+
+      if (!db.friendships) db.friendships = [];
+      const user = db.users.find((u) => u.id === payload.userId);
+
+      if (action === 'send_request') {
+        const targetUser = db.users.find((u) => u.id === payload.targetUserId);
+        if (!targetUser) {
+          res.writeHead(404);
+          res.end(JSON.stringify({ success: false, message: 'Irmão não encontrado.' }));
+          return;
+        }
+
+        const existing = db.friendships.find(
+          (f) =>
+            (f.requesterId === payload.userId && f.addresseeId === payload.targetUserId) ||
+            (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId)
+        );
+
+        if (existing) {
+          if (existing.status === 'accepted') {
+            res.writeHead(200);
+            res.end(JSON.stringify({ success: false, message: 'Vocês já são amigos!' }));
+            return;
+          }
+          existing.status = 'accepted';
+          existing.updatedAt = new Date().toISOString();
+          saveDatabase(db);
+          res.writeHead(200);
+          res.end(JSON.stringify({ success: true, message: `Agora você e ${targetUser.name} são amigos na fé!` }));
+          return;
+        }
+
+        const newF = {
+          id: 'friend_' + Date.now(),
+          requesterId: payload.userId,
+          requesterName: user ? user.name : 'Irmão',
+          requesterTitle: user ? user.title : 'Irmão',
+          requesterPhoto: user ? user.photoUrl : '',
+          requesterChurch: user ? user.churchName : '',
+          addresseeId: payload.targetUserId,
+          addresseeName: targetUser.name,
+          addresseeTitle: targetUser.title || 'Irmão',
+          addresseePhoto: targetUser.photoUrl,
+          addresseeChurch: targetUser.churchName,
+          status: payload.targetUserId.startsWith('user_') ? 'accepted' : 'pending',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        };
+        db.friendships.push(newF);
+        saveDatabase(db);
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, message: `Pedido de amizade enviado para ${targetUser.name}!` }));
+        return;
+      }
+
+      if (action === 'accept_request') {
+        const friendship = db.friendships.find((f) => f.id === payload.requestId || (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId));
+        if (friendship) {
+          friendship.status = 'accepted';
+          friendship.updatedAt = new Date().toISOString();
+          saveDatabase(db);
+          res.writeHead(200);
+          res.end(JSON.stringify({ success: true, message: 'Amizade aceita com sucesso!' }));
+          return;
+        }
+      }
+
+      if (action === 'reject_request') {
+        const friendship = db.friendships.find((f) => f.id === payload.requestId);
+        if (friendship) {
+          friendship.status = 'rejected';
+          saveDatabase(db);
+          res.writeHead(200);
+          res.end(JSON.stringify({ success: true, message: 'Solicitação recusada.' }));
+          return;
+        }
+      }
+
+      if (action === 'remove_friend') {
+        db.friendships = db.friendships.filter(
+          (f) =>
+            !(
+              (f.requesterId === payload.userId && f.addresseeId === payload.targetUserId) ||
+              (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId)
+            )
+        );
+        saveDatabase(db);
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, message: 'Amigo removido.' }));
+        return;
+      }
+
+      res.writeHead(400);
+      res.end(JSON.stringify({ success: false, message: 'Ação não processada.' }));
+      return;
+    }
+
+    if (pathname === '/api/community/messages') {
+      const db = getDatabase();
+      if (!db.directMessages) db.directMessages = [];
+
+      if (req.method === 'GET') {
+        const userId = parsedUrl.searchParams.get('userId') || '';
+        const otherUserId = parsedUrl.searchParams.get('otherUserId') || '';
+
+        db.directMessages.forEach((m) => {
+          if (m.toUserId === userId && m.fromUserId === otherUserId && !m.read) {
+            m.read = true;
+          }
+        });
+        saveDatabase(db);
+
+        const msgs = db.directMessages
+          .filter(
+            (m) =>
+              (m.fromUserId === userId && m.toUserId === otherUserId) ||
+              (m.fromUserId === otherUserId && m.toUserId === userId)
+          )
+          .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, messages: msgs }));
+        return;
+      }
+
+      if (req.method === 'POST') {
+        const body = await readRequestBody(req);
+        const analysis = analyzeModeration(body.text);
+
+        if (analysis.isViolating) {
+          if (!db.moderationAlerts) db.moderationAlerts = [];
+          db.moderationAlerts.unshift({
+            id: 'alert_dm_' + Date.now(),
+            roomId: 'direct_message',
+            roomName: `Chat Privado: ${body.fromUserName} -> ${body.toUserId}`,
+            messageId: 'dm_' + Date.now(),
+            userId: body.fromUserId,
+            userName: body.fromUserName,
+            userTitle: body.fromUserTitle || 'Irmão',
+            originalText: body.text.trim(),
+            category: analysis.category || 'nocivo',
+            reason: analysis.reason || 'Conteúdo impróprio',
+            severity: 'alta',
+            createdAt: new Date().toISOString(),
+            status: 'pending'
+          });
+          saveDatabase(db);
+
+          res.writeHead(400);
+          res.end(
+            JSON.stringify({
+              success: false,
+              blocked: true,
+              message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Respeite a santidade e o ambiente bíblico.`
+            })
+          );
+          return;
+        }
+
+        const newMsg = {
+          id: 'dm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+          fromUserId: body.fromUserId,
+          fromUserName: body.fromUserName,
+          fromUserTitle: body.fromUserTitle,
+          toUserId: body.toUserId,
+          text: body.text.trim(),
+          interactionType: body.interactionType || 'chat',
+          createdAt: new Date().toISOString(),
+          read: false
+        };
+        db.directMessages.push(newMsg);
+
+        if (body.toUserId.startsWith('user_')) {
+          const demo = db.users.find((u) => u.id === body.toUserId);
+          if (demo) {
+            let replyText = `Amém, ${body.fromUserTitle} ${body.fromUserName}! A Paz do Senhor seja convosco! Que Deus abençoe seus estudos na Palavra! 🙏✨`;
+            if (body.interactionType === 'paz_do_senhor') {
+              replyText = `🕊️ A Paz do Senhor, ${body.fromUserTitle} ${body.fromUserName}! Um prazer estar em comunhão com você aqui no Apóstolos Quiz!`;
+            } else if (body.interactionType === 'orando_por_voce') {
+              replyText = `🙏 Glória a Deus, meu irmão(ã)! Muito obrigado pela oração, que o Senhor recompense em dobro sua vida e família!`;
+            } else if (body.interactionType === 'desafio_quiz') {
+              replyText = `⚔️ Desafio aceito em Cristo! Vamos ver quem acerta mais respostas sobre as Sagradas Escrituras!`;
+            }
+
+            db.directMessages.push({
+              id: 'dm_reply_' + Date.now(),
+              fromUserId: demo.id,
+              fromUserName: demo.name,
+              fromUserTitle: demo.title,
+              toUserId: body.fromUserId,
+              text: replyText,
+              interactionType: 'chat',
+              createdAt: new Date(Date.now() + 500).toISOString(),
+              read: false
+            });
+          }
+        }
+
+        saveDatabase(db);
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, msg: newMsg }));
+        return;
+      }
+    }
+
     // Rota não encontrada
     res.writeHead(404);
     res.end(JSON.stringify({ success: false, message: `Rota ${pathname} não encontrada no servidor backend.` }));

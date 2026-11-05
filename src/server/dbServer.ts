@@ -4,6 +4,7 @@ import { UserProfile, ChurchRecord, PaymentTransaction, ADMIN_MASTER_EMAIL, isUs
 import { getSupabase } from '@/lib/supabase';
 import { MultiplayerRoom, RoomMember, RoomChatMessage, ModerationAlert, getRandomRoomQuestions, INITIAL_ROOMS_DEMO } from '@/data/multiplayerRooms';
 import { analyzeMessageContent } from '@/data/contentModerator';
+import { CommunityUser, Friendship, DirectMessage, DEMO_COMMUNITY_USERS } from '@/data/communitySocial';
 
 export interface ServerQuizProgress {
   userId: string;
@@ -22,6 +23,8 @@ export interface ServerDatabaseSchema {
   transactions: PaymentTransaction[];
   rooms?: MultiplayerRoom[];
   moderationAlerts?: ModerationAlert[];
+  friendships?: Friendship[];
+  directMessages?: DirectMessage[];
   lastSavedAt: string;
 }
 
@@ -41,15 +44,69 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
       if (!parsed.transactions) parsed.transactions = [];
       if (!parsed.rooms) parsed.rooms = [];
       if (!parsed.moderationAlerts) parsed.moderationAlerts = [];
+      if (!parsed.friendships) parsed.friendships = [];
+      if (!parsed.directMessages) parsed.directMessages = [];
+
+      // Garante que haja usuários da comunidade para interação
+      for (const demo of DEMO_COMMUNITY_USERS) {
+        if (!parsed.users.some((u) => u.id === demo.id)) {
+          parsed.users.push({
+            id: demo.id,
+            name: demo.name,
+            gender: demo.gender,
+            title: demo.title,
+            email: `${demo.id}@apostolosquiz.com`,
+            photoUrl: demo.photoUrl || '/avatar_irmao_casual.jpg',
+            birthDate: '1995-01-01',
+            age: 30,
+            cep: '09111000',
+            street: 'Rua das Oliveiras',
+            neighborhood: 'Jardim Bíblico',
+            city: demo.city || 'São Paulo',
+            state: demo.state || 'SP',
+            churchName: demo.churchName || 'Assembleia de Deus',
+            ministry: demo.ministry || 'Membro em Comunhão',
+            isVip: false,
+            registeredAt: new Date(Date.now() - 86400000 * 30).toISOString(),
+            avatarConfig: demo.avatarConfig,
+            lastActiveAt: new Date(Date.now() - Math.floor(Math.random() * 60000)).toISOString()
+          });
+        }
+      }
+
       return parsed;
     } catch {
+      const initialUsers: UserProfile[] = DEMO_COMMUNITY_USERS.map((demo) => ({
+        id: demo.id,
+        name: demo.name,
+        gender: demo.gender,
+        title: demo.title,
+        email: `${demo.id}@apostolosquiz.com`,
+        photoUrl: demo.photoUrl || '/avatar_irmao_casual.jpg',
+        birthDate: '1995-01-01',
+        age: 30,
+        cep: '09111000',
+        street: 'Rua das Oliveiras',
+        neighborhood: 'Jardim Bíblico',
+        city: demo.city || 'São Paulo',
+        state: demo.state || 'SP',
+        churchName: demo.churchName || 'Assembleia de Deus',
+        ministry: demo.ministry || 'Membro em Comunhão',
+        isVip: false,
+        registeredAt: new Date().toISOString(),
+        avatarConfig: demo.avatarConfig,
+        lastActiveAt: new Date(Date.now() - Math.floor(Math.random() * 60000)).toISOString()
+      }));
+
       const initial: ServerDatabaseSchema = {
-        users: [],
+        users: initialUsers,
         quizProgress: {},
         churches: [],
         transactions: [],
         rooms: [...INITIAL_ROOMS_DEMO],
         moderationAlerts: [],
+        friendships: [],
+        directMessages: [],
         lastSavedAt: new Date().toISOString()
       };
       await fs.writeFile(DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
@@ -350,7 +407,7 @@ export async function getServerStats() {
 export interface ServerLeaderboardEntry {
   userId: string;
   userName: string;
-  title: 'Irmão' | 'Irmã';
+  title: 'Irmão' | 'Irmã' | 'Administrador';
   churchName: string;
   city: string;
   state: string;
@@ -472,7 +529,7 @@ export async function getLeaderboardServer(): Promise<ServerLeaderboardEntry[]> 
     progressList.forEach((p) => {
       const u = usersMap.get(p.userId);
       const name = p.userName || u?.name || 'Irmão em Comunhão';
-      const title: 'Irmão' | 'Irmã' =
+      const title: 'Irmão' | 'Irmã' | 'Administrador' =
         u?.title || (u?.gender === 'female' ? 'Irmã' : 'Irmão');
 
       // Calcula nota teológica de 0 a 10 com base nos módulos e score
@@ -572,7 +629,7 @@ export async function createRoomServer(data: {
   passcode: string;
   createdBy: string;
   createdByName: string;
-  creatorTitle?: 'Irmão' | 'Irmã';
+  creatorTitle?: 'Irmão' | 'Irmã' | 'Administrador';
   level?: 'basico' | 'medio' | 'avancado';
   maxMembers?: number;
 }): Promise<MultiplayerRoom> {
@@ -636,7 +693,7 @@ export async function joinRoomServer(
   member: {
     userId: string;
     name: string;
-    title: 'Irmão' | 'Irmã';
+    title: 'Irmão' | 'Irmã' | 'Administrador';
     photoUrl?: string;
     avatarConfig?: any;
     userEmail?: string;
@@ -725,6 +782,7 @@ export async function joinRoomServer(
   await writeDb(db);
   return { success: true, room };
 }
+
 
 export async function sendRoomMessageServer(
   roomId: string,
@@ -1224,5 +1282,426 @@ export async function performRoomActionServer(
   room.lastActivity = new Date().toISOString();
   await writeDb(db);
   return { success: true, room };
+}
+
+// ==========================================
+// REDE SOCIAL CRISTÃ: PRESENÇA, AMIZADES E MENSAGENS DIRETAS
+// ==========================================
+
+export async function handleHeartbeatServer(payload: {
+  userId: string;
+  name?: string;
+  title?: 'Irmão' | 'Irmã';
+  gender?: 'male' | 'female';
+  photoUrl?: string;
+  avatarConfig?: any;
+  churchName?: string;
+  city?: string;
+  state?: string;
+  ministry?: string;
+  email?: string;
+}): Promise<{ success: boolean; onlineCount: number }> {
+  const db = await ensureDb();
+  const now = new Date().toISOString();
+  let user = db.users.find((u) => u.id === payload.userId || (payload.email && u.email?.toLowerCase() === payload.email.toLowerCase()));
+
+  if (user) {
+    user.lastActiveAt = now;
+    if (payload.name) user.name = payload.name;
+    if (payload.title) user.title = payload.title;
+    if (payload.photoUrl) user.photoUrl = payload.photoUrl;
+    if (payload.avatarConfig) user.avatarConfig = payload.avatarConfig;
+    if (payload.churchName) user.churchName = payload.churchName;
+    if (payload.city) user.city = payload.city;
+  } else if (payload.userId) {
+    user = {
+      id: payload.userId,
+      name: payload.name || 'Irmão na Fé',
+      gender: payload.gender || 'male',
+      title: payload.title || 'Irmão',
+      email: payload.email || '',
+      photoUrl: payload.photoUrl || '/avatar_irmao_casual.jpg',
+      birthDate: '1990-01-01',
+      age: 30,
+      cep: '',
+      street: '',
+      neighborhood: '',
+      city: payload.city || 'São Paulo',
+      state: payload.state || 'SP',
+      churchName: payload.churchName || '',
+      ministry: payload.ministry || 'Membro em Comunhão',
+      isVip: false,
+      registeredAt: now,
+      lastActiveAt: now,
+      avatarConfig: payload.avatarConfig
+    };
+    db.users.push(user);
+  }
+
+  // Mantém 3-4 usuários demo online para uma comunidade acolhedora
+  const currentTime = Date.now();
+  for (let i = 0; i < 4; i++) {
+    const demo = db.users.find((u) => u.id === DEMO_COMMUNITY_USERS[i]?.id);
+    if (demo) {
+      demo.lastActiveAt = new Date(currentTime - i * 35000).toISOString();
+    }
+  }
+
+  await writeDb(db);
+
+  const onlineThreshold = currentTime - 120000; // 2 minutos
+  const onlineCount = db.users.filter((u) => u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold).length;
+
+  return { success: true, onlineCount };
+}
+
+export async function getCommunityOverviewServer(userId: string): Promise<any> {
+  const db = await ensureDb();
+  const nowTime = Date.now();
+  const onlineThreshold = nowTime - 120000; // 2 minutos
+
+  // Atualiza atividade do chamador
+  const caller = db.users.find((u) => u.id === userId);
+  if (caller) {
+    caller.lastActiveAt = new Date().toISOString();
+  }
+
+  // Mantém demos ativos
+  for (let i = 0; i < 4; i++) {
+    const demo = db.users.find((u) => u.id === DEMO_COMMUNITY_USERS[i]?.id);
+    if (demo) {
+      demo.lastActiveAt = new Date(nowTime - i * 30000).toISOString();
+    }
+  }
+  await writeDb(db);
+
+  if (!db.friendships) db.friendships = [];
+  if (!db.directMessages) db.directMessages = [];
+
+  // Mapeia todas as amizades do usuário
+  const userFriendships = db.friendships.filter(
+    (f) => f.requesterId === userId || f.addresseeId === userId
+  );
+
+  const acceptedFriendIds = new Set<string>();
+  userFriendships
+    .filter((f) => f.status === 'accepted')
+    .forEach((f) => {
+      acceptedFriendIds.add(f.requesterId === userId ? f.addresseeId : f.requesterId);
+    });
+
+  const pendingSentIds = new Set<string>();
+  userFriendships
+    .filter((f) => f.requesterId === userId && f.status === 'pending')
+    .forEach((f) => pendingSentIds.add(f.addresseeId));
+
+  const pendingReceivedIds = new Set<string>();
+  userFriendships
+    .filter((f) => f.addresseeId === userId && f.status === 'pending')
+    .forEach((f) => pendingReceivedIds.add(f.requesterId));
+
+  const mapToCommunityUser = (u: UserProfile): CommunityUser => {
+    const isOnline = Boolean(u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold);
+    let friendStatus: 'none' | 'pending_sent' | 'pending_received' | 'friends' = 'none';
+
+    if (acceptedFriendIds.has(u.id)) {
+      friendStatus = 'friends';
+    } else if (pendingSentIds.has(u.id)) {
+      friendStatus = 'pending_sent';
+    } else if (pendingReceivedIds.has(u.id)) {
+      friendStatus = 'pending_received';
+    }
+
+    const quizProg = db.quizProgress[u.id];
+
+    return {
+      id: u.id,
+      name: u.name,
+      title: (u.title || (u.gender === 'female' ? 'Irmã' : 'Irmão')) as any,
+      gender: u.gender || 'male',
+      photoUrl: u.photoUrl,
+      avatarConfig: u.avatarConfig,
+      churchName: u.churchName,
+      city: u.city,
+      state: u.state,
+      ministry: u.ministry,
+      isVip: u.isVip,
+      isAdmin: isUserAdmin(u),
+      score: quizProg?.score || 1000,
+      lastActiveAt: u.lastActiveAt || u.registeredAt,
+      isOnline,
+      friendStatus
+    };
+  };
+
+  const allCommunityUsers = db.users.filter((u) => u.id !== userId).map(mapToCommunityUser);
+  const onlineUsers = allCommunityUsers.filter((u) => u.isOnline);
+  const friends = allCommunityUsers.filter((u) => u.friendStatus === 'friends');
+
+  const pendingRequestsReceived = db.friendships
+    .filter((f) => f.addresseeId === userId && f.status === 'pending')
+    .map((f) => {
+      const reqUser = db.users.find((u) => u.id === f.requesterId);
+      return {
+        ...f,
+        requester: reqUser ? mapToCommunityUser(reqUser) : undefined
+      };
+    });
+
+  const pendingRequestsSent = db.friendships
+    .filter((f) => f.requesterId === userId && f.status === 'pending')
+    .map((f) => {
+      const addressee = db.users.find((u) => u.id === f.addresseeId);
+      return {
+        ...f,
+        addressee: addressee ? mapToCommunityUser(addressee) : undefined
+      };
+    });
+
+  const unreadMessagesCount = db.directMessages.filter((m) => m.toUserId === userId && !m.read).length;
+
+  return {
+    success: true,
+    totalUsers: db.users.length,
+    onlineCount: onlineUsers.length + (caller?.lastActiveAt && new Date(caller.lastActiveAt).getTime() >= onlineThreshold ? 1 : 1),
+    onlineUsers,
+    allUsers: allCommunityUsers,
+    friends,
+    pendingRequestsReceived,
+    pendingRequestsSent,
+    unreadMessagesCount
+  };
+}
+
+export async function handleFriendActionServer(
+  action: 'send_request' | 'accept_request' | 'reject_request' | 'remove_friend',
+  payload: {
+    userId: string;
+    targetUserId?: string;
+    requestId?: string;
+  }
+): Promise<{ success: boolean; message?: string }> {
+  const db = await ensureDb();
+  if (!db.friendships) db.friendships = [];
+
+  const user = db.users.find((u) => u.id === payload.userId);
+  if (!user) return { success: false, message: 'Usuário não encontrado.' };
+
+  if (action === 'send_request') {
+    if (!payload.targetUserId) return { success: false, message: 'Irmão alvo não especificado.' };
+    if (payload.userId === payload.targetUserId) return { success: false, message: 'Você não pode adicionar a si mesmo.' };
+
+    const targetUser = db.users.find((u) => u.id === payload.targetUserId);
+    if (!targetUser) return { success: false, message: 'Irmão não encontrado.' };
+
+    const existing = db.friendships.find(
+      (f) =>
+        (f.requesterId === payload.userId && f.addresseeId === payload.targetUserId) ||
+        (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId)
+    );
+
+    if (existing) {
+      if (existing.status === 'accepted') {
+        return { success: false, message: 'Vocês já são amigos na fé!' };
+      }
+      if (existing.status === 'pending') {
+        if (existing.requesterId === payload.userId) {
+          return { success: false, message: 'Solicitação de amizade já enviada.' };
+        } else {
+          // Se o outro já enviou, aceita automaticamente
+          existing.status = 'accepted';
+          existing.updatedAt = new Date().toISOString();
+          await writeDb(db);
+          return { success: true, message: `Agora você e ${targetUser.name} são amigos na fé!` };
+        }
+      }
+      // Se foi rejeitada antes, reabre como pendente
+      existing.status = 'pending';
+      existing.requesterId = payload.userId;
+      existing.addresseeId = payload.targetUserId;
+      existing.updatedAt = new Date().toISOString();
+      await writeDb(db);
+      return { success: true, message: `Pedido de amizade enviado para ${targetUser.name}!` };
+    }
+
+    const newFriendship: Friendship = {
+      id: 'friend_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+      requesterId: payload.userId,
+      requesterName: user.name,
+      requesterTitle: user.title || 'Irmão',
+      requesterPhoto: user.photoUrl,
+      requesterChurch: user.churchName,
+      addresseeId: payload.targetUserId,
+      addresseeName: targetUser.name,
+      addresseeTitle: targetUser.title || 'Irmão',
+      addresseePhoto: targetUser.photoUrl,
+      addresseeChurch: targetUser.churchName,
+      status: 'pending',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+
+    db.friendships.push(newFriendship);
+
+    // Se o alvo for um dos usuários demo, aceita automaticamente após 1 segundo
+    if (payload.targetUserId.startsWith('user_')) {
+      newFriendship.status = 'accepted';
+    }
+
+    await writeDb(db);
+    return { success: true, message: `Pedido de amizade enviado para ${targetUser.name}!` };
+  }
+
+  if (action === 'accept_request') {
+    const friendship = db.friendships.find((f) => f.id === payload.requestId || (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId));
+    if (!friendship) return { success: false, message: 'Solicitação não encontrada.' };
+    friendship.status = 'accepted';
+    friendship.updatedAt = new Date().toISOString();
+    await writeDb(db);
+    return { success: true, message: 'Amizade cristã aceita com sucesso!' };
+  }
+
+  if (action === 'reject_request') {
+    const friendship = db.friendships.find((f) => f.id === payload.requestId || (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId));
+    if (!friendship) return { success: false, message: 'Solicitação não encontrada.' };
+    friendship.status = 'rejected';
+    friendship.updatedAt = new Date().toISOString();
+    await writeDb(db);
+    return { success: true, message: 'Solicitação recusada.' };
+  }
+
+  if (action === 'remove_friend') {
+    if (!payload.targetUserId) return { success: false, message: 'Amigo não especificado.' };
+    db.friendships = db.friendships.filter(
+      (f) =>
+        !(
+          (f.requesterId === payload.userId && f.addresseeId === payload.targetUserId) ||
+          (f.requesterId === payload.targetUserId && f.addresseeId === payload.userId)
+        )
+    );
+    await writeDb(db);
+    return { success: true, message: 'Amigo removido da sua lista.' };
+  }
+
+  return { success: false, message: 'Ação de amizade inválida.' };
+}
+
+export async function getDirectMessagesServer(userId: string, otherUserId: string): Promise<DirectMessage[]> {
+  const db = await ensureDb();
+  if (!db.directMessages) db.directMessages = [];
+
+  // Marca como lidas as mensagens recebidas de otherUserId
+  let modified = false;
+  db.directMessages.forEach((m) => {
+    if (m.toUserId === userId && m.fromUserId === otherUserId && !m.read) {
+      m.read = true;
+      modified = true;
+    }
+  });
+
+  if (modified) {
+    await writeDb(db);
+  }
+
+  return db.directMessages
+    .filter(
+      (m) =>
+        (m.fromUserId === userId && m.toUserId === otherUserId) ||
+        (m.fromUserId === otherUserId && m.toUserId === userId)
+    )
+    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+}
+
+export async function sendDirectMessageServer(payload: {
+  fromUserId: string;
+  fromUserName: string;
+  fromUserTitle: string;
+  toUserId: string;
+  text: string;
+  interactionType?: 'chat' | 'paz_do_senhor' | 'orando_por_voce' | 'abencoado' | 'desafio_quiz';
+}): Promise<{ success: boolean; message?: string; msg?: DirectMessage; blocked?: boolean }> {
+  const db = await ensureDb();
+  if (!db.directMessages) db.directMessages = [];
+
+  const sender = db.users.find((u) => u.id === payload.fromUserId);
+  if (sender?.isBanned) {
+    return { success: false, message: 'Usuário suspenso pela moderação comunitária.' };
+  }
+
+  // Moderação Cristã Automática de Mensagem Direta
+  const analysis = analyzeMessageContent(payload.text);
+  if (analysis.isViolating) {
+    // Alerta Imediato para o Administrador Geral
+    const alert: ModerationAlert = {
+      id: 'alert_dm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+      roomId: 'direct_message',
+      roomName: `Chat Privado: ${payload.fromUserName} -> ${payload.toUserId}`,
+      messageId: 'dm_' + Date.now(),
+      userId: payload.fromUserId,
+      userName: payload.fromUserName,
+      userTitle: (payload.fromUserTitle || 'Irmão') as any,
+      originalText: payload.text.trim(),
+      category: analysis.category || 'nocivo',
+      reason: analysis.reason || 'Conteúdo impróprio em mensagem direta',
+      severity: analysis.severity || 'alta',
+      createdAt: new Date().toISOString(),
+      status: 'pending'
+    };
+
+    if (!db.moderationAlerts) db.moderationAlerts = [];
+    db.moderationAlerts.unshift(alert);
+    await writeDb(db);
+
+    return {
+      success: false,
+      blocked: true,
+      message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Respeite a santidade e o ambiente bíblico.`
+    };
+  }
+
+  const newMsg: DirectMessage = {
+    id: 'dm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+    fromUserId: payload.fromUserId,
+    fromUserName: payload.fromUserName,
+    fromUserTitle: payload.fromUserTitle,
+    toUserId: payload.toUserId,
+    text: payload.text.trim(),
+    interactionType: payload.interactionType || 'chat',
+    createdAt: new Date().toISOString(),
+    read: false
+  };
+
+  db.directMessages.push(newMsg);
+
+  // Se o destinatário for um dos usuários demo, adiciona uma resposta fraternal após enviar
+  if (payload.toUserId.startsWith('user_')) {
+    const demoUser = db.users.find((u) => u.id === payload.toUserId);
+    if (demoUser) {
+      let replyText = `Amém, ${payload.fromUserTitle} ${payload.fromUserName}! A Paz do Senhor seja convosco! Que Deus continue abençoando seus estudos bíblicos. 🙏✨`;
+      if (payload.interactionType === 'paz_do_senhor') {
+        replyText = `🕊️ A Paz do Senhor, ${payload.fromUserTitle} ${payload.fromUserName}! Um prazer estar em comunhão com você aqui no Apóstolos Quiz!`;
+      } else if (payload.interactionType === 'orando_por_voce') {
+        replyText = `🙏 Glória a Deus, meu irmão(ã)! Muito obrigado pela oração, que o Senhor recompense em dobro sua vida e família!`;
+      } else if (payload.interactionType === 'desafio_quiz') {
+        replyText = `⚔️ Desafio aceito em Cristo! Vamos ver quem acerta mais respostas sobre as Sagradas Escrituras!`;
+      }
+
+      const replyMsg: DirectMessage = {
+        id: 'dm_reply_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+        fromUserId: demoUser.id,
+        fromUserName: demoUser.name,
+        fromUserTitle: demoUser.title,
+        toUserId: payload.fromUserId,
+        text: replyText,
+        interactionType: 'chat',
+        createdAt: new Date(Date.now() + 500).toISOString(),
+        read: false
+      };
+      db.directMessages.push(replyMsg);
+    }
+  }
+
+  await writeDb(db);
+  return { success: true, msg: newMsg };
 }
 

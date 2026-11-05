@@ -36,6 +36,9 @@ interface Props {
   onOpenRooms?: () => void;
   onOpenModules?: () => void;
   onOpenInvite?: () => void;
+  onOpenCommunity?: () => void;
+  onlineCount?: number;
+  totalUsersCount?: number;
 }
 
 export default function HomeJourneyView({
@@ -50,6 +53,9 @@ export default function HomeJourneyView({
   onOpenChurches,
   onOpenRooms,
   onOpenInvite,
+  onOpenCommunity,
+  onlineCount = 1,
+  totalUsersCount = 1
 }: Props) {
   const title = userProfile?.title || (avatar.gender === 'male' ? 'Irmão' : 'Irmã');
   const displayName = userProfile?.name || 'Visitante da Fé';
@@ -126,6 +132,43 @@ export default function HomeJourneyView({
           >
             <Share2 className="w-4 h-4" />
             <span>Gerar Convite Individual</span>
+          </button>
+        </div>
+      )}
+
+      {/* 1.2 Banner da Rede Social Cristã & Discípulos Online */}
+      {onOpenCommunity && (
+        <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/50 bg-gradient-to-r from-amber-950/70 via-zinc-950 to-zinc-950 p-4 sm:p-5 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center shrink-0 shadow-lg">
+              <Users className="w-6 h-6 animate-pulse" />
+            </div>
+            <div>
+              <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-black uppercase tracking-wider">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span>{onlineCount} Irmãos Online Agora</span>
+                </span>
+                <span className="text-[10px] text-zinc-400 font-bold hidden sm:inline">
+                  • {totalUsersCount} Discípulos Cadastrados
+                </span>
+              </div>
+              <h3 className="text-base sm:text-lg font-serif font-black text-white">
+                Comunidade & Amizades na Fé
+              </h3>
+              <p className="text-xs text-zinc-300 max-w-md">
+                Conecte-se como amigos, troque saudações fraternais, converse em bate-papo privado e dispute Duelos Bíblicos!
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={onOpenCommunity}
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:brightness-110 text-zinc-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center justify-center gap-2 transition transform active:scale-95 cursor-pointer shrink-0"
+          >
+            <Users className="w-4 h-4" />
+            <span>Ver Irmãos Online & Chat</span>
           </button>
         </div>
       )}

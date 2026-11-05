@@ -13,7 +13,9 @@ import LeaderboardView from '@/components/LeaderboardView';
 import MultiplayerRooms from '@/components/MultiplayerRooms';
 import AdminModerationPanel from '@/components/AdminModerationPanel';
 import MemberReferralInviteModal from '@/components/MemberReferralInviteModal';
+import CommunitySocialModal from '@/components/CommunitySocialModal';
 import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync, isUserAdmin, fetchAdminOverviewClient } from '@/data/db';
+import { fetchCommunityOverviewClient, sendHeartbeatClient } from '@/data/communitySocial';
 import { getSupabase } from '@/lib/supabase';
 import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check, ShieldAlert, ShieldCheck, Share2 } from 'lucide-react';
 
@@ -43,6 +45,9 @@ export default function HomePage() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const [showInviteModal, setShowInviteModal] = useState(false);
+  const [showCommunityModal, setShowCommunityModal] = useState(false);
+  const [onlineCount, setOnlineCount] = useState(4);
+  const [totalUsersCount, setTotalUsersCount] = useState(7);
   const [serverSyncStatus, setServerSyncStatus] = useState<'synced' | 'syncing' | 'offline'>('syncing');
 
   // Moderação e Acesso Master do Administrador Geral (edi.ben.jr@gmail.com)
@@ -66,6 +71,26 @@ export default function HomePage() {
     const interval = setInterval(checkAlerts, 5000);
     return () => clearInterval(interval);
   }, [userProfile?.email, isAdmin]);
+
+  // Monitoramento de Presença & Usuários Online em tempo real
+  useEffect(() => {
+    const pingPresence = async () => {
+      try {
+        if (userProfile) {
+          await sendHeartbeatClient(userProfile, avatar);
+        }
+        const overview = await fetchCommunityOverviewClient(userProfile?.id || 'guest');
+        if (overview && overview.success) {
+          setOnlineCount(overview.onlineCount || 1);
+          setTotalUsersCount(overview.totalUsers || 1);
+        }
+      } catch (e) {}
+    };
+
+    pingPresence();
+    const presenceInterval = setInterval(pingPresence, 8000);
+    return () => clearInterval(presenceInterval);
+  }, [userProfile?.id, avatar]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -293,6 +318,18 @@ export default function HomePage() {
         avatar={avatar}
       />
 
+      {/* Modal da Rede Social Cristã, Presença e Amigos */}
+      <CommunitySocialModal
+        isOpen={showCommunityModal}
+        onClose={() => setShowCommunityModal(false)}
+        userProfile={userProfile}
+        avatar={avatar}
+        onOpenSoloQuiz={() => {
+          setShowCommunityModal(false);
+          setActiveTab('quiz');
+        }}
+      />
+
       {/* Cabeçalho com o LOGO OFICIAL Retangular Original */}
       <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3 w-full max-w-full overflow-hidden">
         {/* Banner do Logo: Com margem segura para smartphones e proporção perfeita */}
@@ -408,10 +445,20 @@ export default function HomePage() {
                 </button>
               )}
 
-              <div className="flex items-center gap-1.5 bg-zinc-950/80 border border-amber-500/30 text-amber-300 px-2.5 py-1 rounded-xl text-[10px] sm:text-xs font-semibold shadow shrink-0">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Em Comunhão</span>
-              </div>
+              {/* Contador de Irmãos Online & Acesso à Rede Social */}
+              <button
+                onClick={() => setShowCommunityModal(true)}
+                className="flex items-center gap-1.5 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/60 text-emerald-300 px-2.5 py-1 rounded-xl text-[10px] sm:text-xs font-black shadow transition cursor-pointer shrink-0"
+                title="Abrir Comunidade: ver quem está online e fazer amigos na fé"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>{onlineCount} Online</span>
+                <span className="text-zinc-500 hidden sm:inline">•</span>
+                <span className="text-zinc-400 hidden sm:inline">{totalUsersCount} Discípulos</span>
+              </button>
             </div>
           </div>
 
@@ -449,6 +496,15 @@ export default function HomePage() {
                   <span>Moderação {pendingAlertsCount > 0 ? `(${pendingAlertsCount})` : ''}</span>
                 </button>
               )}
+
+              <button
+                onClick={() => setShowCommunityModal(true)}
+                className="text-[11px] text-emerald-300 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full"
+                title="Ver lista de irmãos online e interagir na rede cristã"
+              >
+                <Users className="w-3.5 h-3.5 text-emerald-400" />
+                <span>👥 {onlineCount} Online</span>
+              </button>
 
               <button
                 onClick={() => setShowInviteModal(true)}
@@ -523,6 +579,9 @@ export default function HomePage() {
             onOpenChurches={() => setActiveTab('churches')}
             onOpenRooms={() => setActiveTab('rooms')}
             onOpenInvite={() => setShowInviteModal(true)}
+            onOpenCommunity={() => setShowCommunityModal(true)}
+            onlineCount={onlineCount}
+            totalUsersCount={totalUsersCount}
           />
         )}
 
@@ -639,7 +698,7 @@ export default function HomePage() {
 
       {/* Menu de Navegação Inferior (Abas Modernas com Ranking e Acesso Admin) */}
       <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-1 sm:px-2 py-2 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)] w-full max-w-full overflow-hidden">
-        <div className={`max-w-xl mx-auto grid ${isAdmin ? 'grid-cols-7' : 'grid-cols-6'} gap-0.5 sm:gap-1`}>
+        <div className={`max-w-xl mx-auto grid ${isAdmin ? 'grid-cols-8' : 'grid-cols-7'} gap-0.5 sm:gap-1`}>
           <button
             onClick={() => setActiveTab('home')}
             className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
@@ -668,6 +727,19 @@ export default function HomePage() {
           >
             <Users className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span className="truncate w-full text-center">Salas</span>
+          </button>
+
+          {/* Nova Aba de Irmãos Online & Rede Social Cristã */}
+          <button
+            onClick={() => setShowCommunityModal(true)}
+            className="relative min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg text-emerald-400 hover:text-emerald-300"
+            title="Rede social cristã, amigos e bate-papo"
+          >
+            <div className="relative">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-emerald-400" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            </div>
+            <span className="truncate w-full text-center">Irmãos</span>
           </button>
 
           <button

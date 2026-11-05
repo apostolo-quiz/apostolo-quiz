@@ -11,7 +11,7 @@ import { analyzeMessageContent } from './contentModerator';
 export interface RoomMember {
   userId: string;
   name: string;
-  title: 'Irmão' | 'Irmã';
+  title: 'Irmão' | 'Irmã' | 'Administrador';
   avatarConfig?: any;
   photoUrl?: string;
   score: number;
@@ -73,7 +73,7 @@ export interface MultiplayerRoom {
   passcode: string; // Ex: "Nova Aliança"
   createdBy: string;
   createdByName: string;
-  creatorTitle: 'Irmão' | 'Irmã';
+  creatorTitle: 'Irmão' | 'Irmã' | 'Administrador';
   maxMembers: number; // Até 20 amigos
   members: RoomMember[];
   messages: RoomChatMessage[];
@@ -226,7 +226,7 @@ export async function fetchRoomsClient(): Promise<Array<{
   name: string;
   createdBy: string;
   createdByName: string;
-  creatorTitle: 'Irmão' | 'Irmã';
+  creatorTitle: 'Irmão' | 'Irmã' | 'Administrador';
   membersCount: number;
   maxMembers: number;
   status: string;
@@ -290,7 +290,7 @@ export async function createRoomClient(data: {
   passcode: string;
   createdBy: string;
   createdByName: string;
-  creatorTitle?: 'Irmão' | 'Irmã';
+  creatorTitle?: 'Irmão' | 'Irmã' | 'Administrador';
   level?: 'basico' | 'medio' | 'avancado';
   maxMembers?: number;
 }): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
@@ -370,7 +370,7 @@ export async function joinRoomClient(
   member: {
     userId: string;
     name: string;
-    title: 'Irmão' | 'Irmã';
+    title: 'Irmão' | 'Irmã' | 'Administrador';
     photoUrl?: string;
     avatarConfig?: any;
     userEmail?: string;
