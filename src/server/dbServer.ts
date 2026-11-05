@@ -25,6 +25,7 @@ export interface ServerDatabaseSchema {
   moderationAlerts?: ModerationAlert[];
   friendships?: Friendship[];
   directMessages?: DirectMessage[];
+  deletedUserIds?: string[];
   lastSavedAt: string;
 }
 
@@ -46,60 +47,18 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
       if (!parsed.moderationAlerts) parsed.moderationAlerts = [];
       if (!parsed.friendships) parsed.friendships = [];
       if (!parsed.directMessages) parsed.directMessages = [];
+      if (!parsed.deletedUserIds) parsed.deletedUserIds = [];
 
-      // Garante que haja usuários da comunidade para interação
-      for (const demo of DEMO_COMMUNITY_USERS) {
-        if (!parsed.users.some((u) => u.id === demo.id)) {
-          parsed.users.push({
-            id: demo.id,
-            name: demo.name,
-            gender: demo.gender,
-            title: demo.title,
-            email: `${demo.id}@apostolosquiz.com`,
-            photoUrl: demo.photoUrl || '/avatar_irmao_casual.jpg',
-            birthDate: '1995-01-01',
-            age: 30,
-            cep: '09111000',
-            street: 'Rua das Oliveiras',
-            neighborhood: 'Jardim Bíblico',
-            city: demo.city || 'São Paulo',
-            state: demo.state || 'SP',
-            churchName: demo.churchName || 'Assembleia de Deus',
-            ministry: demo.ministry || 'Membro em Comunhão',
-            isVip: false,
-            registeredAt: new Date(Date.now() - 86400000 * 30).toISOString(),
-            avatarConfig: demo.avatarConfig,
-            lastActiveAt: new Date(Date.now() - Math.floor(Math.random() * 60000)).toISOString()
-          });
-        }
+      // Filtra permanentemente usuários excluídos
+      if (parsed.deletedUserIds.length > 0) {
+        const deletedSet = new Set(parsed.deletedUserIds);
+        parsed.users = parsed.users.filter((u) => !deletedSet.has(u.id));
       }
 
       return parsed;
     } catch {
-      const initialUsers: UserProfile[] = DEMO_COMMUNITY_USERS.map((demo) => ({
-        id: demo.id,
-        name: demo.name,
-        gender: demo.gender,
-        title: demo.title,
-        email: `${demo.id}@apostolosquiz.com`,
-        photoUrl: demo.photoUrl || '/avatar_irmao_casual.jpg',
-        birthDate: '1995-01-01',
-        age: 30,
-        cep: '09111000',
-        street: 'Rua das Oliveiras',
-        neighborhood: 'Jardim Bíblico',
-        city: demo.city || 'São Paulo',
-        state: demo.state || 'SP',
-        churchName: demo.churchName || 'Assembleia de Deus',
-        ministry: demo.ministry || 'Membro em Comunhão',
-        isVip: false,
-        registeredAt: new Date().toISOString(),
-        avatarConfig: demo.avatarConfig,
-        lastActiveAt: new Date(Date.now() - Math.floor(Math.random() * 60000)).toISOString()
-      }));
-
       const initial: ServerDatabaseSchema = {
-        users: initialUsers,
+        users: [],
         quizProgress: {},
         churches: [],
         transactions: [],
@@ -107,6 +66,7 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
         moderationAlerts: [],
         friendships: [],
         directMessages: [],
+        deletedUserIds: [],
         lastSavedAt: new Date().toISOString()
       };
       await fs.writeFile(DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
@@ -119,6 +79,11 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
       quizProgress: {},
       churches: [],
       transactions: [],
+      rooms: [],
+      moderationAlerts: [],
+      friendships: [],
+      directMessages: [],
+      deletedUserIds: [],
       lastSavedAt: new Date().toISOString()
     };
   }
@@ -1072,24 +1037,132 @@ export async function performAdminActionServer(
     // 8.1. Excluir Pessoa / Usuário Definitivamente do Sistema
     case 'delete_user': {
       const { userId } = payload;
-      const user = db.users.find((u) => u.id === userId);
-      if (user) {
-        if (user.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
-          return { success: false, message: 'O Administrador Geral não pode ser excluído.' };
-        }
-        db.users = db.users.filter((u) => u.id !== userId);
-        if (db.quizProgress && db.quizProgress[userId]) {
-          delete db.quizProgress[userId];
-        }
-        if (db.rooms) {
-          db.rooms.forEach((r) => {
-            r.members = r.members.filter((m) => m.userId !== userId);
-          });
-        }
-        await writeDb(db);
-        return { success: true, message: `Usuário "${user.name}" excluído definitivamente do sistema.` };
+      if (!userId) return { success: false, message: 'ID do usuário não fornecido.' };
+
+      const user = db.users.find(
+        (u) => u.id === userId || (u.email && u.email.toLowerCase() === String(userId).toLowerCase())
+      );
+      const targetId = user?.id || userId;
+      const targetName = user?.name || userId;
+
+      if (user?.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+        return { success: false, message: 'O Administrador Geral não pode ser excluído.' };
       }
-      return { success: false, message: 'Usuário não encontrado.' };
+
+      // Registra como excluído permanentemente
+      if (!db.deletedUserIds) db.deletedUserIds = [];
+      if (!db.deletedUserIds.includes(targetId)) db.deletedUserIds.push(targetId);
+      if (typeof userId === 'string' && !db.deletedUserIds.includes(userId)) db.deletedUserIds.push(userId);
+
+      // Remove de usuários
+      db.users = db.users.filter((u) => u.id !== targetId && u.email?.toLowerCase() !== String(userId).toLowerCase());
+
+      // Remove de progresso
+      if (db.quizProgress) {
+        delete db.quizProgress[targetId];
+        delete db.quizProgress[userId];
+      }
+
+      // Remove de salas
+      if (db.rooms) {
+        db.rooms.forEach((r) => {
+          r.members = r.members.filter((m) => m.userId !== targetId && m.userId !== userId);
+          if (r.messages) {
+            r.messages = r.messages.filter((m) => m.userId !== targetId && m.userId !== userId);
+          }
+        });
+      }
+
+      // Remove amizades
+      if (db.friendships) {
+        db.friendships = db.friendships.filter(
+          (f) => f.requesterId !== targetId && f.addresseeId !== targetId && f.requesterId !== userId && f.addresseeId !== userId
+        );
+      }
+
+      // Remove mensagens diretas
+      if (db.directMessages) {
+        db.directMessages = db.directMessages.filter(
+          (m) => m.fromUserId !== targetId && m.toUserId !== targetId && m.fromUserId !== userId && m.toUserId !== userId
+        );
+      }
+
+      // Remove alertas
+      if (db.moderationAlerts) {
+        db.moderationAlerts = db.moderationAlerts.filter((a) => a.userId !== targetId && a.userId !== userId);
+      }
+
+      await writeDb(db);
+      return { success: true, message: `Usuário "${targetName}" excluído definitivamente do sistema.` };
+    }
+
+    // 8.2. Excluir Todos os Usuários de Teste / Demos
+    case 'delete_test_users': {
+      if (!db.deletedUserIds) db.deletedUserIds = [];
+
+      const testIds = [
+        'user_debora_vasconcelos',
+        'user_lucas_ferreira',
+        'user_sarah_alencar',
+        'user_davi_salomao',
+        'user_rebeca_mello',
+        'user_samuel_prado'
+      ];
+
+      const toDelete = db.users.filter((u) => {
+        if (u.email && u.email.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) return false;
+        return (
+          testIds.includes(u.id) ||
+          u.id.startsWith('demo_') ||
+          u.id.startsWith('seed_') ||
+          (u.email && u.email.endsWith('@apostolosquiz.com'))
+        );
+      });
+
+      const deletedCount = toDelete.length;
+      toDelete.forEach((u) => {
+        if (!db.deletedUserIds!.includes(u.id)) db.deletedUserIds!.push(u.id);
+      });
+      testIds.forEach((id) => {
+        if (!db.deletedUserIds!.includes(id)) db.deletedUserIds!.push(id);
+      });
+
+      const deletedSet = new Set(db.deletedUserIds);
+      db.users = db.users.filter((u) => !deletedSet.has(u.id));
+
+      if (db.quizProgress) {
+        Object.keys(db.quizProgress).forEach((k) => {
+          if (deletedSet.has(k)) delete db.quizProgress[k];
+        });
+      }
+
+      if (db.rooms) {
+        db.rooms.forEach((r) => {
+          r.members = r.members.filter((m) => !deletedSet.has(m.userId));
+          if (r.messages) {
+            r.messages = r.messages.filter((m) => !deletedSet.has(m.userId));
+          }
+        });
+      }
+
+      if (db.friendships) {
+        db.friendships = db.friendships.filter(
+          (f) => !deletedSet.has(f.requesterId) && !deletedSet.has(f.addresseeId)
+        );
+      }
+
+      if (db.directMessages) {
+        db.directMessages = db.directMessages.filter(
+          (m) => !deletedSet.has(m.fromUserId) && !deletedSet.has(m.toUserId)
+        );
+      }
+
+      if (db.moderationAlerts) {
+        db.moderationAlerts = db.moderationAlerts.filter((a) => !deletedSet.has(a.userId));
+      }
+
+      await writeDb(db);
+      return { success: true, message: `${deletedCount} usuários de teste foram excluídos definitivamente do sistema.` };
     }
 
     // 9. Limpar Chat da Sala
@@ -1338,19 +1411,23 @@ export async function handleHeartbeatServer(payload: {
     db.users.push(user);
   }
 
-  // Mantém 3-4 usuários demo online para uma comunidade acolhedora
+  // Mantém demos ativos apenas se NÃO tiverem sido excluídos
   const currentTime = Date.now();
+  const deletedSet = new Set(db.deletedUserIds || []);
   for (let i = 0; i < 4; i++) {
-    const demo = db.users.find((u) => u.id === DEMO_COMMUNITY_USERS[i]?.id);
-    if (demo) {
-      demo.lastActiveAt = new Date(currentTime - i * 35000).toISOString();
+    const demoId = DEMO_COMMUNITY_USERS[i]?.id;
+    if (demoId && !deletedSet.has(demoId)) {
+      const demo = db.users.find((u) => u.id === demoId);
+      if (demo) {
+        demo.lastActiveAt = new Date(currentTime - i * 35000).toISOString();
+      }
     }
   }
 
   await writeDb(db);
 
   const onlineThreshold = currentTime - 120000; // 2 minutos
-  const onlineCount = db.users.filter((u) => u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold).length;
+  const onlineCount = db.users.filter((u) => !deletedSet.has(u.id) && u.lastActiveAt && new Date(u.lastActiveAt).getTime() >= onlineThreshold).length;
 
   return { success: true, onlineCount };
 }
@@ -1359,6 +1436,7 @@ export async function getCommunityOverviewServer(userId: string): Promise<any> {
   const db = await ensureDb();
   const nowTime = Date.now();
   const onlineThreshold = nowTime - 120000; // 2 minutos
+  const deletedSet = new Set(db.deletedUserIds || []);
 
   // Atualiza atividade do chamador
   const caller = db.users.find((u) => u.id === userId);
@@ -1366,11 +1444,14 @@ export async function getCommunityOverviewServer(userId: string): Promise<any> {
     caller.lastActiveAt = new Date().toISOString();
   }
 
-  // Mantém demos ativos
+  // Mantém demos ativos apenas se não foram excluídos
   for (let i = 0; i < 4; i++) {
-    const demo = db.users.find((u) => u.id === DEMO_COMMUNITY_USERS[i]?.id);
-    if (demo) {
-      demo.lastActiveAt = new Date(nowTime - i * 30000).toISOString();
+    const demoId = DEMO_COMMUNITY_USERS[i]?.id;
+    if (demoId && !deletedSet.has(demoId)) {
+      const demo = db.users.find((u) => u.id === demoId);
+      if (demo) {
+        demo.lastActiveAt = new Date(nowTime - i * 30000).toISOString();
+      }
     }
   }
   await writeDb(db);

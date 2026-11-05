@@ -251,20 +251,12 @@ export async function fetchCommunityOverviewClient(
     return data;
   } catch (err) {
     console.warn('[COMMUNITY] Falha ao buscar panorama no servidor:', err);
-    // Fallback gracioso com dados locais
-    const now = Date.now();
-    const mockOnline = DEMO_COMMUNITY_USERS.map((u, i) => ({
-      ...u,
-      isOnline: i < 4,
-      lastActiveAt: new Date(now - i * 45000).toISOString(),
-      friendStatus: 'none' as const
-    }));
     return {
       success: true,
-      totalUsers: DEMO_COMMUNITY_USERS.length + 1,
-      onlineCount: mockOnline.filter((u) => u.isOnline).length + 1,
-      onlineUsers: mockOnline.filter((u) => u.isOnline),
-      allUsers: mockOnline,
+      totalUsers: 1,
+      onlineCount: 1,
+      onlineUsers: [],
+      allUsers: [],
       friends: [],
       pendingRequestsReceived: [],
       pendingRequestsSent: [],

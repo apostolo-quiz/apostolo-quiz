@@ -22,9 +22,10 @@ import {
   Flame,
   ArrowRight,
   ShieldAlert,
-  ChevronLeft
+  ChevronLeft,
+  Trash2
 } from 'lucide-react';
-import { UserProfile } from '@/data/db';
+import { UserProfile, ADMIN_MASTER_EMAIL, performAdminActionClient } from '@/data/db';
 import { AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
 import {
@@ -73,10 +74,49 @@ export default function CommunitySocialModal({
   const currentUserId = userProfile?.id || 'guest_user';
   const currentUserName = userProfile?.name || 'Visitante da Fé';
   const currentUserTitle = userProfile?.title || (avatar.gender === 'female' ? 'Irmã' : 'Irmão');
+  const isMasterAdmin = Boolean(userProfile?.email && userProfile.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase());
 
   const showFeedback = (msg: string) => {
     setFeedback(msg);
     setTimeout(() => setFeedback(null), 3500);
+  };
+
+  // Exclusão de usuário pelo Administrador
+  const handleDeleteUserFromCommunity = async (targetUserId: string, targetUserName: string) => {
+    if (!isMasterAdmin || !userProfile?.email) return;
+    if (!confirm(`ATENÇÃO ADMINISTRADOR:\nDeseja EXCLUIR DEFINITIVAMENTE o usuário "${targetUserName}" do sistema?`)) return;
+    try {
+      const res = await performAdminActionClient('delete_user', { userId: targetUserId }, userProfile.email);
+      if (res.success) {
+        showFeedback(res.message || `Usuário ${targetUserName} excluído com sucesso.`);
+        if (inspectedUser?.id === targetUserId) setInspectedUser(null);
+        if (activeChatUser?.id === targetUserId) setActiveChatUser(null);
+        loadOverview(false);
+      } else {
+        showFeedback(res.message || 'Erro ao excluir usuário.');
+      }
+    } catch (e: any) {
+      showFeedback('Erro: ' + (e?.message || e));
+    }
+  };
+
+  // Exclusão em massa de todos os usuários de teste
+  const handleDeleteAllTestUsersFromCommunity = async () => {
+    if (!isMasterAdmin || !userProfile?.email) return;
+    if (!confirm('ATENÇÃO ADMINISTRADOR:\nDeseja EXCLUIR DEFINITIVAMENTE todos os usuários de teste/demonstração do sistema?')) return;
+    try {
+      const res = await performAdminActionClient('delete_test_users', {}, userProfile.email);
+      if (res.success) {
+        showFeedback(res.message || 'Usuários de teste excluídos com sucesso.');
+        setInspectedUser(null);
+        setActiveChatUser(null);
+        loadOverview(false);
+      } else {
+        showFeedback(res.message || 'Erro ao excluir usuários de teste.');
+      }
+    } catch (e: any) {
+      showFeedback('Erro: ' + (e?.message || e));
+    }
   };
 
   // Carrega panorama da comunidade
@@ -499,6 +539,17 @@ export default function CommunitySocialModal({
                   <Search className="w-3.5 h-3.5" />
                   <span>Explorar ({overview?.allUsers?.length || 0})</span>
                 </button>
+
+                {isMasterAdmin && (
+                  <button
+                    onClick={handleDeleteAllTestUsersFromCommunity}
+                    className="px-2.5 py-1.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white text-xs font-black transition cursor-pointer flex items-center gap-1.5 shadow-sm shrink-0"
+                    title="Excluir permanentemente todos os usuários de teste/demonstração criados pelo sistema"
+                  >
+                    <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                    <span>Excluir Testes</span>
+                  </button>
+                )}
               </div>
 
               {/* Campo de Busca Rápida */}
@@ -534,10 +585,12 @@ export default function CommunitySocialModal({
                       <UserCard
                         key={user.id}
                         user={user}
+                        isAdmin={isMasterAdmin}
                         onInspect={() => setInspectedUser(user)}
                         onOpenChat={() => setActiveChatUser(user)}
                         onAddFriend={() => handleAddFriend(user)}
                         onSendGreeting={(type) => handleSendQuickGreeting(user, type)}
+                        onDeleteUser={isMasterAdmin && user.id !== currentUserId ? () => handleDeleteUserFromCommunity(user.id, user.name) : undefined}
                       />
                     ))}
                   </div>
@@ -564,10 +617,12 @@ export default function CommunitySocialModal({
                       <UserCard
                         key={user.id}
                         user={user}
+                        isAdmin={isMasterAdmin}
                         onInspect={() => setInspectedUser(user)}
                         onOpenChat={() => setActiveChatUser(user)}
                         onRemoveFriend={() => handleRemoveFriend(user)}
                         onSendGreeting={(type) => handleSendQuickGreeting(user, type)}
+                        onDeleteUser={isMasterAdmin && user.id !== currentUserId ? () => handleDeleteUserFromCommunity(user.id, user.name) : undefined}
                       />
                     ))}
                   </div>
@@ -636,10 +691,12 @@ export default function CommunitySocialModal({
                     <UserCard
                       key={user.id}
                       user={user}
+                      isAdmin={isMasterAdmin}
                       onInspect={() => setInspectedUser(user)}
                       onOpenChat={() => setActiveChatUser(user)}
                       onAddFriend={() => handleAddFriend(user)}
                       onSendGreeting={(type) => handleSendQuickGreeting(user, type)}
+                      onDeleteUser={isMasterAdmin && user.id !== currentUserId ? () => handleDeleteUserFromCommunity(user.id, user.name) : undefined}
                     />
                   ))}
                 </div>
@@ -725,6 +782,16 @@ export default function CommunitySocialModal({
                     </button>
                   )}
                 </div>
+
+                {isMasterAdmin && inspectedUser.id !== currentUserId && (
+                  <button
+                    onClick={() => handleDeleteUserFromCommunity(inspectedUser.id, inspectedUser.name)}
+                    className="w-full mt-2 py-2.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white font-black text-xs uppercase flex items-center justify-center gap-1.5 transition cursor-pointer shadow-md"
+                  >
+                    <Trash2 className="w-4 h-4 text-rose-400" />
+                    <span>Excluir Usuário Definitivamente</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -737,20 +804,24 @@ export default function CommunitySocialModal({
 // Subcomponente de Cartão de Usuário da Comunidade
 interface UserCardProps {
   user: CommunityUser;
+  isAdmin?: boolean;
   onInspect: () => void;
   onOpenChat: () => void;
   onAddFriend?: () => void;
   onRemoveFriend?: () => void;
   onSendGreeting?: (type: DirectMessage['interactionType']) => void;
+  onDeleteUser?: () => void;
 }
 
 function UserCard({
   user,
+  isAdmin,
   onInspect,
   onOpenChat,
   onAddFriend,
   onRemoveFriend,
-  onSendGreeting
+  onSendGreeting,
+  onDeleteUser
 }: UserCardProps) {
   return (
     <div className="p-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 transition flex flex-col justify-between gap-3 shadow-md hover:shadow-lg">
@@ -831,6 +902,15 @@ function UserCard({
             <MessageSquare className="w-3 h-3" />
             <span>Chat</span>
           </button>
+          {onDeleteUser && (
+            <button
+              onClick={onDeleteUser}
+              className="p-1.5 rounded-lg bg-rose-950/70 hover:bg-rose-900 border border-rose-500/60 text-rose-300 hover:text-white transition text-[10px] cursor-pointer"
+              title={`Excluir definitivamente o usuário ${user.name} do sistema`}
+            >
+              <Trash2 className="w-3 h-3 text-rose-400" />
+            </button>
+          )}
         </div>
 
         <div>

@@ -161,6 +161,13 @@ function getDatabase() {
     if (!db.transactions) db.transactions = [];
     if (!db.rooms) db.rooms = [];
     if (!db.moderationAlerts) db.moderationAlerts = [];
+    if (!db.friendships) db.friendships = [];
+    if (!db.directMessages) db.directMessages = [];
+    if (!db.deletedUserIds) db.deletedUserIds = [];
+    if (db.deletedUserIds.length > 0) {
+      const delSet = new Set(db.deletedUserIds);
+      db.users = db.users.filter((u) => !delSet.has(u.id));
+    }
     return db;
   } catch (err) {
     console.error('[DATABASE] Erro ao ler banco de dados:', err);
@@ -981,27 +988,123 @@ const server = http.createServer(async (req, res) => {
 
       if (action === 'delete_user') {
         const { userId } = payload;
-        const user = db.users.find((u) => u.id === userId);
-        if (user) {
-          if (user.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
-            res.writeHead(400);
-            res.end(JSON.stringify({ success: false, message: 'O Administrador Geral não pode ser excluído.' }));
-            return;
-          }
-          db.users = db.users.filter((u) => u.id !== userId);
-          db.rooms.forEach((r) => {
-            r.members = r.members.filter((m) => m.userId !== userId);
-          });
-          if (db.leaderboard) {
-            db.leaderboard = db.leaderboard.filter((lb) => lb.userId !== userId);
-          }
-          saveDatabase(db);
-          res.writeHead(200);
-          res.end(JSON.stringify({ success: true, message: `Usuário "${user.name}" excluído definitivamente do sistema.` }));
+        if (!userId) {
+          res.writeHead(400);
+          res.end(JSON.stringify({ success: false, message: 'ID do usuário não fornecido.' }));
           return;
         }
-        res.writeHead(404);
-        res.end(JSON.stringify({ success: false, message: 'Usuário não encontrado.' }));
+        const user = db.users.find((u) => u.id === userId || (u.email && u.email.toLowerCase() === String(userId).toLowerCase()));
+        const targetId = user ? user.id : userId;
+        const targetName = user ? user.name : userId;
+
+        if (user && user.email && user.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+          res.writeHead(400);
+          res.end(JSON.stringify({ success: false, message: 'O Administrador Geral não pode ser excluído.' }));
+          return;
+        }
+
+        if (!db.deletedUserIds) db.deletedUserIds = [];
+        if (!db.deletedUserIds.includes(targetId)) db.deletedUserIds.push(targetId);
+        if (typeof userId === 'string' && !db.deletedUserIds.includes(userId)) db.deletedUserIds.push(userId);
+
+        db.users = db.users.filter((u) => u.id !== targetId && u.id !== userId && u.email?.toLowerCase() !== String(userId).toLowerCase());
+
+        if (db.quizProgress) {
+          delete db.quizProgress[targetId];
+          delete db.quizProgress[userId];
+        }
+
+        db.rooms.forEach((r) => {
+          r.members = r.members.filter((m) => m.userId !== targetId && m.userId !== userId);
+          if (r.messages) {
+            r.messages = r.messages.filter((m) => m.userId !== targetId && m.userId !== userId);
+          }
+        });
+
+        if (db.leaderboard) {
+          db.leaderboard = db.leaderboard.filter((lb) => lb.userId !== targetId && lb.userId !== userId);
+        }
+
+        if (db.friendships) {
+          db.friendships = db.friendships.filter((f) => f.requesterId !== targetId && f.addresseeId !== targetId && f.requesterId !== userId && f.addresseeId !== userId);
+        }
+
+        if (db.directMessages) {
+          db.directMessages = db.directMessages.filter((m) => m.fromUserId !== targetId && m.toUserId !== targetId && m.fromUserId !== userId && m.toUserId !== userId);
+        }
+
+        if (db.moderationAlerts) {
+          db.moderationAlerts = db.moderationAlerts.filter((a) => a.userId !== targetId && a.userId !== userId);
+        }
+
+        saveDatabase(db);
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, message: `Usuário "${targetName}" excluído definitivamente do sistema.` }));
+        return;
+      }
+
+      if (action === 'delete_test_users') {
+        if (!db.deletedUserIds) db.deletedUserIds = [];
+        const testIds = [
+          'user_debora_vasconcelos',
+          'user_lucas_ferreira',
+          'user_sarah_alencar',
+          'user_davi_salomao',
+          'user_rebeca_mello',
+          'user_samuel_prado'
+        ];
+        const toDelete = db.users.filter((u) => {
+          if (u.email && u.email.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) return false;
+          return (
+            testIds.includes(u.id) ||
+            u.id.startsWith('demo_') ||
+            u.id.startsWith('seed_') ||
+            (u.email && u.email.endsWith('@apostolosquiz.com'))
+          );
+        });
+        const deletedCount = toDelete.length;
+        toDelete.forEach((u) => {
+          if (!db.deletedUserIds.includes(u.id)) db.deletedUserIds.push(u.id);
+        });
+        testIds.forEach((id) => {
+          if (!db.deletedUserIds.includes(id)) db.deletedUserIds.push(id);
+        });
+
+        const delSet = new Set(db.deletedUserIds);
+        db.users = db.users.filter((u) => !delSet.has(u.id));
+
+        if (db.quizProgress) {
+          Object.keys(db.quizProgress).forEach((k) => {
+            if (delSet.has(k)) delete db.quizProgress[k];
+          });
+        }
+
+        db.rooms.forEach((r) => {
+          r.members = r.members.filter((m) => !delSet.has(m.userId));
+          if (r.messages) {
+            r.messages = r.messages.filter((m) => !delSet.has(m.userId));
+          }
+        });
+
+        if (db.leaderboard) {
+          db.leaderboard = db.leaderboard.filter((lb) => !delSet.has(lb.userId));
+        }
+
+        if (db.friendships) {
+          db.friendships = db.friendships.filter((f) => !delSet.has(f.requesterId) && !delSet.has(f.addresseeId));
+        }
+
+        if (db.directMessages) {
+          db.directMessages = db.directMessages.filter((m) => !delSet.has(m.fromUserId) && !delSet.has(m.toUserId));
+        }
+
+        if (db.moderationAlerts) {
+          db.moderationAlerts = db.moderationAlerts.filter((a) => !delSet.has(a.userId));
+        }
+
+        saveDatabase(db);
+        res.writeHead(200);
+        res.end(JSON.stringify({ success: true, message: `${deletedCount} usuários de teste foram excluídos definitivamente do sistema.` }));
         return;
       }
 

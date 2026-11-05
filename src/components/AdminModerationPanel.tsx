@@ -177,9 +177,22 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
     const res = await performAdminActionClient('delete_user', { userId: user.id }, adminEmail);
     if (res.success) {
       notify(`Usuário ${user.name} excluído definitivamente com sucesso.`);
+      setUsers((prev) => prev.filter((u) => u.id !== user.id));
+      setStats((prev) => ({ ...prev, totalUsers: Math.max(0, prev.totalUsers - 1) }));
       loadData(true);
     } else {
       notify(res.message || 'Erro ao excluir usuário.', 'error');
+    }
+  };
+
+  const handleDeleteAllTestUsers = async () => {
+    if (!confirm('ATENÇÃO ADMINISTRADOR:\nDeseja EXCLUIR DEFINITIVAMENTE todos os usuários de teste/demonstração criados pelo sistema?\nEsta ação não poderá ser desfeita.')) return;
+    const res = await performAdminActionClient('delete_test_users', {}, adminEmail);
+    if (res.success) {
+      notify(res.message || 'Usuários de teste excluídos com sucesso.');
+      loadData(true);
+    } else {
+      notify(res.message || 'Erro ao excluir usuários de teste.', 'error');
     }
   };
 
@@ -750,16 +763,27 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
               <p className="text-xs text-zinc-400">Total de {users.length} irmãos registrados no banco de dados.</p>
             </div>
 
-            {/* Barra de Busca de Usuários */}
-            <div className="relative w-full sm:w-72">
-              <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <input
-                type="text"
-                value={userSearch}
-                onChange={(e) => setUserSearch(e.target.value)}
-                placeholder="Buscar por nome, email ou cidade..."
-                className="w-full pl-9 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-400"
-              />
+            {/* Barra de Busca de Usuários e Ações Globais */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+              <button
+                onClick={handleDeleteAllTestUsers}
+                className="px-3 py-2 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-500/70 text-rose-300 hover:text-white text-xs font-black transition cursor-pointer flex items-center justify-center gap-1.5 shadow-md shrink-0"
+                title="Excluir permanentemente todos os usuários de teste/demonstração criados pelo sistema"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                <span>Excluir Usuários de Teste</span>
+              </button>
+
+              <div className="relative w-full sm:w-64">
+                <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <input
+                  type="text"
+                  value={userSearch}
+                  onChange={(e) => setUserSearch(e.target.value)}
+                  placeholder="Buscar por nome, email..."
+                  className="w-full pl-9 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-400"
+                />
+              </div>
             </div>
           </div>
 
