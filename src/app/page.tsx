@@ -14,10 +14,10 @@ import MultiplayerRooms from '@/components/MultiplayerRooms';
 import AdminModerationPanel from '@/components/AdminModerationPanel';
 import MemberReferralInviteModal from '@/components/MemberReferralInviteModal';
 import CommunitySocialModal from '@/components/CommunitySocialModal';
-import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync, isUserAdmin, fetchAdminOverviewClient } from '@/data/db';
+import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync, isUserAdmin, fetchAdminOverviewClient, isUserCurrentlySuspended } from '@/data/db';
 import { fetchCommunityOverviewClient, sendHeartbeatClient } from '@/data/communitySocial';
 import { getSupabase } from '@/lib/supabase';
-import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check, ShieldAlert, ShieldCheck, Share2 } from 'lucide-react';
+import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check, ShieldAlert, ShieldCheck, Share2, AlertTriangle } from 'lucide-react';
 
 const APOSTLES_LIST = [
   { name: 'Pedro', side: 'Esquerda de Jesus (1º)', tunic: 'Azul-Marinho e Ocre', desc: 'Forte e robusto, pescador da Galileia, calçando sandálias de couro.' },
@@ -563,6 +563,28 @@ export default function HomePage() {
           </button>
         </div>
       )}
+
+      {/* BANNER DE SUSPENSÃO DISCIPLINAR PARA O USUÁRIO SUSPENSO */}
+      {(() => {
+        const susp = isUserCurrentlySuspended(userProfile);
+        if (!susp.isSuspended) return null;
+        return (
+          <div className="bg-gradient-to-r from-red-950 via-rose-950 to-red-950 border-b-2 border-red-500/80 px-4 py-3 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs shadow-lg">
+            <div className="flex items-center gap-2.5">
+              <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 animate-bounce" />
+              <div>
+                <p className="font-black text-rose-200 text-sm">
+                  ⚠️ Conta em Período de Suspensão Disciplinar ({susp.daysLeft} dias restantes)
+                </p>
+                <p className="text-zinc-300 text-[11px]">
+                  {susp.reason} {susp.until && `• Liberação prevista para ${new Date(susp.until).toLocaleDateString('pt-BR')}`}.
+                  O envio de mensagens em salas e chat comunitário está temporariamente restrito. Você pode continuar estudando a Palavra no Quiz Solo.
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Conteúdo Central Conforme Aba Ativa */}
       <section className="flex-1 max-w-3xl w-full mx-auto px-4 py-4 overflow-y-auto">

@@ -652,6 +652,190 @@ export async function createRoomServer(data: {
   return newRoom;
 }
 
+// ==========================================
+// SISTEMA DE ADVERTÊNCIAS E SUSPENSÕES
+// Regra: 3 advertências no mês -> 15 dias de suspensão
+// Se persistir mais 3 (6 no mês) -> 30 dias de suspensão
+// ==========================================
+
+export function checkUserSuspension(user?: UserProfile | null): {
+  isSuspended: boolean;
+  reason?: string;
+  until?: string | null;
+  daysLeft?: number;
+  untilFormatted?: string;
+  countThisMonth?: number;
+} {
+  if (!user) return { isSuspended: false };
+  if (!user.isSuspended && !user.isBanned) return { isSuspended: false };
+
+  if (user.suspendedUntil) {
+    const untilTime = new Date(user.suspendedUntil).getTime();
+    const nowTime = Date.now();
+    if (nowTime >= untilTime) {
+      // Suspensão expirou naturalmente!
+      user.isSuspended = false;
+      user.isBanned = false;
+      user.suspendedUntil = null;
+      user.suspensionReason = undefined;
+      user.banReason = undefined;
+      return { isSuspended: false };
+    }
+    const daysLeft = Math.max(1, Math.ceil((untilTime - nowTime) / (24 * 60 * 60 * 1000)));
+    const untilFormatted = new Date(user.suspendedUntil).toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    return {
+      isSuspended: true,
+      reason: user.suspensionReason || user.banReason || 'Suspensão temporária por advertências disciplinares',
+      until: user.suspendedUntil,
+      daysLeft,
+      untilFormatted,
+      countThisMonth: user.warningCount || 0
+    };
+  }
+
+  if (user.isBanned) {
+    return {
+      isSuspended: true,
+      reason: user.banReason || 'Suspenso pela administração',
+      until: null,
+      daysLeft: 999,
+      countThisMonth: user.warningCount || 0
+    };
+  }
+
+  return { isSuspended: false };
+}
+
+export function applyUserWarning(
+  db: ServerDatabaseSchema,
+  userId: string,
+  userName: string,
+  reason: string,
+  context: string,
+  issuedBy: 'moderacao_automatica' | 'administrador'
+): {
+  warningId: string;
+  countThisMonth: number;
+  totalWarnings: number;
+  isSuspended: boolean;
+  suspendedDays: number;
+  suspendedUntil?: string;
+  untilFormatted?: string;
+  message: string;
+} {
+  let user = db.users.find(
+    (u) => u.id === userId || (u.email && u.email.toLowerCase() === userId.toLowerCase())
+  );
+
+  if (!user) {
+    user = {
+      id: userId,
+      name: userName || 'Irmão em Comunhão',
+      gender: 'male',
+      title: 'Irmão',
+      email: userId.includes('@') ? userId : '',
+      photoUrl: '/avatar_irmao_casual.jpg',
+      birthDate: '1995-01-01',
+      age: 30,
+      cep: '09111000',
+      street: '',
+      neighborhood: '',
+      city: 'São Paulo',
+      state: 'SP',
+      churchName: 'Igreja Local',
+      ministry: 'Membro',
+      isVip: false,
+      registeredAt: new Date().toISOString()
+    };
+    db.users.push(user);
+  }
+
+  if (!user.warnings) user.warnings = [];
+
+  const warningId = 'warn_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+  user.warnings.unshift({
+    id: warningId,
+    reason: reason || 'Violação das diretrizes comunitárias cristãs',
+    timestamp: new Date().toISOString(),
+    context: context || 'Comunidade Cristã',
+    issuedBy
+  });
+
+  // Contabiliza advertências no mês corrente
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
+
+  const monthlyWarnings = user.warnings.filter((w) => {
+    const d = new Date(w.timestamp);
+    return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
+  });
+
+  const countThisMonth = monthlyWarnings.length;
+  user.warningCount = countThisMonth;
+
+  let isSuspended = false;
+  let suspendedDays = 0;
+  let suspendedUntil: string | undefined = undefined;
+
+  // Regra 2: Se persistir mais 3 advertências (6 ou mais no mês) -> Suspenso por 30 dias
+  if (countThisMonth >= 6) {
+    isSuspended = true;
+    suspendedDays = 30;
+    suspendedUntil = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
+    user.isSuspended = true;
+    user.isBanned = true;
+    user.suspendedUntil = suspendedUntil;
+    user.suspensionReason = `Suspensão disciplinar de 30 dias por reincidência de advertências (${countThisMonth} no mês).`;
+    user.banReason = user.suspensionReason;
+    user.suspensionHistoryCount = (user.suspensionHistoryCount || 0) + 1;
+  }
+  // Regra 1: Atingiu 3 advertências no mês -> Suspenso por 15 dias
+  else if (countThisMonth >= 3) {
+    isSuspended = true;
+    suspendedDays = 15;
+    suspendedUntil = new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString();
+    user.isSuspended = true;
+    user.isBanned = true;
+    user.suspendedUntil = suspendedUntil;
+    user.suspensionReason = `Suspensão disciplinar de 15 dias por atingir 3 advertências no mês (${countThisMonth}/3).`;
+    user.banReason = user.suspensionReason;
+    user.suspensionHistoryCount = (user.suspensionHistoryCount || 0) + 1;
+  } else {
+    // 1 ou 2 advertências (não suspende se a suspensão anterior já expirou)
+    if (!user.suspendedUntil || new Date(user.suspendedUntil).getTime() <= Date.now()) {
+      user.isSuspended = false;
+      user.isBanned = false;
+    }
+  }
+
+  const untilFormatted = suspendedUntil
+    ? new Date(suspendedUntil).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    : undefined;
+
+  let message = '';
+  if (isSuspended) {
+    message = `🚨 CONTA SUSPENSA POR ${suspendedDays} DIAS! Você acumulou ${countThisMonth} advertências no mês e ficará suspenso até ${untilFormatted}. Motivo: ${reason}`;
+  } else {
+    message = `⚠️ Advertência ${countThisMonth}/3 aplicada neste mês. (Ao atingir 3 advertências no mês você será suspenso por 15 dias). Motivo: ${reason}`;
+  }
+
+  return {
+    warningId,
+    countThisMonth,
+    totalWarnings: user.warnings.length,
+    isSuspended,
+    suspendedDays,
+    suspendedUntil,
+    untilFormatted,
+    message
+  };
+}
+
 export async function joinRoomServer(
   roomId: string,
   passcode: string,
@@ -667,14 +851,15 @@ export async function joinRoomServer(
   const db = await ensureDb();
   if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
 
-  // Verifica se o usuário está banido
+  // Verifica se o usuário está suspenso
   const targetUser = db.users.find(
     (u) => u.id === member.userId || (member.userEmail && u.email?.toLowerCase() === member.userEmail.toLowerCase())
   );
-  if (targetUser?.isBanned) {
+  const suspension = checkUserSuspension(targetUser);
+  if (suspension.isSuspended) {
     return {
       success: false,
-      message: `Acesso negado: Seu usuário está suspenso por infração às diretrizes comunitárias.`
+      message: `Acesso negado: Sua conta está suspensa por infrações disciplinares até ${suspension.untilFormatted || 'data determinada'} (${suspension.daysLeft} dias restantes). Motivo: ${suspension.reason}`
     };
   }
 
@@ -770,14 +955,16 @@ export async function sendRoomMessageServer(
   const db = await ensureDb();
   if (!db.rooms) return { success: false, message: 'Nenhuma sala disponível.' };
 
-  // Verifica se o usuário está banido
+  // Verifica se o usuário está suspenso ativamente
   const senderUser = db.users.find(
     (u) => u.id === message.userId || (message.userEmail && u.email?.toLowerCase() === message.userEmail.toLowerCase())
   );
-  if (senderUser?.isBanned) {
+  const suspension = checkUserSuspension(senderUser);
+  if (suspension.isSuspended) {
     return {
       success: false,
-      message: 'Você foi suspenso pela moderação e não pode enviar mensagens.'
+      blocked: true,
+      message: `🚫 Sua conta está suspensa por infrações disciplinares até ${suspension.untilFormatted || 'data determinada'} (${suspension.daysLeft} dias restantes). Motivo: ${suspension.reason}`
     };
   }
 
@@ -799,6 +986,16 @@ export async function sendRoomMessageServer(
   const msgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
 
   if (analysis.isViolating) {
+    // Aplica advertência e calcula regra de suspensão (3 no mês = 15 dias, 6 no mês = 30 dias)
+    const warnRes = applyUserWarning(
+      db,
+      message.userId,
+      message.userName,
+      analysis.reason || 'Conteúdo impróprio',
+      `Sala: ${room.name}`,
+      'moderacao_automatica'
+    );
+
     // Registra Alerta Imediato de Moderação para o Administrador Geral edi.ben.jr@gmail.com
     const alert: ModerationAlert = {
       id: 'alert_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
@@ -810,8 +1007,8 @@ export async function sendRoomMessageServer(
       userTitle: message.userTitle || 'Irmão',
       originalText: message.text.trim(),
       category: analysis.category || 'nocivo',
-      reason: analysis.reason || 'Conteúdo impróprio',
-      severity: analysis.severity || 'alta',
+      reason: `${analysis.reason} (Advertência ${warnRes.countThisMonth}/3 no mês${warnRes.isSuspended ? ` - SUSPENSO POR ${warnRes.suspendedDays} DIAS` : ''})`,
+      severity: 'alta',
       createdAt: new Date().toISOString(),
       status: 'pending'
     };
@@ -819,14 +1016,14 @@ export async function sendRoomMessageServer(
     if (!db.moderationAlerts) db.moderationAlerts = [];
     db.moderationAlerts.unshift(alert);
     await writeDb(db);
-    console.warn(`[MODERAÇÃO BLOQUEIO] Mensagem bloqueada na sala "${room.name}" por ${message.userName}: ${analysis.reason}`);
+    console.warn(`[MODERAÇÃO BLOQUEIO] Mensagem bloqueada na sala "${room.name}" por ${message.userName}: ${analysis.reason} (${warnRes.countThisMonth}/3)`);
 
-    // BLOQUEIA AUTOMATICAMENTE: Não adiciona a mensagem ao chat
+    // Retorna mensagem com o status da advertência e suspensão
     return {
       success: false,
       blocked: true,
       category: analysis.category,
-      message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Nosso ambiente é reservado à edificação bíblica e comunhão dos irmãos, sendo estritamente vedados conteúdos ofensivos, agressivos, de assédio ou movimentos políticos.`
+      message: warnRes.message
     };
   }
 
@@ -872,6 +1069,23 @@ export async function getAdminOverviewServer(adminEmail: string) {
   const alerts = db.moderationAlerts || [];
   const rooms = db.rooms || [];
   const users = db.users || [];
+
+  // Verifica e expira suspensões vencidas automaticamente
+  const nowTime = Date.now();
+  let needSave = false;
+  users.forEach((u) => {
+    if (u.suspendedUntil && new Date(u.suspendedUntil).getTime() <= nowTime) {
+      u.isSuspended = false;
+      u.isBanned = false;
+      u.suspendedUntil = null;
+      u.suspensionReason = undefined;
+      u.banReason = undefined;
+      needSave = true;
+    }
+  });
+  if (needSave) {
+    await writeDb(db);
+  }
 
   return {
     success: true,
@@ -951,27 +1165,41 @@ export async function performAdminActionServer(
     // 4. Advertir Usuário
     case 'warn_user': {
       const { roomId, userId, userName, reason } = payload;
-      const room = db.rooms.find((r) => r.id === roomId);
-      if (room) {
-        room.messages.push({
-          id: 'msg_warn_' + Date.now(),
-          userId: 'system',
-          userName: '🛡️ Moderação do Sistema',
-          userTitle: 'Administrador',
-          text: `⚠️ ADVERTÊNCIA FORMAL para ${userName}: ${reason || 'Comportamento inadequado. Mantenha a santidade e respeito no chat bíblico.'}`,
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          isSystem: true
-        });
-        await writeDb(db);
-        return { success: true, message: `Advertência enviada para ${userName}.` };
+      const warnRes = applyUserWarning(
+        db,
+        userId,
+        userName || 'Participante',
+        reason || 'Comportamento inadequado em desacordo com as diretrizes bíblicas.',
+        roomId ? `Sala: ${roomId}` : 'Painel de Moderação',
+        'administrador'
+      );
+
+      if (roomId && db.rooms) {
+        const room = db.rooms.find((r) => r.id === roomId);
+        if (room) {
+          room.messages.push({
+            id: 'msg_warn_' + Date.now(),
+            userId: 'system',
+            userName: '🛡️ Moderação do Sistema',
+            userTitle: 'Administrador',
+            text: `⚠️ ADVERTÊNCIA FORMAL para ${userName}: ${reason || 'Comportamento inadequado.'} (${warnRes.countThisMonth}/3 no mês${warnRes.isSuspended ? ` - SUSPENSO POR ${warnRes.suspendedDays} DIAS` : ''})`,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            isSystem: true
+          });
+        }
       }
-      return { success: false, message: 'Sala não encontrada.' };
+
+      await writeDb(db);
+      return {
+        success: true,
+        message: `Advertência aplicada a ${userName || userId} (${warnRes.countThisMonth}/3 no mês). ${warnRes.isSuspended ? `SUSPENSO POR ${warnRes.suspendedDays} DIAS (até ${warnRes.untilFormatted})` : ''}`
+      };
     }
 
     // 5. Expulsar Membro da Sala
     case 'kick_member': {
       const { roomId, userId } = payload;
-      const room = db.rooms.find((r) => r.id === roomId);
+      const room = db.rooms?.find((r) => r.id === roomId);
       if (room) {
         const removed = room.members.find((m) => m.userId === userId);
         room.members = room.members.filter((m) => m.userId !== userId);
@@ -990,31 +1218,44 @@ export async function performAdminActionServer(
       return { success: false, message: 'Sala não encontrada.' };
     }
 
-    // 6. Banir Usuário do Sistema
+    // 6. Banir / Suspender Usuário
     case 'ban_user': {
-      const { userId, reason } = payload;
-      const user = db.users.find((u) => u.id === userId);
+      const { userId, reason, days } = payload;
+      const user = db.users.find((u) => u.id === userId || (u.email && u.email.toLowerCase() === String(userId).toLowerCase()));
+      const suspDays = Number(days) || 15;
       if (user) {
         user.isBanned = true;
-        user.banReason = reason || 'Violação recorrente das diretrizes comunitárias';
+        user.isSuspended = true;
+        user.suspendedUntil = new Date(Date.now() + suspDays * 24 * 60 * 60 * 1000).toISOString();
+        user.suspensionReason = reason || `Suspensão disciplinar manual de ${suspDays} dias pelo Administrador.`;
+        user.banReason = user.suspensionReason;
+        user.suspensionHistoryCount = (user.suspensionHistoryCount || 0) + 1;
       }
       // Remove de todas as salas
-      db.rooms.forEach((r) => {
-        r.members = r.members.filter((m) => m.userId !== userId);
-      });
+      if (db.rooms) {
+        db.rooms.forEach((r) => {
+          r.members = r.members.filter((m) => m.userId !== userId);
+        });
+      }
       await writeDb(db);
-      return { success: true, message: `Usuário ${user?.name || userId} suspenso do sistema.` };
+      return { success: true, message: `Usuário ${user?.name || userId} suspenso do sistema por ${suspDays} dias.` };
     }
 
-    // 7. Desbanir Usuário
+    // 7. Revogar Suspensão e Zerar Advertências
+    case 'clear_warnings':
     case 'unban_user': {
       const { userId } = payload;
-      const user = db.users.find((u) => u.id === userId);
+      const user = db.users.find((u) => u.id === userId || (u.email && u.email.toLowerCase() === String(userId).toLowerCase()));
       if (user) {
         user.isBanned = false;
+        user.isSuspended = false;
+        user.suspendedUntil = null;
+        user.suspensionReason = undefined;
         user.banReason = undefined;
+        user.warnings = [];
+        user.warningCount = 0;
         await writeDb(db);
-        return { success: true, message: `Suspensão revogada para ${user.name}.` };
+        return { success: true, message: `Suspensão revogada e advertências zeradas para ${user.name}.` };
       }
       return { success: false, message: 'Usuário não encontrado.' };
     }
@@ -1705,13 +1946,28 @@ export async function sendDirectMessageServer(payload: {
   if (!db.directMessages) db.directMessages = [];
 
   const sender = db.users.find((u) => u.id === payload.fromUserId);
-  if (sender?.isBanned) {
-    return { success: false, message: 'Usuário suspenso pela moderação comunitária.' };
+  const suspension = checkUserSuspension(sender);
+  if (suspension.isSuspended) {
+    return {
+      success: false,
+      blocked: true,
+      message: `🚫 Sua conta está suspensa por infrações disciplinares até ${suspension.untilFormatted || 'data determinada'} (${suspension.daysLeft} dias restantes). Motivo: ${suspension.reason}`
+    };
   }
 
   // Moderação Cristã Automática de Mensagem Direta
   const analysis = analyzeMessageContent(payload.text);
   if (analysis.isViolating) {
+    // Aplica advertência e calcula regra de suspensão (3 no mês = 15 dias, 6 no mês = 30 dias)
+    const warnRes = applyUserWarning(
+      db,
+      payload.fromUserId,
+      payload.fromUserName,
+      analysis.reason || 'Conteúdo impróprio em mensagem direta',
+      'Mensagem Direta',
+      'moderacao_automatica'
+    );
+
     // Alerta Imediato para o Administrador Geral
     const alert: ModerationAlert = {
       id: 'alert_dm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
@@ -1723,8 +1979,8 @@ export async function sendDirectMessageServer(payload: {
       userTitle: (payload.fromUserTitle || 'Irmão') as any,
       originalText: payload.text.trim(),
       category: analysis.category || 'nocivo',
-      reason: analysis.reason || 'Conteúdo impróprio em mensagem direta',
-      severity: analysis.severity || 'alta',
+      reason: `${analysis.reason} (Advertência ${warnRes.countThisMonth}/3 no mês${warnRes.isSuspended ? ` - SUSPENSO POR ${warnRes.suspendedDays} DIAS` : ''})`,
+      severity: 'alta',
       createdAt: new Date().toISOString(),
       status: 'pending'
     };
@@ -1736,7 +1992,7 @@ export async function sendDirectMessageServer(payload: {
     return {
       success: false,
       blocked: true,
-      message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Respeite a santidade e o ambiente bíblico.`
+      message: warnRes.message
     };
   }
 

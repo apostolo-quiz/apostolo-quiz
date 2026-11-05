@@ -3,6 +3,14 @@
 
 export const ADMIN_MASTER_EMAIL = 'edi.ben.jr@gmail.com';
 
+export interface UserWarning {
+  id: string;
+  reason: string;
+  timestamp: string; // Data ISO
+  context?: string; // Local da infração (ex: sala multiplayer, mensagem direta, painel)
+  issuedBy: 'moderacao_automatica' | 'administrador';
+}
+
 export interface UserProfile {
   id: string;
   name: string;
@@ -28,6 +36,13 @@ export interface UserProfile {
   role?: 'admin' | 'moderator' | 'member';
   lastActiveAt?: string;
   friends?: string[];
+  // Sistema de Advertências e Suspensões por Infrações
+  warnings?: UserWarning[];
+  warningCount?: number;
+  isSuspended?: boolean;
+  suspendedUntil?: string | null; // Data ISO até quando dura a suspensão (15 ou 30 dias)
+  suspensionReason?: string;
+  suspensionHistoryCount?: number;
 }
 
 /**
@@ -39,6 +54,48 @@ export function isUserAdmin(profile?: UserProfile | null): boolean {
     return true;
   }
   return Boolean(profile.isAdmin || profile.role === 'admin');
+}
+
+/**
+ * Verifica se o usuário está suspenso ativamente (por advertências de 15 ou 30 dias, ou banimento)
+ */
+export function isUserCurrentlySuspended(profile?: UserProfile | null): {
+  isSuspended: boolean;
+  reason?: string;
+  until?: string | null;
+  daysLeft?: number;
+  warningCount?: number;
+} {
+  if (!profile) return { isSuspended: false };
+  if (!profile.isSuspended && !profile.isBanned) return { isSuspended: false };
+
+  if (profile.suspendedUntil) {
+    const untilTime = new Date(profile.suspendedUntil).getTime();
+    const nowTime = Date.now();
+    if (nowTime >= untilTime) {
+      return { isSuspended: false };
+    }
+    const daysLeft = Math.max(1, Math.ceil((untilTime - nowTime) / (24 * 60 * 60 * 1000)));
+    return {
+      isSuspended: true,
+      reason: profile.suspensionReason || profile.banReason || 'Suspensão temporária por acúmulo de advertências comunitárias',
+      until: profile.suspendedUntil,
+      daysLeft,
+      warningCount: profile.warningCount || 0
+    };
+  }
+
+  if (profile.isBanned) {
+    return {
+      isSuspended: true,
+      reason: profile.banReason || 'Suspenso pela administração',
+      until: null,
+      daysLeft: 999,
+      warningCount: profile.warningCount || 0
+    };
+  }
+
+  return { isSuspended: false };
 }
 
 export interface ChurchRecord {

@@ -18,13 +18,17 @@ import {
   Crown,
   Search,
   ExternalLink,
-  Volume2
+  Volume2,
+  History,
+  Clock,
+  X
 } from 'lucide-react';
 import {
   UserProfile,
   fetchAdminOverviewClient,
   performAdminActionClient,
-  ADMIN_MASTER_EMAIL
+  ADMIN_MASTER_EMAIL,
+  isUserCurrentlySuspended
 } from '@/data/db';
 import { ModerationAlert, MultiplayerRoom } from '@/data/multiplayerRooms';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
@@ -48,6 +52,7 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
   // Filtros
   const [userSearch, setUserSearch] = useState('');
   const [selectedRoomToInspect, setSelectedRoomToInspect] = useState<MultiplayerRoom | null>(null);
+  const [selectedUserWarnings, setSelectedUserWarnings] = useState<UserProfile | null>(null);
 
   const adminEmail = userProfile?.email || ADMIN_MASTER_EMAIL;
 
@@ -143,20 +148,48 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
     }
   };
 
+  const handleWarnUserDirect = async (user: UserProfile) => {
+    const reason = prompt(
+      `Motivo da advertência para ${user.name}:\n(Regra Comunitária: 3 advertências no mês = 15 dias de suspensão; se persistir mais 3 = 30 dias de suspensão)`,
+      'Linguagem ou conduta em desacordo com as diretrizes bíblicas.'
+    );
+    if (!reason) return;
+    const res = await performAdminActionClient('warn_user', { userId: user.id, userName: user.name, reason }, adminEmail);
+    if (res.success) {
+      notify(res.message || `Advertência aplicada a ${user.name}`);
+      loadData(true);
+    } else {
+      notify(res.message || 'Erro ao aplicar advertência.', 'error');
+    }
+  };
+
+  const handleClearWarnings = async (user: UserProfile) => {
+    if (!confirm(`Deseja revogar qualquer suspensão e zerar as advertências de ${user.name}?`)) return;
+    const res = await performAdminActionClient('clear_warnings', { userId: user.id }, adminEmail);
+    if (res.success) {
+      notify(res.message || `Suspensão revogada e advertências zeradas para ${user.name}!`);
+      loadData(true);
+    } else {
+      notify(res.message || 'Erro ao zerar advertências.', 'error');
+    }
+  };
+
   const handleToggleBan = async (user: UserProfile) => {
-    if (user.isBanned) {
-      if (!confirm(`Deseja revogar o banimento de ${user.name}?`)) return;
-      const res = await performAdminActionClient('unban_user', { userId: user.id }, adminEmail);
+    if (user.isBanned || user.isSuspended) {
+      if (!confirm(`Deseja revogar a suspensão/banimento de ${user.name} e zerar as advertências?`)) return;
+      const res = await performAdminActionClient('clear_warnings', { userId: user.id }, adminEmail);
       if (res.success) {
         notify(`Suspensão de ${user.name} revogada!`);
         loadData(true);
       }
     } else {
-      const reason = prompt(`Motivo do banimento para ${user.name}:`, 'Violação das diretrizes comunitárias de respeito e santidade.');
+      const reason = prompt(`Motivo da suspensão para ${user.name}:`, 'Violação das diretrizes comunitárias de respeito e santidade.');
       if (!reason) return;
-      const res = await performAdminActionClient('ban_user', { userId: user.id, reason }, adminEmail);
+      const daysInput = prompt(`Duração da suspensão em dias (15 ou 30 dias):`, '15');
+      const days = Number(daysInput) || 15;
+      const res = await performAdminActionClient('ban_user', { userId: user.id, reason, days }, adminEmail);
       if (res.success) {
-        notify(`Usuário ${user.name} suspenso do sistema.`);
+        notify(`Usuário ${user.name} suspenso do sistema por ${days} dias.`);
         loadData(true);
       }
     }
@@ -790,12 +823,14 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
           <div className="space-y-2.5">
             {filteredUsers.map((u) => {
               const isMaster = u.email?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase();
+              const suspension = isUserCurrentlySuspended(u);
+              const warnCount = u.warningCount ?? (u.warnings?.length || 0);
 
               return (
                 <div
                   key={u.id}
                   className={`p-3.5 sm:p-4 rounded-2xl border transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
-                    u.isBanned
+                    suspension.isSuspended
                       ? 'bg-rose-950/40 border-rose-500/60'
                       : isMaster
                       ? 'bg-amber-950/30 border-amber-500/60 shadow-[0_0_15px_rgba(234,179,8,0.2)]'
@@ -828,9 +863,21 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                             VIP
                           </span>
                         )}
-                        {u.isBanned && (
-                          <span className="text-[10px] bg-rose-600 text-white font-black uppercase px-2 py-0.5 rounded-full animate-pulse">
-                            Suspenso / Banido
+                        {suspension.isSuspended ? (
+                          <span className="text-[10px] bg-rose-600 text-white font-black uppercase px-2 py-0.5 rounded-full animate-pulse flex items-center gap-1 shadow-sm">
+                            <AlertTriangle className="w-3 h-3 text-white" />
+                            Suspenso ({suspension.daysLeft}d restantes • {warnCount} advertências)
+                          </span>
+                        ) : !isMaster && (
+                          <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm ${
+                            warnCount === 0
+                              ? 'bg-emerald-950/80 border border-emerald-500/50 text-emerald-300'
+                              : warnCount === 1
+                              ? 'bg-amber-950/80 border border-amber-500/50 text-amber-300'
+                              : 'bg-rose-950/80 border border-rose-500/60 text-rose-300 animate-pulse'
+                          }`}>
+                            <AlertTriangle className="w-3 h-3" />
+                            {warnCount}/3 Advertências no mês
                           </span>
                         )}
                       </div>
@@ -839,30 +886,51 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                         {u.email || 'Sem e-mail'} • {u.city || 'Brasil'} • {u.churchName || 'Igreja Local'}
                       </p>
 
-                      {u.banReason && (
-                        <p className="text-[11px] text-rose-300 font-bold">
-                          Motivo do bloqueio: {u.banReason}
+                      {suspension.isSuspended && suspension.reason && (
+                        <p className="text-[11px] text-rose-300 font-bold flex items-center gap-1">
+                          <Clock className="w-3 h-3 shrink-0 text-rose-400" />
+                          <span>{suspension.reason} {suspension.until && `(Até ${new Date(suspension.until).toLocaleDateString('pt-BR')})`}</span>
                         </p>
                       )}
                     </div>
                   </div>
 
                   {/* Ações para o Usuário */}
-                  <div className="flex items-center gap-2 self-end sm:self-center">
+                  <div className="flex items-center gap-2 flex-wrap self-end sm:self-center">
                     {!isMaster && (
                       <>
                         <button
+                          onClick={() => handleWarnUserDirect(u)}
+                          className="px-2.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-black transition cursor-pointer flex items-center gap-1"
+                          title="Aplicar advertência disciplinar (3 no mês = 15 dias de suspensão; se persistir mais 3 = 30 dias)"
+                        >
+                          <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+                          <span>Advertir</span>
+                        </button>
+
+                        {u.warnings && u.warnings.length > 0 && (
+                          <button
+                            onClick={() => setSelectedUserWarnings(u)}
+                            className="px-2.5 py-1.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 text-xs font-black transition cursor-pointer flex items-center gap-1"
+                            title="Ver histórico de advertências"
+                          >
+                            <History className="w-3.5 h-3.5 text-purple-400" />
+                            <span>Histórico ({u.warnings.length})</span>
+                          </button>
+                        )}
+
+                        <button
                           onClick={() => handleToggleBan(u)}
                           className={`px-3 py-1.5 rounded-xl text-xs font-black transition cursor-pointer flex items-center gap-1.5 ${
-                            u.isBanned
+                            suspension.isSuspended || u.isBanned
                               ? 'bg-emerald-600 text-zinc-950 hover:bg-emerald-500'
                               : 'bg-zinc-800 border border-zinc-700 text-zinc-300 hover:bg-zinc-700'
                           }`}
                         >
-                          {u.isBanned ? (
+                          {suspension.isSuspended || u.isBanned ? (
                             <>
                               <UserCheck className="w-3.5 h-3.5" />
-                              <span>Reativar</span>
+                              <span>Reativar / Zerar</span>
                             </>
                           ) : (
                             <>
@@ -878,7 +946,7 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                           title={`Excluir definitivamente o usuário ${u.name} do sistema`}
                         >
                           <Trash2 className="w-3.5 h-3.5 text-rose-400" />
-                          <span>Excluir Usuário</span>
+                          <span>Excluir</span>
                         </button>
                       </>
                     )}
@@ -886,6 +954,75 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                 </div>
               );
             })}
+          </div>
+        </div>
+      )}
+
+      {/* MODAL DE HISTÓRICO DE ADVERTÊNCIAS DO DISCÍPULO */}
+      {selectedUserWarnings && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg bg-zinc-950 border-2 border-amber-500 rounded-3xl p-5 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+              <div className="flex items-center gap-2">
+                <History className="w-5 h-5 text-amber-400" />
+                <h3 className="text-sm font-black text-white">
+                  Histórico de Advertências • {selectedUserWarnings.name}
+                </h3>
+              </div>
+              <button
+                onClick={() => setSelectedUserWarnings(null)}
+                className="p-1 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-xs space-y-1">
+              <p className="text-zinc-300">
+                <strong>Regra Comunitária:</strong> 3 advertências no mês geram 15 dias de suspensão; se persistir mais 3 (total de 6 no mês), geram 30 dias de suspensão.
+              </p>
+              <p className="text-amber-300 font-bold">
+                Advertências acumuladas neste mês: {selectedUserWarnings.warningCount ?? (selectedUserWarnings.warnings?.length || 0)}/3
+              </p>
+            </div>
+
+            <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
+              {(!selectedUserWarnings.warnings || selectedUserWarnings.warnings.length === 0) ? (
+                <p className="text-xs text-zinc-500 text-center py-4">Nenhuma advertência registrada para este usuário.</p>
+              ) : (
+                selectedUserWarnings.warnings.map((w, idx) => (
+                  <div key={w.id || idx} className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-xs space-y-1">
+                    <div className="flex items-center justify-between text-[11px] text-zinc-400">
+                      <span className="font-bold text-amber-400">{w.context || 'Comunidade'}</span>
+                      <span>{new Date(w.timestamp).toLocaleString('pt-BR')}</span>
+                    </div>
+                    <p className="text-zinc-200 font-medium">⚠️ {w.reason}</p>
+                    <p className="text-[10px] text-zinc-500">
+                      Aplicada por: {w.issuedBy === 'moderacao_automatica' ? '🤖 Moderação Automática do Chat' : '🛡️ Administrador do Sistema'}
+                    </p>
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="flex gap-2 pt-2 border-t border-zinc-800">
+              <button
+                onClick={() => {
+                  const target = selectedUserWarnings;
+                  setSelectedUserWarnings(null);
+                  handleClearWarnings(target);
+                }}
+                className="flex-1 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-zinc-950 font-black text-xs uppercase transition cursor-pointer"
+              >
+                Perdoar e Zerar Advertências
+              </button>
+              <button
+                onClick={() => setSelectedUserWarnings(null)}
+                className="px-4 py-2 rounded-xl bg-zinc-800 text-zinc-300 text-xs font-bold hover:bg-zinc-700 transition"
+              >
+                Fechar
+              </button>
+            </div>
           </div>
         </div>
       )}
