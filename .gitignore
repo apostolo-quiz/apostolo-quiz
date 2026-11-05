@@ -43,6 +43,8 @@ android/captures/
 .idea/
 *.iml
 *.apk
+*.aab
+/public/download/
 
 # Server local database
 server-data/

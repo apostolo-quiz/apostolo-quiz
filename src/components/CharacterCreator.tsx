@@ -175,27 +175,41 @@ export default function CharacterCreator({
           <button
             type="button"
             onClick={() => handleGenderToggle('male')}
-            className={`py-3.5 px-4 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
+            className={`py-2.5 px-3 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
               isMale
                 ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_20px_rgba(234,179,8,0.5)] scale-102 ring-1 ring-amber-300'
                 : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500'
             }`}
           >
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-950/40 shrink-0 bg-black/60 flex items-center justify-center">
+              <DynamicCharacterAvatar
+                avatar={{ ...avatar, gender: 'male', framing: 'face' }}
+                size="full"
+                showPedestal={false}
+              />
+            </div>
             <span>👨 Irmão</span>
-            {isMale && <Check className="w-5 h-5 text-zinc-950" />}
+            {isMale && <Check className="w-5 h-5 text-zinc-950 ml-auto" />}
           </button>
 
           <button
             type="button"
             onClick={() => handleGenderToggle('female')}
-            className={`py-3.5 px-4 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
+            className={`py-2.5 px-3 rounded-2xl text-sm sm:text-base font-black uppercase tracking-wider border-2 transition flex items-center justify-center gap-2 cursor-pointer ${
               !isMale
                 ? 'bg-amber-500 text-zinc-950 border-amber-300 shadow-[0_0_20px_rgba(234,179,8,0.5)] scale-102 ring-1 ring-amber-300'
                 : 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500'
             }`}
           >
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-950/40 shrink-0 bg-black/60 flex items-center justify-center">
+              <DynamicCharacterAvatar
+                avatar={{ ...avatar, gender: 'female', framing: 'face' }}
+                size="full"
+                showPedestal={false}
+              />
+            </div>
             <span>👩 Irmã</span>
-            {!isMale && <Check className="w-5 h-5 text-zinc-950" />}
+            {!isMale && <Check className="w-5 h-5 text-zinc-950 ml-auto" />}
           </button>
         </div>
       </div>
@@ -278,30 +292,38 @@ export default function CharacterCreator({
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
           {ethnicityList.map((eth) => {
             const isSelected = currentEthnicity === eth.id;
+            const ethPreviewAvatar: AvatarState = {
+              ...avatar,
+              ethnicity: eth.id,
+              framing: 'face'
+            };
 
             return (
               <button
                 key={eth.id}
                 type="button"
                 onClick={() => handleEthnicityChange(eth.id)}
-                className={`p-3 sm:p-3.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
+                className={`p-2.5 sm:p-3 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
                   isSelected
                     ? 'border-amber-400 bg-amber-950/70 shadow-[0_0_20px_rgba(234,179,8,0.45)] scale-102 ring-2 ring-amber-400'
                     : 'border-zinc-800 bg-zinc-900/90 hover:border-amber-500/50 hover:bg-zinc-850'
                 }`}
               >
-                <div
-                  className="w-5 h-5 rounded-full mb-1.5 border border-white/30 shadow-sm"
-                  style={{ backgroundColor: eth.color }}
-                />
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400/60 mb-1.5 shadow-md bg-black shrink-0 flex items-center justify-center">
+                  <DynamicCharacterAvatar
+                    avatar={ethPreviewAvatar}
+                    size="full"
+                    showPedestal={false}
+                  />
+                </div>
                 <span className="font-black text-xs sm:text-sm text-amber-100 leading-tight">
                   {eth.label}
                 </span>
-                <span className="text-[10px] text-zinc-300 font-semibold mt-1 line-clamp-2 leading-tight">
+                <span className="text-[10px] text-zinc-300 font-semibold mt-0.5 line-clamp-2 leading-tight">
                   {eth.clothing}
                 </span>
                 {isSelected && (
-                  <span className="mt-2 text-[9px] bg-emerald-500 text-zinc-950 font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                  <span className="mt-1.5 text-[9px] bg-emerald-500 text-zinc-950 font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
                     <Check className="w-3 h-3" /> Ativo
                   </span>
                 )}
@@ -325,27 +347,38 @@ export default function CharacterCreator({
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
           {AGE_STAGES.map((stg) => {
             const isSelected = currentAgeStage === stg.id;
+            const agePreviewAvatar: AvatarState = {
+              ...avatar,
+              ageStage: stg.id,
+              framing: 'face'
+            };
 
             return (
               <button
                 key={stg.id}
                 type="button"
                 onClick={() => handleAgeStageChange(stg.id)}
-                className={`p-3.5 sm:p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
+                className={`p-3 sm:p-3.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center text-center group relative ${
                   isSelected
                     ? 'border-amber-400 bg-amber-950/70 shadow-[0_0_20px_rgba(234,179,8,0.45)] scale-102 ring-2 ring-amber-400'
                     : 'border-zinc-800 bg-zinc-900/90 hover:border-amber-500/50 hover:bg-zinc-850'
                 }`}
               >
-                <span className="text-3xl mb-1.5">{stg.icon}</span>
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400/60 mb-1.5 shadow-md bg-black shrink-0 flex items-center justify-center">
+                  <DynamicCharacterAvatar
+                    avatar={agePreviewAvatar}
+                    size="full"
+                    showPedestal={false}
+                  />
+                </div>
                 <span className="font-black text-sm text-amber-100">
                   {stg.label}
                 </span>
-                <span className="text-[11px] text-zinc-300 font-medium mt-1">
+                <span className="text-[11px] text-zinc-300 font-medium mt-0.5">
                   {stg.sublabel}
                 </span>
                 {isSelected && (
-                  <span className="mt-2 text-[10px] bg-emerald-500 text-zinc-950 font-black uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                  <span className="mt-1.5 text-[10px] bg-emerald-500 text-zinc-950 font-black uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
                     <Check className="w-3 h-3" /> Escolhido
                   </span>
                 )}

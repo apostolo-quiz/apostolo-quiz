@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Medal, Crown, Star, Flame, User, BookOpen, MapPin, Sparkles, RefreshCw, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { LeaderboardEntry, fetchLeaderboard, UserProfile } from '@/data/db';
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
+import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 
 interface Props {
   userProfile?: UserProfile | null;
@@ -214,11 +215,17 @@ export default function LeaderboardView({
             <div className="absolute -top-4 w-8 h-8 rounded-full bg-slate-300 text-zinc-950 border-2 border-white font-black text-xs flex items-center justify-center shadow-md">
               2º
             </div>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-slate-300 my-2 shadow">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-slate-300 my-2 shadow flex items-center justify-center bg-black/60">
               {topThree[1].avatarConfig ? (
-                <DynamicCharacterAvatar avatar={topThree[1].avatarConfig} size="sm" showPedestal={false} />
+                <DynamicCharacterAvatar avatar={topThree[1].avatarConfig} size="full" showPedestal={false} />
+              ) : topThree[1].photoUrl?.startsWith('data:') ? (
+                <img src={topThree[1].photoUrl} alt="2º" className="w-full h-full object-cover" />
               ) : (
-                <img src={topThree[1].photoUrl || '/avatar_preto_fem_jovem.jpg'} alt="2º" className="w-full h-full object-cover" />
+                <DynamicCharacterAvatar
+                  avatar={{ ...BIOTYPE_PRESETS[0].config, gender: 'female', ethnicity: 'negro', ageStage: 'jovem', outfit: 'casual', framing: 'face' }}
+                  size="full"
+                  showPedestal={false}
+                />
               )}
             </div>
             <h4 className="text-xs font-bold text-slate-200 truncate w-full">{topThree[1].userName}</h4>
@@ -232,11 +239,17 @@ export default function LeaderboardView({
             <div className="absolute -top-5 w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-500 to-amber-300 text-zinc-950 border-2 border-white font-black text-sm flex items-center justify-center shadow-lg">
               <Crown className="w-5 h-5 text-zinc-950 fill-yellow-600" />
             </div>
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-yellow-400 my-2 shadow-[0_0_15px_rgba(234,179,8,0.5)]">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-yellow-400 my-2 shadow-[0_0_15px_rgba(234,179,8,0.5)] flex items-center justify-center bg-black/60">
               {topThree[0].avatarConfig ? (
-                <DynamicCharacterAvatar avatar={topThree[0].avatarConfig} size="sm" showPedestal={false} />
+                <DynamicCharacterAvatar avatar={topThree[0].avatarConfig} size="full" showPedestal={false} />
+              ) : topThree[0].photoUrl?.startsWith('data:') ? (
+                <img src={topThree[0].photoUrl} alt="1º" className="w-full h-full object-cover" />
               ) : (
-                <img src={topThree[0].photoUrl || '/avatar_pardo_masc_adulto.jpg'} alt="1º" className="w-full h-full object-cover" />
+                <DynamicCharacterAvatar
+                  avatar={{ ...BIOTYPE_PRESETS[0].config, gender: 'male', ethnicity: 'pardo', ageStage: 'adulto', outfit: 'casual', framing: 'face' }}
+                  size="full"
+                  showPedestal={false}
+                />
               )}
             </div>
             <h4 className="text-xs sm:text-sm font-black text-yellow-200 truncate w-full">{topThree[0].userName}</h4>
@@ -250,11 +263,17 @@ export default function LeaderboardView({
             <div className="absolute -top-4 w-8 h-8 rounded-full bg-amber-700 text-amber-100 border-2 border-amber-400 font-black text-xs flex items-center justify-center shadow-md">
               3º
             </div>
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-600 my-2 shadow">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-600 my-2 shadow flex items-center justify-center bg-black/60">
               {topThree[2].avatarConfig ? (
-                <DynamicCharacterAvatar avatar={topThree[2].avatarConfig} size="sm" showPedestal={false} />
+                <DynamicCharacterAvatar avatar={topThree[2].avatarConfig} size="full" showPedestal={false} />
+              ) : topThree[2].photoUrl?.startsWith('data:') ? (
+                <img src={topThree[2].photoUrl} alt="3º" className="w-full h-full object-cover" />
               ) : (
-                <img src={topThree[2].photoUrl || '/avatar_branco_masc_jovem.jpg'} alt="3º" className="w-full h-full object-cover" />
+                <DynamicCharacterAvatar
+                  avatar={{ ...BIOTYPE_PRESETS[0].config, gender: 'male', ethnicity: 'branco', ageStage: 'jovem', outfit: 'casual', framing: 'face' }}
+                  size="full"
+                  showPedestal={false}
+                />
               )}
             </div>
             <h4 className="text-xs font-bold text-amber-200 truncate w-full">{topThree[2].userName}</h4>
@@ -306,9 +325,15 @@ export default function LeaderboardView({
                   {/* Avatar Mini */}
                   <div className="w-9 h-9 rounded-full overflow-hidden border border-amber-500/40 shrink-0 bg-black/60 flex items-center justify-center">
                     {entry.avatarConfig ? (
-                      <DynamicCharacterAvatar avatar={entry.avatarConfig} size="sm" showPedestal={false} />
+                      <DynamicCharacterAvatar avatar={entry.avatarConfig} size="full" showPedestal={false} />
+                    ) : entry.photoUrl?.startsWith('data:') ? (
+                      <img src={entry.photoUrl} alt="Avatar" className="w-full h-full object-cover" />
                     ) : (
-                      <img src={entry.photoUrl || '/avatar_irmao_casual.jpg'} alt="Avatar" className="w-full h-full object-cover" />
+                      <DynamicCharacterAvatar
+                        avatar={{ ...BIOTYPE_PRESETS[0].config, gender: 'male', ethnicity: 'pardo', ageStage: 'adulto', outfit: 'casual', framing: 'face' }}
+                        size="full"
+                        showPedestal={false}
+                      />
                     )}
                   </div>
 

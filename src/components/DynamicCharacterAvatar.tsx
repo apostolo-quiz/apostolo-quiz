@@ -23,17 +23,9 @@ export function resolvePixarImage(avatar: AvatarState): string {
   const isFemale = avatar.gender === 'female';
   const ethnicity = avatar.ethnicity || 'pardo';
   const age = avatar.ageStage || 'adulto';
-  const outfit = avatar.outfit || 'casual';
 
-  // Trajes especiais opcionais
-  if (outfit === 'rigor') {
-    return isFemale ? '/avatar_irma_arigor.jpg' : '/avatar_irmao_arigor.jpg';
-  }
-  if (outfit === 'medieval') {
-    return isFemale ? '/avatar_irma_medieval.jpg' : '/avatar_irmao_medieval.jpg';
-  }
-
-  // Roupas casuais de igreja padrão
+  // Matriz Oficial dos 40 Avatares 3D Cristãos da pasta avatares/
+  // 5 Etnias x 2 Gêneros x 4 Faixas Etárias
   const ethKey = ethnicity === 'negro' ? 'preto' : ethnicity === 'asiatico' ? 'amarelo' : ethnicity;
   const genderKey = isFemale ? 'fem' : 'masc';
 
@@ -72,20 +64,24 @@ export default function DynamicCharacterAvatar({
     full: 'w-full h-full'
   }[size];
 
+  const isFullSize = size === 'full';
+
   return (
     <div
       onClick={onClick}
       style={{
-        borderColor: activeBorder,
-        boxShadow: `0 0 25px ${activeGlow}`
+        borderColor: isFullSize ? 'transparent' : activeBorder,
+        boxShadow: isFullSize ? 'none' : `0 0 25px ${activeGlow}`
       }}
-      className={`relative select-none overflow-hidden rounded-full border-4 sm:border-5 bg-gradient-to-b from-amber-950/70 via-black to-zinc-950 flex items-center justify-center shrink-0 ${sizeClasses} ${className} ${
+      className={`relative select-none overflow-hidden rounded-full ${
+        isFullSize ? 'border-0' : 'border-4 sm:border-5'
+      } bg-gradient-to-b from-amber-950/70 via-black to-zinc-950 flex items-center justify-center shrink-0 ${sizeClasses} ${className} ${
         onClick ? 'cursor-pointer hover:scale-105 transition-transform' : ''
       }`}
     >
       <img
         key={`${baseImg}_${outfitKey}_${currentFraming}`}
-        src={`${baseImg}?v=20261104i`}
+        src={`${baseImg}?v=20261105e`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
         style={
           isFullBody
@@ -94,8 +90,8 @@ export default function DynamicCharacterAvatar({
                 transformOrigin: 'center center'
               }
             : {
-                transform: 'translateY(45%) scale(2.1)',
-                transformOrigin: 'center center'
+                transform: 'scale(2.7)',
+                transformOrigin: '50% 0%'
               }
         }
         className={`w-full h-full ${
@@ -108,7 +104,7 @@ export default function DynamicCharacterAvatar({
       <div className="absolute inset-0 rounded-full pointer-events-none bg-gradient-to-b from-amber-300/15 via-transparent to-black/30"></div>
 
       {/* Selo do Personagem no rodapé do avatar */}
-      {size !== 'sm' && size !== 'md' && (
+      {size !== 'sm' && size !== 'md' && size !== 'full' && (
         <div
           className={`absolute ${
             isFullBody ? 'bottom-1 sm:bottom-1.5' : 'bottom-1.5 sm:bottom-2'

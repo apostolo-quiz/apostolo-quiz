@@ -18,7 +18,8 @@ import {
   Clock,
   Church,
   User,
-  Users
+  Users,
+  Share2
 } from 'lucide-react';
 
 interface Props {
@@ -32,7 +33,9 @@ interface Props {
   onOpenRanking: () => void;
   onOpenAvatar: () => void;
   onOpenChurches: () => void;
+  onOpenRooms?: () => void;
   onOpenModules?: () => void;
+  onOpenInvite?: () => void;
 }
 
 export default function HomeJourneyView({
@@ -45,6 +48,8 @@ export default function HomeJourneyView({
   onOpenRanking,
   onOpenAvatar,
   onOpenChurches,
+  onOpenRooms,
+  onOpenInvite,
 }: Props) {
   const title = userProfile?.title || (avatar.gender === 'male' ? 'Irmão' : 'Irmã');
   const displayName = userProfile?.name || 'Visitante da Fé';
@@ -68,7 +73,7 @@ export default function HomeJourneyView({
               {userProfile?.photoUrl && userProfile.photoUrl.startsWith('data:') ? (
                 <img src={userProfile.photoUrl} alt="Foto" className="w-full h-full object-cover" />
               ) : (
-                <DynamicCharacterAvatar avatar={avatar} size="lg" showPedestal={false} />
+                <DynamicCharacterAvatar avatar={avatar} size="full" showPedestal={false} />
               )}
             </div>
             <span className="absolute -bottom-1 -right-1 bg-amber-500 text-zinc-950 text-[9px] font-black uppercase px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
@@ -93,6 +98,37 @@ export default function HomeJourneyView({
           </div>
         </div>
       </div>
+
+      {/* 1.1 Banner de Indicação Bíblica Individual (Baixar APK ou Play Store) */}
+      {onOpenInvite && (
+        <div className="relative overflow-hidden rounded-2xl border-2 border-emerald-500/50 bg-gradient-to-r from-emerald-950/80 via-zinc-950 to-zinc-950 p-4 sm:p-5 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 text-center sm:text-left">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 flex items-center justify-center shrink-0 shadow-lg">
+              <Share2 className="w-6 h-6 animate-pulse" />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase tracking-wider mb-1">
+                <Sparkles className="w-3 h-3" /> Ganhe +200 XP por Indicação
+              </div>
+              <h3 className="text-base sm:text-lg font-serif font-black text-white">
+                Convide Irmãos da sua Igreja!
+              </h3>
+              <p className="text-xs text-zinc-300 max-w-md">
+                Compartilhe seu link exclusivo com download direto do APK Android ou via Google Play Store.
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={onOpenInvite}
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-zinc-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 transition transform active:scale-95 cursor-pointer shrink-0"
+          >
+            <Share2 className="w-4 h-4" />
+            <span>Gerar Convite Individual</span>
+          </button>
+        </div>
+      )}
 
       {/* 2. Seleção de Nível Bíblico (Básico / Médio / Avançado) */}
       <div className="space-y-3">
@@ -199,6 +235,36 @@ export default function HomeJourneyView({
         </div>
       </div>
 
+      {/* NOVO: Card de Salas Bíblicas e Disputa com até 20 Amigos */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-amber-950/70 via-zinc-900 to-zinc-950 border-2 border-amber-500/50 rounded-3xl p-5 sm:p-6 shadow-2xl space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="p-3.5 rounded-2xl bg-amber-500/20 border-2 border-amber-400/60 text-amber-300 shrink-0">
+              <Users className="w-8 h-8 text-amber-400" />
+            </div>
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-black uppercase tracking-wider">
+                <Sparkles className="w-3 h-3 text-amber-400" /> Salas de Disputa • Até 20 Amigos
+              </div>
+              <h4 className="text-lg sm:text-xl font-serif font-black text-white">
+                Disputa Bíblica com Palavra-Chave
+              </h4>
+              <p className="text-xs text-zinc-300 max-w-lg leading-relaxed">
+                Crie um grupo como <strong>"Herdeiros com Cristo"</strong> (palavra-chave: <strong>"Nova Aliança"</strong>), convide seus amigos, dispute com temporizador de 1 minuto, intervalo de 20s e chat exclusivo da sala!
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={onOpenRooms}
+            className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:brightness-110 text-zinc-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.3)] transition cursor-pointer shrink-0"
+          >
+            <Users className="w-4 h-4" />
+            <span>Abrir Salas de Disputa</span>
+          </button>
+        </div>
+      </div>
+
       {/* 3. Métricas de Uso e Desempenho Espiritual */}
       <div className="space-y-3 pt-2">
         <h3 className="text-sm sm:text-base font-black text-amber-300 uppercase tracking-wider flex items-center gap-2 px-1">
@@ -279,7 +345,20 @@ export default function HomeJourneyView({
       </div>
 
       {/* 5. Atalhos Rápidos da Fraternidade */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-1">
+        <button
+          onClick={onOpenRooms}
+          className="p-3.5 rounded-2xl bg-zinc-900/90 border border-amber-500/40 hover:border-amber-400 flex items-center gap-3 text-left transition cursor-pointer group shadow-lg"
+        >
+          <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300 group-hover:bg-amber-500/30 transition">
+            <Users className="w-5 h-5 text-amber-400" />
+          </div>
+          <div>
+            <div className="text-xs font-black text-white group-hover:text-amber-300 transition">Salas de Disputa</div>
+            <div className="text-[10px] text-zinc-400">Até 20 amigos com chave</div>
+          </div>
+        </button>
+
         <button
           onClick={onOpenAvatar}
           className="p-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 flex items-center gap-3 text-left transition cursor-pointer group"
@@ -289,20 +368,20 @@ export default function HomeJourneyView({
           </div>
           <div>
             <div className="text-xs font-black text-white group-hover:text-amber-300 transition">Meu Avatar 3D</div>
-            <div className="text-[10px] text-zinc-400">Personalizar personagem bíblico</div>
+            <div className="text-[10px] text-zinc-400">Personalizar personagem</div>
           </div>
         </button>
 
         <button
           onClick={onStartQuiz}
-          className="p-3.5 rounded-2xl bg-zinc-900/90 border border-amber-500/40 hover:border-amber-400 flex items-center gap-3 text-left transition cursor-pointer group"
+          className="p-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 hover:border-amber-500/50 flex items-center gap-3 text-left transition cursor-pointer group"
         >
-          <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300 group-hover:bg-amber-500/30 transition">
+          <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-300 group-hover:bg-amber-500/20 transition">
             <BookOpen className="w-5 h-5 text-amber-400" />
           </div>
           <div>
             <div className="text-xs font-black text-white group-hover:text-amber-300 transition">Quiz da Bíblia</div>
-            <div className="text-[10px] text-zinc-400">Gênesis a Apocalipse (100% Bíblia)</div>
+            <div className="text-[10px] text-zinc-400">Gênesis a Apocalipse</div>
           </div>
         </button>
 

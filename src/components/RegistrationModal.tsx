@@ -37,7 +37,7 @@ import {
 } from 'lucide-react';
 
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
-import { AvatarState } from '@/data/avatarConfig';
+import { AvatarState, BIOTYPE_PRESETS } from '@/data/avatarConfig';
 import { getSupabase } from '@/lib/supabase';
 
 interface Props {
@@ -97,6 +97,14 @@ export default function RegistrationModal({
   const [newChurchLeader, setNewChurchLeader] = useState('');
   const [newChurchAddress, setNewChurchAddress] = useState('');
   const [newChurchSuccess, setNewChurchSuccess] = useState('');
+
+  // Código de Indicação Individual
+  const [referralCodeInput, setReferralCodeInput] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('apostolos_referred_by') || '';
+    }
+    return '';
+  });
 
   // Busca abrangente de todas as igrejas evangélicas por geolocalização e raio geográfico
   const triggerLiveChurchSearch = async (
@@ -424,6 +432,17 @@ export default function RegistrationModal({
     };
 
     saveUserProfile(profile);
+
+    if (referralCodeInput.trim()) {
+      localStorage.setItem('apostolos_referred_by', referralCodeInput.trim().toUpperCase());
+      const alreadyClaimed = localStorage.getItem('apostolos_referral_claimed');
+      if (!alreadyClaimed) {
+        localStorage.setItem('apostolos_referral_claimed', 'true');
+        const currentScore = parseInt(localStorage.getItem('apostolos_score') || '1500', 10);
+        localStorage.setItem('apostolos_score', String(currentScore + 200));
+      }
+    }
+
     onRegistered(profile);
   };
 
@@ -574,10 +593,21 @@ export default function RegistrationModal({
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-amber-400 shadow-md bg-black flex items-center justify-center">
                 {photoUrl && photoUrl.startsWith('data:') ? (
                   <img src={photoUrl} alt="Foto" className="w-full h-full object-cover" />
-                ) : avatar ? (
-                  <DynamicCharacterAvatar avatar={avatar} size="md" showPedestal={false} />
                 ) : (
-                  <img src={photoUrl} alt="Foto" className="w-full h-full object-cover" />
+                  <DynamicCharacterAvatar
+                    avatar={
+                      avatar || {
+                        ...BIOTYPE_PRESETS[0].config,
+                        gender: gender,
+                        ethnicity: 'pardo',
+                        ageStage: 'adulto',
+                        outfit: 'casual',
+                        framing: 'face'
+                      }
+                    }
+                    size="full"
+                    showPedestal={false}
+                  />
                 )}
                 <label className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 flex items-center justify-center cursor-pointer transition">
                   <Camera className="w-5 h-5 text-white" />
@@ -1091,6 +1121,23 @@ export default function RegistrationModal({
                 ))}
               </select>
             </div>
+          </div>
+
+          {/* Seção 5: Código de Indicação Individual de Amigo ou Irmão */}
+          <div className="bg-zinc-950 p-3 rounded-2xl border border-emerald-500/30">
+            <label className="block text-[11px] font-bold uppercase text-emerald-400 mb-1 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Código de Indicação (Amigo / Irmão):
+            </label>
+            <input
+              type="text"
+              value={referralCodeInput}
+              onChange={(e) => setReferralCodeInput(e.target.value.toUpperCase())}
+              placeholder="Ex: EDINO-7873 (opcional)"
+              className="w-full bg-zinc-900 border border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-zinc-100 font-mono focus:border-emerald-400 focus:outline-hidden uppercase placeholder:text-zinc-600"
+            />
+            <p className="text-[10px] text-zinc-400 mt-1">
+              Indicado por outro irmão? Digite o código dele para vocês dois ganharem <strong className="text-emerald-300">+200 Pontos de Fé XP</strong>.
+            </p>
           </div>
 
           {/* Botões de Ação */}

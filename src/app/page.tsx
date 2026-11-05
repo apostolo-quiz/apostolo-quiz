@@ -9,11 +9,13 @@ import RegistrationModal from '@/components/RegistrationModal';
 import { BIOTYPE_PRESETS, AvatarState } from '@/data/avatarConfig';
 import DynamicCharacterAvatar from '@/components/DynamicCharacterAvatar';
 import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
-import BrazilDonationBanner from '@/components/BrazilDonationBanner';
 import LeaderboardView from '@/components/LeaderboardView';
-import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync } from '@/data/db';
+import MultiplayerRooms from '@/components/MultiplayerRooms';
+import AdminModerationPanel from '@/components/AdminModerationPanel';
+import MemberReferralInviteModal from '@/components/MemberReferralInviteModal';
+import { UserProfile, getSavedUserProfile, saveUserProfile, fullServerSync, isUserAdmin, fetchAdminOverviewClient } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
-import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check } from 'lucide-react';
+import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check, ShieldAlert, ShieldCheck, Share2 } from 'lucide-react';
 
 const APOSTLES_LIST = [
   { name: 'Pedro', side: 'Esquerda de Jesus (1º)', tunic: 'Azul-Marinho e Ocre', desc: 'Forte e robusto, pescador da Galileia, calçando sandálias de couro.' },
@@ -31,7 +33,7 @@ const APOSTLES_LIST = [
 ];
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'ranking' | 'avatar' | 'apostles' | 'churches'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'rooms' | 'ranking' | 'avatar' | 'apostles' | 'churches' | 'admin'>('home');
   const [selectedLevel, setSelectedLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
@@ -40,18 +42,42 @@ export default function HomePage() {
   // Perfil do Irmão / Irmã
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+  const [showInviteModal, setShowInviteModal] = useState(false);
   const [serverSyncStatus, setServerSyncStatus] = useState<'synced' | 'syncing' | 'offline'>('syncing');
-  const [pixCopied, setPixCopied] = useState(false);
 
-  const handleCopyPix = (e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    navigator.clipboard.writeText('6431189@vakinha.com.br');
-    setPixCopied(true);
-    setTimeout(() => setPixCopied(false), 2500);
-  };
+  // Moderação e Acesso Master do Administrador Geral (edi.ben.jr@gmail.com)
+  const isAdmin = isUserAdmin(userProfile);
+  const [pendingAlertsCount, setPendingAlertsCount] = useState(0);
+
+  // Monitoramento contínuo em segundo plano para alertas de moderação (sexual, agressão, assédio, nocivo)
+  useEffect(() => {
+    if (!userProfile?.email || !isAdmin) return;
+
+    const checkAlerts = async () => {
+      try {
+        const res = await fetchAdminOverviewClient(userProfile.email);
+        if (res && res.stats && typeof res.stats.pendingAlerts === 'number') {
+          setPendingAlertsCount(res.stats.pendingAlerts);
+        }
+      } catch (e) {}
+    };
+
+    checkAlerts();
+    const interval = setInterval(checkAlerts, 5000);
+    return () => clearInterval(interval);
+  }, [userProfile?.email, isAdmin]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Captura código de indicação individual via URL (?ref=CODIGO)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const refCode = urlParams.get('ref');
+        if (refCode) {
+          localStorage.setItem('apostolos_referred_by', refCode.trim().toUpperCase());
+        }
+      } catch (e) {}
+
       const savedProfile = getSavedUserProfile();
       const savedMods = localStorage.getItem('apostolos_completed_modules');
       const savedAvatar = localStorage.getItem('apostolos_avatar_state');
@@ -259,6 +285,14 @@ export default function HomePage() {
         />
       )}
 
+      {/* Modal de Convite Bíblico Individual e Indicação de Irmãos (APK / Play Store) */}
+      <MemberReferralInviteModal
+        isOpen={showInviteModal}
+        onClose={() => setShowInviteModal(false)}
+        userProfile={userProfile}
+        avatar={avatar}
+      />
+
       {/* Cabeçalho com o LOGO OFICIAL Retangular Original */}
       <header className="relative border-b border-amber-500/20 bg-gradient-to-b from-black via-zinc-950 to-zinc-950 pb-3 w-full max-w-full overflow-hidden">
         {/* Banner do Logo: Com margem segura para smartphones e proporção perfeita */}
@@ -299,7 +333,7 @@ export default function HomePage() {
 
         {/* Barra de Status do Irmão / Irmã (100% Responsiva sem ultrapassar margens) */}
         <div className="max-w-3xl mx-3 sm:mx-auto mt-2.5 bg-zinc-900/95 border border-amber-500/30 rounded-2xl p-2.5 sm:px-4 sm:py-2.5 text-xs shadow-lg space-y-2">
-          {/* Linha Superior: Nome do Irmão (Esquerda) e Chave Pix Doação Alinhada à Margem Direita */}
+          {/* Linha Superior: Nome do Irmão (Esquerda) e Selo de Comunhão à Direita */}
           <div className="flex items-center justify-between gap-2 w-full flex-wrap sm:flex-nowrap">
             {/* Lado Esquerdo: Perfil e Avatar */}
             <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
@@ -312,7 +346,7 @@ export default function HomePage() {
                   {userProfile?.photoUrl && userProfile.photoUrl.startsWith('data:') ? (
                     <img src={userProfile.photoUrl} alt="Foto" className="w-full h-full object-cover" />
                   ) : (
-                    <DynamicCharacterAvatar avatar={avatar} size="sm" showPedestal={false} />
+                    <DynamicCharacterAvatar avatar={avatar} size="full" showPedestal={false} />
                   )}
                 </div>
                 <span className="text-zinc-200 font-bold truncate max-w-[120px] sm:max-w-[190px] text-xs">
@@ -343,28 +377,42 @@ export default function HomePage() {
                   <Crown className="w-2.5 h-2.5 text-amber-400" /> PRO
                 </span>
               )}
+
+              {/* Distintivo Oficial de Administrador Geral (edi.ben.jr@gmail.com) */}
+              {isAdmin && (
+                <span className="bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 text-[9px] font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 shadow-md shrink-0">
+                  <Crown className="w-2.5 h-2.5" /> Admin Geral
+                </span>
+              )}
             </div>
 
-            {/* Lado Direito: Chave Pix para Doação Alinhado e Justificado ao Nome do Irmão Próximo à Margem Direita */}
-            <button
-              onClick={handleCopyPix}
-              className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-950/80 via-zinc-900 to-amber-950/80 hover:from-emerald-900 hover:to-amber-900 border border-emerald-500/60 hover:border-emerald-400 text-emerald-300 px-2.5 py-1 rounded-xl text-[10px] sm:text-xs font-semibold shadow transition-all cursor-pointer shrink-0 ml-auto group"
-              title="Clique para copiar a Chave Pix de Doação: 6431189@vakinha.com.br"
-            >
-              <span className="text-[9px] sm:text-[10px] font-black text-amber-300 uppercase tracking-wider">
-                Pix Doação:
-              </span>
-              <span className="font-mono text-zinc-100 font-bold text-[10px] sm:text-xs select-all">
-                6431189@vakinha.com.br
-              </span>
-              {pixCopied ? (
-                <span className="flex items-center gap-0.5 text-emerald-400 font-bold text-[10px] animate-bounce">
-                  <Check className="w-3.5 h-3.5" /> Copiado!
-                </span>
-              ) : (
-                <Copy className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform shrink-0" />
+            {/* Lado Direito: Selo Oficial e Botão de Acesso ao Painel Admin */}
+            <div className="flex items-center gap-2 shrink-0 ml-auto">
+              {isAdmin && (
+                <button
+                  onClick={() => setActiveTab('admin')}
+                  className={`relative text-[10px] sm:text-xs font-black uppercase px-2.5 py-1 rounded-xl flex items-center gap-1.5 transition cursor-pointer ${
+                    activeTab === 'admin'
+                      ? 'bg-rose-600 text-white shadow-lg'
+                      : 'bg-zinc-950 border border-amber-500/50 text-amber-300 hover:bg-amber-950/40'
+                  }`}
+                  title="Acesso total à Moderação, Chat, Salas e Usuários"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Painel Admin</span>
+                  {pendingAlertsCount > 0 && (
+                    <span className="bg-rose-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full animate-bounce">
+                      {pendingAlertsCount}
+                    </span>
+                  )}
+                </button>
               )}
-            </button>
+
+              <div className="flex items-center gap-1.5 bg-zinc-950/80 border border-amber-500/30 text-amber-300 px-2.5 py-1 rounded-xl text-[10px] sm:text-xs font-semibold shadow shrink-0">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>Em Comunhão</span>
+              </div>
+            </div>
           </div>
 
           {/* Linha Inferior: Conexão com Servidor, Quiz Bíblico e Pontuação XP */}
@@ -392,6 +440,34 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
+              {isAdmin && (
+                <button
+                  onClick={() => setActiveTab('admin')}
+                  className="text-[11px] text-rose-300 hover:text-rose-200 font-bold flex items-center gap-1 cursor-pointer shrink-0 bg-rose-950/60 border border-rose-600/50 px-2 py-0.5 rounded-full"
+                >
+                  <ShieldAlert className="w-3 h-3 text-rose-400" />
+                  <span>Moderação {pendingAlertsCount > 0 ? `(${pendingAlertsCount})` : ''}</span>
+                </button>
+              )}
+
+              <button
+                onClick={() => setShowInviteModal(true)}
+                className="text-[11px] text-emerald-300 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full"
+                title="Convidar amigos e irmãos para baixar o APK ou pela Play Store"
+              >
+                <Share2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span>💌 Convidar</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('rooms')}
+                className="text-[11px] text-amber-300 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded-full"
+                title="Salas Bíblicas para disputar com até 20 amigos com palavra-chave"
+              >
+                <Users className="w-3.5 h-3.5 text-amber-400" />
+                <span>Salas (Até 20)</span>
+              </button>
+
               <button
                 onClick={() => setActiveTab('quiz')}
                 className="text-[11px] text-amber-400 font-bold hover:underline flex items-center gap-1 cursor-pointer shrink-0"
@@ -414,11 +490,26 @@ export default function HomePage() {
         </div>
       </header>
 
+      {/* BANNER DE ALERTA DE MODERAÇÃO EM TEMPO REAL PARA O ADMINISTRADOR GERAL */}
+      {isAdmin && pendingAlertsCount > 0 && activeTab !== 'admin' && (
+        <div className="bg-rose-950 border-b-2 border-rose-500/80 px-4 py-2.5 text-white flex items-center justify-between text-xs shadow-lg animate-pulse">
+          <div className="flex items-center gap-2 max-w-[80%]">
+            <ShieldAlert className="w-5 h-5 text-rose-400 shrink-0" />
+            <span>
+              <strong>Atenção Administrador:</strong> Há {pendingAlertsCount} alerta(s) de conteúdo impróprio (sexual, assédio, agressivo ou nocivo) detectado nos chats das salas!
+            </span>
+          </div>
+          <button
+            onClick={() => setActiveTab('admin')}
+            className="bg-rose-600 hover:bg-rose-500 text-white font-black px-3 py-1 rounded-xl shadow cursor-pointer text-xs shrink-0 uppercase"
+          >
+            Abrir Moderação
+          </button>
+        </div>
+      )}
+
       {/* Conteúdo Central Conforme Aba Ativa */}
       <section className="flex-1 max-w-3xl w-full mx-auto px-4 py-4 overflow-y-auto">
-        {/* Ícone Pequeno de Doação Escrito - Visível em Todos os Painéis */}
-        <BrazilDonationBanner className="mb-2" />
-
         {activeTab === 'home' && (
           <HomeJourneyView
             userProfile={userProfile}
@@ -430,6 +521,17 @@ export default function HomePage() {
             onOpenRanking={() => setActiveTab('ranking')}
             onOpenAvatar={() => setActiveTab('avatar')}
             onOpenChurches={() => setActiveTab('churches')}
+            onOpenRooms={() => setActiveTab('rooms')}
+            onOpenInvite={() => setShowInviteModal(true)}
+          />
+        )}
+
+        {/* Salas Bíblicas para disputar com até 20 amigos com palavra-chave */}
+        {activeTab === 'rooms' && (
+          <MultiplayerRooms
+            userProfile={userProfile}
+            avatar={avatar}
+            onGoToSoloQuiz={() => setActiveTab('quiz')}
           />
         )}
 
@@ -455,6 +557,7 @@ export default function HomePage() {
             onOpenLeaderboard={() => setActiveTab('ranking')}
             initialLevel={selectedLevel}
             onLevelChange={setSelectedLevel}
+            onOpenRooms={() => setActiveTab('rooms')}
           />
         )}
 
@@ -482,6 +585,15 @@ export default function HomePage() {
 
         {/* Mapeamento de Igrejas e Ministérios */}
         {activeTab === 'churches' && <ChurchDirectory />}
+
+        {/* PAINEL DE MODERAÇÃO E ADMINISTRAÇÃO GERAL SUPREMA (edi.ben.jr@gmail.com) */}
+        {activeTab === 'admin' && (
+          <AdminModerationPanel
+            userProfile={userProfile}
+            onOpenRoom={() => setActiveTab('rooms')}
+            onBackToHome={() => setActiveTab('home')}
+          />
+        )}
 
         {/* Aba dos 12 Apóstolos e Jesus Glorificado */}
         {activeTab === 'apostles' && (
@@ -525,9 +637,9 @@ export default function HomePage() {
       {/* Reprodutor de Áudio de Fundo em Looping (Play, Pause, Parar) */}
       <BackgroundMusicPlayer />
 
-      {/* Menu de Navegação Inferior (6 Abas Modernas com Ranking) */}
+      {/* Menu de Navegação Inferior (Abas Modernas com Ranking e Acesso Admin) */}
       <nav className="sticky bottom-0 bg-zinc-950/98 backdrop-blur-md border-t-2 border-amber-500/40 px-1 sm:px-2 py-2 z-40 shadow-[0_-4px_20px_rgba(0,0,0,0.8)] w-full max-w-full overflow-hidden">
-        <div className="max-w-xl mx-auto grid grid-cols-6 gap-0.5 sm:gap-1">
+        <div className={`max-w-xl mx-auto grid ${isAdmin ? 'grid-cols-7' : 'grid-cols-6'} gap-0.5 sm:gap-1`}>
           <button
             onClick={() => setActiveTab('home')}
             className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
@@ -546,6 +658,16 @@ export default function HomePage() {
           >
             <Scroll className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span className="truncate w-full text-center">Quiz</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('rooms')}
+            className={`min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
+              activeTab === 'rooms' ? 'text-amber-300 bg-amber-500/15 border border-amber-500/40 shadow-inner' : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            <Users className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="truncate w-full text-center">Salas</span>
           </button>
 
           <button
@@ -577,6 +699,25 @@ export default function HomePage() {
             <Church className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span className="truncate w-full text-center">Igrejas</span>
           </button>
+
+          {isAdmin && (
+            <button
+              onClick={() => setActiveTab('admin')}
+              className={`relative min-w-0 flex flex-col items-center gap-1 text-[9px] sm:text-xs font-black uppercase transition cursor-pointer py-1 px-0.5 rounded-lg ${
+                activeTab === 'admin'
+                  ? 'text-rose-300 bg-rose-600/30 border border-rose-500'
+                  : 'text-rose-400 hover:text-rose-300'
+              }`}
+            >
+              <ShieldAlert className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span className="truncate w-full text-center">Admin</span>
+              {pendingAlertsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[8px] font-black px-1 rounded-full animate-bounce">
+                  {pendingAlertsCount}
+                </span>
+              )}
+            </button>
+          )}
         </div>
       </nav>
     </main>

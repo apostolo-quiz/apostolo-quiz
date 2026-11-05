@@ -22,7 +22,8 @@ import {
   Zap,
   Flame,
   Send,
-  Check
+  Check,
+  Users
 } from 'lucide-react';
 
 import DynamicCharacterAvatar from './DynamicCharacterAvatar';
@@ -72,6 +73,7 @@ interface Props {
   onOpenLeaderboard?: () => void;
   initialLevel?: 'basico' | 'medio' | 'avancado';
   onLevelChange?: (lvl: 'basico' | 'medio' | 'avancado') => void;
+  onOpenRooms?: () => void;
 }
 
 // Função de embaralhamento dinâmico (Fisher-Yates) para questões e alternativas
@@ -113,6 +115,7 @@ export default function QuizArena({
   onOpenLeaderboard,
   initialLevel = 'basico',
   onLevelChange,
+  onOpenRooms,
 }: Props) {
   const [level, setLevel] = useState<'basico' | 'medio' | 'avancado'>(initialLevel);
   const [showRestartModal, setShowRestartModal] = useState<boolean>(false);
@@ -376,7 +379,7 @@ export default function QuizArena({
                   className="w-9 h-9 rounded-full overflow-hidden border-2 border-amber-400 bg-black/60 shrink-0 hover:scale-110 transition cursor-pointer flex items-center justify-center shadow-md shadow-amber-500/20"
                   title="Clique para trocar características, cabelos e roupas do seu avatar 3D"
                 >
-                  <DynamicCharacterAvatar avatar={avatar} size="sm" showPedestal={false} />
+                  <DynamicCharacterAvatar avatar={avatar} size="full" showPedestal={false} />
                 </button>
               )}
 
@@ -406,6 +409,17 @@ export default function QuizArena({
               )}
             </div>
           </div>
+
+          {/* Atalho para Disputa em Salas com até 20 amigos */}
+          {onOpenRooms && (
+            <button
+              onClick={onOpenRooms}
+              className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 via-yellow-500/10 to-amber-500/20 hover:from-amber-500/30 border border-amber-500/50 text-amber-300 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition cursor-pointer"
+            >
+              <Users className="w-4 h-4 text-amber-400" />
+              <span>Disputar em Grupo de até 20 Amigos com Palavra-Chave</span>
+            </button>
+          )}
 
           {/* Seleção de Nível Bíblico (100% Puro e Gratuito de Gênesis a Apocalipse) */}
           <div className="pt-2">

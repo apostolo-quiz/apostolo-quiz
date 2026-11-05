@@ -8,123 +8,177 @@ import {
   Play,
   Pause,
   Square,
-  Music
+  Music,
+  SkipForward
 } from 'lucide-react';
 
 export default function BackgroundMusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [status, setStatus] = useState<'playing' | 'paused' | 'stopped'>('paused');
   const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.20); // Volume padrão suave abaixo de 30% (20%)
+  const [volume, setVolume] = useState(0.20); // Volume padrão suave (20%)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const currentTrack: AudioTrack = AUDIO_TRACKS[currentTrackIndex] || AUDIO_TRACKS[0];
 
-  // Carrega preferências salvas no navegador (garantindo teto abaixo de 30%)
+  // Carrega preferências salvas no navegador e tenta tocar suavemente se o usuário não tiver parado antes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const savedMuted = localStorage.getItem('apostolos_audio_muted') || localStorage.getItem('apostolos_harpa_muted');
-        const savedVolume = localStorage.getItem('apostolos_audio_volume') || localStorage.getItem('apostolos_harpa_volume');
-        const savedIndex = localStorage.getItem('apostolos_audio_index') || localStorage.getItem('apostolos_harpa_index');
+    if (typeof window === 'undefined') return;
 
-        if (savedMuted === 'true') setIsMuted(true);
-        if (savedVolume) {
-          const parsed = parseFloat(savedVolume);
-          // Garante que o volume inicial respeite o teto abaixo de 30%
-          setVolume(Math.max(0.05, Math.min(0.25, parsed)));
-        } else {
-          setVolume(0.20);
+    let initialStopped = false;
+    let initialMuted = false;
+    let initialVolume = 0.20;
+    let initialIndex = 0;
+
+    try {
+      const savedStopped = localStorage.getItem('apostolos_audio_user_stopped');
+      const savedMuted = localStorage.getItem('apostolos_audio_muted');
+      const savedVolume = localStorage.getItem('apostolos_audio_volume');
+      const savedIndex = localStorage.getItem('apostolos_audio_index');
+
+      if (savedStopped === 'true') {
+        initialStopped = true;
+        setStatus('stopped');
+      }
+
+      if (savedMuted === 'true') {
+        initialMuted = true;
+        setIsMuted(true);
+      }
+
+      if (savedVolume) {
+        const parsed = parseFloat(savedVolume);
+        initialVolume = Math.max(0.05, Math.min(0.30, parsed));
+        setVolume(initialVolume);
+      }
+
+      if (savedIndex) {
+        const idx = parseInt(savedIndex, 10);
+        if (idx >= 0 && idx < AUDIO_TRACKS.length) {
+          initialIndex = idx;
+          setCurrentTrackIndex(idx);
         }
-        if (savedIndex) {
-          const idx = parseInt(savedIndex, 10);
-          if (idx >= 0 && idx < AUDIO_TRACKS.length) {
-            setCurrentTrackIndex(idx);
-          }
-        }
-      } catch (e) {}
+      }
+    } catch (e) {}
+
+    // Se o usuário não tiver explicitamente parado em sessão anterior, tenta autoplay na inicialização
+    if (!initialStopped && audioRef.current) {
+      audioRef.current.volume = initialMuted ? 0 : initialVolume;
+      audioRef.current.play()
+        .then(() => setStatus('playing'))
+        .catch(() => {
+          // Bloqueio normal de autoplay pelo navegador/webview - aguarda interação direta no player
+          setStatus('paused');
+        });
     }
   }, []);
 
-  // Inicia o áudio na primeira interação do usuário respeitando as políticas dos navegadores
-  useEffect(() => {
-    const handleFirstInteraction = () => {
-      if (audioRef.current && !isPlaying) {
-        audioRef.current.volume = isMuted ? 0 : volume;
-        audioRef.current
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            // Se o navegador bloquear, aguarda clique direto no botão Play
-          });
-      }
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('keydown', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-    };
-
-    window.addEventListener('click', handleFirstInteraction, { passive: true });
-    window.addEventListener('keydown', handleFirstInteraction, { passive: true });
-    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
-
-    return () => {
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('keydown', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-    };
-  }, [isPlaying]);
-
-  // Atualiza o volume e mudo na tag de áudio
+  // Sincroniza volume e mudo na tag de áudio
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = isMuted ? 0 : volume;
     }
   }, [volume, isMuted]);
 
-  // Altera a faixa e toca se estiver em reprodução
+  // Altera a faixa quando o índice é atualizado
   useEffect(() => {
     if (audioRef.current) {
+      const wasPlaying = status === 'playing';
       audioRef.current.src = currentTrack.src;
       if (typeof window !== 'undefined') {
         try {
           localStorage.setItem('apostolos_audio_index', currentTrackIndex.toString());
         } catch (e) {}
       }
-      if (isPlaying) {
-        audioRef.current.play().catch(() => {});
+      if (wasPlaying) {
+        audioRef.current.play().then(() => setStatus('playing')).catch(() => setStatus('paused'));
       }
     }
   }, [currentTrackIndex]);
 
-  // Ação: Play
-  const handlePlay = () => {
+  // Ação: Play (Tocar)
+  const handlePlay = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     if (!audioRef.current) return;
+
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('apostolos_audio_user_stopped', 'false');
+      } catch (e) {}
+    }
+
+    if (!audioRef.current.src || !audioRef.current.src.includes('.mp3')) {
+      audioRef.current.src = currentTrack.src;
+    }
+
     audioRef.current.volume = isMuted ? 0 : volume;
     audioRef.current
       .play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {});
+      .then(() => setStatus('playing'))
+      .catch((err) => {
+        console.warn('Erro ao reproduzir áudio:', err);
+      });
   };
 
-  // Ação: Pause
-  const handlePause = () => {
+  // Ação: Pause (Pausar ou Retomar se já estiver pausado)
+  const handlePause = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     if (!audioRef.current) return;
+
+    if (status === 'paused') {
+      // Se já estava pausado, clicar em Pausar retoma a reprodução
+      handlePlay(e);
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('apostolos_audio_user_stopped', 'true');
+      } catch (e) {}
+    }
+
     audioRef.current.pause();
-    setIsPlaying(false);
+    setStatus('paused');
   };
 
-  // Ação: Parar Áudio (Stop) - pausa e zera a reprodução
-  const handleStop = () => {
+  // Ação: Parar Áudio (Stop) - pausa e rebobina para o início (0s)
+  const handleStop = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     if (!audioRef.current) return;
+
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('apostolos_audio_user_stopped', 'true');
+      } catch (e) {}
+    }
+
     audioRef.current.pause();
-    audioRef.current.currentTime = 0;
-    setIsPlaying(false);
+    try {
+      audioRef.current.currentTime = 0;
+    } catch (e) {}
+    setStatus('stopped');
+  };
+
+  // Ação: Pular para próxima faixa da harpa
+  const handleNextTrack = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    const nextIndex = (currentTrackIndex + 1) % AUDIO_TRACKS.length;
+    setCurrentTrackIndex(nextIndex);
   };
 
   // Alterna som / mudo
-  const toggleMute = () => {
+  const toggleMute = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     const nextMuted = !isMuted;
     setIsMuted(nextMuted);
     if (typeof window !== 'undefined') {
@@ -134,84 +188,108 @@ export default function BackgroundMusicPlayer() {
     }
   };
 
-  // Próxima faixa em looping contínuo
+  // Próxima faixa automática ao terminar a música atual
   const handleTrackEnded = () => {
-    setCurrentTrackIndex((prev) => (prev + 1) % AUDIO_TRACKS.length);
+    if (status === 'playing') {
+      setCurrentTrackIndex((prev) => (prev + 1) % AUDIO_TRACKS.length);
+    }
   };
+
+  const isPlaying = status === 'playing';
 
   return (
     <>
-      {/* Elemento de Áudio HTML5 */}
+      {/* Elemento de Áudio HTML5 com eventos sincronizados */}
       <audio
         ref={audioRef}
         src={currentTrack.src}
         onEnded={handleTrackEnded}
-        onPlay={() => {
-          if (audioRef.current) {
-            audioRef.current.volume = isMuted ? 0 : volume;
-          }
+        onPlay={() => setStatus('playing')}
+        onPause={() => {
+          setStatus((prev) => (prev === 'stopped' ? 'stopped' : 'paused'));
         }}
         preload="auto"
       />
 
-      {/* Reprodutor Compacto com Botões Play, Pause e Parar Áudio */}
+      {/* Reprodutor Compacto com Botões Play, Pause, Parar e Avançar Faixa */}
       <aside
-        aria-label="Controle de Áudio"
+        aria-label="Controle de Áudio Bíblico"
         className="fixed bottom-16 right-3 sm:bottom-18 sm:right-5 z-30 select-none font-sans"
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-1.5 bg-zinc-950/95 border border-amber-500/40 rounded-full py-1.5 px-3 shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md">
-          {/* Indicador de Áudio */}
-          <div className="flex items-center gap-1.5 text-amber-400 pl-0.5 pr-1">
-            <Music className={`w-3.5 h-3.5 ${isPlaying ? 'animate-bounce' : ''}`} />
-            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-300 hidden sm:inline">
-              Áudio
+        <div className="flex items-center gap-1.5 bg-zinc-950/95 border border-amber-500/40 rounded-full py-1.5 px-3 shadow-[0_4px_25px_rgba(0,0,0,0.7)] backdrop-blur-md">
+          {/* Indicador de Áudio e Nome da Faixa */}
+          <div className="flex items-center gap-1.5 text-amber-400 pl-0.5 pr-1 max-w-[110px] sm:max-w-[150px]">
+            <Music className={`w-3.5 h-3.5 shrink-0 ${isPlaying ? 'animate-bounce text-amber-300' : 'text-zinc-500'}`} />
+            <span className="text-[10px] font-bold text-zinc-300 truncate" title={currentTrack.title}>
+              {currentTrack.title}
             </span>
           </div>
 
           <span className="w-px h-3.5 bg-zinc-800" />
 
-          {/* Botão Play */}
+          {/* Botão Play (Tocar) */}
           <button
+            type="button"
             onClick={handlePlay}
             className={`w-7 h-7 rounded-full flex items-center justify-center transition cursor-pointer ${
-              isPlaying
-                ? 'bg-amber-500 text-zinc-950 shadow-sm font-bold'
+              status === 'playing'
+                ? 'bg-amber-500 text-zinc-950 shadow-[0_0_12px_rgba(234,179,8,0.6)] font-bold scale-105'
                 : 'bg-zinc-900 text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
             }`}
             title="Tocar (Play)"
-            aria-label="Tocar áudio"
+            aria-label="Tocar música de fundo"
           >
             <Play className="w-3.5 h-3.5 ml-0.5 fill-current" />
           </button>
 
-          {/* Botão Pause */}
+          {/* Botão Pause (Pausar / Retomar) */}
           <button
+            type="button"
             onClick={handlePause}
             className={`w-7 h-7 rounded-full flex items-center justify-center transition cursor-pointer ${
-              !isPlaying && audioRef.current && audioRef.current.currentTime > 0
-                ? 'bg-amber-500/30 text-amber-300 border border-amber-500/50'
-                : 'bg-zinc-900 text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
+              status === 'paused'
+                ? 'bg-amber-500/25 text-amber-300 border border-amber-400/80 shadow-[0_0_10px_rgba(234,179,8,0.3)] font-bold'
+                : 'bg-zinc-900 text-zinc-400 hover:text-amber-300 hover:bg-zinc-800'
             }`}
-            title="Pausar"
-            aria-label="Pausar áudio"
+            title={status === 'paused' ? 'Pausado (clique para retomar)' : 'Pausar música'}
+            aria-label="Pausar música de fundo"
           >
             <Pause className="w-3.5 h-3.5 fill-current" />
           </button>
 
-          {/* Botão Parar Áudio */}
+          {/* Botão Parar Áudio (Stop) */}
           <button
+            type="button"
             onClick={handleStop}
-            className="w-7 h-7 rounded-full bg-zinc-900 text-zinc-300 hover:text-red-400 hover:bg-zinc-800 transition cursor-pointer flex items-center justify-center"
-            title="Parar áudio"
-            aria-label="Parar áudio"
+            className={`w-7 h-7 rounded-full flex items-center justify-center transition cursor-pointer ${
+              status === 'stopped'
+                ? 'bg-red-500/25 text-red-400 border border-red-500/70 shadow-[0_0_10px_rgba(239,68,68,0.3)] font-bold'
+                : 'bg-zinc-900 text-zinc-400 hover:text-red-400 hover:bg-zinc-800'
+            }`}
+            title={status === 'stopped' ? 'Música Parada no Início' : 'Parar e reiniciar música no início'}
+            aria-label="Parar música de fundo"
           >
             <Square className="w-3 h-3 fill-current" />
+          </button>
+
+          {/* Botão Próxima Faixa */}
+          <button
+            type="button"
+            onClick={handleNextTrack}
+            className="w-6 h-6 rounded-full bg-zinc-900 text-zinc-400 hover:text-amber-300 hover:bg-zinc-800 transition cursor-pointer flex items-center justify-center"
+            title="Próxima melodia da Harpa"
+            aria-label="Próxima música"
+          >
+            <SkipForward className="w-3 h-3 fill-current" />
           </button>
 
           <span className="w-px h-3.5 bg-zinc-800" />
 
           {/* Botão Mutar/Desmutar */}
           <button
+            type="button"
             onClick={toggleMute}
             className="p-1 text-zinc-400 hover:text-amber-300 transition cursor-pointer"
             title={isMuted ? 'Ativar som' : 'Silenciar'}

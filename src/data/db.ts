@@ -1,6 +1,8 @@
 // Banco de Dados Local e Serviço de Persistência - Apóstolos Quiz Bíblico
 // Suporta Membros (Irmão/Irmã), Igrejas, Ministérios, Pagamentos e Progresso
 
+export const ADMIN_MASTER_EMAIL = 'edi.ben.jr@gmail.com';
+
 export interface UserProfile {
   id: string;
   name: string;
@@ -20,6 +22,21 @@ export interface UserProfile {
   ministry: string; // Ex: Pastor, Presbítero, Diácono, Diaconisa, Líder de Louvor, Membro
   isVip: boolean;
   registeredAt: string;
+  isAdmin?: boolean;
+  isBanned?: boolean;
+  banReason?: string;
+  role?: 'admin' | 'moderator' | 'member';
+}
+
+/**
+ * Verifica se um usuário possui poderes de administrador / moderador
+ */
+export function isUserAdmin(profile?: UserProfile | null): boolean {
+  if (!profile) return false;
+  if (profile.email && profile.email.trim().toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase()) {
+    return true;
+  }
+  return Boolean(profile.isAdmin || profile.role === 'admin');
 }
 
 export interface ChurchRecord {
@@ -889,4 +906,45 @@ export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
     return [];
   }
 }
+
+// ==========================================
+// ADMIN & MODERAÇÃO COMUNITÁRIA (PODERES PLENOS)
+// ==========================================
+
+export async function fetchAdminOverviewClient(adminEmail: string): Promise<{
+  success: boolean;
+  alerts: any[];
+  rooms: any[];
+  users: any[];
+  stats: { totalUsers: number; totalRooms: number; pendingAlerts: number };
+  message?: string;
+}> {
+  try {
+    const res = await fetch(getServerApiUrl(`/api/admin/overview?email=${encodeURIComponent(adminEmail)}`));
+    if (!res.ok) {
+      return { success: false, alerts: [], rooms: [], users: [], stats: { totalUsers: 0, totalRooms: 0, pendingAlerts: 0 } };
+    }
+    return await res.json();
+  } catch (e) {
+    return { success: false, alerts: [], rooms: [], users: [], stats: { totalUsers: 0, totalRooms: 0, pendingAlerts: 0 } };
+  }
+}
+
+export async function performAdminActionClient(
+  action: string,
+  payload: any,
+  adminEmail: string
+): Promise<{ success: boolean; message?: string; data?: any }> {
+  try {
+    const res = await fetch(getServerApiUrl('/api/admin/action'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action, payload, adminEmail })
+    });
+    return await res.json();
+  } catch (e) {
+    return { success: false, message: 'Falha de comunicação com o servidor de administração.' };
+  }
+}
+
 

@@ -1,7 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { UserProfile, ChurchRecord, PaymentTransaction } from '@/data/db';
+import { UserProfile, ChurchRecord, PaymentTransaction, ADMIN_MASTER_EMAIL, isUserAdmin } from '@/data/db';
 import { getSupabase } from '@/lib/supabase';
+import { MultiplayerRoom, RoomMember, RoomChatMessage, ModerationAlert, getRandomRoomQuestions, INITIAL_ROOMS_DEMO } from '@/data/multiplayerRooms';
+import { analyzeMessageContent } from '@/data/contentModerator';
 
 export interface ServerQuizProgress {
   userId: string;
@@ -18,6 +20,8 @@ export interface ServerDatabaseSchema {
   quizProgress: Record<string, ServerQuizProgress>;
   churches: ChurchRecord[];
   transactions: PaymentTransaction[];
+  rooms?: MultiplayerRoom[];
+  moderationAlerts?: ModerationAlert[];
   lastSavedAt: string;
 }
 
@@ -35,6 +39,8 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
       if (!parsed.quizProgress) parsed.quizProgress = {};
       if (!parsed.churches) parsed.churches = [];
       if (!parsed.transactions) parsed.transactions = [];
+      if (!parsed.rooms || parsed.rooms.length === 0) parsed.rooms = [...INITIAL_ROOMS_DEMO];
+      if (!parsed.moderationAlerts) parsed.moderationAlerts = [];
       return parsed;
     } catch {
       const initial: ServerDatabaseSchema = {
@@ -42,6 +48,8 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
         quizProgress: {},
         churches: [],
         transactions: [],
+        rooms: [...INITIAL_ROOMS_DEMO],
+        moderationAlerts: [],
         lastSavedAt: new Date().toISOString()
       };
       await fs.writeFile(DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
@@ -500,3 +508,688 @@ export async function getLeaderboardServer(): Promise<ServerLeaderboardEntry[]> 
     return INITIAL_LEADERBOARD_SEEDS.map((s, i) => ({ ...s, rank: i + 1 }));
   }
 }
+
+// ==========================================
+// SALAS DE DISPUTA EM GRUPO (ATÉ 20 AMIGOS)
+// ==========================================
+
+export async function getRoomsServer(): Promise<MultiplayerRoom[]> {
+  const db = await ensureDb();
+  if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
+  return db.rooms;
+}
+
+export async function getRoomByIdServer(roomId: string): Promise<MultiplayerRoom | null> {
+  const db = await ensureDb();
+  if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
+  const room = db.rooms.find((r) => r.id === roomId);
+  if (!room) return null;
+
+  const now = Date.now();
+  if (room.status === 'in_progress' && room.questionExpiresAt) {
+    const diff = Math.max(0, Math.ceil((room.questionExpiresAt - now) / 1000));
+    room.questionSecondsElapsed = Math.max(0, room.questionTimeLimit - diff);
+    // Se 1 minuto zerou:
+    if (diff <= 0) {
+      room.status = 'intermission';
+      room.intermissionExpiresAt = now + room.intermissionTimeLimit * 1000;
+      room.intermissionSecondsElapsed = 0;
+      await writeDb(db);
+    }
+  } else if (room.status === 'intermission' && room.intermissionExpiresAt) {
+    const diff = Math.max(0, Math.ceil((room.intermissionExpiresAt - now) / 1000));
+    room.intermissionSecondsElapsed = Math.max(0, room.intermissionTimeLimit - diff);
+    // Se 20 segundos zeraram: inicia próxima questão automaticamente
+    if (diff <= 0) {
+      if (room.currentQuestionIndex + 1 >= room.totalQuestions) {
+        room.status = 'finished';
+        const sorted = [...room.members].sort((a, b) => b.score - a.score);
+        room.winnerName = sorted[0]?.name || '';
+      } else {
+        room.currentQuestionIndex += 1;
+        room.status = 'in_progress';
+        room.questionExpiresAt = now + room.questionTimeLimit * 1000;
+        room.questionSecondsElapsed = 0;
+        room.timeInterruptedBy = null;
+        room.members.forEach((m) => {
+          m.hasAnswered = false;
+          m.selectedOption = null;
+          m.isCorrect = undefined;
+          m.readyForNext = false;
+          m.interruptedTime = false;
+        });
+      }
+      await writeDb(db);
+    }
+  }
+
+  return room;
+}
+
+export async function createRoomServer(data: {
+  name: string;
+  passcode: string;
+  createdBy: string;
+  createdByName: string;
+  creatorTitle?: 'Irmão' | 'Irmã';
+  level?: 'basico' | 'medio' | 'avancado';
+  maxMembers?: number;
+}): Promise<MultiplayerRoom> {
+  const db = await ensureDb();
+  if (!db.rooms) db.rooms = [];
+
+  const roomId = 'room_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7);
+  const lvl = data.level || 'basico';
+  const questions = getRandomRoomQuestions(lvl, 10);
+
+  const initialMember: RoomMember = {
+    userId: data.createdBy,
+    name: data.createdByName,
+    title: data.creatorTitle || 'Irmão',
+    score: 0,
+    joinedAt: new Date().toISOString()
+  };
+
+  const newRoom: MultiplayerRoom = {
+    id: roomId,
+    name: data.name.trim(),
+    passcode: data.passcode.trim(),
+    createdBy: data.createdBy,
+    createdByName: data.createdByName,
+    creatorTitle: data.creatorTitle || 'Irmão',
+    maxMembers: Math.min(20, Math.max(2, data.maxMembers || 20)),
+    members: [initialMember],
+    messages: [
+      {
+        id: 'msg_init_' + Date.now(),
+        userId: 'system',
+        userName: 'Apóstolos Quiz',
+        userTitle: 'Irmão',
+        text: `Sala criada com sucesso! Palavra-chave definida: "${data.passcode.trim()}". Compartilhe com até 20 amigos para disputarem juntos!`,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        isSystem: true
+      }
+    ],
+    status: 'waiting',
+    level: lvl,
+    currentQuestionIndex: 0,
+    totalQuestions: questions.length,
+    questions,
+    questionTimeLimit: 60, // 1 minuto
+    questionSecondsElapsed: 0,
+    intermissionTimeLimit: 20, // 20 segundos
+    intermissionSecondsElapsed: 0,
+    timeInterruptedBy: null,
+    createdAt: new Date().toISOString(),
+    lastActivity: new Date().toISOString()
+  };
+
+  db.rooms.unshift(newRoom);
+  await writeDb(db);
+  return newRoom;
+}
+
+export async function joinRoomServer(
+  roomId: string,
+  passcode: string,
+  member: {
+    userId: string;
+    name: string;
+    title: 'Irmão' | 'Irmã';
+    photoUrl?: string;
+    avatarConfig?: any;
+    userEmail?: string;
+  }
+): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
+  const db = await ensureDb();
+  if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
+
+  // Verifica se o usuário está banido
+  const targetUser = db.users.find(
+    (u) => u.id === member.userId || (member.userEmail && u.email?.toLowerCase() === member.userEmail.toLowerCase())
+  );
+  if (targetUser?.isBanned) {
+    return {
+      success: false,
+      message: `Acesso negado: Seu usuário está suspenso por infração às diretrizes comunitárias.`
+    };
+  }
+
+  const room = db.rooms.find((r) => r.id === roomId);
+  if (!room) {
+    return { success: false, message: 'Grupo não encontrado.' };
+  }
+
+  // Verifica se o usuário é o Administrador do Sistema (edi.ben.jr@gmail.com)
+  const isMasterAdmin =
+    targetUser?.email?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase() ||
+    member.userEmail?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase() ||
+    targetUser?.isAdmin === true;
+
+  // Validação da Palavra-Chave (se for Administrador Mestre, concede acesso direto)
+  if (!isMasterAdmin) {
+    const cleanInput = (passcode || '').trim().toLowerCase();
+    const cleanTarget = (room.passcode || '').trim().toLowerCase();
+
+    if (cleanInput !== cleanTarget) {
+      return {
+        success: false,
+        message: `Palavra-chave incorreta! Digite a palavra-chave definida pelo criador do grupo.`
+      };
+    }
+  }
+
+  // Verifica limite de 20 membros
+  const alreadyMember = room.members.find((m) => m.userId === member.userId);
+  if (!alreadyMember && room.members.length >= (room.maxMembers || 20) && !isMasterAdmin) {
+    return {
+      success: false,
+      message: `Este grupo já atingiu o limite máximo de ${room.maxMembers || 20} amigos.`
+    };
+  }
+
+  if (!alreadyMember) {
+    const newMember: RoomMember = {
+      userId: member.userId,
+      name: isMasterAdmin ? `${member.name} (Admin)` : member.name,
+      title: isMasterAdmin ? 'Irmão' : (member.title || 'Irmão'),
+      photoUrl: member.photoUrl,
+      avatarConfig: member.avatarConfig,
+      score: 0,
+      joinedAt: new Date().toISOString()
+    };
+    room.members.push(newMember);
+
+    // Mensagem de sistema avisando a chegada do irmão ou admin
+    room.messages.push({
+      id: 'msg_join_' + Date.now(),
+      userId: 'system',
+      userName: 'Apóstolos Quiz',
+      userTitle: 'Irmão',
+      text: isMasterAdmin
+        ? `🛡️ O Administrador do Sistema entrou na sala com acesso de supervisão.`
+        : `🔔 ${member.title} ${member.name} entrou no grupo! Bem-vindo à disputa.`,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      isSystem: true
+    });
+  } else {
+    // Atualiza dados caso o perfil tenha mudado
+    alreadyMember.name = isMasterAdmin ? `${member.name} (Admin)` : member.name;
+    alreadyMember.title = member.title;
+    if (member.photoUrl) alreadyMember.photoUrl = member.photoUrl;
+    if (member.avatarConfig) alreadyMember.avatarConfig = member.avatarConfig;
+  }
+
+  room.lastActivity = new Date().toISOString();
+  await writeDb(db);
+  return { success: true, room };
+}
+
+export async function sendRoomMessageServer(
+  roomId: string,
+  message: {
+    userId: string;
+    userName: string;
+    userTitle: 'Irmão' | 'Irmã' | 'Administrador';
+    text: string;
+    userAvatar?: string;
+    userEmail?: string;
+  }
+): Promise<{ success: boolean; messages?: RoomChatMessage[]; message?: string; alertTriggered?: boolean }> {
+  const db = await ensureDb();
+  if (!db.rooms) return { success: false, message: 'Nenhuma sala disponível.' };
+
+  // Verifica se o usuário está banido
+  const senderUser = db.users.find(
+    (u) => u.id === message.userId || (message.userEmail && u.email?.toLowerCase() === message.userEmail.toLowerCase())
+  );
+  if (senderUser?.isBanned) {
+    return {
+      success: false,
+      message: 'Você foi suspenso pela moderação e não pode enviar mensagens.'
+    };
+  }
+
+  const room = db.rooms.find((r) => r.id === roomId);
+  if (!room) return { success: false, message: 'Sala não encontrada.' };
+
+  const isMasterAdmin =
+    senderUser?.email?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase() ||
+    message.userEmail?.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase() ||
+    senderUser?.isAdmin === true;
+
+  const isMember = room.members.some((m) => m.userId === message.userId);
+  if (!isMember && !isMasterAdmin) {
+    return { success: false, message: 'Apenas membros da sala podem enviar mensagens neste chat.' };
+  }
+
+  // Análise de moderação do conteúdo
+  const analysis = analyzeMessageContent(message.text);
+  let finalMessageText = message.text.trim();
+  let alertTriggered = false;
+
+  const msgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+
+  if (analysis.isViolating) {
+    alertTriggered = true;
+    finalMessageText = analysis.censoredText;
+
+    // Registra Alerta de Moderação para o Administrador edi.ben.jr@gmail.com
+    const alert: ModerationAlert = {
+      id: 'alert_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+      roomId: room.id,
+      roomName: room.name,
+      messageId: msgId,
+      userId: message.userId,
+      userName: message.userName,
+      userTitle: message.userTitle || 'Irmão',
+      originalText: message.text.trim(),
+      category: analysis.category || 'nocivo',
+      reason: analysis.reason || 'Conteúdo impróprio',
+      severity: analysis.severity,
+      createdAt: new Date().toISOString(),
+      status: 'pending'
+    };
+
+    if (!db.moderationAlerts) db.moderationAlerts = [];
+    db.moderationAlerts.unshift(alert);
+    console.warn(`[MODERAÇÃO ALERTA] Violação na sala "${room.name}" por ${message.userName}: ${analysis.reason}`);
+  }
+
+  const newMsg: RoomChatMessage = {
+    id: msgId,
+    userId: message.userId,
+    userName: isMasterAdmin ? `${message.userName} 🛡️` : message.userName,
+    userTitle: isMasterAdmin ? 'Administrador' : (message.userTitle || 'Irmão'),
+    userAvatar: message.userAvatar,
+    text: finalMessageText,
+    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    isAdmin: isMasterAdmin,
+    flagged: analysis.isViolating,
+    flagCategory: analysis.category,
+    flagReason: analysis.reason,
+    originalText: analysis.isViolating ? message.text.trim() : undefined
+  };
+
+  room.messages.push(newMsg);
+  // Mantém histórico das últimas 100 mensagens da sala
+  if (room.messages.length > 100) {
+    room.messages = room.messages.slice(-100);
+  }
+
+  room.lastActivity = new Date().toISOString();
+  await writeDb(db);
+  return { success: true, messages: room.messages, alertTriggered };
+}
+
+// ==========================================
+// SERVIÇOS DO ADMINISTRADOR DO SISTEMA
+// ==========================================
+
+export async function getAdminOverviewServer(adminEmail: string) {
+  const db = await ensureDb();
+  const normalizedEmail = (adminEmail || '').trim().toLowerCase();
+
+  // Garante que edi.ben.jr@gmail.com sempre tenha privilégios totais de admin
+  if (normalizedEmail === ADMIN_MASTER_EMAIL.toLowerCase()) {
+    const adminUser = db.users.find((u) => u.email?.toLowerCase() === normalizedEmail);
+    if (adminUser) {
+      adminUser.isAdmin = true;
+      adminUser.role = 'admin';
+    }
+  }
+
+  const alerts = db.moderationAlerts || [];
+  const rooms = db.rooms || [];
+  const users = db.users || [];
+
+  return {
+    success: true,
+    alerts,
+    rooms,
+    users,
+    stats: {
+      totalUsers: users.length,
+      totalRooms: rooms.length,
+      pendingAlerts: alerts.filter((a) => a.status === 'pending').length
+    }
+  };
+}
+
+export async function performAdminActionServer(
+  action: string,
+  payload: any,
+  adminEmail: string
+): Promise<{ success: boolean; message?: string; data?: any }> {
+  const db = await ensureDb();
+  const normalizedEmail = (adminEmail || '').trim().toLowerCase();
+
+  const isAdmin =
+    normalizedEmail === ADMIN_MASTER_EMAIL.toLowerCase() ||
+    db.users.some((u) => u.email?.toLowerCase() === normalizedEmail && (u.isAdmin || u.role === 'admin'));
+
+  if (!isAdmin) {
+    return { success: false, message: 'Permissão negada: Apenas o Administrador do Sistema pode executar esta ação.' };
+  }
+
+  if (!db.moderationAlerts) db.moderationAlerts = [];
+  if (!db.rooms) db.rooms = [];
+
+  switch (action) {
+    // 1. Resolver Alerta de Moderação
+    case 'resolve_alert': {
+      const alert = db.moderationAlerts.find((a) => a.id === payload.alertId);
+      if (alert) {
+        alert.status = 'resolved';
+        alert.actionTaken = payload.actionTaken || 'Resolvido pelo Administrador';
+        await writeDb(db);
+        return { success: true, message: 'Alerta marcado como resolvido com sucesso.' };
+      }
+      return { success: false, message: 'Alerta não encontrado.' };
+    }
+
+    // 2. Dispensar Alerta (Falso Positivo)
+    case 'dismiss_alert': {
+      const alert = db.moderationAlerts.find((a) => a.id === payload.alertId);
+      if (alert) {
+        alert.status = 'dismissed';
+        alert.actionTaken = 'Dispensado (Falso Positivo)';
+        await writeDb(db);
+        return { success: true, message: 'Alerta dispensado.' };
+      }
+      return { success: false, message: 'Alerta não encontrado.' };
+    }
+
+    // 3. Apagar Mensagem da Sala
+    case 'delete_message': {
+      const { roomId, messageId } = payload;
+      const room = db.rooms.find((r) => r.id === roomId);
+      if (room) {
+        room.messages = room.messages.filter((m) => m.id !== messageId);
+        // Atualiza alerta correspondente se houver
+        const alert = db.moderationAlerts.find((a) => a.messageId === messageId);
+        if (alert) {
+          alert.status = 'resolved';
+          alert.actionTaken = 'Mensagem apagada pelo Administrador';
+        }
+        await writeDb(db);
+        return { success: true, message: 'Mensagem apagada com sucesso da sala.' };
+      }
+      return { success: false, message: 'Sala não encontrada.' };
+    }
+
+    // 4. Advertir Usuário
+    case 'warn_user': {
+      const { roomId, userId, userName, reason } = payload;
+      const room = db.rooms.find((r) => r.id === roomId);
+      if (room) {
+        room.messages.push({
+          id: 'msg_warn_' + Date.now(),
+          userId: 'system',
+          userName: '🛡️ Moderação do Sistema',
+          userTitle: 'Administrador',
+          text: `⚠️ ADVERTÊNCIA FORMAL para ${userName}: ${reason || 'Comportamento inadequado. Mantenha a santidade e respeito no chat bíblico.'}`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isSystem: true
+        });
+        await writeDb(db);
+        return { success: true, message: `Advertência enviada para ${userName}.` };
+      }
+      return { success: false, message: 'Sala não encontrada.' };
+    }
+
+    // 5. Expulsar Membro da Sala
+    case 'kick_member': {
+      const { roomId, userId } = payload;
+      const room = db.rooms.find((r) => r.id === roomId);
+      if (room) {
+        const removed = room.members.find((m) => m.userId === userId);
+        room.members = room.members.filter((m) => m.userId !== userId);
+        room.messages.push({
+          id: 'msg_kick_' + Date.now(),
+          userId: 'system',
+          userName: '🛡️ Moderação do Sistema',
+          userTitle: 'Administrador',
+          text: `🚪 ${removed?.name || 'Um participante'} foi removido da sala pela moderação.`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isSystem: true
+        });
+        await writeDb(db);
+        return { success: true, message: 'Membro expulso da sala.' };
+      }
+      return { success: false, message: 'Sala não encontrada.' };
+    }
+
+    // 6. Banir Usuário do Sistema
+    case 'ban_user': {
+      const { userId, reason } = payload;
+      const user = db.users.find((u) => u.id === userId);
+      if (user) {
+        user.isBanned = true;
+        user.banReason = reason || 'Violação recorrente das diretrizes comunitárias';
+      }
+      // Remove de todas as salas
+      db.rooms.forEach((r) => {
+        r.members = r.members.filter((m) => m.userId !== userId);
+      });
+      await writeDb(db);
+      return { success: true, message: `Usuário ${user?.name || userId} suspenso do sistema.` };
+    }
+
+    // 7. Desbanir Usuário
+    case 'unban_user': {
+      const { userId } = payload;
+      const user = db.users.find((u) => u.id === userId);
+      if (user) {
+        user.isBanned = false;
+        user.banReason = undefined;
+        await writeDb(db);
+        return { success: true, message: `Suspensão revogada para ${user.name}.` };
+      }
+      return { success: false, message: 'Usuário não encontrado.' };
+    }
+
+    // 8. Excluir Sala
+    case 'delete_room': {
+      const { roomId } = payload;
+      const idx = db.rooms.findIndex((r) => r.id === roomId);
+      if (idx !== -1) {
+        const removed = db.rooms.splice(idx, 1)[0];
+        await writeDb(db);
+        return { success: true, message: `Sala "${removed.name}" excluída com sucesso.` };
+      }
+      return { success: false, message: 'Sala não encontrada.' };
+    }
+
+    // 9. Limpar Chat da Sala
+    case 'clear_chat': {
+      const { roomId } = payload;
+      const room = db.rooms.find((r) => r.id === roomId);
+      if (room) {
+        room.messages = [
+          {
+            id: 'msg_clean_' + Date.now(),
+            userId: 'system',
+            userName: '🛡️ Moderação do Sistema',
+            userTitle: 'Administrador',
+            text: '🧹 O histórico de mensagens desta sala foi limpo pelo Administrador do Sistema.',
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            isSystem: true
+          }
+        ];
+        await writeDb(db);
+        return { success: true, message: 'Histórico do chat limpo com sucesso.' };
+      }
+      return { success: false, message: 'Sala não encontrada.' };
+    }
+
+    default:
+      return { success: false, message: `Ação desconhecida: ${action}` };
+  }
+}
+
+export async function performRoomActionServer(
+  roomId: string,
+  action: 'start_game' | 'interrupt_timer' | 'answer_question' | 'start_next_question' | 'restart_game',
+  payload: any
+): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
+  const db = await ensureDb();
+  if (!db.rooms) return { success: false, message: 'Banco de salas vazio.' };
+
+  const room = db.rooms.find((r) => r.id === roomId);
+  if (!room) return { success: false, message: 'Sala não encontrada.' };
+
+  const now = Date.now();
+
+  if (action === 'start_game') {
+    room.status = 'in_progress';
+    room.currentQuestionIndex = 0;
+    room.questionExpiresAt = now + room.questionTimeLimit * 1000;
+    room.questionSecondsElapsed = 0;
+    room.timeInterruptedBy = null;
+    room.members.forEach((m) => {
+      m.score = 0;
+      m.hasAnswered = false;
+      m.selectedOption = null;
+      m.isCorrect = undefined;
+      m.readyForNext = false;
+      m.interruptedTime = false;
+    });
+
+    room.messages.push({
+      id: 'msg_start_' + now,
+      userId: 'system',
+      userName: 'Apóstolos Quiz',
+      userTitle: 'Irmão',
+      text: `⚔️ A Disputa Bíblica começou! 1 minuto para cada questão ou até alguém interromper o tempo!`,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      isSystem: true
+    });
+  } else if (action === 'interrupt_timer') {
+    // Algum membro do grupo interrompeu o tempo de 1 minuto!
+    if (room.status === 'in_progress') {
+      const memberName = payload.userName || 'Um irmão do grupo';
+      room.timeInterruptedBy = memberName;
+      room.status = 'intermission';
+      room.intermissionExpiresAt = now + room.intermissionTimeLimit * 1000;
+      room.intermissionSecondsElapsed = 0;
+
+      const member = room.members.find((m) => m.userId === payload.userId);
+      if (member) member.interruptedTime = true;
+
+      room.messages.push({
+        id: 'msg_interrupt_' + now,
+        userId: 'system',
+        userName: 'Apóstolos Quiz',
+        userTitle: 'Irmão',
+        text: `⚡ ${memberName} interrompeu o tempo da questão! Próxima questão em 20 segundos ou comece já.`,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        isSystem: true
+      });
+    }
+  } else if (action === 'answer_question') {
+    const member = room.members.find((m) => m.userId === payload.userId);
+    if (member && !member.hasAnswered) {
+      const currentQ = room.questions[room.currentQuestionIndex];
+      const isCorrect = payload.selectedOption === currentQ.correctIndex;
+      member.hasAnswered = true;
+      member.selectedOption = payload.selectedOption;
+      member.isCorrect = isCorrect;
+      member.answerTimeSeconds = payload.secondsElapsed || 0;
+
+      if (isCorrect) {
+        // Bônus de rapidez se respondeu logo
+        const speedBonus = Math.max(0, 60 - (payload.secondsElapsed || 0));
+        const pts = (currentQ.xp || 100) + speedBonus * 2;
+        member.score += pts;
+      }
+
+      // Se todos os membros responderam, finaliza a questão e entra em intermission
+      const allAnswered = room.members.every((m) => m.hasAnswered);
+      if (allAnswered && room.status === 'in_progress') {
+        room.status = 'intermission';
+        room.intermissionExpiresAt = now + room.intermissionTimeLimit * 1000;
+        room.intermissionSecondsElapsed = 0;
+
+        room.messages.push({
+          id: 'msg_all_answered_' + now,
+          userId: 'system',
+          userName: 'Apóstolos Quiz',
+          userTitle: 'Irmão',
+          text: `🎯 Todos os amigos responderam! Intervalo de 20 segundos para a próxima questão.`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isSystem: true
+        });
+      }
+    }
+  } else if (action === 'start_next_question') {
+    // Qualquer membro tem 20 segundos para começar a próxima questão ou ela começa sozinha
+    const member = room.members.find((m) => m.userId === payload.userId);
+    if (member) member.readyForNext = true;
+
+    // Se o líder clicou OU se todos clicaram OU se forçar início
+    const isLeader = room.createdBy === payload.userId;
+    const allReady = room.members.every((m) => m.readyForNext);
+
+    if (isLeader || allReady || payload.forceNext) {
+      if (room.currentQuestionIndex + 1 >= room.totalQuestions) {
+        room.status = 'finished';
+        const sorted = [...room.members].sort((a, b) => b.score - a.score);
+        room.winnerName = sorted[0]?.name || '';
+
+        room.messages.push({
+          id: 'msg_finished_' + now,
+          userId: 'system',
+          userName: 'Apóstolos Quiz',
+          userTitle: 'Irmão',
+          text: `🏆 Disputa concluída! Grande vencedor: ${room.winnerName}! Glória a Deus pela edificação!`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isSystem: true
+        });
+      } else {
+        room.currentQuestionIndex += 1;
+        room.status = 'in_progress';
+        room.questionExpiresAt = now + room.questionTimeLimit * 1000;
+        room.questionSecondsElapsed = 0;
+        room.timeInterruptedBy = null;
+        room.members.forEach((m) => {
+          m.hasAnswered = false;
+          m.selectedOption = null;
+          m.isCorrect = undefined;
+          m.readyForNext = false;
+          m.interruptedTime = false;
+        });
+
+        room.messages.push({
+          id: 'msg_next_q_' + now,
+          userId: 'system',
+          userName: 'Apóstolos Quiz',
+          userTitle: 'Irmão',
+          text: `📖 Questão ${room.currentQuestionIndex + 1} de ${room.totalQuestions} iniciada!`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          isSystem: true
+        });
+      }
+    }
+  } else if (action === 'restart_game') {
+    room.questions = getRandomRoomQuestions(room.level, 10);
+    room.totalQuestions = room.questions.length;
+    room.currentQuestionIndex = 0;
+    room.status = 'waiting';
+    room.winnerName = undefined;
+    room.timeInterruptedBy = null;
+    room.members.forEach((m) => {
+      m.score = 0;
+      m.hasAnswered = false;
+      m.selectedOption = null;
+      m.isCorrect = undefined;
+      m.readyForNext = false;
+      m.interruptedTime = false;
+    });
+  }
+
+  room.lastActivity = new Date().toISOString();
+  await writeDb(db);
+  return { success: true, room };
+}
+

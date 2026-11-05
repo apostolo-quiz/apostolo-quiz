@@ -101,7 +101,7 @@ export const ETHNICITY_PALETTE: Record<
     maleImg: '/avatar_pardo_masc_adulto.jpg',
     femaleImg: '/avatar_pardo_fem_adulto.jpg',
     maleClothing: 'Polo Azul Marinho, Calça Jeans e Tênis',
-    femaleClothing: 'Vestido Verde Esmeralda, Sandálias e Cabelos Longos',
+    femaleClothing: 'Vestido Chocolate, Sandálias e Cabelos Longos',
     themeColor: '#059669',
     borderColor: '#34D399'
   },
@@ -111,8 +111,8 @@ export const ETHNICITY_PALETTE: Record<
     desc: 'Descendência euro-brasileira',
     maleImg: '/avatar_branco_masc_adulto.jpg',
     femaleImg: '/avatar_branco_fem_adulto.jpg',
-    maleClothing: 'Polo Vinho Bordô, Calça Jeans e Tênis',
-    femaleClothing: 'Vestido Azul Royal, Sandálias e Cabelos Longos',
+    maleClothing: 'Polo Azul Celeste, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Coral Suave, Sandálias e Cabelos Longos',
     themeColor: '#2563EB',
     borderColor: '#60A5FA'
   },
@@ -122,8 +122,8 @@ export const ETHNICITY_PALETTE: Record<
     desc: 'Afro-brasileiro com presença nobre e vibrante',
     maleImg: '/avatar_preto_masc_adulto.jpg',
     femaleImg: '/avatar_preto_fem_adulto.jpg',
-    maleClothing: 'Polo Amarela Mostarda, Calça Jeans e Tênis',
-    femaleClothing: 'Vestido Terracota Dourado, Sandálias e Cabelos Longos',
+    maleClothing: 'Polo Vinho Bordô, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Grafite Elegante, Sandálias e Cabelos Longos',
     themeColor: '#D97706',
     borderColor: '#FBBF24'
   },
@@ -133,8 +133,8 @@ export const ETHNICITY_PALETTE: Record<
     desc: 'Povos originários do Brasil',
     maleImg: '/avatar_indigena_masc_adulto.jpg',
     femaleImg: '/avatar_indigena_fem_adulto.jpg',
-    maleClothing: 'Polo Verde Oliva, Calça Jeans e Tênis',
-    femaleClothing: 'Vestido Coral Terra, Sandálias e Cabelos Longos',
+    maleClothing: 'Polo Vinho Bordô, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Terracota Coral, Sandálias e Cabelos Longos',
     themeColor: '#EA580C',
     borderColor: '#FB923C'
   },
@@ -144,8 +144,8 @@ export const ETHNICITY_PALETTE: Record<
     desc: 'Asiático-brasileiro',
     maleImg: '/avatar_amarelo_masc_adulto.jpg',
     femaleImg: '/avatar_amarelo_fem_adulto.jpg',
-    maleClothing: 'Polo Azul Aço Grafite, Calça Jeans e Tênis',
-    femaleClothing: 'Vestido Lilás Suave, Sandálias e Cabelos Longos',
+    maleClothing: 'Polo Verde Oliva, Calça Jeans e Tênis',
+    femaleClothing: 'Vestido Dourado Suave, Sandálias e Cabelos Longos',
     themeColor: '#9333EA',
     borderColor: '#C084FC'
   }
