@@ -2,7 +2,7 @@
 // Detecta conteúdo nocivo, agressivo, sexual e assédio dentro dos chats de salas
 // Apóstolos - Quiz Bíblico
 
-export type ViolationCategory = 'agressivo' | 'sexual' | 'assedio' | 'nocivo';
+export type ViolationCategory = 'agressivo' | 'sexual' | 'assedio' | 'nocivo' | 'politico';
 
 export interface ModerationAnalysis {
   isViolating: boolean;
@@ -40,7 +40,7 @@ const DICTIONARY: Record<ViolationCategory, { label: string; terms: string[]; se
     ]
   },
   agressivo: {
-    label: 'Agressão / Ódio / Ameaça',
+    label: 'Agressão / Ódio / Ameaça / Ofensas',
     severity: 'alta',
     terms: [
       'vou te matar', 'vou te bater', 'vou te quebrar', 'arrombado', 'arrombada',
@@ -48,7 +48,8 @@ const DICTIONARY: Record<ViolationCategory, { label: string; terms: string[]; se
       'vsf', 'vtnc', 'desgracado', 'desgracada', 'maldito', 'maldita', 'lixo humano',
       'cala a boca seu', 'cala boca sua', 'idiota', 'imbecil', 'otario', 'otaria',
       'babaca', 'escroto', 'escrota', 'merda', 'bosta', 'corno', 'corna', 'viadinho',
-      'macaco', 'preto safado', 'vadia', 'assassino', 'morra', 'se mata', 'suicidio'
+      'macaco', 'preto safado', 'vadia', 'assassino', 'morra', 'se mata', 'suicidio',
+      'vagabundo', 'herege safado', 'farsante', 'falso profeta', 'seu lixo'
     ]
   },
   nocivo: {
@@ -58,6 +59,19 @@ const DICTIONARY: Record<ViolationCategory, { label: string; terms: string[]; se
       'deus e o diabo', 'jesus era um lixo', 'satana e melhor', 'adoro o diabo',
       'lucifer e senhor', 'blasfemia', 'vendo drogas', 'compro drogas', 'maconha',
       'cocaina', 'crack', 'golpe do pix', 'hackear', 'cartao clonado', 'link suspeito'
+    ]
+  },
+  politico: {
+    label: 'Propaganda / Polarização / Movimentos Políticos',
+    severity: 'alta',
+    terms: [
+      'lula', 'bolsonaro', 'pt', 'pl', 'psol', 'pdt', 'mbl', 'comunismo', 'comunista', 'fascismo',
+      'fascista', 'esquerdista', 'direitista', 'petista', 'bolsonarista', 'eleicao', 'eleicoes',
+      'voto em', 'vote em', 'vote no', 'vote na', 'candidato', 'candidata', 'partido politico',
+      'urna eletronica', 'golpe militar', 'politica partidaria', 'senador', 'deputado', 'vereador',
+      'prefeito', 'governador', 'presidente lula', 'presidente bolsonaro', 'tarcisio', 'boulos',
+      'marcal', 'pablo marcal', 'haddad', 'faz o l', 'mito', 'esquerda vs direita', 'doutrina politica',
+      'campanha eleitoral', 'manifestacao politica', 'stf', 'moraes', 'alexandre de moraes'
     ]
   }
 };
@@ -156,6 +170,22 @@ export function analyzeMessageContent(text: string): ModerationAnalysis {
         severity: DICTIONARY.nocivo.severity,
         matchedWord: term,
         censoredText: '⚠️ [Mensagem bloqueada por conduta nociva ou blasfêmia]'
+      };
+    }
+  }
+
+  // 5. Checa por partidarismo, propaganda ou movimentos políticos
+  for (const term of DICTIONARY.politico.terms) {
+    const normTerm = normalizeForModeration(term);
+    const regex = new RegExp(`\\b${normTerm}\\b`, 'i');
+    if (regex.test(normalized)) {
+      return {
+        isViolating: true,
+        category: 'politico',
+        reason: 'Discussão, partidarismo ou propaganda política não permitida em ambiente cristão',
+        severity: DICTIONARY.politico.severity,
+        matchedWord: term,
+        censoredText: '🚫 [Mensagem bloqueada: Discussão ou propaganda política não é permitida no chat bíblico]'
       };
     }
   }

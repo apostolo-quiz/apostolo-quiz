@@ -6,6 +6,7 @@ import { MEDIUM_YOUTH_100_QUESTIONS } from './mediumYouthQuestions';
 import { ADVANCED_ADULT_100_QUESTIONS } from './advancedAdultQuestions';
 import { BIBLICAL_QUESTIONS } from './questions';
 import { getServerApiUrl } from './db';
+import { analyzeMessageContent } from './contentModerator';
 
 export interface RoomMember {
   userId: string;
@@ -48,7 +49,7 @@ export interface ModerationAlert {
   userName: string;
   userTitle: string;
   originalText: string;
-  category: 'agressivo' | 'sexual' | 'assedio' | 'nocivo';
+  category: 'agressivo' | 'sexual' | 'assedio' | 'nocivo' | 'politico';
   reason: string;
   severity: 'baixa' | 'media' | 'alta';
   createdAt: string;
@@ -453,17 +454,27 @@ export async function sendRoomMessageClient(
     userEmail?: string;
   }
 ): Promise<{ success: boolean; messages?: RoomChatMessage[]; message?: string }> {
+  // Verificação prévia de moderação de conteúdo no cliente
+  const analysis = analyzeMessageContent(message.text);
+  if (analysis.isViolating) {
+    return {
+      success: false,
+      message: `⚠️ Mensagem bloqueada pela Moderação Cristã:\n\n${analysis.reason}.\n\nNosso ambiente é dedicado à comunhão bíblica e edificação espiritual, não sendo permitidas ofensas, assédio, agressividade ou discussões político-partidárias.`
+    };
+  }
+
   try {
     const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}/action`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'send_message', payload: message })
     });
-    if (res.ok) {
-      const json = await res.json();
-      if (json.success && json.messages) {
-        return { success: true, messages: json.messages };
-      }
+    const json = await res.json();
+    if (res.ok && json.success && json.messages) {
+      return { success: true, messages: json.messages };
+    }
+    if (json && !json.success) {
+      return { success: false, message: json.message || 'Mensagem bloqueada pelo sistema.' };
     }
   } catch (err) {}
 

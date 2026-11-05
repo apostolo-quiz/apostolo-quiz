@@ -107,6 +107,27 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
     }
   };
 
+  // Limpar todo o bate-papo da sala (Administrador Geral ou Criador da Sala)
+  const handleAdminClearChat = async () => {
+    if (!activeRoom) return;
+    if (!confirm(`ATENÇÃO ADMINISTRADOR:\nDeseja realmente LIMPAR TODO O BATE-PAPO da sala "${activeRoom.name}"?`)) return;
+    try {
+      const res = await performAdminActionClient(
+        'clear_chat',
+        { roomId: activeRoom.id },
+        userProfile?.email || ''
+      );
+      if (res.success) {
+        const updated = await getRoomClient(activeRoom.id);
+        if (updated) setActiveRoom(updated);
+      } else {
+        alert(res.message || 'Erro ao limpar bate-papo.');
+      }
+    } catch (e: any) {
+      alert('Erro ao limpar bate-papo: ' + (e.message || e));
+    }
+  };
+
   // Excluir sala (Administrador Geral ou Criador da Sala)
   const handleDeleteRoomAction = async (roomId: string, roomName: string) => {
     if (!confirm(`ATENÇÃO:\nDeseja realmente EXCLUIR DEFINITIVAMENTE a sala "${roomName}"?`)) return;
@@ -381,16 +402,26 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
     setChatMessageText('');
 
     try {
-      await sendRoomMessageClient(activeRoom.id, {
+      const res = await sendRoomMessageClient(activeRoom.id, {
         userId: currentUserId,
         userName: currentUserName,
         userTitle: isAdmin ? 'Administrador' : currentUserTitle,
         text: textToSend,
         userEmail: userProfile?.email
       });
+
+      if (!res.success && res.message) {
+        alert(res.message);
+        return;
+      }
+
       const updated = await getRoomClient(activeRoom.id);
       if (updated) setActiveRoom(updated);
-    } catch (e) {}
+    } catch (e: any) {
+      if (e?.message) {
+        alert(e.message);
+      }
+    }
   };
 
   // Abrir Modal para Entrar em um Grupo
@@ -1287,9 +1318,22 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
                 Chat do Grupo: {activeRoom.name}
               </span>
             </div>
-            <span className="text-[10px] text-zinc-400">
-              Visível apenas para membros deste grupo
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-zinc-400 hidden sm:inline">
+                Visível apenas para membros deste grupo
+              </span>
+              {(isAdminUser || activeRoom.createdBy === currentUserId) && (
+                <button
+                  type="button"
+                  onClick={handleAdminClearChat}
+                  className="px-2 py-1 bg-rose-950/70 hover:bg-rose-900 border border-rose-500/50 hover:border-rose-400 text-rose-300 rounded-lg text-[10px] font-bold flex items-center gap-1 transition cursor-pointer"
+                  title="Limpar todo o bate-papo da sala"
+                >
+                  <Trash2 className="w-3 h-3" />
+                  Limpar Chat
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Lista de Mensagens */}

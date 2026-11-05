@@ -40,6 +40,15 @@ const MODERATION_TERMS = {
     'deus e o diabo', 'jesus era um lixo', 'satana e melhor', 'adoro o diabo',
     'lucifer e senhor', 'blasfemia', 'vendo drogas', 'compro drogas', 'maconha',
     'cocaina', 'crack', 'golpe do pix', 'hackear', 'cartao clonado', 'link suspeito'
+  ],
+  politico: [
+    'lula', 'bolsonaro', 'pt', 'pl', 'psol', 'pdt', 'mbl', 'comunismo', 'comunista', 'fascismo',
+    'fascista', 'esquerdista', 'direitista', 'petista', 'bolsonarista', 'eleicao', 'eleicoes',
+    'voto em', 'vote em', 'vote no', 'vote na', 'candidato', 'candidata', 'partido politico',
+    'urna eletronica', 'golpe militar', 'politica partidaria', 'senador', 'deputado', 'vereador',
+    'prefeito', 'governador', 'presidente lula', 'presidente bolsonaro', 'tarcisio', 'boulos',
+    'marcal', 'pablo marcal', 'haddad', 'faz o l', 'mito', 'esquerda vs direita', 'doutrina politica',
+    'campanha eleitoral', 'manifestacao politica', 'stf', 'moraes', 'alexandre de moraes'
   ]
 };
 
@@ -107,6 +116,19 @@ function analyzeModeration(text) {
         category: 'nocivo',
         reason: 'Conteúdo nocivo, ilícito ou blasfêmia',
         censoredText: '⚠️ [Mensagem bloqueada por conduta nociva ou blasfêmia]'
+      };
+    }
+  }
+
+  for (const term of MODERATION_TERMS.politico) {
+    const norm = normalizeText(term);
+    const regex = new RegExp(`\\b${norm}\\b`, 'i');
+    if (regex.test(normalized)) {
+      return {
+        isViolating: true,
+        category: 'politico',
+        reason: 'Discussão, partidarismo ou propaganda política não permitida em ambiente cristão',
+        censoredText: '🚫 [Mensagem bloqueada por manifestação política]'
       };
     }
   }
@@ -703,7 +725,6 @@ const server = http.createServer(async (req, res) => {
           const msgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
 
           if (analysis.isViolating) {
-            finalText = analysis.censoredText;
             if (!db.moderationAlerts) db.moderationAlerts = [];
             db.moderationAlerts.unshift({
               id: 'alert_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
@@ -716,10 +737,23 @@ const server = http.createServer(async (req, res) => {
               originalText: rawText,
               category: analysis.category || 'nocivo',
               reason: analysis.reason || 'Conteúdo impróprio',
+              severity: 'alta',
               createdAt: new Date().toISOString(),
               status: 'pending'
             });
-            console.warn(`[MODERAÇÃO BACKEND] Alerta na sala "${room.name}" por ${payload.userName}: ${analysis.reason}`);
+            saveDatabase(db);
+            console.warn(`[MODERAÇÃO BLOQUEIO] Mensagem bloqueada na sala "${room.name}" por ${payload.userName}: ${analysis.reason}`);
+
+            res.writeHead(400);
+            res.end(
+              JSON.stringify({
+                success: false,
+                blocked: true,
+                category: analysis.category,
+                message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Nosso ambiente é reservado à edificação bíblica e comunhão dos irmãos, sendo estritamente vedados conteúdos ofensivos, agressivos, de assédio ou movimentos políticos.`
+              })
+            );
+            return;
           }
 
           const newMsg = {

@@ -418,9 +418,18 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                 const categoryStyle = {
                   sexual: 'bg-rose-500/20 text-rose-300 border-rose-500/50',
                   assedio: 'bg-orange-500/20 text-orange-300 border-orange-500/50',
-                  agressivo: 'bg-purple-500/20 text-purple-300 border-purple-500/50',
-                  nocivo: 'bg-amber-500/20 text-amber-300 border-amber-500/50'
+                  agressivo: 'bg-red-500/20 text-red-300 border-red-500/50',
+                  nocivo: 'bg-amber-500/20 text-amber-300 border-amber-500/50',
+                  politico: 'bg-purple-950/80 text-purple-300 border-purple-500/70'
                 }[alert.category] || 'bg-zinc-800 text-zinc-300 border-zinc-700';
+
+                const categoryLabel = {
+                  sexual: 'Conteúdo Sexual',
+                  assedio: 'Assédio / Bullying',
+                  agressivo: 'Ofensa / Agressão',
+                  nocivo: 'Conteúdo Nocivo',
+                  politico: 'Movimento Político'
+                }[alert.category] || alert.category.toUpperCase();
 
                 return (
                   <div
@@ -434,7 +443,7 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full border ${categoryStyle}`}>
-                          ⚠️ {alert.category.toUpperCase()}
+                          ⚠️ {categoryLabel}
                         </span>
                         <span className="text-xs font-black text-white">
                           Sala: <strong className="text-amber-300">{alert.roomName}</strong>

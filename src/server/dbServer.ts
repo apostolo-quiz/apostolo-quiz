@@ -736,7 +736,14 @@ export async function sendRoomMessageServer(
     userAvatar?: string;
     userEmail?: string;
   }
-): Promise<{ success: boolean; messages?: RoomChatMessage[]; message?: string; alertTriggered?: boolean }> {
+): Promise<{
+  success: boolean;
+  messages?: RoomChatMessage[];
+  message?: string;
+  alertTriggered?: boolean;
+  blocked?: boolean;
+  category?: string;
+}> {
   const db = await ensureDb();
   if (!db.rooms) return { success: false, message: 'Nenhuma sala disponível.' };
 
@@ -764,18 +771,12 @@ export async function sendRoomMessageServer(
     return { success: false, message: 'Apenas membros da sala podem enviar mensagens neste chat.' };
   }
 
-  // Análise de moderação do conteúdo
+  // Análise e bloqueio automático de moderação do conteúdo
   const analysis = analyzeMessageContent(message.text);
-  let finalMessageText = message.text.trim();
-  let alertTriggered = false;
-
   const msgId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
 
   if (analysis.isViolating) {
-    alertTriggered = true;
-    finalMessageText = analysis.censoredText;
-
-    // Registra Alerta de Moderação para o Administrador edi.ben.jr@gmail.com
+    // Registra Alerta Imediato de Moderação para o Administrador Geral edi.ben.jr@gmail.com
     const alert: ModerationAlert = {
       id: 'alert_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
       roomId: room.id,
@@ -787,14 +788,23 @@ export async function sendRoomMessageServer(
       originalText: message.text.trim(),
       category: analysis.category || 'nocivo',
       reason: analysis.reason || 'Conteúdo impróprio',
-      severity: analysis.severity,
+      severity: analysis.severity || 'alta',
       createdAt: new Date().toISOString(),
       status: 'pending'
     };
 
     if (!db.moderationAlerts) db.moderationAlerts = [];
     db.moderationAlerts.unshift(alert);
-    console.warn(`[MODERAÇÃO ALERTA] Violação na sala "${room.name}" por ${message.userName}: ${analysis.reason}`);
+    await writeDb(db);
+    console.warn(`[MODERAÇÃO BLOQUEIO] Mensagem bloqueada na sala "${room.name}" por ${message.userName}: ${analysis.reason}`);
+
+    // BLOQUEIA AUTOMATICAMENTE: Não adiciona a mensagem ao chat
+    return {
+      success: false,
+      blocked: true,
+      category: analysis.category,
+      message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Nosso ambiente é reservado à edificação bíblica e comunhão dos irmãos, sendo estritamente vedados conteúdos ofensivos, agressivos, de assédio ou movimentos políticos.`
+    };
   }
 
   const newMsg: RoomChatMessage = {
@@ -803,13 +813,9 @@ export async function sendRoomMessageServer(
     userName: isMasterAdmin ? `${message.userName} 🛡️` : message.userName,
     userTitle: isMasterAdmin ? 'Administrador' : (message.userTitle || 'Irmão'),
     userAvatar: message.userAvatar,
-    text: finalMessageText,
+    text: message.text.trim(),
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-    isAdmin: isMasterAdmin,
-    flagged: analysis.isViolating,
-    flagCategory: analysis.category,
-    flagReason: analysis.reason,
-    originalText: analysis.isViolating ? message.text.trim() : undefined
+    isAdmin: isMasterAdmin
   };
 
   room.messages.push(newMsg);
@@ -820,7 +826,7 @@ export async function sendRoomMessageServer(
 
   room.lastActivity = new Date().toISOString();
   await writeDb(db);
-  return { success: true, messages: room.messages, alertTriggered };
+  return { success: true, messages: room.messages, alertTriggered: false };
 }
 
 // ==========================================
