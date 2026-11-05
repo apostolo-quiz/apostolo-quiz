@@ -198,7 +198,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
-  const pathname = parsedUrl.pathname;
+  const pathname = parsedUrl.pathname.length > 1 ? parsedUrl.pathname.replace(/\/+$/, '') : parsedUrl.pathname;
 
   console.log(`[API SERVER] ${req.method} ${pathname}`);
 
@@ -928,15 +928,21 @@ const server = http.createServer(async (req, res) => {
       }
 
       if (action === 'delete_room') {
-        const { roomId } = payload;
-        const idx = db.rooms.findIndex((r) => r.id === roomId);
+        const targetId = String(payload.roomId || payload.id || '').trim();
+        const idx = db.rooms.findIndex((r) => r.id === targetId || String(r.id).trim() === targetId);
         if (idx !== -1) {
           const removed = db.rooms.splice(idx, 1)[0];
+          if (db.moderationAlerts) {
+            db.moderationAlerts = db.moderationAlerts.filter((a) => a.roomId !== targetId);
+          }
           saveDatabase(db);
           res.writeHead(200);
           res.end(JSON.stringify({ success: true, message: `Sala "${removed.name}" excluída com sucesso.` }));
           return;
         }
+        res.writeHead(404);
+        res.end(JSON.stringify({ success: false, message: 'Sala não encontrada no servidor.' }));
+        return;
       }
 
       if (action === 'delete_user') {

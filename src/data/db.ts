@@ -402,15 +402,17 @@ export function saveUserProfile(profile: UserProfile): void {
 // ==========================================
 
 export function getServerApiUrl(endpoint: string): string {
-  if (typeof window === 'undefined') {
-    return endpoint;
-  }
-  const customUrl = localStorage.getItem('apostolos_server_api_url') || process.env.NEXT_PUBLIC_SERVER_API_URL;
-  if (customUrl) {
-    return `${customUrl.replace(/\/$/, '')}${endpoint}`;
-  }
-  // Em produção (Vercel/Web), usa as rotas de API nativas do Next.js
-  return endpoint;
+  const customUrl = typeof window !== 'undefined'
+    ? (localStorage.getItem('apostolos_server_api_url') || process.env.NEXT_PUBLIC_SERVER_API_URL)
+    : process.env.NEXT_PUBLIC_SERVER_API_URL;
+  const base = customUrl ? customUrl.replace(/\/$/, '') : '';
+
+  // Garante barra final para respeitar trailingSlash: true do Next.js sem 308 redirect
+  const [pathname, query] = endpoint.split('?');
+  const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  const fullEndpoint = query ? `${normalizedPath}?${query}` : normalizedPath;
+
+  return base ? `${base}${fullEndpoint}` : fullEndpoint;
 }
 
 export async function syncUserProfileServer(profile: UserProfile): Promise<boolean> {

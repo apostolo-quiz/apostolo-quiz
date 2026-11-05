@@ -111,15 +111,34 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
   const handleDeleteRoomAction = async (roomId: string, roomName: string) => {
     if (!confirm(`ATENÇÃO:\nDeseja realmente EXCLUIR DEFINITIVAMENTE a sala "${roomName}"?`)) return;
     try {
-      await performAdminActionClient(
+      const res = await performAdminActionClient(
         'delete_room',
         { roomId },
         userProfile?.email || ''
       );
-      if (activeRoom?.id === roomId) {
-        setActiveRoom(null);
+      if (res.success) {
+        if (activeRoom?.id === roomId) {
+          setActiveRoom(null);
+        }
+        setRoomsList((prev) => prev.filter((r) => r.id !== roomId));
+        if (typeof window !== 'undefined') {
+          try {
+            const raw = localStorage.getItem('apostolos_multiplayer_rooms_cache');
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) {
+                localStorage.setItem(
+                  'apostolos_multiplayer_rooms_cache',
+                  JSON.stringify(parsed.filter((r: any) => r.id !== roomId))
+                );
+              }
+            }
+          } catch (e) {}
+        }
+        reloadRooms();
+      } else {
+        alert(res.message || 'Erro ao excluir sala.');
       }
-      reloadRooms();
     } catch (e: any) {
       alert('Erro ao excluir sala: ' + (e.message || e));
     }

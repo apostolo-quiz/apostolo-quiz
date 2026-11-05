@@ -187,8 +187,24 @@ export default function AdminModerationPanel({ userProfile, onOpenRoom, onBackTo
     if (!confirm(`Deseja excluir DEFINITIVAMENTE a sala "${roomName}"?`)) return;
     const res = await performAdminActionClient('delete_room', { roomId }, adminEmail);
     if (res.success) {
-      notify(`Sala "${roomName}" excluída.`);
+      notify(`Sala "${roomName}" excluída com sucesso.`);
       if (selectedRoomToInspect?.id === roomId) setSelectedRoomToInspect(null);
+      setRooms((prev) => prev.filter((r) => r.id !== roomId));
+      setStats((prev) => ({ ...prev, totalRooms: Math.max(0, prev.totalRooms - 1) }));
+      if (typeof window !== 'undefined') {
+        try {
+          const raw = localStorage.getItem('apostolos_multiplayer_rooms_cache');
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              localStorage.setItem(
+                'apostolos_multiplayer_rooms_cache',
+                JSON.stringify(parsed.filter((r: any) => r.id !== roomId))
+              );
+            }
+          }
+        } catch (e) {}
+      }
       loadData(true);
     } else {
       notify(res.message || 'Erro ao excluir sala.', 'error');

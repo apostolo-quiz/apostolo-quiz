@@ -5,6 +5,7 @@ import { BASIC_KIDS_100_QUESTIONS } from './basicKidsQuestions';
 import { MEDIUM_YOUTH_100_QUESTIONS } from './mediumYouthQuestions';
 import { ADVANCED_ADULT_100_QUESTIONS } from './advancedAdultQuestions';
 import { BIBLICAL_QUESTIONS } from './questions';
+import { getServerApiUrl } from './db';
 
 export interface RoomMember {
   userId: string;
@@ -195,15 +196,15 @@ export const INITIAL_ROOMS_DEMO: MultiplayerRoom[] = [
 const ROOMS_STORAGE_KEY = 'apostolos_multiplayer_rooms_cache';
 
 export function getStoredLocalRooms(): MultiplayerRoom[] {
-  if (typeof window === 'undefined') return INITIAL_ROOMS_DEMO;
+  if (typeof window === 'undefined') return [];
   try {
     const raw = localStorage.getItem(ROOMS_STORAGE_KEY);
-    if (raw) {
+    if (raw !== null) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      if (Array.isArray(parsed)) return parsed;
     }
   } catch (e) {}
-  return INITIAL_ROOMS_DEMO;
+  return [];
 }
 
 export function saveStoredLocalRooms(rooms: MultiplayerRoom[]): void {
@@ -232,7 +233,7 @@ export async function fetchRoomsClient(): Promise<Array<{
   hasPasscode: boolean;
 }>> {
   try {
-    const res = await fetch('/api/rooms', { cache: 'no-store' });
+    const res = await fetch(getServerApiUrl('/api/rooms'), { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (data.success && Array.isArray(data.rooms)) {
@@ -259,7 +260,7 @@ export async function fetchRoomsClient(): Promise<Array<{
 
 export async function getRoomClient(roomId: string): Promise<MultiplayerRoom | null> {
   try {
-    const res = await fetch(`/api/rooms/${roomId}`, { cache: 'no-store' });
+    const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}`), { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (data.success && data.room) {
@@ -293,7 +294,7 @@ export async function createRoomClient(data: {
   maxMembers?: number;
 }): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
   try {
-    const res = await fetch('/api/rooms', {
+    const res = await fetch(getServerApiUrl('/api/rooms'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -375,7 +376,7 @@ export async function joinRoomClient(
   }
 ): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
   try {
-    const res = await fetch(`/api/rooms/${roomId}/join`, {
+    const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}/join`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ passcode, member, userEmail: member.userEmail })
@@ -453,7 +454,7 @@ export async function sendRoomMessageClient(
   }
 ): Promise<{ success: boolean; messages?: RoomChatMessage[]; message?: string }> {
   try {
-    const res = await fetch(`/api/rooms/${roomId}/action`, {
+    const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}/action`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'send_message', payload: message })
@@ -491,7 +492,7 @@ export async function performRoomActionClient(
   payload: any
 ): Promise<{ success: boolean; room?: MultiplayerRoom; message?: string }> {
   try {
-    const res = await fetch(`/api/rooms/${roomId}/action`, {
+    const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}/action`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action, payload })

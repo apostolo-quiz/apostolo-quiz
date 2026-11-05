@@ -39,7 +39,7 @@ async function ensureDb(): Promise<ServerDatabaseSchema> {
       if (!parsed.quizProgress) parsed.quizProgress = {};
       if (!parsed.churches) parsed.churches = [];
       if (!parsed.transactions) parsed.transactions = [];
-      if (!parsed.rooms || parsed.rooms.length === 0) parsed.rooms = [...INITIAL_ROOMS_DEMO];
+      if (!parsed.rooms) parsed.rooms = [];
       if (!parsed.moderationAlerts) parsed.moderationAlerts = [];
       return parsed;
     } catch {
@@ -515,14 +515,15 @@ export async function getLeaderboardServer(): Promise<ServerLeaderboardEntry[]> 
 
 export async function getRoomsServer(): Promise<MultiplayerRoom[]> {
   const db = await ensureDb();
-  if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
+  if (!db.rooms) db.rooms = [];
   return db.rooms;
 }
 
 export async function getRoomByIdServer(roomId: string): Promise<MultiplayerRoom | null> {
   const db = await ensureDb();
-  if (!db.rooms) db.rooms = [...INITIAL_ROOMS_DEMO];
-  const room = db.rooms.find((r) => r.id === roomId);
+  if (!db.rooms) db.rooms = [];
+  const targetId = String(roomId || '').trim();
+  const room = db.rooms.find((r) => r.id === targetId || String(r.id).trim() === targetId);
   if (!room) return null;
 
   const now = Date.now();
@@ -989,16 +990,19 @@ export async function performAdminActionServer(
       return { success: false, message: 'Usuário não encontrado.' };
     }
 
-    // 8. Excluir Sala
+    // 8. Excluir Sala Definitivamente
     case 'delete_room': {
-      const { roomId } = payload;
-      const idx = db.rooms.findIndex((r) => r.id === roomId);
+      const targetId = String(payload.roomId || payload.id || '').trim();
+      const idx = db.rooms.findIndex((r) => r.id === targetId || String(r.id).trim() === targetId);
       if (idx !== -1) {
         const removed = db.rooms.splice(idx, 1)[0];
+        if (db.moderationAlerts) {
+          db.moderationAlerts = db.moderationAlerts.filter((a) => a.roomId !== targetId);
+        }
         await writeDb(db);
         return { success: true, message: `Sala "${removed.name}" excluída com sucesso.` };
       }
-      return { success: false, message: 'Sala não encontrada.' };
+      return { success: false, message: 'Sala não encontrada no servidor.' };
     }
 
     // 8.1. Excluir Pessoa / Usuário Definitivamente do Sistema
