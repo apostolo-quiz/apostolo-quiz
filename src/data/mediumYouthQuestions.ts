@@ -4,7 +4,7 @@
 // Baseadas na Bíblia Evangélica L.C.C. - João Ferreira de Almeida
 // =========================================================================
 
-import { QuizQuestion } from './modulesQuizData';
+import { QuizQuestion } from './questions';
 
 export const MEDIUM_YOUTH_100_QUESTIONS: QuizQuestion[] = [
   {

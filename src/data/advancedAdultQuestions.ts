@@ -4,7 +4,7 @@
 // Todas as alternativas com alta complexidade e profundidade teológica equivalente.
 // =========================================================================
 
-import { QuizQuestion } from './modulesQuizData';
+import { QuizQuestion } from './questions';
 
 export const ADVANCED_ADULT_100_QUESTIONS: QuizQuestion[] = [
   {

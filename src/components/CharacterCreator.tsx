@@ -3,13 +3,11 @@
 import React, { useState } from 'react';
 import {
   AvatarState,
-  OutfitType,
   GenderType,
   EthnicityType,
   AgeStageType,
   ETHNICITY_PALETTE,
-  AGE_STAGES,
-  OUTFIT_MAP
+  AGE_STAGES
 } from '@/data/avatarConfig';
 import DynamicCharacterAvatar, { resolvePixarImage } from './DynamicCharacterAvatar';
 import {
@@ -112,49 +110,27 @@ export default function CharacterCreator({
     triggerToast(updated);
   };
 
+  const ethnicityEmojis: Record<EthnicityType, string> = {
+    pardo: '🤎',
+    branco: '🤍',
+    negro: '🖤',
+    indigena: '🧡',
+    asiatico: '💛'
+  };
+
   const ethnicityList: {
     id: EthnicityType;
     label: string;
     clothing: string;
     color: string;
     themeColor: string;
-  }[] = [
-    {
-      id: 'pardo',
-      label: '🤎 Pardos',
-      clothing: isMale ? 'Polo Azul Marinho' : 'Vestido Verde Esmeralda',
-      color: '#B48259',
-      themeColor: '#059669'
-    },
-    {
-      id: 'branco',
-      label: '🤍 Brancos',
-      clothing: isMale ? 'Polo Vinho Bordô' : 'Vestido Azul Royal',
-      color: '#F8D5C2',
-      themeColor: '#2563EB'
-    },
-    {
-      id: 'negro',
-      label: '🖤 Pretos',
-      clothing: isMale ? 'Polo Mostarda Ouro' : 'Vestido Terracota Dourado',
-      color: '#3D2314',
-      themeColor: '#D97706'
-    },
-    {
-      id: 'indigena',
-      label: '🧡 Indígenas',
-      clothing: isMale ? 'Polo Verde Oliva' : 'Vestido Coral Terra',
-      color: '#C27343',
-      themeColor: '#EA580C'
-    },
-    {
-      id: 'asiatico',
-      label: '💛 Amarelos',
-      clothing: isMale ? 'Polo Azul Aço' : 'Vestido Lilás Suave',
-      color: '#F2D0A4',
-      themeColor: '#9333EA'
-    }
-  ];
+  }[] = (['pardo', 'branco', 'negro', 'indigena', 'asiatico'] as EthnicityType[]).map((id) => ({
+    id,
+    label: `${ethnicityEmojis[id]} ${ETHNICITY_PALETTE[id].label}`,
+    clothing: isMale ? ETHNICITY_PALETTE[id].maleClothing : ETHNICITY_PALETTE[id].femaleClothing,
+    color: ETHNICITY_PALETTE[id].color,
+    themeColor: ETHNICITY_PALETTE[id].themeColor
+  }));
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4 sm:space-y-6 pb-24 select-none px-3 sm:px-4">

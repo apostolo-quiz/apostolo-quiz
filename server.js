@@ -887,8 +887,20 @@ const server = http.createServer(async (req, res) => {
               createdAt: new Date().toISOString(),
               status: 'pending'
             });
+            const warnRes = applyUserWarningNode(
+              db,
+              payload.userId,
+              payload.userName,
+              analysis.reason || 'Conteúdo impróprio',
+              `Sala: ${room.name}`,
+              'automatico'
+            );
             saveDatabase(db);
             console.warn(`[MODERAÇÃO BLOQUEIO] Mensagem bloqueada na sala "${room.name}" por ${payload.userName}: ${analysis.reason}`);
+
+            const disciplinaryNote = warnRes.isSuspended
+              ? `\n\n🚫 PENALIDADE DISCIPLINAR: Você atingiu ${warnRes.countThisMonth} advertências no mês e sua conta foi SUSPENSA por ${warnRes.suspendedDays} dias (até ${warnRes.untilFormatted}).`
+              : `\n\n⚠️ ADVERTÊNCIA DISCIPLINAR (${warnRes.countThisMonth}/3 no mês): Caso atinja 3 advertências no mês, sua conta será suspensa automaticamente por 15 dias (e 30 dias em caso de reincidência com 6 advertências).`;
 
             res.writeHead(400);
             res.end(
@@ -896,7 +908,10 @@ const server = http.createServer(async (req, res) => {
                 success: false,
                 blocked: true,
                 category: analysis.category,
-                message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Nosso ambiente é reservado à edificação bíblica e comunhão dos irmãos, sendo estritamente vedados conteúdos ofensivos, agressivos, de assédio ou movimentos políticos.`
+                warningCount: warnRes.countThisMonth,
+                isSuspended: warnRes.isSuspended,
+                suspendedUntil: warnRes.untilFormatted,
+                message: `⚠️ Mensagem bloqueada pela Moderação Cristã: ${analysis.reason}. Nosso ambiente é reservado à edificação bíblica e comunhão dos irmãos.${disciplinaryNote}`
               })
             );
             return;
@@ -986,14 +1001,24 @@ const server = http.createServer(async (req, res) => {
     if (pathname === '/api/admin/action' && req.method === 'POST') {
       const body = await readRequestBody(req);
       const { action, payload, adminEmail } = body;
-      if (!adminEmail || adminEmail.toLowerCase() !== ADMIN_MASTER_EMAIL.toLowerCase()) {
+      const db = getDatabase();
+      if (!db.moderationAlerts) db.moderationAlerts = [];
+      if (!db.rooms) db.rooms = [];
+
+      const isMasterAdmin = Boolean(adminEmail && adminEmail.toLowerCase() === ADMIN_MASTER_EMAIL.toLowerCase());
+      const targetRoomId = String(payload?.roomId || payload?.id || '').trim();
+      const targetRoom = targetRoomId
+        ? db.rooms.find((r) => r.id === targetRoomId || String(r.id).trim() === targetRoomId)
+        : undefined;
+      const isRoomCreatorAllowed =
+        Boolean(payload?.requesterId && targetRoom && targetRoom.createdBy === payload.requesterId) &&
+        ['delete_room', 'clear_chat', 'kick_member'].includes(action);
+
+      if (!isMasterAdmin && !isRoomCreatorAllowed) {
         res.writeHead(403);
         res.end(JSON.stringify({ success: false, message: 'Acesso restrito ao Administrador do Sistema.' }));
         return;
       }
-      const db = getDatabase();
-      if (!db.moderationAlerts) db.moderationAlerts = [];
-      if (!db.rooms) db.rooms = [];
 
       if (action === 'resolve_alert') {
         const alert = db.moderationAlerts.find((a) => a.id === payload.alertId);
@@ -1072,11 +1097,12 @@ const server = http.createServer(async (req, res) => {
       }
 
       if (action === 'kick_member') {
-        const { roomId, userId } = payload;
+        const { roomId } = payload;
+        const targetUserId = payload.userId || payload.memberId;
         const room = db.rooms.find((r) => r.id === roomId);
         if (room) {
-          const removed = room.members.find((m) => m.userId === userId);
-          room.members = room.members.filter((m) => m.userId !== userId);
+          const removed = room.members.find((m) => m.userId === targetUserId);
+          room.members = room.members.filter((m) => m.userId !== targetUserId);
           room.messages.push({
             id: 'msg_kick_' + Date.now(),
             userId: 'system',
@@ -1326,7 +1352,7 @@ const server = http.createServer(async (req, res) => {
           gender: body.gender || 'male',
           title: body.title || 'Irmão',
           email: body.email || '',
-          photoUrl: body.photoUrl || '/avatar_irmao_casual.jpg',
+          photoUrl: body.photoUrl || '/avatar_pardo_masc_adulto.jpg',
           birthDate: '1990-01-01',
           age: 30,
           cep: '',

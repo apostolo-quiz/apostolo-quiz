@@ -454,15 +454,6 @@ export async function sendRoomMessageClient(
     userEmail?: string;
   }
 ): Promise<{ success: boolean; messages?: RoomChatMessage[]; message?: string }> {
-  // Verificação prévia de moderação de conteúdo no cliente
-  const analysis = analyzeMessageContent(message.text);
-  if (analysis.isViolating) {
-    return {
-      success: false,
-      message: `⚠️ Mensagem bloqueada pela Moderação Cristã:\n\n${analysis.reason}.\n\nNosso ambiente é dedicado à comunhão bíblica e edificação espiritual, não sendo permitidas ofensas, assédio, agressividade ou discussões político-partidárias.`
-    };
-  }
-
   try {
     const res = await fetch(getServerApiUrl(`/api/rooms/${roomId}/action`), {
       method: 'POST',
@@ -477,6 +468,15 @@ export async function sendRoomMessageClient(
       return { success: false, message: json.message || 'Mensagem bloqueada pelo sistema.' };
     }
   } catch (err) {}
+
+  // Verificação local de moderação de conteúdo (fallback offline)
+  const analysis = analyzeMessageContent(message.text);
+  if (analysis.isViolating) {
+    return {
+      success: false,
+      message: `⚠️ Mensagem bloqueada pela Moderação Cristã:\n\n${analysis.reason}.\n\nNosso ambiente é dedicado à comunhão bíblica e edificação espiritual, não sendo permitidas ofensas, assédio, agressividade ou discussões político-partidárias.`
+    };
+  }
 
   // Fallback local
   const current = getStoredLocalRooms();

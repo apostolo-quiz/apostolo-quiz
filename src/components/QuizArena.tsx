@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { QuizQuestion } from '@/data/modulesQuizData';
+import { QuizQuestion } from '@/data/questions';
 import { BASIC_KIDS_100_QUESTIONS } from '@/data/basicKidsQuestions';
 import { MEDIUM_YOUTH_100_QUESTIONS } from '@/data/mediumYouthQuestions';
 import { ADVANCED_ADULT_100_QUESTIONS } from '@/data/advancedAdultQuestions';

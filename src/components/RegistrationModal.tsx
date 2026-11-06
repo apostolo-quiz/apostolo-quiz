@@ -60,7 +60,7 @@ export default function RegistrationModal({
   const [gender, setGender] = useState<'male' | 'female'>(initialProfile?.gender || 'male');
   const [birthDate, setBirthDate] = useState(initialProfile?.birthDate || '1985-06-20');
   const [photoUrl, setPhotoUrl] = useState(
-    initialProfile?.photoUrl || (gender === 'male' ? '/avatar_masculino.jpg' : '/avatar_feminino.jpg')
+    initialProfile?.photoUrl || (gender === 'male' ? '/avatar_pardo_masc_adulto.jpg' : '/avatar_pardo_fem_adulto.jpg')
   );
 
   // Endereço / ViaCEP
@@ -659,7 +659,7 @@ export default function RegistrationModal({
                     type="button"
                     onClick={() => {
                       setGender('male');
-                      if (photoUrl === '/avatar_feminino.jpg') setPhotoUrl('/avatar_masculino.jpg');
+                      if (photoUrl === '/avatar_pardo_fem_adulto.jpg') setPhotoUrl('/avatar_pardo_masc_adulto.jpg');
                     }}
                     className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition ${
                       gender === 'male'
@@ -673,7 +673,7 @@ export default function RegistrationModal({
                     type="button"
                     onClick={() => {
                       setGender('female');
-                      if (photoUrl === '/avatar_masculino.jpg') setPhotoUrl('/avatar_feminino.jpg');
+                      if (photoUrl === '/avatar_pardo_masc_adulto.jpg') setPhotoUrl('/avatar_pardo_fem_adulto.jpg');
                     }}
                     className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition ${
                       gender === 'female'

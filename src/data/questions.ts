@@ -1,3 +1,13 @@
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctIndex: number;
+  reference: string;
+  explanation: string;
+  xp: number;
+}
+
 export interface Question {
   id: number;
   apostleRef: string;

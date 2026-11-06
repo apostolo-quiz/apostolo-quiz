@@ -738,7 +738,7 @@ export function applyUserWarning(
       gender: 'male',
       title: 'Irmão',
       email: userId.includes('@') ? userId : '',
-      photoUrl: '/avatar_irmao_casual.jpg',
+      photoUrl: '/avatar_pardo_masc_adulto.jpg',
       birthDate: '1995-01-01',
       age: 30,
       cep: '09111000',
@@ -1112,7 +1112,15 @@ export async function performAdminActionServer(
     normalizedEmail === ADMIN_MASTER_EMAIL.toLowerCase() ||
     db.users.some((u) => u.email?.toLowerCase() === normalizedEmail && (u.isAdmin || u.role === 'admin'));
 
-  if (!isAdmin) {
+  const targetRoomId = String(payload?.roomId || payload?.id || '').trim();
+  const targetRoom = targetRoomId
+    ? (db.rooms || []).find((r) => r.id === targetRoomId || String(r.id).trim() === targetRoomId)
+    : undefined;
+  const isRoomCreatorAllowed =
+    Boolean(payload?.requesterId && targetRoom && targetRoom.createdBy === payload.requesterId) &&
+    ['delete_room', 'clear_chat', 'kick_member'].includes(action);
+
+  if (!isAdmin && !isRoomCreatorAllowed) {
     return { success: false, message: 'Permissão negada: Apenas o Administrador do Sistema pode executar esta ação.' };
   }
 
@@ -1198,11 +1206,12 @@ export async function performAdminActionServer(
 
     // 5. Expulsar Membro da Sala
     case 'kick_member': {
-      const { roomId, userId } = payload;
+      const { roomId } = payload;
+      const targetUserId = payload.userId || payload.memberId;
       const room = db.rooms?.find((r) => r.id === roomId);
       if (room) {
-        const removed = room.members.find((m) => m.userId === userId);
-        room.members = room.members.filter((m) => m.userId !== userId);
+        const removed = room.members.find((m) => m.userId === targetUserId);
+        room.members = room.members.filter((m) => m.userId !== targetUserId);
         room.messages.push({
           id: 'msg_kick_' + Date.now(),
           userId: 'system',
@@ -1634,7 +1643,7 @@ export async function handleHeartbeatServer(payload: {
       gender: payload.gender || 'male',
       title: payload.title || 'Irmão',
       email: payload.email || '',
-      photoUrl: payload.photoUrl || '/avatar_irmao_casual.jpg',
+      photoUrl: payload.photoUrl || '/avatar_pardo_masc_adulto.jpg',
       birthDate: '1990-01-01',
       age: 30,
       cep: '',

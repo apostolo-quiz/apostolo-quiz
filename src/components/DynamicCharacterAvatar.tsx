@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AvatarState, OutfitType, OUTFIT_MAP, ETHNICITY_PALETTE, EthnicityType } from '@/data/avatarConfig';
+import { AvatarState, ETHNICITY_PALETTE, EthnicityType } from '@/data/avatarConfig';
 
 interface Props {
   avatar: AvatarState;
@@ -40,7 +40,6 @@ export default function DynamicCharacterAvatar({
   className = '',
   onClick
 }: Props) {
-  const outfitKey = (avatar.outfit || 'casual') as OutfitType;
   const isFemale = avatar.gender === 'female';
   const ethKey = (avatar.ethnicity || 'pardo') as EthnicityType;
   const ethData = ETHNICITY_PALETTE[ethKey] || ETHNICITY_PALETTE.pardo;
@@ -51,9 +50,8 @@ export default function DynamicCharacterAvatar({
 
   // Resolução da imagem 3D de acordo com o gênero e a roupa
   const baseImg = resolvePixarImage(avatar);
-  const outfitData = OUTFIT_MAP[outfitKey] || OUTFIT_MAP.casual;
-  const activeBorder = ethData.borderColor || outfitData.border;
-  const activeGlow = ethData.themeColor || outfitData.glow;
+  const activeBorder = ethData.borderColor;
+  const activeGlow = ethData.themeColor;
 
   const sizeClasses = {
     sm: 'w-10 h-10 sm:w-11 sm:h-11',
@@ -80,7 +78,7 @@ export default function DynamicCharacterAvatar({
       }`}
     >
       <img
-        key={`${baseImg}_${outfitKey}_${currentFraming}`}
+        key={`${baseImg}_${currentFraming}`}
         src={`${baseImg}?v=20261105g`}
         alt={`${isFemale ? 'Irmã' : 'Irmão'} - ${isFemale ? ethData.femaleClothing : ethData.maleClothing}`}
         style={

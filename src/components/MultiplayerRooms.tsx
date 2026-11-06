@@ -114,7 +114,7 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
     try {
       const res = await performAdminActionClient(
         'clear_chat',
-        { roomId: activeRoom.id },
+        { roomId: activeRoom.id, requesterId: currentUserId },
         userProfile?.email || ''
       );
       if (res.success) {
@@ -134,7 +134,7 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
     try {
       const res = await performAdminActionClient(
         'delete_room',
-        { roomId },
+        { roomId, requesterId: currentUserId },
         userProfile?.email || ''
       );
       if (res.success) {
@@ -171,7 +171,7 @@ export default function MultiplayerRooms({ userProfile, avatar, onGoToSoloQuiz }
     try {
       await performAdminActionClient(
         'kick_member',
-        { roomId, memberId },
+        { roomId, userId: memberId, memberId, requesterId: currentUserId },
         userProfile?.email || ''
       );
       const updated = await getRoomClient(roomId);

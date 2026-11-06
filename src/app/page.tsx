@@ -19,23 +19,8 @@ import { fetchCommunityOverviewClient, sendHeartbeatClient } from '@/data/commun
 import { getSupabase } from '@/lib/supabase';
 import { Scroll, User, Users, Trophy, BookOpen, Crown, Award, Church, Edit3, Cloud, Sparkles, Compass, Copy, Check, ShieldAlert, ShieldCheck, Share2, AlertTriangle } from 'lucide-react';
 
-const APOSTLES_LIST = [
-  { name: 'Pedro', side: 'Esquerda de Jesus (1º)', tunic: 'Azul-Marinho e Ocre', desc: 'Forte e robusto, pescador da Galileia, calçando sandálias de couro.' },
-  { name: 'João', side: 'Direita de Jesus (1º)', tunic: 'Verde-Esmeralda e Vinho', desc: 'Jovem de porte atlético, o discípulo amado.' },
-  { name: 'Tiago Maior', side: 'Esquerda (2º)', tunic: 'Terracota e Marrom', desc: 'Irmão de João, porte imponente e olhar firme.' },
-  { name: 'André', side: 'Direita (2º)', tunic: 'Turquesa Escuro', desc: 'Irmão de Pedro, ombros largos e barba espessa.' },
-  { name: 'Filipe', side: 'Esquerda (3º)', tunic: 'Mostarda e Linho', desc: 'Natural de Betsaida, feições nobres e serenas.' },
-  { name: 'Bartolomeu', side: 'Direita (3º)', tunic: 'Púrpura Real', desc: 'Natanael, íntegro e sem dolo.' },
-  { name: 'Mateus', side: 'Esquerda (4º)', tunic: 'Vinho e Dourado', desc: 'Autor do Evangelho, veste túnica longa detalhada.' },
-  { name: 'Tomé', side: 'Direita (4º)', tunic: 'Cinza-Pedra e Azul', desc: 'Porte robusto, olhar analítico e leal.' },
-  { name: 'Tiago Menor', side: 'Esquerda (5º)', tunic: 'Verde-Oliva', desc: 'Filho de Alfeu, firme na fé.' },
-  { name: 'Tadeu', side: 'Direita (5º)', tunic: 'Ocre Dourado', desc: 'Judas Tadeu, porte forte e acolhedor.' },
-  { name: 'Simão Zelote', side: 'Esquerda (6º)', tunic: 'Vermelho-Carmim', desc: 'Zeloso pelas Escrituras, totalmente pacífico.' },
-  { name: 'Matias', side: 'Direita (6º)', tunic: 'Linho Branco e Marrom', desc: 'Escolhido para completar os 12 em Atos 1.' },
-];
-
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'rooms' | 'ranking' | 'avatar' | 'apostles' | 'churches' | 'admin'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'quiz' | 'rooms' | 'ranking' | 'avatar' | 'churches' | 'admin'>('home');
   const [selectedLevel, setSelectedLevel] = useState<'basico' | 'medio' | 'avancado'>('basico');
   const [score, setScore] = useState(1500);
   const [avatar, setAvatar] = useState<AvatarState>(BIOTYPE_PRESETS[0].config);
@@ -196,7 +181,7 @@ export default function HomePage() {
               gender: 'male',
               title: 'Irmão',
               email: googleEmail,
-              photoUrl: googleAvatar || '/avatar_irmao_casual.jpg',
+              photoUrl: googleAvatar || '/avatar_pardo_masc_adulto.jpg',
               birthDate: '1990-01-01',
               age: 34,
               cep: '',
@@ -234,7 +219,7 @@ export default function HomePage() {
                   gender: 'male',
                   title: 'Irmão',
                   email: googleEmail,
-                  photoUrl: googleAvatar || '/avatar_irmao_casual.jpg',
+                  photoUrl: googleAvatar || '/avatar_pardo_masc_adulto.jpg',
                   birthDate: '1990-01-01',
                   age: 34,
                   cep: '',
@@ -674,44 +659,6 @@ export default function HomePage() {
             onOpenRoom={() => setActiveTab('rooms')}
             onBackToHome={() => setActiveTab('home')}
           />
-        )}
-
-        {/* Aba dos 12 Apóstolos e Jesus Glorificado */}
-        {activeTab === 'apostles' && (
-          <div className="space-y-4 pb-14">
-            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/50 p-6 text-center shadow-2xl bg-zinc-950">
-              <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-amber-400 mb-3 shadow-[0_0_25px_rgba(234,179,8,0.5)]">
-                <img
-                  src="/jesus.jpeg"
-                  alt="Jesus Cristo Glorificado"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-black text-amber-200 uppercase tracking-wide">
-                Jesus Cristo ao Centro (Apocalipse 1:14-15)
-              </h3>
-              <p className="text-xs text-zinc-300 mt-1 max-w-lg mx-auto leading-relaxed">
-                Cabelos brancos como a lã, olhos brilhando como chamas de fogo e pés como bronze
-                reluzente refinado em fornalha. O Mestre pacífico e eterno ladeado por exatamente 6
-                apóstolos à esquerda e 6 à direita.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {APOSTLES_LIST.map((ap, i) => (
-                <div key={i} className="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3.5">
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-amber-400 text-sm">{ap.name}</span>
-                    <span className="text-[10px] uppercase bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">
-                      {ap.side}
-                    </span>
-                  </div>
-                  <div className="text-xs text-amber-200/80 mt-1">Túnica: {ap.tunic}</div>
-                  <p className="text-xs text-zinc-400 mt-1">{ap.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         )}
       </section>
 

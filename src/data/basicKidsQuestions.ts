@@ -4,7 +4,7 @@
 // cobrindo todas as grandes histórias bíblicas com amor e fidelidade cristã.
 // =========================================================================
 
-import { QuizQuestion } from './modulesQuizData';
+import { QuizQuestion } from './questions';
 
 export const BASIC_KIDS_100_QUESTIONS: QuizQuestion[] = [
   {

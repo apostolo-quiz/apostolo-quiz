@@ -1,7 +1,7 @@
 // Sistema de Rede Social Cristã, Presença Online e Amizades - Apóstolos Quiz Bíblico
 // Permite que irmãos se conectem, vejam quem está online, enviem saudações e conversem
 
-import { UserProfile, isUserAdmin } from './db';
+import { UserProfile, isUserAdmin, getServerApiUrl } from './db';
 import { AvatarState } from './avatarConfig';
 
 export interface CommunityUser {
@@ -127,7 +127,7 @@ export const DEMO_COMMUNITY_USERS: Omit<CommunityUser, 'isOnline' | 'lastActiveA
       hairStyle: 'braids',
       hairColor: 'black',
       outfitStyle: 'modest_dress',
-      ethnicity: 'preto',
+      ethnicity: 'negro',
       ageStage: 'adulto'
     }
   },
@@ -169,7 +169,7 @@ export const DEMO_COMMUNITY_USERS: Omit<CommunityUser, 'isOnline' | 'lastActiveA
       hairStyle: 'straight_long',
       hairColor: 'black',
       outfitStyle: 'contemporary',
-      ethnicity: 'amarelo',
+      ethnicity: 'asiatico',
       ageStage: 'adulto'
     }
   },
@@ -190,23 +190,11 @@ export const DEMO_COMMUNITY_USERS: Omit<CommunityUser, 'isOnline' | 'lastActiveA
       hairStyle: 'short_clean',
       hairColor: 'black',
       outfitStyle: 'suit_tie',
-      ethnicity: 'preto',
+      ethnicity: 'negro',
       ageStage: 'adulto'
     }
   }
 ];
-
-function getServerApiUrl(endpoint: string): string {
-  const cleanEndpoint = endpoint.replace(/^\/+|\/+$/g, '');
-  if (typeof window !== 'undefined') {
-    const origin = window.location.origin;
-    if (origin.includes(':3000') || origin.includes(':3001')) {
-      return `http://localhost:3000/${cleanEndpoint}/`;
-    }
-    return `${origin}/${cleanEndpoint}/`;
-  }
-  return `http://localhost:3000/${cleanEndpoint}/`;
-}
 
 // 1. Enviar Heartbeat de presença do usuário
 export async function sendHeartbeatClient(
